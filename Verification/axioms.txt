@@ -1,0 +1,14 @@
+Catalan.catalans_conjecture : ∀ (a b x y : ℕ),
+  1 < a → 1 < b → 0 < x → 0 < y → x ^ a - y ^ b = 1 → a = 2 ∧ b = 3 ∧ x = 3 ∧ y = 2
+'Catalan.catalans_conjecture' depends on axioms: [propext, Classical.choice, Quot.sound]
+Catalan.catalan_int : ∀ (x y : ℤ) (a b : ℕ),
+  1 < a → 1 < b → 1 < x → 1 < y → x ^ a = y ^ b + 1 → a = 2 ∧ b = 3 ∧ x = 3 ∧ y = 2
+'Catalan.catalan_int' depends on axioms: [propext, Classical.choice, Quot.sound]
+Catalan.catalan_int_signed : ∀ (x y : ℤ) (p q : ℕ),
+  2 ≤ p → 2 ≤ q → x ≠ 0 → y ≠ 0 → x ^ p - y ^ q = 1 → p = 2 ∧ q = 3 ∧ (x = 3 ∨ x = -3) ∧ y = 2
+'Catalan.catalan_int_signed' depends on axioms: [propext, Classical.choice, Quot.sound]
+Catalan.mihailescu_odd_primes : ∀ (p q : ℕ),
+  Nat.Prime p → Nat.Prime q → p ≠ 2 → q ≠ 2 → ∀ (x y : ℤ), x ≠ 0 → y ≠ 0 → x ^ p ≠ y ^ q + 1
+'Catalan.mihailescu_odd_primes' depends on axioms: [propext, Classical.choice, Quot.sound]
+Catalan.JSP.statement : Catalan.JSP.Statement
+'Catalan.JSP.statement' depends on axioms: [propext, Classical.choice, Quot.sound]

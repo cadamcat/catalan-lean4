@@ -1,0 +1,28 @@
+name = "CatalanLean"
+version = "0.1.0"
+defaultTargets = ["Catalan"]
+moreLeanArgs = ["--trust=0"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.33.1"
+
+[[lean_lib]]
+name = "Catalan"
+
+[[lean_lib]]
+name = "ClassFieldTheory"
+srcDir = "vendor/ClassFieldTheory/Lean4"
+globs = ["ClassFieldTheory.+"]
+moreLeanArgs = ["-DmaxHeartbeats=1000000"]
+
+[[lean_lib]]
+name = "ValuedFieldTheory"
+srcDir = "vendor/ClassFieldTheory/Lean4"
+globs = ["ValuedFieldTheory.+"]
+
+[[lean_lib]]
+name = "GaloisCohomology"
+srcDir = "vendor/ClassFieldTheory/Lean4"
+globs = ["GaloisCohomology.+"]

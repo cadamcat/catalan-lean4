@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite this repository when using the formalization."
+title: "catalan-lean4: A Lean 4 formalization of Catalan's conjecture"
+type: software
+authors:
+  - family-names: Xu
+    given-names: Yao
+license: Apache-2.0
+version: 0.1.0
