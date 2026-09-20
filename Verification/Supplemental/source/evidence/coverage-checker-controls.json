@@ -1,0 +1,15 @@
+{
+  "positive": "accepted",
+  "missing_compilation": {
+    "rejected_by_name": true,
+    "message": "Missing successful source compilation: /tmp/coverage-negative-control/NamedControl.lean"
+  },
+  "nonzero_trust": {
+    "rejected_by_name": true,
+    "message": "Missing trust=0: ['NamedControl.lean']"
+  },
+  "cache_enabled": {
+    "rejected_by_name": true,
+    "message": "Cache enabled: ['NamedControl.lean']"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "verdict": "SOURCE_REBUILD_AND_VERIFICATION_PASSED",
+  "checked_at": "2026-09-19T22:01:07.110758+00:00",
+  "proof_sha": "897079dab4c8dc980cc9b98ab28fed846e4a756f",
+  "stages": {
+    "mathlib": {
+      "exit_code": 0,
+      "elapsed_seconds": 1992.2392818927765
+    },
+    "comparator": {
+      "exit_code": 0,
+      "elapsed_seconds": 2238.497931957245
+    },
+    "verify": {
+      "exit_code": 0,
+      "elapsed_seconds": 46.945029735565186
+    },
+    "all-vendor": {
+      "exit_code": 0,
+      "elapsed_seconds": 2.00618314743042
+    },
+    "official-audit": {
+      "exit_code": 0,
+      "elapsed_seconds": 88.95523738861084
+    },
+    "replay": {
+      "exit_code": 0,
+      "elapsed_seconds": 585.3854122161865
+    }
+  },
+  "source_inputs_unchanged": true,
+  "coverage": {
+    "coverage_passed": true,
+    "expected_source_counts": {
+      "mathlib_library": 8312,
+      "catalan_library": 500,
+      "vendor": 871
+    },
+    "successfully_compiled_source_counts_by_dependency": {
+      "mathlib": 8312,
+      "plausible": 13,
+      "LeanSearchClient": 4,
+      "importGraph": 10,
+      "proofwidgets": 13,
+      "aesop": 132,
+      "Qq": 14,
+      "batteries": 192,
+      "Cli": 0
+    },
+    "all_successful_compilations_trust_zero": true,
+    "mathlib_and_lake_package_caches_disabled": true,
+    "invocation_records": 10087,
+    "unique_successfully_compiled_sources": 10061
+  },
+  "fresh_kernel_replay_constants": 129467,
+  "official_audit_target_count": 10,
+  "trust_boundary": "Official Lean 4.33.1 compiler/standard-library distribution, OS and checker implementations. No precompiled Mathlib or other Lean package cache."
+}

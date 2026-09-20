@@ -1,0 +1,8 @@
+RuntimeMaxUSec=2h
+MainPID=21151
+ExecStart={ path=/usr/bin/bash ; argv[]=/usr/bin/bash -c lake env /opt/catalan-checkers/comparator /srv/catalan-audit/audit/config.json ; ignore_errors=no ; start_time=[Sat 2026-09-19 16:28:15 UTC] ; stop_time=[n/a] ; pid=21151 ; code=(null) ; status=0/0 }
+MemoryMax=51539607552
+NoNewPrivileges=yes
+RestrictAddressFamilies=~AF_UNIX
+ActiveState=active
+SubState=running

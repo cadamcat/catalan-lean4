@@ -1,0 +1,22 @@
+{
+  "mode": "allowed",
+  "uid": 2000,
+  "groups": [
+    2000
+  ],
+  "results": {
+    "AF_INET": {
+      "created": true
+    },
+    "AF_UNIX": {
+      "created": true
+    }
+  },
+  "process_restrictions": [
+    "NoNewPrivs:\t0",
+    "Seccomp:\t0",
+    "Seccomp_filters:\t0"
+  ],
+  "invocation_id": "0587e69bf3ba4994981fee412971c70b"
+}
+PROBE_PASSED=allowed

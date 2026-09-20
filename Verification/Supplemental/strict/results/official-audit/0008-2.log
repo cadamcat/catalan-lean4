@@ -1,0 +1,28 @@
+StrictCatalan.signed_int : ∀ (x y : Int) (p q : Nat),
+  Nat.le (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) p →
+    Nat.le (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) q →
+      @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) →
+        @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) →
+          @Eq.{1} Int (Int.sub (Int.pow x p) (Int.pow y q))
+              (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) →
+            And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (And
+                  (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                    (@Eq.{1} Int x (Int.neg (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+                  (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))))
+theorem StrictCatalan.signed_int : ∀ (x y : Int) (p q : Nat),
+  Nat.le (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) p →
+    Nat.le (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) q →
+      @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) →
+        @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) →
+          @Eq.{1} Int (Int.sub (Int.pow x p) (Int.pow y q))
+              (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) →
+            And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (And
+                  (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                    (@Eq.{1} Int x (Int.neg (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+                  (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))) :=
+Catalan.catalan_int_signed
+'StrictCatalan.signed_int' depends on axioms: [propext, Classical.choice, Quot.sound]

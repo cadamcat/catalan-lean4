@@ -1,0 +1,49 @@
+Catalan.catalan_int : ∀ (x y : Int) (a b : Nat)
+  (ha : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a)
+  (hb : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) b)
+  (hx : @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) x)
+  (hy : @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) y)
+  (h :
+    @Eq.{1} Int
+      (@HPow.hPow.{0, 0, 0} Int Nat Int
+        (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x a)
+      (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+        (@HPow.hPow.{0, 0, 0} Int Nat Int
+          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y b)
+        (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))),
+  And (@Eq.{1} Nat a (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (And (@Eq.{1} Nat b (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+      (And (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+        (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))))
+theorem Catalan.catalan_int : ∀ (x y : Int) (a b : Nat)
+  (ha : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a)
+  (hb : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) b)
+  (hx : @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) x)
+  (hy : @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) y)
+  (h :
+    @Eq.{1} Int
+      (@HPow.hPow.{0, 0, 0} Int Nat Int
+        (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x a)
+      (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+        (@HPow.hPow.{0, 0, 0} Int Nat Int
+          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y b)
+        (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))),
+  And (@Eq.{1} Nat a (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (And (@Eq.{1} Nat b (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+      (And (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+        (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))) :=
+fun (x y : Int) (a b : Nat)
+    (ha : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a)
+    (hb : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) b)
+    (hx : @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) x)
+    (hy : @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) y)
+    (h :
+      @Eq.{1} Int
+        (@HPow.hPow.{0, 0, 0} Int Nat Int
+          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x a)
+        (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y b)
+          (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))) =>
+  Catalan.reduce_to_primes Catalan.prime_exponent_classification x y a b ha hb hx hy h
+'Catalan.catalan_int' depends on axioms: [propext, Classical.choice, Quot.sound]

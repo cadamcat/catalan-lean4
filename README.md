@@ -41,7 +41,7 @@ To recheck the full dependency cone of the five public theorems in a fresh Lean 
 
 See [verification details](docs/verification.md) for commands, output locations, and the distinction between dependency caches, source builds, and kernel replay. The final theorems use only `propext`, `Classical.choice`, and `Quot.sound`; no additional axiom or missing proof is assumed.
 
-Recorded source fingerprints and verification outputs are available in the [verification snapshot](Verification/RESULTS.md).
+Recorded source fingerprints and verification outputs are available in the [verification snapshot](Verification/RESULTS.md). Supplemental checks of the same submitted proof commit, including fresh Linux verification and a full Mathlib library source rebuild, are recorded in the [supplemental evidence](Verification/Supplemental/README.md).
 
 ## Fixed dependencies
 

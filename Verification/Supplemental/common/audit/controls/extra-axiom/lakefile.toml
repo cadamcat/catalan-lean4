@@ -1,0 +1,4 @@
+name = "ComparatorControl"
+moreLeanArgs = ["--trust=0"]
+[[lean_lib]]
+name = "Fixture"

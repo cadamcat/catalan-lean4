@@ -1,0 +1,7 @@
+MainPID=5986
+ExecStart={ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /srv/catalan-audit/audit/socket_probe.py blocked 10 ; ignore_errors=no ; start_time=[Sat 2026-09-19 16:21:38 UTC] ; stop_time=[n/a] ; pid=5986 ; code=(null) ; status=0/0 }
+User=
+NoNewPrivileges=yes
+RestrictAddressFamilies=~AF_UNIX
+ActiveState=active
+SubState=running

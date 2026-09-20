@@ -1,0 +1,8 @@
+RuntimeMaxUSec=1h 30min
+MainPID=95237
+ExecStart={ path=/opt/lean-4.33.1/bin/lake ; argv[]=/opt/lean-4.33.1/bin/lake env /opt/catalan-checkers/comparator /srv/catalan-audit/audit/config.json ; ignore_errors=no ; start_time=[Sat 2026-09-19 21:11:41 UTC] ; stop_time=[n/a] ; pid=95237 ; code=(null) ; status=0/0 }
+MemoryMax=120259084288
+NoNewPrivileges=yes
+RestrictAddressFamilies=~AF_UNIX
+ActiveState=active
+SubState=running

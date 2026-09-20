@@ -1,0 +1,17 @@
+{
+  "challenge_module": "Catalan.StrictChallenge",
+  "solution_module": "Catalan.StrictSolution",
+  "theorem_names": [
+    "StrictCatalan.jsp",
+    "StrictCatalan.natural",
+    "StrictCatalan.positive_int",
+    "StrictCatalan.signed_int",
+    "StrictCatalan.odd_primes"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

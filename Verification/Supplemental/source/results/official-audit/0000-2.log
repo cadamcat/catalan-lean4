@@ -1,0 +1,17 @@
+Catalan.JSP.statement : Catalan.JSP.Statement
+theorem Catalan.JSP.statement : Catalan.JSP.Statement :=
+@And.intro
+  (And (Catalan.JSP.IsProperPerfectPower (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+    (Catalan.JSP.IsProperPerfectPower (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9)))))
+  (∀ (n : Nat),
+    @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+      Catalan.JSP.IsProperPerfectPower n →
+        Catalan.JSP.IsProperPerfectPower
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          @Eq.{1} Nat n (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+  (@And.intro (Catalan.JSP.IsProperPerfectPower (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+    (Catalan.JSP.IsProperPerfectPower (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))))
+    Catalan.JSP.eight_isProperPerfectPower Catalan.JSP.nine_isProperPerfectPower)
+  Catalan.JSP.uniqueness
+'Catalan.JSP.statement' depends on axioms: [propext, Classical.choice, Quot.sound]

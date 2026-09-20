@@ -1,0 +1,67 @@
+Running as unit: catalan-source-comparator.service; invocation ID: c792bdd031af4c6787100e0e70236600
+Press ^] three times within 1s to disconnect TTY.
+Building Catalan.StrictChallenge
+⣾ [0/0] Running job computation[2K⣷ [2/2] Running Catalan.StrictChallenge (+ 0 more)[2K[1;33m⚠ [2/2] Built Catalan.StrictChallenge[m
+[1;33mwarning:[m Catalan/StrictChallenge.lean:11:8: declaration uses `sorry`
+[1;33mwarning:[m Catalan/StrictChallenge.lean:15:8: declaration uses `sorry`
+[1;33mwarning:[m Catalan/StrictChallenge.lean:21:8: declaration uses `sorry`
+[1;33mwarning:[m Catalan/StrictChallenge.lean:27:8: declaration uses `sorry`
+[1;33mwarning:[m Catalan/StrictChallenge.lean:33:8: declaration uses `sorry`
+Build completed successfully (2 jobs).
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, StrictCatalan.jsp, StrictCatalan.natural, StrictCatalan.positive_int, StrictCatalan.signed_int, StrictCatalan.odd_primes, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Catalan.StrictChallenge
+uncaught exception: process 'lean' exited with code 1
+stderr:
+Traceback (most recent call last):
+  File "/opt/lean-4.33.1/bin/lean-audit.py", line 39, in <module>
+    path.write_text(json.dumps(record) + '\n')
+  File "/usr/lib/python3.12/pathlib.py", line 1049, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/srv/catalan-proof/.lake/lean-invocations/94982-1789852137005303583.json'
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 228, in partial_apport_excepthook
+    return apport_excepthook(binary, exc_type, exc_obj, exc_tb)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 123, in apport_excepthook
+    report.add_package_info()
+  File "/usr/lib/python3/dist-packages/apport/report.py", line 465, in add_package_info
+    package = apport.fileutils.find_file_package(self["ExecutablePath"])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/apport/fileutils.py", line 175, in find_file_package
+    return packaging.get_file_package(file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/apport/packaging_impl/apt_dpkg.py", line 718, in get_file_package
+    dpkg = subprocess.run(
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: 'dpkg-divert'
+
+Original exception was:
+Traceback (most recent call last):
+  File "/opt/lean-4.33.1/bin/lean-audit.py", line 39, in <module>
+    path.write_text(json.dumps(record) + '\n')
+  File "/usr/lib/python3.12/pathlib.py", line 1049, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/srv/catalan-proof/.lake/lean-invocations/94982-1789852137005303583.json'
+
+uncaught exception: Child exited with 1
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 1.731s
+CPU time consumed: 1.742s
+Memory peak: 256.0K
+Memory swap peak: 0B

@@ -1,0 +1,40 @@
+StrictCatalan.odd_primes : ∀ (p q : Nat),
+  StrictCatalan.Prime p →
+    StrictCatalan.Prime q →
+      @Ne.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+        @Ne.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+          ∀ (x y : Int),
+            @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) →
+              @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) →
+                @Ne.{1} Int (Int.pow x p)
+                  (Int.add (Int.pow y q) (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+theorem StrictCatalan.odd_primes : ∀ (p q : Nat),
+  StrictCatalan.Prime p →
+    StrictCatalan.Prime q →
+      @Ne.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+        @Ne.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+          ∀ (x y : Int),
+            @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) →
+              @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) →
+                @Ne.{1} Int (Int.pow x p)
+                  (Int.add (Int.pow y q) (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))) :=
+fun (p q : Nat) (hp : StrictCatalan.Prime p) (hq : StrictCatalan.Prime q)
+    (hp2 : @Ne.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (hq2 : @Ne.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (x y : Int)
+    (hx : @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+    (hy : @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))) =>
+  Catalan.mihailescu_odd_primes p q
+    (@Iff.mpr (Nat.Prime p)
+      (And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) p)
+        (∀ (m : Nat),
+          @Dvd.dvd.{0} Nat Nat.instDvd m p →
+            Or (@Eq.{1} Nat m (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) (@Eq.{1} Nat m p)))
+      (@Nat.prime_def p) hp)
+    (@Iff.mpr (Nat.Prime q)
+      (And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) q)
+        (∀ (m : Nat),
+          @Dvd.dvd.{0} Nat Nat.instDvd m q →
+            Or (@Eq.{1} Nat m (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) (@Eq.{1} Nat m q)))
+      (@Nat.prime_def q) hq)
+    hp2 hq2 x y hx hy
+'StrictCatalan.odd_primes' depends on axioms: [propext, Classical.choice, Quot.sound]

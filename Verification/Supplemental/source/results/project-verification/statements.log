@@ -1,0 +1,3 @@
+'CatalanVerification.natural_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CatalanVerification.signed_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CatalanVerification.consecutive_powers' depends on axioms: [propext, Classical.choice, Quot.sound]

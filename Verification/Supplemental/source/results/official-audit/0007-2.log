@@ -1,0 +1,24 @@
+StrictCatalan.positive_int : ∀ (x y : Int) (a b : Nat),
+  Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a →
+    Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) b →
+      Int.lt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) x →
+        Int.lt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) y →
+          @Eq.{1} Int (Int.pow x a)
+              (Int.add (Int.pow y b) (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))) →
+            And (@Eq.{1} Nat a (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (And (@Eq.{1} Nat b (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (And (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                  (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))))
+theorem StrictCatalan.positive_int : ∀ (x y : Int) (a b : Nat),
+  Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a →
+    Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) b →
+      Int.lt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) x →
+        Int.lt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) y →
+          @Eq.{1} Int (Int.pow x a)
+              (Int.add (Int.pow y b) (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))) →
+            And (@Eq.{1} Nat a (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (And (@Eq.{1} Nat b (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (And (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                  (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))) :=
+Catalan.catalan_int
+'StrictCatalan.positive_int' depends on axioms: [propext, Classical.choice, Quot.sound]

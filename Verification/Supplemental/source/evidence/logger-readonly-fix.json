@@ -1,0 +1,5 @@
+{
+  "epoch": 1789852301.6607018,
+  "lean_audit_sha256": "637331865519e2a4eee8b885f8161f49cc793a750103a7b71cae4f051f749df7",
+  "change": "Metadata-only Lean queries bypass disk logging, so read-only export remains read-only. Source compiler argv, trust=0 and logging unchanged."
+}

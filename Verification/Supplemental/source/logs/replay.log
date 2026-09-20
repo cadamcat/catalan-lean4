@@ -1,0 +1,559 @@
+Running as unit: catalan-source-v2-replay.service
+Press ^] three times within 1s to disconnect TTY.
+⣾ [0/0] Running job computation[2K⣷ [866/866] Running job computation (+ 0 more)[2K⣯ [1792/1792] Running job computation (+ 0 more)[2K⣟ [2688/2688] Running job computation (+ 0 more)[2K⡿ [3646/3647] Running Mathlib.LinearAlgebra.RootSystem.Finite.Lemmas (+ 1 more)[2K⢿ [4462/4463] Running Mathlib.Algebra.NonAssoc.LieAdmissible.Defs (+ 1 more)[2K⣻ [5349/5349] Running job computation (+ 0 more)[2K⣽ [6197/6198] Running job computation (+ 0 more)[2K⣾ [7072/7072] Running job computation (+ 0 more)[2K⣷ [7903/7903] Running job computation (+ 0 more)[2K⣯ [8704/8704] Running job computation (+ 0 more)[2K[1;33m⚠ [8706/9573] Replayed Catalan.Stickelberger.DigitResidue[m
+[1;33mwarning:[m Catalan/Stickelberger/DigitResidue.lean:19:37: This simp argument is unused:
+  Nat.sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.add_sub_cancel, pow_zero, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[1;33mwarning:[m Catalan/Stickelberger/DigitResidue.lean:19:51: This simp argument is unused:
+  pow_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.add_sub_cancel, Nat.sub_zero, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[1;33mwarning:[m Catalan/Stickelberger/DigitResidue.lean:19:61: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.add_sub_cancel, Nat.sub_zero, pow_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[1;33mwarning:[m Catalan/Stickelberger/DigitResidue.lean:31:41: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.sub_self, pow_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[1;33mwarning:[m Catalan/Stickelberger/DigitResidue.lean:113:18: Variable name `hf` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hf
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [8712/9573] Replayed Catalan.Stickelberger.GaussIdentities[m
+[1;33mwarning:[m Catalan/Stickelberger/GaussIdentities.lean:13:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⣟ [9294/9573] Running job computation (+ 0 more)[2K⡿ [9589/10064] Running CatalanLean/Catalan:default[2K⢿ [9589/10064] Running CatalanLean/Catalan:default[2K⣻ [9589/10064] Running CatalanLean/Catalan:default[2K⣽ [9589/10064] Running CatalanLean/Catalan:default[2K⣾ [9589/10064] Running CatalanLean/Catalan:default[2K⣷ [9589/10064] Running CatalanLean/Catalan:default[2K[1;34mℹ [9590/10064] Replayed Catalan.Smoke[m
+[1;34minfo:[m Catalan/Smoke.lean:5:0: Nat.Prime : ℕ → Prop
+[1;34minfo:[m Catalan/Smoke.lean:6:0: IsCyclotomicExtension : Set ℕ →
+  (A : Type u_1) → (B : Type u_2) → [inst : CommRing A] → [inst_1 : CommRing B] → [Algebra A B] → Prop
+[1;34minfo:[m Catalan/Smoke.lean:7:0: NumberField.RingOfIntegers : (K : Type u_1) → [Field K] → Type u_1
+[1;34minfo:[m Catalan/Smoke.lean:8:0: MonoidAlgebra : (R : Type u_1) → Type u_2 → [Semiring R] → Type (max u_1 u_2)
+[1;33m⚠ [9591/10064] Replayed Catalan.Cassels.PowerFactors[m
+[1;33mwarning:[m Catalan/Cassels/PowerFactors.lean:23:17: Variable name `hA` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hA
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/Cassels/PowerFactors.lean:23:30: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;34minfo:[m Catalan/Cassels/PowerFactors.lean:42:0: 'Catalan.int_eq_odd_pow_of_natAbs_eq_pow' depends on axioms: [propext, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/PowerFactors.lean:43:0: 'Catalan.cassels_coprime_power_factors' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9593/10064] Replayed Catalan.Cassels.Valuation[m
+[1;34minfo:[m Catalan/Cassels/Valuation.lean:24:0: 'Catalan.cassels_cyclo_exact_valuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9595/10064] Replayed Catalan.Cassels.FactorialCore[m
+[1;34minfo:[m Catalan/Cassels/FactorialCore.lean:56:0: 'Catalan.cassels_factorial_core_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/FactorialCore.lean:57:0: 'Catalan.cassels_numProd_not_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;33m⚠ [9596/10064] Replayed Catalan.Cassels.FactorialTransfer[m
+[1;33mwarning:[m Catalan/Cassels/FactorialTransfer.lean:11:61: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;34minfo:[m Catalan/Cassels/FactorialTransfer.lean:37:0: 'Catalan.cassels_factorial_divisor_dvd_numProd' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9597/10064] Replayed Catalan.Cassels.CoefficientReconstruction[m
+[1;34minfo:[m Catalan/Cassels/CoefficientReconstruction.lean:31:0: 'Catalan.casselsCoeff_eq_numProd' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/CoefficientReconstruction.lean:32:0: 'Catalan.cassels_coeff_eq_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9598/10064] Replayed Catalan.Cassels.Denominator[m
+[1;34minfo:[m Catalan/Cassels/Denominator.lean:65:0: 'Catalan.cassels_coeffNum_mul_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/Denominator.lean:66:0: 'Catalan.cassels_coeff_eq_coeffNum' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/Denominator.lean:67:0: 'Catalan.cassels_coeffNum_not_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/Denominator.lean:68:0: 'Catalan.cassels_coeff_denominator' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/Denominator.lean:69:0: 'Catalan.cassels_coeff_padicValRat' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9599/10064] Replayed Catalan.Cassels.CoefficientBounds[m
+[1;34minfo:[m Catalan/Cassels/CoefficientBounds.lean:136:0: 'Catalan.casselsCoeff_real_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/CoefficientBounds.lean:137:0: 'Catalan.cassels_coeff_cutoff_aux' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/CoefficientBounds.lean:138:0: 'Catalan.cassels_coeff_cutoff_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;33m⚠ [9600/10064] Replayed Catalan.Cassels.TaylorBound[m
+[1;33mwarning:[m Catalan/Cassels/TaylorBound.lean:66:17: Variable name `hq0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;34minfo:[m Catalan/Cassels/TaylorBound.lean:141:0: 'Catalan.iteratedDerivWithin_shifted_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/TaylorBound.lean:142:0: 'Catalan.taylorWithinEval_eq_casselsTaylor_of_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/TaylorBound.lean:143:0: 'Catalan.cassels_power_taylor_bound_of_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9601/10064] Replayed Catalan.Cassels.RootCorrection[m
+[1;34minfo:[m Catalan/Cassels/RootCorrection.lean:116:0: 'Catalan.cassels_rpow_sub_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/RootCorrection.lean:117:0: 'Catalan.cassels_root_inputs_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/RootCorrection.lean:118:0: 'Catalan.cassels_power_absorption' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/RootCorrection.lean:119:0: 'Catalan.cassels_root_correction_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9602/10064] Replayed Catalan.Cassels.RemainderArithmetic[m
+[1;34minfo:[m Catalan/Cassels/RemainderArithmetic.lean:66:0: 'Catalan.cassels_index_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/RemainderArithmetic.lean:67:0: 'Catalan.cassels_remainder_of_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9603/10064] Replayed Catalan.Cassels.Remainder[m
+[1;34minfo:[m Catalan/Cassels/Remainder.lean:38:0: 'Catalan.cassels_power_taylor_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/Remainder.lean:39:0: 'Catalan.cassels_remainder_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;33m⚠ [9604/10064] Replayed Catalan.Cassels.Elementary[m
+[1;33mwarning:[m Catalan/Cassels/Elementary.lean:46:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;33mwarning:[m Catalan/Cassels/Elementary.lean:54:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;33mwarning:[m Catalan/Cassels/Elementary.lean:61:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;34minfo:[m Catalan/Cassels/Elementary.lean:150:0: 'Catalan.gcd_x_sub_one_cyclotomic' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/Elementary.lean:151:0: 'Catalan.cassels_bad_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/Elementary.lean:152:0: 'Catalan.cassels_equal_exponents_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9605/10064] Replayed Catalan.Cassels.BetweenPowers[m
+[1;34minfo:[m Catalan/Cassels/BetweenPowers.lean:176:0: 'Catalan.cassels_between_powers' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9606/10064] Replayed Catalan.Cassels.EasyDivisibility[m
+[1;34minfo:[m Catalan/Cassels/EasyDivisibility.lean:40:0: 'Catalan.cassels_easy_q_dvd_x' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;33m⚠ [9607/10064] Replayed Catalan.Cassels.Relations[m
+[1;33mwarning:[m Catalan/Cassels/Relations.lean:6:56: Variable name `hy` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hy
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;34minfo:[m Catalan/Cassels/Relations.lean:125:0: 'Catalan.cassels_partial_q_relations' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9608/10064] Replayed Catalan.Cassels.Modular[m
+[1;34minfo:[m Catalan/Cassels/Modular.lean:30:0: 'Catalan.cassels_prime_root_mod' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;33m⚠ [9609/10064] Replayed Catalan.Cassels.LowerBound[m
+[1;33mwarning:[m Catalan/Cassels/LowerBound.lean:6:5: Variable name `hp2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;34minfo:[m Catalan/Cassels/LowerBound.lean:93:0: 'Catalan.cassels_lower_bound_from_relations' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9610/10064] Replayed Catalan.Cassels.ErrorBound[m
+[1;34minfo:[m Catalan/Cassels/ErrorBound.lean:144:0: 'Catalan.cassels_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/ErrorBound.lean:145:0: 'Catalan.cassels_abs_power_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/ErrorBound.lean:146:0: 'Catalan.cassels_abs_x_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/ErrorBound.lean:147:0: 'Catalan.cassels_geometric_scaled_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/ErrorBound.lean:148:0: 'Catalan.cassels_geometric_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/ErrorBound.lean:149:0: 'Catalan.cassels_index_mul_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/ErrorBound.lean:150:0: 'Catalan.cassels_scaled_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/ErrorBound.lean:151:0: 'Catalan.cassels_error_real_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/ErrorBound.lean:152:0: 'Catalan.cassels_root_identification' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;33m⚠ [9611/10064] Replayed Catalan.Cassels.ErrorIntegral[m
+[1;33mwarning:[m Catalan/Cassels/ErrorIntegral.lean:94:25: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[1;33mwarning:[m Catalan/Cassels/ErrorIntegral.lean:94:25: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[1;34minfo:[m Catalan/Cassels/ErrorIntegral.lean:153:0: 'Catalan.cassels_denexp_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/ErrorIntegral.lean:154:0: 'Catalan.cassels_error_integral_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;33m⚠ [9612/10064] Replayed Catalan.Cassels.Divisibility[m
+[1;33mwarning:[m Catalan/Cassels/Divisibility.lean:66:27: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[1;33mwarning:[m Catalan/Cassels/Divisibility.lean:66:27: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[1;34minfo:[m Catalan/Cassels/Divisibility.lean:134:0: 'Catalan.cassels_p_dvd_y' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/Cassels/Divisibility.lean:135:0: 'Catalan.cassels_q_dvd_x' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34mℹ [9613/10064] Replayed Catalan.Cassels.Factorization[m
+[1;34minfo:[m Catalan/Cassels/Factorization.lean:40:0: 'Catalan.cassels_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;33m⚠ [9614/10064] Replayed Catalan.Cyclotomic.Basic[m
+[1;33mwarning:[m Catalan/Cyclotomic/Basic.lean:13:10: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/Cyclotomic/Basic.lean:35:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;33mwarning:[m Catalan/Cyclotomic/Basic.lean:41:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;33mwarning:[m Catalan/Cyclotomic/Basic.lean:45:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;34mℹ [9615/10064] Replayed Catalan.IdealAction[m
+[1;34minfo:[m Catalan/IdealAction.lean:221:0: 'Catalan.ipow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/IdealAction.lean:222:0: 'Catalan.ipow_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/IdealAction.lean:223:0: 'Catalan.ipow_zsmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/IdealAction.lean:224:0: 'Catalan.ipow_principalIdeal' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;34minfo:[m Catalan/IdealAction.lean:225:0: 'Catalan.principal_of_integral_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+[1;33m⚠ [9621/10064] Replayed Catalan.Density.Definitions[m
+[1;33mwarning:[m Catalan/Density/Definitions.lean:143:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;33m⚠ [9623/10064] Replayed Catalan.Cyclotomic.Elements[m
+[1;33mwarning:[m Catalan/Cyclotomic/Elements.lean:25:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;33m⚠ [9625/10064] Replayed Catalan.Mihailescu.Ideal[m
+[1;33mwarning:[m Catalan/Mihailescu/Ideal.lean:56:0: automatically included section variable(s) unused in theorem `Catalan.finite_aug_ball`:
+  [Fact (Nat.Prime q)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (Nat.Prime q)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33mwarning:[m Catalan/Mihailescu/Ideal.lean:64:0: automatically included section variable(s) unused in theorem `Catalan.alpha_pow`:
+  [Fact (Nat.Prime q)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (Nat.Prime q)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33m⚠ [9627/10064] Replayed Catalan.Stickelberger.Reduction[m
+[1;33mwarning:[m Catalan/Stickelberger/Reduction.lean:75:34: Variable name `hI` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hI
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [9629/10064] Replayed Catalan.Cyclotomic.Ramification[m
+[1;33mwarning:[m Catalan/Cyclotomic/Ramification.lean:39:24: Variable name `hp2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [9642/10064] Replayed Catalan.Stickelberger.ResidueQuotient[m
+[1;33mwarning:[m Catalan/Stickelberger/ResidueQuotient.lean:12:0: automatically included section variable(s) unused in theorem `Catalan.prime_ne_residue_characteristic`:
+  hp
+  [NumberField K]
+  [IsCyclotomicExtension {p} ℚ K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hp [NumberField K] [IsCyclotomicExtension {p} ℚ K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33m⚠ [9678/10064] Replayed Catalan.Mihailescu.RealContradiction[m
+[1;33mwarning:[m Catalan/Mihailescu/RealContradiction.lean:9:19: Variable name `hε1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [9680/10064] Replayed Catalan.Mihailescu.RadiusTwoArithmetic[m
+[1;33mwarning:[m Catalan/Mihailescu/RadiusTwoArithmetic.lean:8:49: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/Mihailescu/RadiusTwoArithmetic.lean:9:31: Variable name `hX` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hX
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/Mihailescu/RadiusTwoArithmetic.lean:69:13: Variable name `hε0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/Mihailescu/RadiusTwoArithmetic.lean:69:27: Variable name `hε1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [9706/10064] Replayed Catalan.Classical.Lebesgue[m
+[1;33mwarning:[m Catalan/Classical/Lebesgue.lean:25:71: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [9715/10064] Replayed Catalan.Classical.KoChao.Factors[m
+[1;33mwarning:[m Catalan/Classical/KoChao/Factors.lean:7:15: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [9759/10064] Replayed Catalan.Counting.SmallBall[m
+[1;33mwarning:[m Catalan/Counting/SmallBall.lean:9:0: automatically included section variable(s) unused in theorem `Catalan.augBall_eq_singleton_of_lt_two`:
+  [Fact (Nat.Prime q)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (Nat.Prime q)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33m⚠ [9782/10064] Replayed Catalan.CaseOne.PrimaryObstruction[m
+[1;33mwarning:[m Catalan/CaseOne/PrimaryObstruction.lean:43:36: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+[1;33mwarning:[m Catalan/CaseOne/PrimaryObstruction.lean:46:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+[1;33mwarning:[m Catalan/CaseOne/PrimaryObstruction.lean:55:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+[1;33m⚠ [9794/10064] Replayed Catalan.CaseOne.FullLog[m
+[1;33mwarning:[m Catalan/CaseOne/FullLog.lean:26:0: automatically included section variable(s) unused in theorem `Catalan.UnitLog.fullLog_one`:
+  [NumberField K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NumberField K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33mwarning:[m Catalan/CaseOne/FullLog.lean:30:0: automatically included section variable(s) unused in theorem `Catalan.UnitLog.fullLog_mul`:
+  [NumberField K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NumberField K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33m⚠ [9805/10064] Replayed Catalan.CaseOne.CyclicShift[m
+[1;33mwarning:[m Catalan/CaseOne/CyclicShift.lean:9:11: Variable name `f` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/CaseOne/CyclicShift.lean:9:13: Variable name `g` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _g
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/CaseOne/CyclicShift.lean:10:12: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/CaseOne/CyclicShift.lean:10:14: Variable name `f` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [9818/10064] Replayed Catalan.CaseOne.ProductAnn[m
+[1;33mwarning:[m Catalan/CaseOne/ProductAnn.lean:44:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+[1;33m⚠ [9856/10064] Replayed Catalan.Density.InertiaBridge[m
+[1;33mwarning:[m Catalan/Density/InertiaBridge.lean:11:37: Variable name `hP` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hP
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [9867/10064] Replayed Catalan.Density.InertiaRestrictions[m
+[1;33mwarning:[m Catalan/Density/InertiaRestrictions.lean:12:0: automatically included section variable(s) unused in theorem `Catalan.A3.inertiaTrivial_of_restrictions`:
+  [NumberField K]
+  [NumberField A]
+  [NumberField B]
+  [NumberField L]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NumberField K] [NumberField A] [NumberField B] [NumberField L] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33m⚠ [9870/10064] Replayed Catalan.Density.BoundedSup[m
+[1;33mwarning:[m Catalan/Density/BoundedSup.lean:28:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;33mwarning:[m Catalan/Density/BoundedSup.lean:35:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[1;33m⚠ [9895/10064] Replayed Catalan.Runge.CoeffResidue[m
+[1;33mwarning:[m Catalan/Runge/CoeffResidue.lean:103:5: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33m⚠ [9905/10064] Replayed Catalan.Runge.ProductSeries[m
+[1;33mwarning:[m Catalan/Runge/ProductSeries.lean:24:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+[1;33m⚠ [9916/10064] Replayed Catalan.Runge.PowerTransport[m
+[1;33mwarning:[m Catalan/Runge/PowerTransport.lean:11:0: automatically included section variable(s) unused in theorem `Catalan.Runge.reduceFull_eq_iff_exists_nsmul`:
+  [Fact (Nat.Prime p)]
+  [IsCyclotomicExtension {p} ℚ K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (Nat.Prime p)] [IsCyclotomicExtension {p} ℚ K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33mwarning:[m Catalan/Runge/PowerTransport.lean:38:53: This simp argument is unused:
+  nsmul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[1;33mwarning:[m Catalan/Runge/PowerTransport.lean:52:0: automatically included section variable(s) unused in theorem `Catalan.Runge.upow_nsmul`:
+  [Fact (Nat.Prime p)]
+  [IsCyclotomicExtension {p} ℚ K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (Nat.Prime p)] [IsCyclotomicExtension {p} ℚ K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33mwarning:[m Catalan/Runge/PowerTransport.lean:85:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+[1;33mwarning:[m Catalan/Runge/PowerTransport.lean:97:36: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [div_eq_mul_inv, mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[1;33mwarning:[m Catalan/Runge/PowerTransport.lean:97:51: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [div_eq_mul_inv, mul_comm, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[1;33m⚠ [9955/10064] Replayed Catalan.Density.OrbitCoordinates[m
+[1;33mwarning:[m Catalan/Density/OrbitCoordinates.lean:18:0: automatically included section variable(s) unused in theorem `Catalan.Residue.mem_sumZero`:
+  [Group G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Group G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33mwarning:[m Catalan/Density/OrbitCoordinates.lean:21:0: automatically included section variable(s) unused in theorem `Catalan.Residue.inverseOrbitMap_apply`:
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33mwarning:[m Catalan/Density/OrbitCoordinates.lean:24:0: automatically included section variable(s) unused in theorem `Catalan.Residue.inverseOrbitMap_equivariant`:
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[1;33m⚠ [9996/10064] Replayed Catalan.Thaine.LocalMultiplicity[m
+[1;33mwarning:[m Catalan/Thaine/LocalMultiplicity.lean:8:23: Overlapping instance parameters in `heightOneLocalizationDvr`:
+
+⚠️ `[IsDomain
+   R]` and `[IsDedekindDomain
+   R]` each imply `[Nontrivial R]`, `[IsLeftCancelMulZero R]`, and `[IsRightCancelMulZero R]`.
+💡️ Of these, `[IsDomain R]` may be removed.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+[1;33mwarning:[m Catalan/Thaine/LocalMultiplicity.lean:14:6: Overlapping instance parameters in `local_addVal_eq_emultiplicity`:
+
+⚠️ `[IsDomain
+   R]` and `[IsDedekindDomain
+   R]` each imply `[Nontrivial R]`, `[IsLeftCancelMulZero R]`, and `[IsRightCancelMulZero R]`.
+💡️ Of these, `[IsDomain R]` may be removed.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+[1;33m⚠ [10059/10064] Replayed Catalan.Final.Assembly[m
+[1;33mwarning:[m Catalan/Final/Assembly.lean:18:5: Variable name `h1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/Final/Assembly.lean:18:30: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/Final/Assembly.lean:18:55: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[1;33mwarning:[m Catalan/Final/Assembly.lean:36:91: Variable name `hp5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⣯ [10063/10064] Running Catalan (+ 0 more)[2K⣟ [10063/10064] Running Catalan (+ 0 more)[2KBuild completed successfully (10064 jobs).
+imported Catalan
+Catalan.catalans_conjecture: present in imported environment; theorem = true
+Catalan.catalan_int: present in imported environment; theorem = true
+Catalan.catalan_int_signed: present in imported environment; theorem = true
+Catalan.mihailescu_odd_primes: present in imported environment; theorem = true
+Catalan.JSP.statement: present in imported environment; theorem = true
+cone contains 129467 constants; all names have ConstantInfo
+unsafe/partial constants in cone: []
+axioms in cone: [Classical.choice, Quot.sound, propext]
+nonstandard axioms in cone: []
+all replayable cone constants are present in the replayed kernel environment
+Catalan.catalans_conjecture: present after replay; theorem = true; type identical = true
+Catalan.catalan_int: present after replay; theorem = true; type identical = true
+Catalan.catalan_int_signed: present after replay; theorem = true; type identical = true
+Catalan.mihailescu_odd_primes: present after replay; theorem = true; type identical = true
+Catalan.JSP.statement: present after replay; theorem = true; type identical = true
+fresh-environment kernel replay of 129467 constants; verification passed = true
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9min 45.356s
+CPU time consumed: 9min 47.153s
+Memory peak: 262.3M
+Memory swap peak: 0B

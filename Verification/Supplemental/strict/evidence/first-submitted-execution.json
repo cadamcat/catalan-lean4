@@ -1,0 +1,8 @@
+{
+  "started_at": "2026-09-19T16:28:15.703145+00:00",
+  "proof_head": "897079dab4c8dc980cc9b98ab28fed846e4a756f",
+  "no_project_build_directory": true,
+  "first_submitted_module_build": "protected comparator invocation",
+  "trusted_cache_preparation": "separate TrustedMathlibBootstrap project",
+  "source_status": "?? Catalan/StrictChallenge.lean\n?? Catalan/StrictSolution.lean\n"
+}

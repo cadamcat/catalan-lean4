@@ -1,0 +1,11 @@
+{
+  "installed_epoch": 1789850572.4347582,
+  "reason": "landrun -ldd cannot discover ELF interpreter dependencies for shebang launchers. Use small ELF launchers; retain original compiler and Lake unchanged.",
+  "hashes": {
+    "lean": "1490ca6c62d4f882201e4543e5734305b8d71b3ffd0498960f09fb5a7dc968fc",
+    "lake": "fd7d834d2b11f284b5fa927730996d5ddec8af5f68086a7dbe8fd0103b1f44ee",
+    "lean-audit.py": "e9dec7d27bdec0ad5b2c56d8d45aecda1a9ba8c7fbb2e05df57ce034aefd49fa",
+    "lean-original": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "lake-original": "60330ab6f07dce20f3fa9ebb08e8b984ea9549eac172afeb15d9d2227060e2b3"
+  }
+}

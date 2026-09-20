@@ -1,0 +1,1053 @@
+{
+  "scope": "target_checks_only",
+  "semantic_verdict": "not_determined",
+  "preflight": {
+    "ready_for_target_checks": true,
+    "issues": [],
+    "head": "897079dab4c8dc980cc9b98ab28fed846e4a756f",
+    "git_status": "?? Catalan/StrictChallenge.lean\n?? Catalan/StrictSolution.lean",
+    "toolchain_file": "leanprover/lean4:v4.33.1",
+    "file_sha256": {
+      "Catalan/Final/Assembly.lean": "592fd459623a6360164d8fc19f23d6333b1b2bcd5270317afba09400ad0ee872",
+      "Catalan/Final/Signed.lean": "187e2afb533935308a7daf54a5fb1a97d9855e0a2078278c9d105addd20c7857",
+      "Catalan/JSP.lean": "ed298e35d92617891a8a641a89471d29361b327ece931772272ecb3f69414e97",
+      "Catalan/StrictSolution.lean": "61b20446215d3b0840b899ec75512c21e4f476ec69dfde284060693fc12e302f",
+      "lake-manifest.json": "ce5814774270133969324e177a0d1cfd934b075ca803adc921725831e402876c",
+      "lakefile.lean": null,
+      "lakefile.toml": "314aa017ec637fd198d922cd1ea9fd2d97dc9ae2714705f49bd16f666233d710",
+      "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+    },
+    "manual_preconditions": [
+      "isolation and resource limits established",
+      "clean source build and trusted cache provenance recorded",
+      "actual dependency SHAs match fixed evidence",
+      "tool binaries are trusted and match the pinned toolchain",
+      "all untracked inputs and module/source mappings reviewed"
+    ],
+    "checker_compatibility": "not_probed; inspect pinned checker separately"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "--version"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/version-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 0.031,
+      "log_sha256": "e475ba02fef5717a6caa256e1e25ac50268497b7d1e36955357f37b4701ee4a0"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/version-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 0.715,
+      "log_sha256": "63f3e16bf0258e2cc0ab3010eb1830723df9bb85097b7b72b0137b9be25a78e9"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.JSP"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0000-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.717,
+      "log_sha256": "d2959ad52b45ea57c36b37dee9a969b012023600a36b3d5d6a49c6e32fa9cb2a"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/JSP.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0000-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.069,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0000.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0000-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.869,
+      "log_sha256": "3328cbf7c2fdb5b3006d706184839f8a0ec997203c871f652ff1c1e9e1c9e83f"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.Final.Assembly"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0001-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.717,
+      "log_sha256": "de94425db29cfe83c393ab0c324ca21f09f81be5db6c22c6e73e9a3d8905cc62"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/Final/Assembly.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0001-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "d1d4cac03bf0094a38f7be81b5aff815b8b286c8ca3738f772c935f0e61f5166"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0001.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0001-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "d1ae8a4bfa83a99fda49ebb3b9ad41e448b7c76521469b1015ef3370edb6e4bf"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.Final.Assembly"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0002-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.717,
+      "log_sha256": "a4c09c2e14763c3d3033a642b59d9d86cd7658ab7173edadada77d6379fa6343"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/Final/Assembly.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0002-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "d1d4cac03bf0094a38f7be81b5aff815b8b286c8ca3738f772c935f0e61f5166"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0002.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0002-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "1a645bf2002e868169a1b3deaf9531baa278e84cb468ba5280172d4a1385157a"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.Final.Signed"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0003-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.717,
+      "log_sha256": "16070efe21ddf0e488f593aa949ed037dc6d633c279d92c757dd5ab4d99fc729"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/Final/Signed.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0003-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.219,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0003.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0003-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.169,
+      "log_sha256": "3f933f1b4ae4f4ab612c046301fdcb03d840152fb8a6c4b104885736d8566a05"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.Final.Assembly"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0004-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.717,
+      "log_sha256": "64772d358b9b7bbaad515b04b233eee62e31570ea411916c8e1bbdb0a74cc0c0"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/Final/Assembly.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0004-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.068,
+      "log_sha256": "d1d4cac03bf0094a38f7be81b5aff815b8b286c8ca3738f772c935f0e61f5166"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0004.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0004-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.069,
+      "log_sha256": "26dcabb30e52242269a04d5e7cf4902599077cbc73cd51d731ef4ed0d7764e7e"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.StrictSolution"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0005-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.718,
+      "log_sha256": "893cf96d50c06941ab7fc938dbb40b072225ed23109fadf8889f8cc15721d174"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/StrictSolution.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0005-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.069,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0005.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0005-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.069,
+      "log_sha256": "33d70ba0f285e3aaf732342c3122147d71adaeb4e7da06ea7e930c0266b3462c"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.StrictSolution"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0006-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.717,
+      "log_sha256": "d1c3fd06b62836233bda45b40f9cdaa3b4454ac68f6ed744357531a3d8a5d9f7"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/StrictSolution.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0006-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0006.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0006-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "cf39daa8412988565231be3b7c26cbb77273729822464b0d0b09d8fb4666778e"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.StrictSolution"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0007-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.717,
+      "log_sha256": "104dd982a3b1caef7e29eacb301921d12be2d5365254110cf8780a2b8b8439cf"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/StrictSolution.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0007-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.069,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0007.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0007-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "05a57ed745344f26ec1b2f9954d4fff9b855fd0482a1db5c348737b420be8bde"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.StrictSolution"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0008-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.717,
+      "log_sha256": "46289a0e471196a6ce575c96b78b1d8cf814b920b1fbcd8c6d35a94843d980b0"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/StrictSolution.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0008-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0008.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0008-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "a2a30e855fcacb498e88eaec0f10818190201d094f0a934112592b69f93954d0"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "build",
+        "+Catalan.StrictSolution"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0009-0.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 2.717,
+      "log_sha256": "591b27495225bc7e35b4fccea2b2e54009d8941de03d87a1d7655885130b4961"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-proof/Catalan/StrictSolution.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0009-1.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/opt/lean-4.33.1/bin/lake",
+        "env",
+        "lean",
+        "/srv/catalan-audit/results/official-audit/Audit0009.lean"
+      ],
+      "cwd": "/srv/catalan-proof",
+      "log": "/srv/catalan-audit/results/official-audit/0009-2.log",
+      "exit_code": 0,
+      "status": "ok",
+      "seconds": 3.019,
+      "log_sha256": "5251b490c4adf88522f59b9c7b278751f58475483cdae0e74d3798d3e52478b0"
+    }
+  ],
+  "targets": [
+    {
+      "id": "jsp",
+      "declaration": "Catalan.JSP.statement",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0000.lean",
+      "audit_sha256": "21ddf4dd6311ff1294fb37f01032805ec6ac926b3e497734578ada6208e80032",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.JSP"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0000-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.717,
+          "log_sha256": "d2959ad52b45ea57c36b37dee9a969b012023600a36b3d5d6a49c6e32fa9cb2a"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/JSP.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0000-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.069,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0000.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0000-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.869,
+          "log_sha256": "3328cbf7c2fdb5b3006d706184839f8a0ec997203c871f652ff1c1e9e1c9e83f"
+        }
+      ]
+    },
+    {
+      "id": "natural",
+      "declaration": "Catalan.catalans_conjecture",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0001.lean",
+      "audit_sha256": "237aa808e69119e5c65ef7541e7ed02099d9ca18f9c4df8c5c8b98621136da0a",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.Final.Assembly"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0001-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.717,
+          "log_sha256": "de94425db29cfe83c393ab0c324ca21f09f81be5db6c22c6e73e9a3d8905cc62"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/Final/Assembly.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0001-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "d1d4cac03bf0094a38f7be81b5aff815b8b286c8ca3738f772c935f0e61f5166"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0001.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0001-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "d1ae8a4bfa83a99fda49ebb3b9ad41e448b7c76521469b1015ef3370edb6e4bf"
+        }
+      ]
+    },
+    {
+      "id": "positive-int",
+      "declaration": "Catalan.catalan_int",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0002.lean",
+      "audit_sha256": "2d5a144f16a91ca29edc84dee6bc12e272201ff21de82bafada662a492f30385",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.Final.Assembly"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0002-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.717,
+          "log_sha256": "a4c09c2e14763c3d3033a642b59d9d86cd7658ab7173edadada77d6379fa6343"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/Final/Assembly.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0002-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "d1d4cac03bf0094a38f7be81b5aff815b8b286c8ca3738f772c935f0e61f5166"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0002.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0002-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "1a645bf2002e868169a1b3deaf9531baa278e84cb468ba5280172d4a1385157a"
+        }
+      ]
+    },
+    {
+      "id": "signed-int",
+      "declaration": "Catalan.catalan_int_signed",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0003.lean",
+      "audit_sha256": "3a1c29ec10463ba2055a2734bfc07833ac52ab374d63d7dc1de1a5982437914d",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.Final.Signed"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0003-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.717,
+          "log_sha256": "16070efe21ddf0e488f593aa949ed037dc6d633c279d92c757dd5ab4d99fc729"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/Final/Signed.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0003-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.219,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0003.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0003-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.169,
+          "log_sha256": "3f933f1b4ae4f4ab612c046301fdcb03d840152fb8a6c4b104885736d8566a05"
+        }
+      ]
+    },
+    {
+      "id": "odd-primes",
+      "declaration": "Catalan.mihailescu_odd_primes",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0004.lean",
+      "audit_sha256": "e56819082c305e2ef53d407001cb454e80dac395b4a3e443e1d12954575f99f0",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.Final.Assembly"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0004-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.717,
+          "log_sha256": "64772d358b9b7bbaad515b04b233eee62e31570ea411916c8e1bbdb0a74cc0c0"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/Final/Assembly.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0004-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.068,
+          "log_sha256": "d1d4cac03bf0094a38f7be81b5aff815b8b286c8ca3738f772c935f0e61f5166"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0004.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0004-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.069,
+          "log_sha256": "26dcabb30e52242269a04d5e7cf4902599077cbc73cd51d731ef4ed0d7764e7e"
+        }
+      ]
+    },
+    {
+      "id": "bridge-jsp",
+      "declaration": "StrictCatalan.jsp",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0005.lean",
+      "audit_sha256": "ce502e71d574422c668d4943f0ddb3591b885a42198a94da944b9b51fd4c1c10",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.StrictSolution"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0005-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.718,
+          "log_sha256": "893cf96d50c06941ab7fc938dbb40b072225ed23109fadf8889f8cc15721d174"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/StrictSolution.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0005-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.069,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0005.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0005-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.069,
+          "log_sha256": "33d70ba0f285e3aaf732342c3122147d71adaeb4e7da06ea7e930c0266b3462c"
+        }
+      ]
+    },
+    {
+      "id": "bridge-natural",
+      "declaration": "StrictCatalan.natural",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0006.lean",
+      "audit_sha256": "1242b709245884c01c50d17e180e36e3bd70413e11e671a39c44dad5fe977493",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.StrictSolution"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0006-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.717,
+          "log_sha256": "d1c3fd06b62836233bda45b40f9cdaa3b4454ac68f6ed744357531a3d8a5d9f7"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/StrictSolution.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0006-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0006.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0006-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "cf39daa8412988565231be3b7c26cbb77273729822464b0d0b09d8fb4666778e"
+        }
+      ]
+    },
+    {
+      "id": "bridge-positive_int",
+      "declaration": "StrictCatalan.positive_int",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0007.lean",
+      "audit_sha256": "ba2bcc008e1deed8bc440ca16cc9e39554bd6c17a3c565d24bfc7dc808547a92",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.StrictSolution"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0007-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.717,
+          "log_sha256": "104dd982a3b1caef7e29eacb301921d12be2d5365254110cf8780a2b8b8439cf"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/StrictSolution.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0007-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.069,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0007.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0007-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "05a57ed745344f26ec1b2f9954d4fff9b855fd0482a1db5c348737b420be8bde"
+        }
+      ]
+    },
+    {
+      "id": "bridge-signed_int",
+      "declaration": "StrictCatalan.signed_int",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0008.lean",
+      "audit_sha256": "46bc01f131167f4bae8698544a962fb7719a98c09b4ddb230adffc6d60cdf986",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.StrictSolution"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0008-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.717,
+          "log_sha256": "46289a0e471196a6ce575c96b78b1d8cf814b920b1fbcd8c6d35a94843d980b0"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/StrictSolution.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0008-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0008.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0008-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "a2a30e855fcacb498e88eaec0f10818190201d094f0a934112592b69f93954d0"
+        }
+      ]
+    },
+    {
+      "id": "bridge-odd_primes",
+      "declaration": "StrictCatalan.odd_primes",
+      "audit_file": "/srv/catalan-audit/results/official-audit/Audit0009.lean",
+      "audit_sha256": "19d7057752c2ee2f6c8606c881284e3e66aa9fe062add84968a81a3d1ea260fc",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "build",
+            "+Catalan.StrictSolution"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0009-0.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 2.717,
+          "log_sha256": "591b27495225bc7e35b4fccea2b2e54009d8941de03d87a1d7655885130b4961"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-proof/Catalan/StrictSolution.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0009-1.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "argv": [
+            "/opt/lean-4.33.1/bin/lake",
+            "env",
+            "lean",
+            "/srv/catalan-audit/results/official-audit/Audit0009.lean"
+          ],
+          "cwd": "/srv/catalan-proof",
+          "log": "/srv/catalan-audit/results/official-audit/0009-2.log",
+          "exit_code": 0,
+          "status": "ok",
+          "seconds": 3.019,
+          "log_sha256": "5251b490c4adf88522f59b9c7b278751f58475483cdae0e74d3798d3e52478b0"
+        }
+      ]
+    }
+  ],
+  "mechanical_status": "standard_axioms_only",
+  "tool_versions": [
+    "Lake version 5.0.0-src+819816b (Lean version 4.33.1)\n",
+    "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)\n"
+  ],
+  "after": {
+    "ready_for_target_checks": true,
+    "issues": [],
+    "head": "897079dab4c8dc980cc9b98ab28fed846e4a756f",
+    "git_status": "?? Catalan/StrictChallenge.lean\n?? Catalan/StrictSolution.lean",
+    "toolchain_file": "leanprover/lean4:v4.33.1",
+    "file_sha256": {
+      "Catalan/Final/Assembly.lean": "592fd459623a6360164d8fc19f23d6333b1b2bcd5270317afba09400ad0ee872",
+      "Catalan/Final/Signed.lean": "187e2afb533935308a7daf54a5fb1a97d9855e0a2078278c9d105addd20c7857",
+      "Catalan/JSP.lean": "ed298e35d92617891a8a641a89471d29361b327ece931772272ecb3f69414e97",
+      "Catalan/StrictSolution.lean": "61b20446215d3b0840b899ec75512c21e4f476ec69dfde284060693fc12e302f",
+      "lake-manifest.json": "ce5814774270133969324e177a0d1cfd934b075ca803adc921725831e402876c",
+      "lakefile.lean": null,
+      "lakefile.toml": "314aa017ec637fd198d922cd1ea9fd2d97dc9ae2714705f49bd16f666233d710",
+      "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+    },
+    "manual_preconditions": [
+      "isolation and resource limits established",
+      "clean source build and trusted cache provenance recorded",
+      "actual dependency SHAs match fixed evidence",
+      "tool binaries are trusted and match the pinned toolchain",
+      "all untracked inputs and module/source mappings reviewed"
+    ],
+    "checker_compatibility": "not_probed; inspect pinned checker separately"
+  },
+  "inputs_stable": true,
+  "manifest_sha256": "6abde65339ff16fcefcc295aa825a60527d54a23d44c4641efc0df245061206d",
+  "script_sha256": "5db45dddcb4d588bc27e7c7161fbca5cedaa3e73e1c40843d21f5a214323cd07",
+  "exit_code": 0
+}

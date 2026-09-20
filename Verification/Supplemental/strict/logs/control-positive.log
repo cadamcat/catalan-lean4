@@ -1,0 +1,25 @@
+START=2026-09-19T16:45:45.097348+00:00
+COMMAND=["runuser", "-u", "verifier", "--", "env", "XDG_RUNTIME_DIR=/run/user/2000", "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/2000/bus", "PATH=/opt/lean-4.33.1/bin:/opt/catalan-checkers:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", "systemd-run", "--user", "--unit=catalan-control-positive", "--wait", "--pty", "--property=RestrictAddressFamilies=~AF_UNIX", "--property=NoNewPrivileges=yes", "--property=MemoryMax=4G", "--property=RuntimeMaxSec=180", "-E", "PATH=/opt/lean-4.33.1/bin:/opt/catalan-checkers:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", "--working-directory=/srv/catalan-audit/audit/controls/positive", "--", "bash", "-c", "lake env /opt/catalan-checkers/comparator /srv/catalan-audit/audit/controls/positive/config.json"]
+Running as unit: catalan-control-positive.service; invocation ID: 02ac2782e8a84dcb8ccea049e18a7e14
+Press ^] three times within 1s to disconnect TTY.
+Building Fixture.Challenge
+⣾ [0/0] Running job computation[2K⣷ [2/2] Running Fixture.Challenge (+ 0 more)[2K[1;33m⚠ [2/2] Built Fixture.Challenge[m
+[1;33mwarning:[m Fixture/Challenge.lean:2:8: declaration uses `sorry`
+Build completed successfully (2 jobs).
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, StrictControl.target, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Fixture.Challenge
+Building Fixture.Solution
+⣾ [0/0] Running job computation[2K⣷ [2/2] Running Fixture.Solution (+ 0 more)[2KBuild completed successfully (2 jobs).
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, StrictControl.target, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Fixture.Solution
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1.224s
+CPU time consumed: 1.123s
+Memory peak: 256.0K
+Memory swap peak: 0B
+
+EXIT=0

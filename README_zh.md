@@ -41,7 +41,7 @@ lake exe cache get
 
 有关命令、输出位置，以及依赖的编译缓存、源码构建和内核重放之间的区别，见[验证详情](docs/verification.md)。最终定理仅使用 `propext`、`Classical.choice` 和 `Quot.sound`；不依赖额外公理或未证明的前提。
 
-源码指纹和验证输出见[验证快照](Verification/RESULTS.md)。
+源码指纹和验证输出见[验证快照](Verification/RESULTS.md)。同一已提交证明版本的后续检查，包括全新 Linux 环境验证和 Mathlib 库的全量源码重建，见[补充验证证据](Verification/Supplemental/README.md)。
 
 ## 固定依赖
 

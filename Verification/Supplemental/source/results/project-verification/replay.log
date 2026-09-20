@@ -1,0 +1,17 @@
+imported Catalan
+Catalan.catalans_conjecture: present in imported environment; theorem = true
+Catalan.catalan_int: present in imported environment; theorem = true
+Catalan.catalan_int_signed: present in imported environment; theorem = true
+Catalan.mihailescu_odd_primes: present in imported environment; theorem = true
+Catalan.JSP.statement: present in imported environment; theorem = true
+cone contains 129467 constants; all names have ConstantInfo
+unsafe/partial constants in cone: []
+axioms in cone: [Classical.choice, Quot.sound, propext]
+nonstandard axioms in cone: []
+all replayable cone constants are present in the replayed kernel environment
+Catalan.catalans_conjecture: present after replay; theorem = true; type identical = true
+Catalan.catalan_int: present after replay; theorem = true; type identical = true
+Catalan.catalan_int_signed: present after replay; theorem = true; type identical = true
+Catalan.mihailescu_odd_primes: present after replay; theorem = true; type identical = true
+Catalan.JSP.statement: present after replay; theorem = true; type identical = true
+fresh-environment kernel replay of 129467 constants; verification passed = true

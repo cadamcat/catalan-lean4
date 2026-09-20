@@ -1,5 +1,7 @@
 # Verification snapshot
 
+This is the original verification snapshot. Later checks of the same selected proof commit `897079dab4c8dc980cc9b98ab28fed846e4a756f`, including fresh Linux checks and a complete Mathlib library source rebuild, are documented in [Supplemental/README.md](Supplemental/README.md). The historical results and cache disclosure below are retained.
+
 Checks completed on 2026-09-19 with Lean 4.33.1 (`819816b2e0a3bf405af45ae5c7af2491d8f5bee6`). The checked input files and their SHA-256 digests are listed in [input-manifest.json](input-manifest.json).
 
 | Check | Result |

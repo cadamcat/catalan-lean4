@@ -1,0 +1,13 @@
+{
+  "installed_epoch": 1789850426.9258196,
+  "reason": "Comparator permits writes only below project .lake and clears non-whitelisted environment variables. Log below .lake; force cache-disable inside Lake launcher. Python interpreter copied into allowed executable prefix.",
+  "official_binaries_preserved": {
+    "lean-original": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "lake": "60330ab6f07dce20f3fa9ebb08e8b984ea9549eac172afeb15d9d2227060e2b3"
+  },
+  "wrapper_hashes": {
+    "lean": "e9dec7d27bdec0ad5b2c56d8d45aecda1a9ba8c7fbb2e05df57ce034aefd49fa",
+    "lake": "4543b894fd8882767d1f6967c955d2ce7a19b25e6ca35f83e14390221ab36096",
+    "python3-audit": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f"
+  }
+}

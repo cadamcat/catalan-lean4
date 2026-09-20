@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Fixture.Challenge",
+  "solution_module": "Fixture.Solution",
+  "theorem_names": [
+    "StrictControl.target"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

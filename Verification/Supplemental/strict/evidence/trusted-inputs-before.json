@@ -1,0 +1,12 @@
+{
+  "/srv/catalan-proof/Catalan/StrictChallenge.lean": "6c80bea17690e81c1d3ec535e265a57ce3922183c605fb4b7997f84a982b007b",
+  "/srv/catalan-proof/Catalan/StrictSolution.lean": "61b20446215d3b0840b899ec75512c21e4f476ec69dfde284060693fc12e302f",
+  "/srv/catalan-proof/lakefile.toml": "314aa017ec637fd198d922cd1ea9fd2d97dc9ae2714705f49bd16f666233d710",
+  "/srv/catalan-proof/lake-manifest.json": "ce5814774270133969324e177a0d1cfd934b075ca803adc921725831e402876c",
+  "/srv/catalan-proof/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+  "/srv/catalan-audit/audit/config.json": "53603bcd687d3fb9eb2c679a9efc12806c0840ea515cb0164ba67cf3ae146ce3",
+  "/opt/catalan-checkers/comparator": "2606a0c6b5209ac522ae51f8f530c56b58ee70fb5f53245e3cc24a98cf55c697",
+  "/opt/catalan-checkers/landrun": "24322769df1f6b3cecf218d7ca9eb72d7138607aeff92f9e72a3f2f7f2621836",
+  "/opt/catalan-checkers/lean4export": "805ab4cc6a88dcef109644d201c3142261f524aecaf58b04913a9f029e21e9b5",
+  "/opt/catalan-checkers/nanoda_bin": "1297c83d4b8e4ccaf86ab7c5dece88ae30e3fb6b6ba953a71288897c3aaa40f2"
+}

@@ -35,4 +35,8 @@ For a project-source rebuild, start from a fresh copy with no project `.lake/bui
 
 ## JSP submission verification
 
-JSP's [submission requirements](https://github.com/TheJustinSunPrize/awards/blob/38e63c424c7196f8d4ceb664c5c25f0c0529d5e2/CONTRIBUTING.md#external-solver-and-lean-submissions) require the bundled `lean-verify` process to report Verification passed for the exact proof commit selected for submission. The repository's build and audit scripts provide reproducible evidence, but do not replace that required review. Run it after selecting the published commit, and repeat it if that commit changes.
+JSP's [current verification guidance](https://github.com/TheJustinSunPrize/awards/blob/66ae4831b84793bbfaed3ebd4094cacb0faafbcf/docs/verification.md#recommended-lean-pre-submission-check) recommends the `lean-verify` skill but permits other methods; self-check declarations, reports, and log links are optional. Maintainers independently review statement correspondence and reproduce proof verification before acceptance. This supersedes the mandatory-self-check wording in the earlier rule version cited by the original repository snapshot.
+
+The proof selected in [PR #1948](https://github.com/TheJustinSunPrize/awards/pull/1948) remains commit `897079dab4c8dc980cc9b98ab28fed846e4a756f`. [Supplemental reports and logs](../Verification/Supplemental/README.md) record stricter Linux checks and a full Mathlib library source rebuild of that commit. They were added in a later evidence-only commit and do not certify a new proof version.
+
+The official guidance explicitly allows proof commit A to be documented by a later evidence commit B without rechecking A while A remains the selected proof version. Link evidence at its own immutable commit and identify the proof commit it describes. If a different proof commit is selected, verify that version before presenting it as checked.

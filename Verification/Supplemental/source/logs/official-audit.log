@@ -1,0 +1,9 @@
+Running as unit: catalan-source-v2-official-audit.service; invocation ID: dd6e4bf376924fe3bddc9af8237021c2
+Press ^] three times within 1s to disconnect TTY.
+/srv/catalan-audit/results/official-audit/result.json
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 28.916s
+CPU time consumed: 1min 47.778s
+Memory peak: 217.9M
+Memory swap peak: 0B

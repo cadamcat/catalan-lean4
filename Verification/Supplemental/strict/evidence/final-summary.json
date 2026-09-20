@@ -1,0 +1,41 @@
+{
+  "verdict": "Verification passed",
+  "checked_at": "2026-09-19T17:10:39.209180+00:00",
+  "proof_commit": "897079dab4c8dc980cc9b98ab28fed846e4a756f",
+  "tracked_diff": "",
+  "untracked_audit_harness": [
+    "?? Catalan/StrictChallenge.lean",
+    "?? Catalan/StrictSolution.lean"
+  ],
+  "comparator_exit": 0,
+  "trusted_inputs_unchanged": true,
+  "public_theorems_and_bridges_checked": 10,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "fresh_kernel_replay_constants": 129467,
+  "compiled_olean_counts": {
+    "Catalan.olean": 1,
+    "Catalan": 499,
+    "ClassFieldTheory": 540,
+    "ValuedFieldTheory": 257,
+    "GaloisCohomology": 74
+  },
+  "compiled_olean_total": 1371,
+  "positive_control_exit": 0,
+  "wrong_statement_control_exit": 1,
+  "extra_axiom_control_exit": 1,
+  "af_unix_controls": {
+    "baseline_exit": 0,
+    "restricted_exit": 0,
+    "effective_properties_verified": true
+  },
+  "supplemental_checks": {
+    "preflight": 0,
+    "verify": 0,
+    "official-audit": 0,
+    "replay": 0
+  }
+}

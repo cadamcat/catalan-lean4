@@ -1,0 +1,11 @@
+START comparator
+END comparator exit=0
+START verify
+END verify exit=0
+START all-vendor
+END all-vendor exit=0
+START official-audit
+END official-audit exit=0
+START replay
+END replay exit=0
+ALL_SOURCE_REBUILD_STAGES_PASSED

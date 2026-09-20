@@ -1,0 +1,1099 @@
+Catalan.catalan_int_signed : ∀ (x y : Int) (p q : Nat)
+  (hp : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) p)
+  (hq : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) q)
+  (hx : @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+  (hy : @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+  (h :
+    @Eq.{1} Int
+      (@HSub.hSub.{0, 0, 0} Int Int Int (@instHSub.{0} Int Int.instSub)
+        (@HPow.hPow.{0, 0, 0} Int Nat Int
+          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+        (@HPow.hPow.{0, 0, 0} Int Nat Int
+          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q))
+      (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))),
+  And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+      (And
+        (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+          (@Eq.{1} Int x (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+        (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))))
+theorem Catalan.catalan_int_signed : ∀ (x y : Int) (p q : Nat)
+  (hp : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) p)
+  (hq : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) q)
+  (hx : @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+  (hy : @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+  (h :
+    @Eq.{1} Int
+      (@HSub.hSub.{0, 0, 0} Int Int Int (@instHSub.{0} Int Int.instSub)
+        (@HPow.hPow.{0, 0, 0} Int Nat Int
+          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+        (@HPow.hPow.{0, 0, 0} Int Nat Int
+          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q))
+      (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))),
+  And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+      (And
+        (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+          (@Eq.{1} Int x (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+        (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))) :=
+fun (x y : ⋯) (p q : ⋯) (hp : ⋯) (hq : ⋯) (hx : ⋯) (hy : ⋯) (h : ⋯) =>
+  have hadd : ⋯ :=
+    @Decidable.byContradiction
+      (@Eq.{1} Int
+        (@HPow.hPow.{0, 0, 0} Int Nat Int
+          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+        (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+          (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+      (Int.instDecidableEq
+        (@HPow.hPow.{0, 0, 0} Int Nat Int
+          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+        (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+          (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+      fun
+        (a :
+          Not
+            (@Eq.{1} Int
+              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+              (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+                (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))) =>
+      Catalan.catalan_int_signed._proof_1_1 x y p q h a;
+  have hxpow_ne : ⋯ :=
+    @pow_ne_zero.{0} Int (@Semiring.toMonoidWithZero.{0} Int Int.instSemiring) x
+      (@IsFormallyReal.instIsReduced.{0} Int Int.instRing
+        (@IsFormallyReal.instOfIsStrictOrderedRing.{0} Int Int.instRing Int.instLinearOrder
+          Int.instIsStrictOrderedRing))
+      p hx;
+  have hypow_ne : ⋯ :=
+    @pow_ne_zero.{0} Int (@Semiring.toMonoidWithZero.{0} Int Int.instSemiring) y
+      (@IsFormallyReal.instIsReduced.{0} Int Int.instRing
+        (@IsFormallyReal.instOfIsStrictOrderedRing.{0} Int Int.instRing Int.instLinearOrder
+          Int.instIsStrictOrderedRing))
+      q hy;
+  have hxabs_pos : ⋯ :=
+    @Nat.pos_of_ne_zero (Int.natAbs x)
+      fun (hxabs_zero : @Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))) =>
+      hx
+        (@Iff.mp (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+          (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))) (@Int.natAbs_eq_zero x)
+          hxabs_zero);
+  have hyabs_pos : ⋯ :=
+    @Nat.pos_of_ne_zero (Int.natAbs y)
+      fun (hyabs_zero : @Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))) =>
+      hy
+        (@Iff.mp (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+          (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))) (@Int.natAbs_eq_zero y)
+          hyabs_zero);
+  @dite.{0}
+    (And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (And
+          (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+            (@Eq.{1} Int x
+              (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+          (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))))
+    (@LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+      (@HPow.hPow.{0, 0, 0} Int Nat Int
+        (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q))
+    (Int.decLt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+      (@HPow.hPow.{0, 0, 0} Int Nat Int
+        (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q))
+    (fun
+        (hyq_pos :
+          @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)) =>
+      have hxp_pos :
+        @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p) :=
+        @Decidable.byContradiction
+          (@LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p))
+          (Int.decLt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p))
+          fun
+            (a :
+              Not
+                (@LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int
+                    (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p))) =>
+          Catalan.catalan_int_signed._proof_1_2 x y p q h hyq_pos a;
+      have hxcast :
+        @Eq.{1} Int
+          (@Nat.cast.{0} Int instNatCastInt
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x)
+              p))
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p) :=
+        @Eq.mpr.{0}
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x)
+                p))
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p))
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (Int.natAbs
+                (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p)))
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p))
+          (@id.{0}
+            (@Eq.{1} Prop
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs x) p))
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p))
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (Int.natAbs
+                    (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                      p)))
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)))
+            (@congrArg.{1, 1} Nat Prop
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@instPowNat.{0} Nat instNatPowNat))
+                (Int.natAbs x) p)
+              (Int.natAbs
+                (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p))
+              (fun (_a : Nat) =>
+                @Eq.{1} Int (@Nat.cast.{0} Int instNatCastInt _a)
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int
+                    (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p))
+              (@Eq.symm.{1} Nat
+                (Int.natAbs
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                    p))
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@instPowNat.{0} Nat instNatPowNat))
+                  (Int.natAbs x) p)
+                (Int.natAbs_pow x p))))
+          (@Int.natAbs_of_nonneg
+            (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p)
+            (@le_of_lt.{0} Int
+              (@PartialOrder.toPreorder.{0} Int
+                (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                  (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                    (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                      (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                        Int.instConditionallyCompleteLinearOrder)))))
+              (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+              (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p)
+              hxp_pos));
+      have hycast :
+        @Eq.{1} Int
+          (@Nat.cast.{0} Int instNatCastInt
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs y)
+              q))
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q) :=
+        @Eq.mpr.{0}
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs y)
+                q))
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q))
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (Int.natAbs
+                (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y q)))
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q))
+          (@id.{0}
+            (@Eq.{1} Prop
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q))
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q))
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (Int.natAbs
+                    (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y
+                      q)))
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)))
+            (@congrArg.{1, 1} Nat Prop
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@instPowNat.{0} Nat instNatPowNat))
+                (Int.natAbs y) q)
+              (Int.natAbs
+                (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y q))
+              (fun (_a : Nat) =>
+                @Eq.{1} Int (@Nat.cast.{0} Int instNatCastInt _a)
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int
+                    (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q))
+              (@Eq.symm.{1} Nat
+                (Int.natAbs
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y
+                    q))
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@instPowNat.{0} Nat instNatPowNat))
+                  (Int.natAbs y) q)
+                (Int.natAbs_pow y q))))
+          (@Int.natAbs_of_nonneg
+            (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y q)
+            (@le_of_lt.{0} Int
+              (@PartialOrder.toPreorder.{0} Int
+                (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                  (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                    (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                      (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                        Int.instConditionallyCompleteLinearOrder)))))
+              (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+              (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y q)
+              hyq_pos));
+      have hcast_add :
+        @Eq.{1} Int
+          (@Nat.cast.{0} Int instNatCastInt
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x)
+              p))
+          (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+            (@Nat.cast.{0} Int instNatCastInt
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs y)
+                q))
+            (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))) :=
+        @Eq.mpr.{0}
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x)
+                p))
+            (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+              (@Nat.cast.{0} Int instNatCastInt
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs y) q))
+              (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+          (@Eq.{1} Int
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+            (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+              (@Nat.cast.{0} Int instNatCastInt
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs y) q))
+              (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+          (@id.{0}
+            (@Eq.{1} Prop
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs x) p))
+                (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                  (@Nat.cast.{0} Int instNatCastInt
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs y) q))
+                  (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+              (@Eq.{1} Int
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+                (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                  (@Nat.cast.{0} Int instNatCastInt
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs y) q))
+                  (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))))
+            (@congrArg.{1, 1} Int Prop
+              (@Nat.cast.{0} Int instNatCastInt
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs x) p))
+              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+              (fun (_a : Int) =>
+                @Eq.{1} Int _a
+                  (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                    (@Nat.cast.{0} Int instNatCastInt
+                      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                        (Int.natAbs y) q))
+                    (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+              hxcast))
+          (@Eq.mpr.{0}
+            (@Eq.{1} Int
+              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+              (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q))
+                (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+            (@Eq.{1} Int
+              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+              (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+                (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+            (@id.{0}
+              (@Eq.{1} Prop
+                (@Eq.{1} Int
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int
+                    (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+                  (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                    (@Nat.cast.{0} Int instNatCastInt
+                      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                        (Int.natAbs y) q))
+                    (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+                (@Eq.{1} Int
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int
+                    (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+                  (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                    (@HPow.hPow.{0, 0, 0} Int Nat Int
+                      (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+                    (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))))
+              (@congrArg.{1, 1} Int Prop
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q))
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+                (fun (_a : Int) =>
+                  @Eq.{1} Int
+                    (@HPow.hPow.{0, 0, 0} Int Nat Int
+                      (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+                    (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd) _a
+                      (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+                hycast))
+            hadd);
+      have hnat_add :
+        @Eq.{1} Nat
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x) p)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs y) q)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) :=
+        @cast.{0}
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x)
+                p))
+            (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+              (@Nat.cast.{0} Int instNatCastInt
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs y) q))
+              (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+          (@Eq.{1} Nat
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x) p)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs y)
+                q)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Eq.trans.{1} Prop
+            (@Eq.{1} Int
+              (@Nat.cast.{0} Int instNatCastInt
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs x) p))
+              (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q))
+                (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+            (@Eq.{1} Int
+              (@Nat.cast.{0} Int instNatCastInt
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs x) p))
+              (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q))
+                (@Nat.cast.{0} Int instNatCastInt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+            (@Eq.{1} Nat
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x)
+                p)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs y) q)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@congrArg.{1, 1} Int Prop
+              (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q))
+                (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+              (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q))
+                (@Nat.cast.{0} Int instNatCastInt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs x) p)))
+              (@congrArg.{1, 1} Int Int (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))
+                (@Nat.cast.{0} Int instNatCastInt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                  (@Nat.cast.{0} Int instNatCastInt
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs y) q)))
+                (@Eq.symm.{1} Int
+                  (@Nat.cast.{0} Int
+                    (@AddMonoidWithOne.toNatCast.{0} Int
+                      (@AddGroupWithOne.toAddMonoidWithOne.{0} Int (@Ring.toAddGroupWithOne.{0} Int Int.instRing)))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Int (nat_lit 1)
+                    (@One.toOfNat1.{0} Int
+                      (@AddMonoidWithOne.toOne.{0} Int
+                        (@AddGroupWithOne.toAddMonoidWithOne.{0} Int (@Ring.toAddGroupWithOne.{0} Int Int.instRing)))))
+                  (@Nat.cast_one.{0} Int
+                    (@AddGroupWithOne.toAddMonoidWithOne.{0} Int (@Ring.toAddGroupWithOne.{0} Int Int.instRing))))))
+            (@Eq.trans.{1} Prop
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs x) p))
+                (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                  (@Nat.cast.{0} Int instNatCastInt
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs y) q))
+                  (@Nat.cast.{0} Int instNatCastInt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs x) p))
+                (@Nat.cast.{0} Int
+                  (@AddMonoidWithOne.toNatCast.{0} Int
+                    (@AddGroupWithOne.toAddMonoidWithOne.{0} Int (@Ring.toAddGroupWithOne.{0} Int Int.instRing)))
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs y) q)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+              (@Eq.{1} Nat
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs x) p)
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@congrArg.{1, 1} Int Prop
+                (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+                  (@Nat.cast.{0} Int instNatCastInt
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs y) q))
+                  (@Nat.cast.{0} Int instNatCastInt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Nat.cast.{0} Int
+                  (@AddMonoidWithOne.toNatCast.{0} Int
+                    (@AddGroupWithOne.toAddMonoidWithOne.{0} Int (@Ring.toAddGroupWithOne.{0} Int Int.instRing)))
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs y) q)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Eq.{1} Int
+                  (@Nat.cast.{0} Int instNatCastInt
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs x) p)))
+                (@Nat.cast_add._simp_1.{0} Int
+                  (@AddGroupWithOne.toAddMonoidWithOne.{0} Int (@Ring.toAddGroupWithOne.{0} Int Int.instRing))
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@Nat.cast_inj._simp_1.{0} Int
+                (@AddGroupWithOne.toAddMonoidWithOne.{0} Int (@Ring.toAddGroupWithOne.{0} Int Int.instRing))
+                Int.instCharZero
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs x) p)
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (Int.natAbs y) q)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+          hcast_add;
+      have hnat_sub :
+        @Eq.{1} Nat
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x) p)
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs y)
+              q))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) :=
+        @Decidable.byContradiction
+          (@Eq.{1} Nat
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x)
+                p)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs y)
+                q))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (instDecidableEqNat
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x)
+                p)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs y)
+                q))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          fun
+            (a :
+              Not
+                (@Eq.{1} Nat
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs x) p)
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (Int.natAbs y) q))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+          Catalan.catalan_int_signed._proof_1_3 x y p q h hxcast hycast a;
+      have hcat :
+        And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (And (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) :=
+        Catalan.catalans_conjecture p q (Int.natAbs x) (Int.natAbs y)
+          (@Decidable.byContradiction
+            (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) p)
+            (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) p)
+            fun (a : Not (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) p)) =>
+            Catalan.catalan_int_signed._proof_1_4 x y p q hp a)
+          (@Decidable.byContradiction
+            (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) q)
+            (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) q)
+            fun (a : Not (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) q)) =>
+            Catalan.catalan_int_signed._proof_1_5 x y p q hq a)
+          hxabs_pos hyabs_pos hnat_sub;
+      @And.casesOn.{0} (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (And (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+        (fun
+            (x_1 :
+              And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (And (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))) =>
+          And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (And
+                (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                  (@Eq.{1} Int x
+                    (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+                (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))))
+        hcat
+        fun (hp2 : @Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (right :
+            And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (And (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) =>
+        @And.casesOn.{0} (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (And (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (fun
+              (x_1 :
+                And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (And (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) =>
+            And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (And
+                  (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                    (@Eq.{1} Int x
+                      (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+                  (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))))
+          right
+          fun (hq3 : @Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (right :
+              And (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))) =>
+          @And.casesOn.{0} (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (fun
+                (x_1 :
+                  And (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))) =>
+              And (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (And
+                    (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                      (@Eq.{1} Int x
+                        (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+                    (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))))
+            right
+            fun (hx3 : @Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (hy2 : @Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) =>
+            have hx_class :
+              Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                (@Eq.{1} Int x
+                  (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))) :=
+              @Iff.mp (@Eq.{1} Nat (Int.natAbs x) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Or
+                  (@Eq.{1} Int x
+                    (@Nat.cast.{0} Int instNatCastInt (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+                  (@Eq.{1} Int x
+                    (@Neg.neg.{0} Int Int.instNegInt
+                      (@Nat.cast.{0} Int instNatCastInt
+                        (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))))
+                (@Int.natAbs_eq_iff x (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) hx3;
+            have hy_class :
+              Or (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                (@Eq.{1} Int y
+                  (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))) :=
+              @Iff.mp (@Eq.{1} Nat (Int.natAbs y) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (Or
+                  (@Eq.{1} Int y
+                    (@Nat.cast.{0} Int instNatCastInt (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                  (@Eq.{1} Int y
+                    (@Neg.neg.{0} Int Int.instNegInt
+                      (@Nat.cast.{0} Int instNatCastInt
+                        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+                (@Int.natAbs_eq_iff y (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) hy2;
+            have hy_eq : @Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) :=
+              @Or.casesOn (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                (@Eq.{1} Int y
+                  (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))
+                (fun
+                    (x :
+                      Or (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                        (@Eq.{1} Int y
+                          (@Neg.neg.{0} Int Int.instNegInt
+                            (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))) =>
+                  @Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                hy_class
+                (fun (hy_eq : @Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))) => hy_eq)
+                fun
+                  (hy_neg :
+                    @Eq.{1} Int y
+                      (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))) =>
+                @False.elim.{0} (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                  (@False.elim.{0} False
+                    (@Eq.mp.{0}
+                      (@LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                        (@HPow.hPow.{0, 0, 0} Int Nat Int
+                          (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid)))
+                          (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                          (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+                      False
+                      (@eq_false
+                        (@LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                          (@HPow.hPow.{0, 0, 0} Int Nat Int
+                            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid)))
+                            (@Neg.neg.{0} Int Int.instNegInt
+                              (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                            (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+                        (@Mathlib.Meta.NormNum.isInt_lt_false.{0} Int Int.instRing
+                          (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                            (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                              (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                                (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                                  Int.instConditionallyCompleteLinearOrder))))
+                          (@StarOrderedRing.toIsOrderedRing.{0} Int Int.instCommSemiring
+                            (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                              (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                                (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                                  (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                                    Int.instConditionallyCompleteLinearOrder))))
+                            Int.instStarRing Int.instStarOrderedRing)
+                          (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                          (@HPow.hPow.{0, 0, 0} Int Nat Int
+                            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid)))
+                            (@Neg.neg.{0} Int Int.instNegInt
+                              (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                            (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                          (Int.ofNat (nat_lit 0)) (Int.negOfNat (nat_lit 8))
+                          (@Mathlib.Meta.NormNum.IsNat.to_isInt.{0} Int Int.instRing
+                            (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) (nat_lit 0)
+                            (@Mathlib.Meta.NormNum.isNat_ofNat.{0} Int
+                              (@AddGroupWithOne.toAddMonoidWithOne.{0} Int
+                                (@Ring.toAddGroupWithOne.{0} Int Int.instRing))
+                              (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) (nat_lit 0)
+                              (@Eq.refl.{1} Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))))
+                          (@Mathlib.Meta.NormNum.isInt_pow.{0} Int Int.instRing
+                            (@HPow.hPow.{0, 0, 0} Int Nat Int
+                              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))))
+                            (@Neg.neg.{0} Int Int.instNegInt
+                              (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                            (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (Int.negOfNat (nat_lit 2))
+                            (nat_lit 3) (Int.negOfNat (nat_lit 8))
+                            (@Eq.refl.{1} ((a : Int) → (a : Nat) → Int)
+                              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                                (@instHPow.{0, 0} Int Nat
+                                  (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid)))))
+                            (@Mathlib.Meta.NormNum.isInt_neg.{0} Int Int.instRing
+                              (@Neg.neg.{0} Int
+                                (@NegZeroClass.toNeg.{0} Int
+                                  (@SubNegZeroMonoid.toNegZeroClass.{0} Int
+                                    (@SubtractionMonoid.toSubNegZeroMonoid.{0} Int
+                                      (@SubtractionCommMonoid.toSubtractionMonoid.{0} Int
+                                        (@AddCommGroup.toDivisionAddCommMonoid.{0} Int
+                                          (@Ring.toAddCommGroup.{0} Int Int.instRing)))))))
+                              (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) (Int.ofNat (nat_lit 2))
+                              (Int.negOfNat (nat_lit 2))
+                              (@Eq.refl.{1} ((a : Int) → Int)
+                                (@Neg.neg.{0} Int
+                                  (@NegZeroClass.toNeg.{0} Int
+                                    (@SubNegZeroMonoid.toNegZeroClass.{0} Int
+                                      (@SubtractionMonoid.toSubNegZeroMonoid.{0} Int
+                                        (@SubtractionCommMonoid.toSubtractionMonoid.{0} Int
+                                          (@AddCommGroup.toDivisionAddCommMonoid.{0} Int
+                                            (@Ring.toAddCommGroup.{0} Int Int.instRing))))))))
+                              (@Mathlib.Meta.NormNum.IsNat.to_isInt.{0} Int Int.instRing
+                                (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) (nat_lit 2)
+                                (@Mathlib.Meta.NormNum.isNat_ofNat.{0} Int
+                                  (@AddGroupWithOne.toAddMonoidWithOne.{0} Int
+                                    (@Ring.toAddGroupWithOne.{0} Int Int.instRing))
+                                  (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) (nat_lit 2)
+                                  (@Eq.refl.{1} Int (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))))
+                              (@Eq.refl.{1} Int (Int.negOfNat (nat_lit 2))))
+                            (@Mathlib.Meta.NormNum.isNat_ofNat.{0} Nat Nat.instAddMonoidWithOne
+                              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (nat_lit 3)
+                              (@Eq.refl.{1} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+                            (@Mathlib.Meta.NormNum.intPow_negOfNat_bit1 (nat_lit 2) (nat_lit 3) (nat_lit 8) (nat_lit 1)
+                              (nat_lit 2) (@Mathlib.Meta.NormNum.natPow_one (nat_lit 2)) (@Eq.refl.{1} Nat (nat_lit 3))
+                              (@Eq.refl.{1} Nat (nat_lit 8))))
+                          (@Eq.refl.{1} Bool Bool.true)))
+                      (@Eq.mp.{0}
+                        (@LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                          (@HPow.hPow.{0, 0, 0} Int Nat Int
+                            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid)))
+                            (@Neg.neg.{0} Int Int.instNegInt
+                              (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                            q))
+                        (@LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                          (@HPow.hPow.{0, 0, 0} Int Nat Int
+                            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid)))
+                            (@Neg.neg.{0} Int Int.instNegInt
+                              (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                            (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+                        (@congrArg.{1, 1} Nat Prop q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                          (fun (_a : Nat) =>
+                            @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                                (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid)))
+                                (@Neg.neg.{0} Int Int.instNegInt
+                                  (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                                _a))
+                          hq3)
+                        (@Eq.mp.{0}
+                          (@LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                            (@HPow.hPow.{0, 0, 0} Int Nat Int
+                              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y
+                              q))
+                          (@LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                            (@HPow.hPow.{0, 0, 0} Int Nat Int
+                              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid)))
+                              (@Neg.neg.{0} Int Int.instNegInt
+                                (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                              q))
+                          (@congrArg.{1, 1} Int Prop y
+                            (@Neg.neg.{0} Int Int.instNegInt
+                              (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))
+                            (fun (_a : Int) =>
+                              @LT.lt.{0} Int Int.instLTInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                                  (@instHPow.{0, 0} Int Nat
+                                    (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid)))
+                                  _a q))
+                            hy_neg)
+                          hyq_pos))));
+            @And.intro (@Eq.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (And (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (And
+                  (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                    (@Eq.{1} Int x
+                      (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+                  (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))))))
+              hp2
+              (@And.intro (@Eq.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (And
+                  (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                    (@Eq.{1} Int x
+                      (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+                  (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))))
+                hq3
+                (@And.intro
+                  (Or (@Eq.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))
+                    (@Eq.{1} Int x
+                      (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))))))
+                  (@Eq.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2)))) hx_class hy_eq)))
+    fun (hyq_pos : ⋯) =>
+    have hyq_neg : ⋯ :=
+      @Decidable.byContradiction
+        (@LT.lt.{0} Int Int.instLTInt
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+          (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+        (Int.decLt
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+          (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+        fun
+          (a :
+            Not
+              (@LT.lt.{0} Int Int.instLTInt
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+                (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))) =>
+        Catalan.catalan_int_signed._proof_1_6 x y p q hypow_ne hyq_pos a;
+    have hxp_neg : ⋯ :=
+      @Decidable.byContradiction
+        (@LT.lt.{0} Int Int.instLTInt
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+          (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+        (Int.decLt
+          (@HPow.hPow.{0, 0, 0} Int Nat Int
+            (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+          (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+        fun
+          (a :
+            Not
+              (@LT.lt.{0} Int Int.instLTInt
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+                (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))) =>
+        Catalan.catalan_int_signed._proof_1_7 x y p q h hxpow_ne hypow_ne hyq_neg a;
+    have hxcast : ⋯ :=
+      @Eq.mpr.{0}
+        (@Eq.{1} Int
+          (@Nat.cast.{0} Int instNatCastInt
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs x)
+              p))
+          (@Neg.neg.{0} Int Int.instNegInt
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)))
+        (@Eq.{1} Int
+          (@Nat.cast.{0} Int instNatCastInt
+            (Int.natAbs
+              (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p)))
+          (@Neg.neg.{0} Int Int.instNegInt
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)))
+        (@id.{0}
+          (@Eq.{1} Prop
+            (@Eq.{1} Int
+              (@Nat.cast.{0} Int instNatCastInt
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs x) p))
+              (@Neg.neg.{0} Int Int.instNegInt
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)))
+            (@Eq.{1} Int
+              (@Nat.cast.{0} Int instNatCastInt
+                (Int.natAbs
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                    p)))
+              (@Neg.neg.{0} Int Int.instNegInt
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p))))
+          (@congrArg.{1, 1} Nat Prop
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@instPowNat.{0} Nat instNatPowNat))
+              (Int.natAbs x) p)
+            (Int.natAbs
+              (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p))
+            (fun (_a : Nat) =>
+              @Eq.{1} Int (@Nat.cast.{0} Int instNatCastInt _a)
+                (@Neg.neg.{0} Int Int.instNegInt
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int
+                    (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)))
+            (@Eq.symm.{1} Nat
+              (Int.natAbs
+                (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p))
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@instPowNat.{0} Nat instNatPowNat))
+                (Int.natAbs x) p)
+              (Int.natAbs_pow x p))))
+        (@Eq.mpr.{0}
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (Int.natAbs
+                (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p)))
+            (@Neg.neg.{0} Int Int.instNegInt
+              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)))
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (Int.natAbs
+                (@Neg.neg.{0} Int Int.instNegInt
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                    p))))
+            (@Neg.neg.{0} Int Int.instNegInt
+              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)))
+          (@id.{0}
+            (@Eq.{1} Prop
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (Int.natAbs
+                    (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                      p)))
+                (@Neg.neg.{0} Int Int.instNegInt
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int
+                    (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)))
+              (@Eq.{1} Int
+                (@Nat.cast.{0} Int instNatCastInt
+                  (Int.natAbs
+                    (@Neg.neg.{0} Int Int.instNegInt
+                      (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow))
+                        x p))))
+                (@Neg.neg.{0} Int Int.instNegInt
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int
+                    (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p))))
+            (@congrArg.{1, 1} Nat Prop
+              (Int.natAbs
+                (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p))
+              (Int.natAbs
+                (@Neg.neg.{0} Int Int.instNegInt
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                    p)))
+              (fun (_a : Nat) =>
+                @Eq.{1} Int (@Nat.cast.{0} Int instNatCastInt _a)
+                  (@Neg.neg.{0} Int Int.instNegInt
+                    (@HPow.hPow.{0, 0, 0} Int Nat Int
+                      (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)))
+              (@Eq.symm.{1} Nat
+                (Int.natAbs
+                  (@Neg.neg.{0} Int Int.instNegInt
+                    (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                      p)))
+                (Int.natAbs
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                    p))
+                (Int.natAbs_neg
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                    p)))))
+          (@Int.natAbs_of_nonneg
+            (@Neg.neg.{0} Int Int.instNegInt
+              (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p))
+            (@Decidable.byContradiction
+              (@LE.le.{0} Int Int.instLEInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                (@Neg.neg.{0} Int Int.instNegInt
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                    p)))
+              (Int.decLe (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                (@Neg.neg.{0} Int Int.instNegInt
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x
+                    p)))
+              fun
+                (a :
+                  Not
+                    (@LE.le.{0} Int Int.instLEInt (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                      (@Neg.neg.{0} Int Int.instNegInt
+                        (@HPow.hPow.{0, 0, 0} Int Nat Int
+                          (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) x p)))) =>
+              Catalan.catalan_int_signed._proof_1_8 x y p q h hxp_neg a)));
+    have hycast : ⋯ :=
+      @Eq.mpr.{0}
+        (@Eq.{1} Int
+          (@Nat.cast.{0} Int instNatCastInt
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) (Int.natAbs y)
+              q))
+          (@Neg.neg.{0} Int Int.instNegInt
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)))
+        (@Eq.{1} Int
+          (@Nat.cast.{0} Int instNatCastInt
+            (Int.natAbs
+              (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y q)))
+          (@Neg.neg.{0} Int Int.instNegInt
+            (@HPow.hPow.{0, 0, 0} Int Nat Int
+              (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)))
+        (@id.{0}
+          (@Eq.{1} Prop
+            (@Eq.{1} Int
+              (@Nat.cast.{0} Int instNatCastInt
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (Int.natAbs y) q))
+              (@Neg.neg.{0} Int Int.instNegInt
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)))
+            (@Eq.{1} Int
+              (@Nat.cast.{0} Int instNatCastInt
+                (Int.natAbs
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y
+                    q)))
+              (@Neg.neg.{0} Int Int.instNegInt
+                (@HPow.hPow.{0, 0, 0} Int Nat Int
+                  (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q))))
+          (@congrArg.{1, 1} Nat Prop
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@instPowNat.{0} Nat instNatPowNat))
+              (Int.natAbs y) q)
+            (Int.natAbs
+              (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y q))
+            (fun (_a : Nat) =>
+              @Eq.{1} Int (@Nat.cast.{0} Int instNatCastInt _a)
+                (@Neg.neg.{0} Int Int.instNegInt
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int
+                    (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)))
+            (@Eq.symm.{1} Nat
+              (Int.natAbs
+                (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y q))
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@instPowNat.{0} Nat instNatPowNat))
+                (Int.natAbs y) q)
+              (Int.natAbs_pow y q))))
+        (@Eq.mpr.{0}
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (Int.natAbs
+                (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y q)))
+            (@Neg.neg.{0} Int Int.instNegInt
+              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)))
+          (@Eq.{1} Int
+            (@Nat.cast.{0} Int instNatCastInt
+              (Int.natAbs
+                (@Neg.neg.{0} Int Int.instNegInt
+                  (@HPow.hPow.{0, 0, 0} Int Nat Int (@instHPow.{0, 0} Int Nat (@instPowNat.{0} Int Int.instNatPow)) y
+                    q))))
+            (@Neg.neg.{0} Int Int.instNegInt
+              (@HPow.hPow.{0, 0, 0} Int Nat Int
+                (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)))
+          ⋯ ⋯);
+    ⋯
+'Catalan.catalan_int_signed' depends on axioms: [propext, Classical.choice, Quot.sound]

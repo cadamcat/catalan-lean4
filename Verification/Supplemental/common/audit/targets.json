@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "project": {
+    "root": "/srv/catalan-proof",
+    "repository": "https://github.com/cadamcat/catalan-lean4",
+    "commit": "897079dab4c8dc980cc9b98ab28fed846e4a756f",
+    "toolchain": "leanprover/lean4:v4.33.1"
+  },
+  "problems": [
+    {
+      "id": "JSP-000035",
+      "source": "https://github.com/TheJustinSunPrize/awards/blob/38e63c424c7196f8d4ceb664c5c25f0c0529d5e2/problems/catalog-0001-0100.md#L586-L601",
+      "requirements": [
+        {
+          "id": "exist-8",
+          "description": "8 has a representation as m^k with natural m >= 2 and k >= 2.",
+          "targets": [
+            "jsp",
+            "bridge-jsp"
+          ],
+          "coverage": "pending"
+        },
+        {
+          "id": "exist-9",
+          "description": "9 has a representation as m^k with natural m >= 2 and k >= 2.",
+          "targets": [
+            "jsp",
+            "bridge-jsp"
+          ],
+          "coverage": "pending"
+        },
+        {
+          "id": "uniqueness",
+          "description": "For every positive n without an upper bound, if n and n+1 are proper perfect powers then n = 8. The other listed targets audit supporting and stronger public classifications.",
+          "targets": [
+            "jsp",
+            "natural",
+            "positive-int",
+            "signed-int",
+            "odd-primes",
+            "bridge-jsp",
+            "bridge-natural",
+            "bridge-positive_int",
+            "bridge-signed_int",
+            "bridge-odd_primes"
+          ],
+          "coverage": "pending"
+        }
+      ]
+    }
+  ],
+  "targets": [
+    {
+      "id": "jsp",
+      "problem": "JSP-000035",
+      "role": "theorem",
+      "module": "Catalan.JSP",
+      "source": "Catalan/JSP.lean",
+      "declaration": "Catalan.JSP.statement"
+    },
+    {
+      "id": "natural",
+      "problem": "JSP-000035",
+      "role": "theorem",
+      "module": "Catalan.Final.Assembly",
+      "source": "Catalan/Final/Assembly.lean",
+      "declaration": "Catalan.catalans_conjecture"
+    },
+    {
+      "id": "positive-int",
+      "problem": "JSP-000035",
+      "role": "theorem",
+      "module": "Catalan.Final.Assembly",
+      "source": "Catalan/Final/Assembly.lean",
+      "declaration": "Catalan.catalan_int"
+    },
+    {
+      "id": "signed-int",
+      "problem": "JSP-000035",
+      "role": "theorem",
+      "module": "Catalan.Final.Signed",
+      "source": "Catalan/Final/Signed.lean",
+      "declaration": "Catalan.catalan_int_signed"
+    },
+    {
+      "id": "odd-primes",
+      "problem": "JSP-000035",
+      "role": "theorem",
+      "module": "Catalan.Final.Assembly",
+      "source": "Catalan/Final/Assembly.lean",
+      "declaration": "Catalan.mihailescu_odd_primes"
+    },
+    {
+      "id": "bridge-jsp",
+      "problem": "JSP-000035",
+      "role": "bridge",
+      "module": "Catalan.StrictSolution",
+      "source": "Catalan/StrictSolution.lean",
+      "declaration": "StrictCatalan.jsp"
+    },
+    {
+      "id": "bridge-natural",
+      "problem": "JSP-000035",
+      "role": "bridge",
+      "module": "Catalan.StrictSolution",
+      "source": "Catalan/StrictSolution.lean",
+      "declaration": "StrictCatalan.natural"
+    },
+    {
+      "id": "bridge-positive_int",
+      "problem": "JSP-000035",
+      "role": "bridge",
+      "module": "Catalan.StrictSolution",
+      "source": "Catalan/StrictSolution.lean",
+      "declaration": "StrictCatalan.positive_int"
+    },
+    {
+      "id": "bridge-signed_int",
+      "problem": "JSP-000035",
+      "role": "bridge",
+      "module": "Catalan.StrictSolution",
+      "source": "Catalan/StrictSolution.lean",
+      "declaration": "StrictCatalan.signed_int"
+    },
+    {
+      "id": "bridge-odd_primes",
+      "problem": "JSP-000035",
+      "role": "bridge",
+      "module": "Catalan.StrictSolution",
+      "source": "Catalan/StrictSolution.lean",
+      "declaration": "StrictCatalan.odd_primes"
+    }
+  ]
+}

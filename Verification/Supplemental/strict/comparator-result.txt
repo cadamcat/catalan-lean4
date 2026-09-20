@@ -1,0 +1,15 @@
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, StrictCatalan.jsp, StrictCatalan.natural, StrictCatalan.positive_int, StrictCatalan.signed_int, StrictCatalan.odd_primes, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Catalan.StrictSolution
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 36min 48.487s
+CPU time consumed: 2h 49min 5.699s
+Memory peak: 247.3M
+Memory swap peak: 0B
+
+EXIT=0
+END_UTC=2026-09-19T17:05:04.283419+00:00

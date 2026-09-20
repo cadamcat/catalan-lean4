@@ -1,0 +1,41 @@
+Catalan.mihailescu_odd_primes : ∀ (p q : Nat) (hp : Nat.Prime p) (hq : Nat.Prime q)
+  (hp2 : @Ne.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+  (hq2 : @Ne.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (x y : Int)
+  (hx : @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+  (hy : @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))),
+  @Ne.{1} Int
+    (@HPow.hPow.{0, 0, 0} Int Nat Int
+      (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+    (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+      (@HPow.hPow.{0, 0, 0} Int Nat Int
+        (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+      (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+theorem Catalan.mihailescu_odd_primes : ∀ (p q : Nat) (hp : Nat.Prime p) (hq : Nat.Prime q)
+  (hp2 : @Ne.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+  (hq2 : @Ne.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (x y : Int)
+  (hx : @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+  (hy : @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))),
+  @Ne.{1} Int
+    (@HPow.hPow.{0, 0, 0} Int Nat Int
+      (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) x p)
+    (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+      (@HPow.hPow.{0, 0, 0} Int Nat Int
+        (@instHPow.{0, 0} Int Nat (@NPow.toPow.{0} Int (@Monoid.toNPow.{0} Int Int.instMonoid))) y q)
+      (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))) :=
+fun (p q : Nat) (hp : Nat.Prime p) (hq : Nat.Prime q)
+    (hp2 : @Ne.{1} Nat p (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (hq2 : @Ne.{1} Nat q (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (x y : Int)
+    (hx : @Ne.{1} Int x (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+    (hy : @Ne.{1} Int y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))) =>
+  Catalan.Thaine.odd_primes_no_solution_of_large
+    (fun (r s : Nat) (hr : Nat.Prime r) (hs : Nat.Prime s)
+        (hr7 : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) r)
+        (hs7 : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) s)
+        (hsr : @LT.lt.{0} Nat instLTNat s r) (X Y : Int)
+        (hX : @Ne.{1} Int X (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+        (hY : @Ne.{1} Int Y (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))) =>
+      have finalPrimeLeft : Fact (Nat.Prime r) := @Fact.mk (Nat.Prime r) hr;
+      have finalPrimeRight : Fact (Nat.Prime s) := @Fact.mk (Nat.Prime s) hs;
+      @Catalan.Thaine.literal_large_odd_primes_no_solution r s finalPrimeLeft finalPrimeRight hr7 hs7 hsr X Y hX hY)
+    p q hp hq hp2 hq2 x y hx hy
+'Catalan.mihailescu_odd_primes' depends on axioms: [propext, Classical.choice, Quot.sound]

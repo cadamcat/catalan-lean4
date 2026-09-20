@@ -1,0 +1,32 @@
+Running as unit: catalan-socket-probe.service; invocation ID: 92fbc3dcfc2c460e90f80b861438dd75
+Press ^] three times within 1s to disconnect TTY.
+{
+  "mode": "blocked",
+  "uid": 2000,
+  "groups": [
+    2000
+  ],
+  "results": {
+    "AF_INET": {
+      "created": true
+    },
+    "AF_UNIX": {
+      "created": false,
+      "errno": 97,
+      "error": "[Errno 97] Address family not supported by protocol"
+    }
+  },
+  "process_restrictions": [
+    "NoNewPrivs:\t1",
+    "Seccomp:\t2",
+    "Seccomp_filters:\t2"
+  ],
+  "invocation_id": "92fbc3dcfc2c460e90f80b861438dd75"
+}
+PROBE_PASSED=blocked
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 10.018s
+CPU time consumed: 18ms
+Memory peak: 5.0M
+Memory swap peak: 0B

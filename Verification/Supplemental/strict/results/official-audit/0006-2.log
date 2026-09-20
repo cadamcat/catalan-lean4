@@ -1,0 +1,24 @@
+StrictCatalan.natural : ∀ (a b x y : Nat),
+  Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a →
+    Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) b →
+      Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) x →
+        Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) y →
+          @Eq.{1} Nat (Nat.sub (Nat.pow x a) (Nat.pow y b))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) →
+            And (@Eq.{1} Nat a (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (And (@Eq.{1} Nat b (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (And (@Eq.{1} Nat x (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (@Eq.{1} Nat y (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+theorem StrictCatalan.natural : ∀ (a b x y : Nat),
+  Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a →
+    Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) b →
+      Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) x →
+        Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) y →
+          @Eq.{1} Nat (Nat.sub (Nat.pow x a) (Nat.pow y b))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) →
+            And (@Eq.{1} Nat a (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (And (@Eq.{1} Nat b (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (And (@Eq.{1} Nat x (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (@Eq.{1} Nat y (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) :=
+Catalan.catalans_conjecture
+'StrictCatalan.natural' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,23 @@
+{
+  "coverage_passed": true,
+  "expected_source_counts": {
+    "mathlib_library": 8312,
+    "catalan_library": 500,
+    "vendor": 871
+  },
+  "successfully_compiled_source_counts_by_dependency": {
+    "mathlib": 8312,
+    "plausible": 13,
+    "LeanSearchClient": 4,
+    "importGraph": 10,
+    "proofwidgets": 13,
+    "aesop": 132,
+    "Qq": 14,
+    "batteries": 192,
+    "Cli": 0
+  },
+  "all_successful_compilations_trust_zero": true,
+  "mathlib_and_lake_package_caches_disabled": true,
+  "invocation_records": 10087,
+  "unique_successfully_compiled_sources": 10061
+}

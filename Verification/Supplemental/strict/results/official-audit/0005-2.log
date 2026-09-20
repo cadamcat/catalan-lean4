@@ -1,0 +1,18 @@
+StrictCatalan.jsp : And
+  (And (StrictCatalan.ProperPower (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+    (StrictCatalan.ProperPower (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9)))))
+  (∀ (n : Nat),
+    Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+      StrictCatalan.ProperPower n →
+        StrictCatalan.ProperPower (Nat.add n (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          @Eq.{1} Nat n (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+theorem StrictCatalan.jsp : And
+  (And (StrictCatalan.ProperPower (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+    (StrictCatalan.ProperPower (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9)))))
+  (∀ (n : Nat),
+    Nat.lt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+      StrictCatalan.ProperPower n →
+        StrictCatalan.ProperPower (Nat.add n (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          @Eq.{1} Nat n (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))) :=
+Catalan.JSP.statement
+'StrictCatalan.jsp' depends on axioms: [propext, Classical.choice, Quot.sound]

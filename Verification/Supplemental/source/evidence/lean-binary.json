@@ -1,0 +1,5 @@
+{
+  "official_binary_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "wrapper_sha256": "896188b1987752bf736e748a19494a298f041c612b2b2c51f181946de50a6de0",
+  "note": "Official Lean 4.33.1 executable preserved; wrapper adds --trust=0, -j2 and records actual argv. No package cache used."
+}
