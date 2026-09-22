@@ -22,6 +22,8 @@
 
 这些定理的陈述与证明见 [JSP.lean](Catalan/JSP.lean)、[Final/Assembly.lean](Catalan/Final/Assembly.lean) 和 [Final/Signed.lean](Catalan/Final/Signed.lean)。可通过 `import Catalan` 导入这些结果。`Catalan.JSP.IsProperPerfectPower` 明确定义了非平凡完全幂：自然数底数和指数都至少为 2。
 
+Google DeepMind 的 Formal Conjectures 仓库给出了陈述相同的 `Catalan.catalans_conjecture`，并把本仓库的证明链接为它的形式化证明（[Catalan.lean](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/Catalan.lean)，[PR #6452](https://github.com/google-deepmind/formal-conjectures/pull/6452)）。
+
 ## 构建与验证
 
 环境要求：Git、Python 3.9 或更高版本，以及 [elan](https://github.com/leanprover/elan)，并确保 `lake` 已加入 `PATH`。请在仓库根目录运行：

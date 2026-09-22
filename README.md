@@ -22,6 +22,8 @@ The only consecutive positive integers that are both proper perfect powers are *
 
 The statements and proofs are in [JSP.lean](Catalan/JSP.lean), [Final/Assembly.lean](Catalan/Final/Assembly.lean), and [Final/Signed.lean](Catalan/Final/Signed.lean). They are available through `import Catalan`. The definition of a proper perfect power is explicit in `Catalan.JSP.IsProperPerfectPower`: both the natural base and exponent are at least 2.
 
+Google DeepMind's Formal Conjectures states `Catalan.catalans_conjecture` with the same statement and links this proof as its formal proof ([Catalan.lean](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/Catalan.lean), [PR #6452](https://github.com/google-deepmind/formal-conjectures/pull/6452)).
+
 ## Build and verify
 
 Requirements: Git, Python 3.9 or newer, and [elan](https://github.com/leanprover/elan), with `lake` available on `PATH`. Run from the repository root:
