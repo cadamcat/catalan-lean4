@@ -1,9 +1,65 @@
 cff-version: 1.2.0
-message: "Please cite this repository when using the formalization."
-title: "catalan-lean4: A Lean 4 formalization of Catalan's conjecture"
+message: "If you use this formalization, please cite it using the metadata from this file."
 type: software
+title: "catalan-lean4: A Lean 4 formalization of Catalan's conjecture"
+abstract: >-
+  A Lean 4 formalization of Catalan's conjecture (Mihăilescu's theorem):
+  8 and 9 are the only consecutive proper perfect powers. It also classifies
+  the power equations for natural, positive-integer and nonzero signed-integer
+  bases. The final theorems use only the axioms propext, Classical.choice and
+  Quot.sound.
 authors:
   - family-names: Xu
     given-names: Yao
+    alias: cadamcat
+repository-code: "https://github.com/cadamcat/catalan-lean4"
+url: "https://github.com/cadamcat/catalan-lean4"
 license: Apache-2.0
-version: 0.1.0
+version: 1.0.0
+commit: 4bf1f742eb341decbdfc59ec56e1616f4d13e33b
+date-released: 2026-09-21
+keywords:
+  - Lean 4
+  - formalization
+  - Catalan's conjecture
+  - Mihăilescu's theorem
+  - number theory
+  - cyclotomic fields
+references:
+  - type: article
+    authors:
+      - family-names: Mihăilescu
+        given-names: Preda
+    title: "Primary cyclotomic units and a proof of Catalan's conjecture"
+    journal: "Journal für die reine und angewandte Mathematik"
+    volume: 572
+    start: 167
+    end: 195
+    year: 2004
+    doi: 10.1515/crll.2004.048
+  - type: article
+    authors:
+      - family-names: Bilu
+        given-names: Yuri F.
+    title: "Catalan without logarithmic forms (after Bugeaud, Hanrot and Mihăilescu)"
+    journal: "Journal de théorie des nombres de Bordeaux"
+    volume: 17
+    start: 69
+    end: 85
+    year: 2005
+    doi: 10.5802/jtnb.478
+  - type: software
+    authors:
+      - alias: n-yamaguchi-0729
+    title: ClassFieldTheory
+    repository-code: "https://github.com/n-yamaguchi-0729/ClassFieldTheory"
+    commit: 2930b56f4b5c33ddab9ef91a45a4811d6f7a683f
+    license: Apache-2.0
+    notes: "871 unmodified Lean source files are vendored under vendor/ClassFieldTheory."
+  - type: software
+    authors:
+      - name: The mathlib Community
+    title: mathlib4
+    repository-code: "https://github.com/leanprover-community/mathlib4"
+    commit: 0df444a360eaa60ab8c11dca51a86af692955474
+    license: Apache-2.0
