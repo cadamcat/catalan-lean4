@@ -473,12 +473,22 @@ noncomputable def padicPrincipalData
     rfl
   have htop : directTopology = standardTopology :=
     hdirect.trans (padicPrincipalUnitDirectTopology_eq_standard p)
-  let P := fun T : TopologicalSpace U => by
+  let P : TopologicalSpace U → Type := fun T => by
     letI : TopologicalSpace U := T
     exact Σ a : ℕ,
-      Multiplicative
+      @ContinuousMulEquiv
+        (Multiplicative
           (ZMod (F.residueCharacteristic ^ a) ×
-            (Fin d → ℤ_[F.residueCharacteristic])) ≃ₜ* U
+            (Fin d → ℤ_[F.residueCharacteristic])))
+        (inferInstance : TopologicalSpace (Multiplicative
+          (ZMod (F.residueCharacteristic ^ a) ×
+            (Fin d → ℤ_[F.residueCharacteristic]))))
+        U
+        T
+        (inferInstance : Mul (Multiplicative
+          (ZMod (F.residueCharacteristic ^ a) ×
+            (Fin d → ℤ_[F.residueCharacteristic]))))
+        (inferInstance : Mul U)
   have hraw : P directTopology := raw
   have hstandard : P standardTopology :=
     (congrArg P htop).mp hraw

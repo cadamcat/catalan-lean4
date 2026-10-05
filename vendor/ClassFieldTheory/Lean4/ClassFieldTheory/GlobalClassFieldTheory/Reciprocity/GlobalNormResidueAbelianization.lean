@@ -106,7 +106,7 @@ theorem
 /-- The abstract norm-residue symbol followed by the concrete Galois
 comparison.  This declaration boundary keeps the dependent quotient indices
 and their instance packages from being reconstructed at each evaluation. -/
-private noncomputable def
+public noncomputable def
     numberFieldTowerAbstractNormResidueGaloisAbelianizationEquiv :
     FiniteNormQuotient rationalIdeleClassRepresentation
           (numberFieldTowerBaseSubgroup K L)

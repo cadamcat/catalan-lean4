@@ -105,7 +105,7 @@ def canonicalUnramifiedValuationHom
   (v.canonicalValueReduction (E.degree : ℕ) E.degree.property).comp
     (v.valuationAt E.base)
 
-private theorem finiteNormSubgroup_le_canonicalUnramifiedValuationHom_ker
+theorem finiteNormSubgroup_le_canonicalUnramifiedValuationHom_ker
     (v : ValuationData D A) (E : FiniteAbstractFieldExtension G)
     (hUnramified : E.IsUnramified D) :
     finiteNormSubgroup A E.base.field E.field.field E.below ≤

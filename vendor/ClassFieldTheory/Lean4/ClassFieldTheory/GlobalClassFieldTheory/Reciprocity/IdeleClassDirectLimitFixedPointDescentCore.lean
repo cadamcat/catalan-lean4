@@ -25,6 +25,7 @@ Part of the vendored ClassFieldTheory source bundle.
 @[expose] public section
 
 set_option autoImplicit false
+set_option synthInstance.maxHeartbeats 100000
 
 /-!
 # Descent of fixed rational idele classes

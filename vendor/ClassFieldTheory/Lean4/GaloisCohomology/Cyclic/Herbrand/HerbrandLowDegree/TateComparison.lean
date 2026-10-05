@@ -114,7 +114,7 @@ theorem equivariantShortComplex_shortExact
     apply Additive.toMul.injective
     exact hb
 
-private theorem repNorm_toMul (a : Additive A) :
+theorem repNorm_toMul (a : Additive A) :
     Additive.toMul
         ((Rep.ofMulDistribMulAction G A).ρ.norm a) =
       tateNorm G A a.toMul := by
@@ -124,7 +124,7 @@ private theorem repNorm_toMul (a : Additive A) :
     ∏ g : G, g • a.toMul
   exact Representation.norm_ofMulDistribMulAction_eq a
 
-private theorem repSigmaMinusOne_toMul
+theorem repSigmaMinusOne_toMul
     {G A : Type} [CommGroup G] [CommGroup A]
     [MulDistribMulAction G A] (σ : G) (a : Additive A) :
     Additive.toMul
@@ -161,7 +161,7 @@ private theorem repSigmaMinusOne_toMul
   rw [toMul_sub]
   exact div_eq_mul_inv _ _
 
-private def fixedCyclesAddEquiv :
+def fixedCyclesAddEquiv :
     LinearMap.ker
         (groupCohomology.d₀₁ (Rep.ofMulDistribMulAction G A)).hom ≃+
       Additive (fixedSubgroup G A) where
@@ -261,7 +261,7 @@ noncomputable def tateH0IsoHerbrandH0 :
   exact TateCohomology.isoZeroBoundary M ≪≫
     S.moduleCatHomologyIso ≪≫ eQ.toModuleIso
 
-private def normKernelCyclesAddEquiv :
+def normKernelCyclesAddEquiv :
     LinearMap.ker
         (Rep.ofMulDistribMulAction G A).norm.toModuleCatHom.hom ≃+
       Additive (normKernelSubgroup G A) where
@@ -302,7 +302,7 @@ private def normKernelCyclesAddEquiv :
     apply Subtype.ext
     rfl
 
-private noncomputable def tateHMinusOneIsoHerbrandHMinusOne_of_commGroup
+noncomputable def tateHMinusOneIsoHerbrandHMinusOne_of_commGroup
     {G A : Type} [CommGroup G] [Fintype G] [CommGroup A]
     [MulDistribMulAction G A]
     (σ : G) (hgen : ∀ g : G, g ∈ Subgroup.zpowers σ) :

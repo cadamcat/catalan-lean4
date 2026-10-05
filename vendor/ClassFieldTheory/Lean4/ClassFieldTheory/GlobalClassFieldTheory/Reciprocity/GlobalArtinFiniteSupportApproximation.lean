@@ -53,7 +53,7 @@ namespace GlobalClassFieldTheory
 namespace Reciprocity
 
 /-- Supply the canonical commutativity used by the finite-support norm quotient. -/
-private theorem artinFiniteSupportIdeleClassIsMulCommutative
+public theorem artinFiniteSupportIdeleClassIsMulCommutative
     {F : Type} [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
   ⟨⟨fun a b => mul_comm a b⟩⟩

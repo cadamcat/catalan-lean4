@@ -194,7 +194,7 @@ theorem relativeNorm_eq_sum_chosenOrbit_of_fintype
     _ = _ := Fintype.sum_sigma _
 
 @[implicit_reducible]
-private noncomputable def relativeNormDoubleCosetSigmaFintype
+noncomputable def relativeNormDoubleCosetSigmaFintype
     (K K' S : ClosedSubgroup G)
     (hSK : S.toSubgroup ≤ K.toSubgroup)
     (hK'K : K'.toSubgroup ≤ K.toSubgroup)
@@ -211,7 +211,7 @@ private noncomputable def relativeNormDoubleCosetSigmaFintype
     (relativeNormDoubleCosetEquiv K K' S hSK hK'K)
 
 @[implicit_reducible]
-private noncomputable def relativeNormDoubleCosetOrbitFintype
+noncomputable def relativeNormDoubleCosetOrbitFintype
     (K K' S : ClosedSubgroup G)
     (hSK : S.toSubgroup ≤ K.toSubgroup)
     (hK'K : K'.toSubgroup ≤ K.toSubgroup)
@@ -229,7 +229,7 @@ private noncomputable def relativeNormDoubleCosetOrbitFintype
       exact congrArg Sigma.fst h)
 
 @[implicit_reducible]
-private noncomputable def relativeNormDoubleCosetStabilizerFintype
+noncomputable def relativeNormDoubleCosetStabilizerFintype
     (K K' S : ClosedSubgroup G)
     (hSK : S.toSubgroup ≤ K.toSubgroup)
     (hK'K : K'.toSubgroup ≤ K.toSubgroup)

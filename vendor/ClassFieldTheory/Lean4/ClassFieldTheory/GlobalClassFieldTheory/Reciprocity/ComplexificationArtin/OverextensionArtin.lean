@@ -60,7 +60,7 @@ local instance
     IsMulCommutative (IdeleClassGroup F) :=
   ⟨⟨fun a b => mul_comm a b⟩⟩
 
-private noncomputable def quotientLiftData
+public noncomputable def quotientLiftData
     {A B : Type} [CommGroup A] [Group B]
     (N : Subgroup A) (f : A →* B)
     (hN : ∀ x, x ∈ N → f x = 1) :
@@ -313,7 +313,7 @@ theorem
           (K := K) (L := L) v)
       a
 
-private noncomputable def
+public noncomputable def
     ramifiedInfinitePlaceOverextensionNormQuotientArtinData
     (v : InfinitePlace K)
     (hRamified :

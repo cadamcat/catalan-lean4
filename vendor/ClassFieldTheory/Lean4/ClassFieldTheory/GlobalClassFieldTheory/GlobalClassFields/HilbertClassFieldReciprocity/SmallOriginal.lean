@@ -89,7 +89,7 @@ theorem smallHilbertClassField_ideleClassNorm_range_over_original :
 /-- Global reciprocity for the selected small Hilbert class field over
 the original number field gives the ordinary ideal class group
 directly. -/
-private noncomputable def
+public noncomputable def
     smallHilbertClassFieldReciprocityOverOriginalData :
     {e : Gal((smallHilbertClassField K) / K) ≃*
         ClassGroup (𝓞 K) //

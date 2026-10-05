@@ -66,7 +66,7 @@ theorem bigHilbertClassField_ideleClassNorm_range_eq_intrinsic :
 /-- Global reciprocity identifies the genuine Galois group of the
 selected big Hilbert class field with the narrow ideal class group of
 the original number field. -/
-private noncomputable def bigHilbertClassFieldReciprocityData :
+public noncomputable def bigHilbertClassFieldReciprocityData :
     {e : Gal((bigHilbertClassField K) /
           (bigHilbertClassFieldBase K)) ≃*
         RayClass.NarrowClassGroup K //

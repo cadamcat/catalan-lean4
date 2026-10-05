@@ -2,6 +2,7 @@
 MODIFIED FROM UPSTREAM:
 n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
 Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+Merged the excluded `PadicReductionContinuous` and `QuotientTransition` helpers into this retained file to keep the 871-file subset.
 -/
 module
 
@@ -15,10 +16,12 @@ public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.Algebra.Module.MinimalAxioms
 public import Mathlib.Algebra.Module.ZMod
 public import Mathlib.NumberTheory.Padics.RingHoms
+public import Mathlib.Topology.Algebra.Group.Basic
+public import Mathlib.Topology.MetricSpace.Ultra.Basic
 public import ValuedFieldTheory.LocalField.Analytic.DenominatorValuation
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.InverseLimitCore
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.InverseLimitTopology
-public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.PadicReductionContinuous
-public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.QuotientTransition
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.TopologyModelTypes
 
 
 /-!
@@ -30,6 +33,124 @@ Part of the vendored ClassFieldTheory source bundle.
 @[expose] public section
 
 set_option autoImplicit false
+
+/-!
+# Continuity of reduction of p-adic integers
+
+Reduction modulo `p^n` has open kernel and is continuous for the discrete
+topology on the quotient. This source has no local-field dependencies.
+-/
+
+namespace LocalFieldTheory.DiscreteValuationField.CompleteDVF.higherPrincipalUnitGroup
+
+/-- The kernel of reduction `Z_p -> ZMod (p^n)` is open. -/
+theorem isOpen_ker_padicIntToZModPow
+    (p : ℕ) [Fact p.Prime] (n : ℕ) :
+    IsOpen
+      ((RingHom.ker (PadicInt.toZModPow n : ℤ_[p] →+* ZMod (p ^ n)) :
+        Ideal ℤ_[p]) : Set ℤ_[p]) := by
+  rw [PadicInt.ker_toZModPow]
+  have hp0 : (p : ℝ) ≠ 0 := by
+    exact_mod_cast (Fact.out : p.Prime).ne_zero
+  have hr : (p : ℝ) ^ (-n : ℤ) ≠ 0 := zpow_ne_zero (-n : ℤ) hp0
+  have hball :
+      IsOpen (Metric.closedBall (0 : ℤ_[p]) ((p : ℝ) ^ (-n : ℤ))) :=
+    IsUltrametricDist.isOpen_closedBall (0 : ℤ_[p]) hr
+  have heq :
+      ((Ideal.span {(p : ℤ_[p]) ^ n} : Ideal ℤ_[p]) : Set ℤ_[p]) =
+        Metric.closedBall (0 : ℤ_[p]) ((p : ℝ) ^ (-n : ℤ)) := by
+    ext x
+    rw [Metric.mem_closedBall, dist_zero_right]
+    exact (PadicInt.norm_le_pow_iff_mem_span_pow x n).symm
+  rw [heq]
+  exact hball
+
+/-- Reduction of p-adic integers modulo `p^n` is continuous for the
+discrete topology on the target. -/
+theorem Internal.continuous_padicIntToZModPow
+    (p : ℕ) [Fact p.Prime] (n : ℕ) :
+    @Continuous ℤ_[p] (ZMod (p ^ n))
+      (inferInstance : TopologicalSpace ℤ_[p]) ⊥
+      (PadicInt.toZModPow n : ℤ_[p] → ZMod (p ^ n)) := by
+  let : TopologicalSpace (ZMod (p ^ n)) := ⊥
+  let : DiscreteTopology (ZMod (p ^ n)) := ⟨rfl⟩
+  apply continuous_of_continuousAt_zero
+    (PadicInt.toZModPow n : ℤ_[p] →+* ZMod (p ^ n))
+  rw [ContinuousAt, nhds_discrete (ZMod (p ^ n)), map_zero, Filter.tendsto_pure]
+  exact (isOpen_ker_padicIntToZModPow p n).mem_nhds
+    (RingHom.ker (PadicInt.toZModPow n)).zero_mem
+
+end LocalFieldTheory.DiscreteValuationField.CompleteDVF.higherPrincipalUnitGroup
+
+/-!
+# Transitions between principal-unit quotients
+
+These additive maps use the concrete principal-unit filtration of a complete
+discrete valuation field. Neither finiteness nor a scalar action is required.
+-/
+
+noncomputable section
+
+namespace LocalFieldTheory.DiscreteValuationField.CompleteDVF.higherPrincipalUnitGroup
+
+open ValuationTheory.DiscreteValuationField
+open Internal
+
+universe u v
+
+variable {K : Type u} [Field K]
+
+/-- Additive form of a transition between principal-unit quotients. -/
+def Internal.principalUnitQuotientCarrierTransitionAdd
+    (F : CompleteDVF.{u, v} K) {m n : ℕ} (hmn : m ≤ n) :
+    Additive (Internal.principalUnitQuotientCarrier F n) →+
+      Additive (Internal.principalUnitQuotientCarrier F m) where
+  toFun x := Additive.ofMul
+    (principalUnitQuotientCarrierTransition F hmn (Additive.toMul x))
+  map_zero' := by
+    change Additive.ofMul
+        (principalUnitQuotientCarrierTransition F hmn 1) = Additive.ofMul 1
+    rw [map_one]
+  map_add' x y := by
+    change Additive.ofMul
+        (principalUnitQuotientCarrierTransition F hmn
+          (Additive.toMul x * Additive.toMul y)) =
+      Additive.ofMul
+        (principalUnitQuotientCarrierTransition F hmn (Additive.toMul x) *
+          principalUnitQuotientCarrierTransition F hmn (Additive.toMul y))
+    rw [map_mul]
+
+namespace DiscretePrincipalUnitQuotient
+
+/-- Reduction between two wrapped discrete quotient coordinates. -/
+def transition (F : CompleteDVF.{u, v} K) {m n : ℕ} (hmn : m ≤ n) :
+    DiscretePrincipalUnitQuotient F n →+
+      DiscretePrincipalUnitQuotient F m where
+  toFun x := of F m
+    (Internal.principalUnitQuotientCarrierTransitionAdd F hmn x.val)
+  map_zero' := by
+    apply (addEquiv F m).injective
+    change Internal.principalUnitQuotientCarrierTransitionAdd F hmn 0 = 0
+    exact (Internal.principalUnitQuotientCarrierTransitionAdd F hmn).map_zero
+  map_add' x y := by
+    apply (addEquiv F m).injective
+    change Internal.principalUnitQuotientCarrierTransitionAdd F hmn
+        (x.val + y.val) =
+      Internal.principalUnitQuotientCarrierTransitionAdd F hmn x.val +
+        Internal.principalUnitQuotientCarrierTransitionAdd F hmn y.val
+    exact (Internal.principalUnitQuotientCarrierTransitionAdd F hmn).map_add x.val y.val
+
+/-- The wrapped transition has the original additive transition as its value. -/
+@[simp] theorem val_transition
+    (F : CompleteDVF.{u, v} K) {m n : ℕ} (hmn : m ≤ n)
+    (x : DiscretePrincipalUnitQuotient F n) :
+    (transition F hmn x).val =
+      Internal.principalUnitQuotientCarrierTransitionAdd F hmn x.val :=
+  rfl
+
+end DiscretePrincipalUnitQuotient
+
+end LocalFieldTheory.DiscreteValuationField.CompleteDVF.higherPrincipalUnitGroup
 
 /-!
 # P-adic modules on finite principal-unit quotients

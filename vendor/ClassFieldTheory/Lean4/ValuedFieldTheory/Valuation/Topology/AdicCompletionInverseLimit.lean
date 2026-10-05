@@ -677,7 +677,7 @@ def dvrHigherUnitQuotientTransition
     intro u hu
     exact higherUnitSubgroup_le_of_le π (Nat.succ_le_succ hmn) hu
 
-private theorem dvrHigherUnitQuotientTransition_mk
+theorem dvrHigherUnitQuotientTransition_mk
     {O : Type*} [CommRing O] (π : O) {m n : ℕ} (hmn : m ≤ n) (u : Oˣ) :
     dvrHigherUnitQuotientTransition π hmn
         (u : Oˣ ⧸ higherUnitSubgroup π (n + 1)) =
@@ -861,7 +861,7 @@ noncomputable instance dvrHigherUnitQuotientInverseLimit.instTopologicalSpace
   exact
     (dvrHigherUnitQuotientInverseLimitCompatibleFamiliesEquiv π).topologicalSpace
 
-private noncomputable def
+noncomputable def
     dvrHigherUnitQuotientInverseLimitRepresentationHomeomorph
     {O : Type*} [CommRing O] (π : O) :
     letI : (n : ℕ) → TopologicalSpace
@@ -1105,7 +1105,7 @@ noncomputable def adicUnitsTopology
 
 /-- Reduction to a higher-unit quotient is continuous for the adic topology
 on `Oˣ` and the discrete topology on the finite quotient. -/
-private theorem higherUnitQuotient_mk_continuous_adic_raw
+theorem higherUnitQuotient_mk_continuous_adic_raw
     {O : Type*} [CommRing O] (π : O) (n : ℕ) :
     @Continuous Oˣ (Oˣ ⧸ higherUnitSubgroup π n)
       (adicUnitsTopology (uniformizerPowerIdeal π 1))
@@ -1176,7 +1176,7 @@ theorem higherUnitQuotient_mk_continuous_adic
       (QuotientGroup.mk u.ofTopology : Oˣ ⧸ higherUnitSubgroup π n)) at hmodel
   simpa only [DiscreteHigherUnitQuotient.equiv_symm_apply] using hmodel
 
-private noncomputable def unitsCompatibleFamiliesHomeomorph
+noncomputable def unitsCompatibleFamiliesHomeomorph
     {O : Type*} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
     {π : O} (hπ : Irreducible π) [IsAdicComplete (uniformizerPowerIdeal π 1) O] :
     letI : TopologicalSpace O := (uniformizerPowerIdeal π 1).adicTopology

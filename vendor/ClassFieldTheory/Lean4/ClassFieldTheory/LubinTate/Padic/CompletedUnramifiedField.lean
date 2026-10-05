@@ -164,7 +164,7 @@ noncomputable def padicCompletedUnramifiedCompleteDVF
       isAdicComplete :=
         padicCompletedUnramifiedValuation_isAdicComplete p }
 
-private theorem
+theorem
     padicCompletedUnramifiedWittRing_intValuation_frobenius
     (p : ℕ) [Fact p.Prime]
     (x : padicCompletedUnramifiedWittRing p) :
@@ -221,7 +221,7 @@ private theorem
     _ = v.intValuation ((p : W) ^ m * (u : W)) := by
       rw [map_mul, map_pow]
 
-private theorem padicIntToCompletedUnramifiedWittRing_injective
+theorem padicIntToCompletedUnramifiedWittRing_injective
     (p : ℕ) [Fact p.Prime] :
     Function.Injective (padicIntToCompletedUnramifiedWittRing p) := by
   exact

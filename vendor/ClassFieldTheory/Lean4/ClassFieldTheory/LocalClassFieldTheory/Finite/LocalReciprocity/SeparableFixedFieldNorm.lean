@@ -103,7 +103,7 @@ theorem baseFixingCosetToAlgHom_mk
       σ.1.toAlgHom.comp E.val :=
   rfl
 
-private theorem baseFixingCosetToAlgHom_surjective
+theorem baseFixingCosetToAlgHom_surjective
     [FiniteDimensional K E] [Algebra.IsSeparable K E] :
     Function.Surjective (baseFixingCosetToAlgHom K Ω E) := by
   intro f
@@ -132,7 +132,7 @@ private theorem baseFixingCosetToAlgHom_surjective
   exact hx
 
 omit [IsSepClosed Ω] in
-private theorem baseFixingCosetToAlgHom_injective :
+theorem baseFixingCosetToAlgHom_injective :
     Function.Injective (baseFixingCosetToAlgHom K Ω E) := by
   intro q r hqr
   rw [← Quotient.out_eq q, ← Quotient.out_eq r] at hqr ⊢

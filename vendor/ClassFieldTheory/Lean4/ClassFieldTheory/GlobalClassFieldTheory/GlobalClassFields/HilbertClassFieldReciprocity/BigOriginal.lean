@@ -89,7 +89,7 @@ theorem bigHilbertClassField_ideleClassNorm_range_over_original :
 /-- Global reciprocity for the selected big Hilbert class field over
 the original number field gives the narrow ideal class group directly,
 without a residual fixed-field transport. -/
-private noncomputable def
+public noncomputable def
     bigHilbertClassFieldReciprocityOverOriginalData :
     {e : Gal((bigHilbertClassField K) / K) ≃*
         RayClass.NarrowClassGroup K //

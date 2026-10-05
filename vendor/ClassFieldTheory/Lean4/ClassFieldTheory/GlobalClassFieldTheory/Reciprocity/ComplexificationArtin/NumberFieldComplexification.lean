@@ -44,13 +44,13 @@ namespace Reciprocity
 attribute [local instance]
   rationalComplexificationCyclotomicField_isAbelianGalois
 
-private def rationalComplexificationAmbientField :
+public def rationalComplexificationAmbientField :
     IntermediateField ℚ (SeparableClosure ℚ) := by
   letI : Algebra ℚ KummerTheory.rationalCyclotomicField :=
     DivisionRing.toRatAlgebra
   exact IntermediateField.lift rationalComplexificationCyclotomicField
 
-private noncomputable def rationalComplexificationAmbientEquiv :
+public noncomputable def rationalComplexificationAmbientEquiv :
     rationalComplexificationCyclotomicField ≃ₐ[ℚ]
       rationalComplexificationAmbientField := by
   letI : Algebra ℚ KummerTheory.rationalCyclotomicField :=
@@ -157,14 +157,14 @@ noncomputable def numberFieldComplexificationRestriction :
     ℚ rationalComplexificationCyclotomicField F
       (numberFieldComplexification F)
 
-private def numberFieldComplexificationBaseLayer :
+public def numberFieldComplexificationBaseLayer :
     IntermediateField ℚ (numberFieldComplexification F) :=
   (numberFieldInRationalSeparableClosure F).restrict
     (show numberFieldInRationalSeparableClosure F ≤
         numberFieldComplexification F from
       le_sup_left)
 
-private def numberFieldComplexificationCyclotomicLayer :
+public def numberFieldComplexificationCyclotomicLayer :
     IntermediateField ℚ (numberFieldComplexification F) :=
   rationalComplexificationAmbientField.restrict
     (show
@@ -184,37 +184,37 @@ noncomputable local instance
     Algebra ℚ (numberFieldComplexificationCyclotomicLayer F) :=
   (numberFieldComplexificationCyclotomicLayer F).algebra'
 
-private noncomputable def numberFieldComplexificationBaseEquiv :
+public noncomputable def numberFieldComplexificationBaseEquiv :
     F ≃ₐ[ℚ] numberFieldComplexificationBaseLayer F :=
   (numberFieldSeparableClosureEmbedding F).equivFieldRange.trans
     (IntermediateField.restrictAlgEquiv le_sup_left)
 
-private noncomputable def numberFieldComplexificationCyclotomicEquiv :
+public noncomputable def numberFieldComplexificationCyclotomicEquiv :
     rationalComplexificationCyclotomicField ≃ₐ[ℚ]
       numberFieldComplexificationCyclotomicLayer F :=
   rationalComplexificationAmbientEquiv.trans
     (IntermediateField.restrictAlgEquiv le_sup_right)
 
-private noncomputable local instance
+noncomputable local instance
     numberFieldComplexificationCyclotomicLayer_isAbelianGalois :
     IsAbelianGalois ℚ
       (numberFieldComplexificationCyclotomicLayer F) :=
   IsAbelianGalois.of_algHom
     (numberFieldComplexificationCyclotomicEquiv F).symm.toAlgHom
 
-private noncomputable local instance
+noncomputable local instance
     numberFieldComplexificationCyclotomicLayer_isGalois :
     IsGalois ℚ (numberFieldComplexificationCyclotomicLayer F) :=
   (numberFieldComplexificationCyclotomicLayer_isAbelianGalois
     F).toIsGalois
 
-private noncomputable local instance
+noncomputable local instance
     numberFieldComplexificationCyclotomicLayer_normal :
     Normal ℚ (numberFieldComplexificationCyclotomicLayer F) :=
   (numberFieldComplexificationCyclotomicLayer_isGalois
     F).to_normal
 
-private theorem numberFieldComplexificationLayers_sup :
+public theorem numberFieldComplexificationLayers_sup :
     numberFieldComplexificationCyclotomicLayer F ⊔
         numberFieldComplexificationBaseLayer F =
       ⊤ := by
@@ -228,7 +228,7 @@ private theorem numberFieldComplexificationLayers_sup :
     IntermediateField.lift_top]
   exact sup_comm _ _
 
-private theorem numberFieldComplexificationBaseEquiv_algebraMap
+public theorem numberFieldComplexificationBaseEquiv_algebraMap
     (x : F) :
     algebraMap F (numberFieldComplexification F) x =
       algebraMap (numberFieldComplexificationBaseLayer F)
@@ -237,7 +237,7 @@ private theorem numberFieldComplexificationBaseEquiv_algebraMap
   apply Subtype.ext
   rfl
 
-private noncomputable def numberFieldComplexificationChangeBase :
+public noncomputable def numberFieldComplexificationChangeBase :
     Gal(numberFieldComplexification F / F) →*
       Gal(numberFieldComplexification F /
         numberFieldComplexificationBaseLayer F) where
@@ -266,7 +266,7 @@ private noncomputable def numberFieldComplexificationChangeBase :
   map_one' := rfl
   map_mul' _ _ := rfl
 
-private theorem numberFieldComplexificationChangeBase_injective :
+public theorem numberFieldComplexificationChangeBase_injective :
     Function.Injective (numberFieldComplexificationChangeBase F) := by
   intro σ τ hστ
   apply AlgEquiv.ext
@@ -277,7 +277,7 @@ private theorem numberFieldComplexificationChangeBase_injective :
         numberFieldComplexificationBaseLayer F) => f x)
     hστ
 
-private noncomputable def numberFieldComplexificationLayerRestriction :
+public noncomputable def numberFieldComplexificationLayerRestriction :
     Gal(numberFieldComplexification F /
         numberFieldComplexificationBaseLayer F) →*
       Gal(numberFieldComplexificationCyclotomicLayer F / ℚ) := by
@@ -291,7 +291,7 @@ private noncomputable def numberFieldComplexificationLayerRestriction :
         (numberFieldComplexificationBaseLayer F)
         (numberFieldComplexification F)
 
-private theorem numberFieldComplexificationLayerRestriction_injective :
+public theorem numberFieldComplexificationLayerRestriction_injective :
     Function.Injective
       (numberFieldComplexificationLayerRestriction F) := by
   let : IsGalois ℚ (numberFieldComplexificationCyclotomicLayer F) :=
@@ -304,13 +304,13 @@ private theorem numberFieldComplexificationLayerRestriction_injective :
       (numberFieldComplexificationBaseLayer F)
       (numberFieldComplexificationLayers_sup F)
 
-private noncomputable def numberFieldComplexificationTransportCyclotomic :
+public noncomputable def numberFieldComplexificationTransportCyclotomic :
     Gal(rationalComplexificationCyclotomicField / ℚ) →*
       Gal(numberFieldComplexificationCyclotomicLayer F / ℚ) :=
   (AlgEquiv.autCongr
     (numberFieldComplexificationCyclotomicEquiv F)).toMonoidHom
 
-private theorem numberFieldComplexificationRestriction_commutes
+public theorem numberFieldComplexificationRestriction_commutes
     (σ : Gal(numberFieldComplexification F / F)) :
     numberFieldComplexificationTransportCyclotomic F
         (numberFieldComplexificationRestriction F σ) =

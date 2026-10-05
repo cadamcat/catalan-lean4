@@ -42,13 +42,27 @@ namespace IdealClassFieldTheory
 
 open NumberField IsDedekindDomain
 
-/-- Canonical class-group commutativity supplies normality for the quotient. -/
-private theorem smallHilbertSplittingClassGroupIsMulCommutative
+@[instance_reducible]
+noncomputable local instance smallHilbertSplittingClassGroupCommGroup
+    (F : Type*) [Field F] [NumberField F] :
+    CommGroup (IdeleClassGroup F) :=
+  QuotientGroup.Quotient.commGroup (IdeleGroup.principalSubgroup F)
+
+noncomputable local instance smallHilbertSplittingClassGroupIsMulCommutative
     (F : Type*) [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
-  IsMulCommutative.of_comm (fun a b => mul_comm a b)
+  ⟨⟨fun a b => mul_comm a b⟩⟩
 
-attribute [local instance] smallHilbertSplittingClassGroupIsMulCommutative
+local instance smallHilbertSplittingSubgroupNormal
+    (F : Type*) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) : N.Normal :=
+  N.normal_of_isMulCommutative
+
+@[instance_reducible]
+noncomputable local instance smallHilbertSplittingQuotientCommGroup
+    (F : Type*) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) : CommGroup (IdeleClassGroup F ⧸ N) :=
+  QuotientGroup.Quotient.commGroup N
 
 variable {K : Type*} [Field K] [NumberField K]
 

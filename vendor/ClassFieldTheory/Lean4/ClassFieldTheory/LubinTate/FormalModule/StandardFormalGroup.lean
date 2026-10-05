@@ -88,7 +88,7 @@ theorem coeff_single
   classical
   simp [linearForm, MvPowerSeries.coeff_index_single_X]
 
-private theorem linearForm_weighted_sum
+theorem linearForm_weighted_sum
     (L : σ → R) (M : σ → τ → R) :
     (∑ i, MvPowerSeries.C (L i) * linearForm (M i)) =
       linearForm (fun j => ∑ i, L i * M i j) := by
@@ -183,7 +183,7 @@ theorem subst
 
 end HasLinearTerm
 
-private theorem linearForm_basis (i : σ) :
+theorem linearForm_basis (i : σ) :
     linearForm (R := R)
         (fun j : σ => if j = i then (1 : R) else 0) =
       (MvPowerSeries.X i : MvPowerSeries σ R) := by
@@ -346,7 +346,7 @@ section StandardFormalGroup
 variable (hπ :
   F.toCompleteDVF.valuation.IsUniformizer (π : K))
 
-private abbrev standardSeries :
+abbrev standardSeries :
     LubinTateSeries F π :=
   standardLubinTateSeries hπ
 
@@ -381,7 +381,7 @@ theorem existsUnique_standardFormalGroupPowerSeries :
   existsUnique_intertwiner hπ
     (standardSeries hπ) (standardSeries hπ) (fun _ => 1)
 
-private theorem standardFormalGroupPowerSeries_subst_hasLinearTerm
+theorem standardFormalGroupPowerSeries_subst_hasLinearTerm
     {τ : Type w} [Fintype τ]
     {G₀ G₁ : MvPowerSeries τ F.valuationSubring}
     {M₀ M₁ : τ → F.valuationSubring}
@@ -401,7 +401,7 @@ private theorem standardFormalGroupPowerSeries_subst_hasLinearTerm
         · exact hG₁)
   simpa [Fin.sum_univ_two] using h
 
-private theorem standardFormalGroupPowerSeries_subst_intertwines
+theorem standardFormalGroupPowerSeries_subst_intertwines
     {τ : Type w} [Fintype τ]
     {G₀ G₁ : MvPowerSeries τ F.valuationSubring}
     {M₀ M₁ : τ → F.valuationSubring}
@@ -720,7 +720,7 @@ section StandardEndomorphisms
 variable (hπ :
   F.toCompleteDVF.valuation.IsUniformizer (π : K))
 
-private abbrev standardSeries' :
+abbrev standardSeries' :
     LubinTateSeries F π :=
   standardLubinTateSeries hπ
 

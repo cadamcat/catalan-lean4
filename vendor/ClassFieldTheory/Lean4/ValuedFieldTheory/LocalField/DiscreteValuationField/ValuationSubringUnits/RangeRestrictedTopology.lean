@@ -59,7 +59,7 @@ noncomputable def mrangeRestrictValued
   Valued.mk' (LocalFieldTheory.DiscreteValuationField.CompleteDVF.mrangeRestrict F)
 
 @[instance_reducible]
-private noncomputable def mrangeRestrictValued_rankOne
+noncomputable def mrangeRestrictValued_rankOne
     (F : CompleteDVF.{u, v} K) :
     (@Valued.v K _
       (MonoidHom.mrange F.valuation.toMonoidWithZeroHom) _

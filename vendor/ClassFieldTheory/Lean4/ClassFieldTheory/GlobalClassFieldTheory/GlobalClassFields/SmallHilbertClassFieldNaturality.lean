@@ -45,7 +45,7 @@ namespace GlobalClassFields
 open NumberField
 
 /-- Supply the canonical commutativity used by both small-Hilbert quotients. -/
-private theorem smallHilbertNaturalityIdeleClassIsMulCommutative
+theorem smallHilbertNaturalityIdeleClassIsMulCommutative
     {F : Type*} [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
   ⟨⟨fun a b => mul_comm a b⟩⟩

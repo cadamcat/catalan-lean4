@@ -49,19 +49,20 @@ open RamificationTheory
 
 /-- Fix the canonical class-group structure before forming norm quotients. -/
 @[instance_reducible]
-private noncomputable def realizedTowerIdeleClassCommGroup
+noncomputable local instance realizedTowerIdeleClassCommGroup
     (F : Type) [Field F] [NumberField F] :
     CommGroup (IdeleClassGroup F) :=
   QuotientGroup.Quotient.commGroup (IdeleGroup.principalSubgroup F)
 
-attribute [local instance] realizedTowerIdeleClassCommGroup
-
-private theorem realizedTowerIdeleClassIsMulCommutative
+noncomputable local instance realizedTowerIdeleClassIsMulCommutative
     (F : Type) [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
-  IsMulCommutative.of_comm (fun a b => mul_comm a b)
+  ⟨⟨fun a b => mul_comm a b⟩⟩
 
-attribute [local instance] realizedTowerIdeleClassIsMulCommutative
+local instance realizedTowerIdeleClassSubgroupNormal
+    (F : Type) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) : N.Normal :=
+  N.normal_of_isMulCommutative
 
 variable
     (K L : Type) [Field K] [NumberField K]

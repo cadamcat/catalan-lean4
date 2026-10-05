@@ -61,7 +61,7 @@ section Galois
 
 variable [IsGalois K L]
 
-private noncomputable def ramifiedInfinitePlaceConjugation
+noncomputable def ramifiedInfinitePlaceConjugation
     (w : InfinitePlace L) (hRamified : w.IsRamified K) :
     L ≃ₐ[K] L :=
   Classical.choose
@@ -70,7 +70,7 @@ private noncomputable def ramifiedInfinitePlaceConjugation
       ((InfinitePlace.mk_embedding w).symm ▸ hRamified))
 
 omit [NumberField K] [NumberField L] in
-private theorem ramifiedInfinitePlaceConjugation_isConj
+theorem ramifiedInfinitePlaceConjugation_isConj
     (w : InfinitePlace L) (hRamified : w.IsRamified K) :
     NumberField.ComplexEmbedding.IsConj
       (InfinitePlace.embedding w)
@@ -82,7 +82,7 @@ private theorem ramifiedInfinitePlaceConjugation_isConj
       ((InfinitePlace.mk_embedding w).symm ▸ hRamified))
 
 omit [NumberField K] [NumberField L] in
-private theorem ramifiedInfinitePlaceConjugation_sq
+theorem ramifiedInfinitePlaceConjugation_sq
     (w : InfinitePlace L) (hRamified : w.IsRamified K) :
     ramifiedInfinitePlaceConjugation
           (K := K) w hRamified *

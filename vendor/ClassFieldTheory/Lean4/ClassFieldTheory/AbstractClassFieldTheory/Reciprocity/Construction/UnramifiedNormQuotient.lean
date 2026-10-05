@@ -195,7 +195,7 @@ private theorem valueModulo_eq_zero_iff
         ((QuotientAddGroup.mk' (nsmulWithin v.valueGroup n)) (n • w)) = 0
     rw [hq, map_zero]
 
-private def unramifiedValuationHom
+def unramifiedValuationHom
     (v : ValuationData D A) (K : FiniteAbstractField G)
     (L : ClosedSubgroup G)
     (hLK : L.toSubgroup ≤ K.field.toSubgroup)
@@ -207,7 +207,7 @@ private def unramifiedValuationHom
       (FiniteAbstractFieldExtension.ofInclusion L K hLK).degree.property).comp
     (v.valuationAt K)
 
-private theorem finiteNormSubgroup_le_unramifiedValuationHom_ker
+theorem finiteNormSubgroup_le_unramifiedValuationHom_ker
     (v : ValuationData D A)
     (K : FiniteAbstractField G) (L : ClosedSubgroup G)
     (hLK : L.toSubgroup ≤ K.field.toSubgroup)

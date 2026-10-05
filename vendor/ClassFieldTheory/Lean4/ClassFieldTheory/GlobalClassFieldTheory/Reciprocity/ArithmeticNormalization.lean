@@ -52,12 +52,27 @@ noncomputable section
 namespace GlobalClassFieldTheory
 namespace Reciprocity
 
-private theorem arithmeticNormIdeleClassIsMulCommutative
+noncomputable local instance arithmeticNormIdeleClassCommGroup
+    (K : Type) [Field K] [NumberField K] :
+    CommGroup (IdeleClassGroup K) :=
+  QuotientGroup.Quotient.commGroup (IdeleGroup.principalSubgroup K)
+
+noncomputable local instance arithmeticNormIdeleClassIsMulCommutative
     (K : Type) [Field K] [NumberField K] :
     IsMulCommutative (IdeleClassGroup K) :=
   ⟨⟨fun a b => mul_comm a b⟩⟩
 
-attribute [local instance] arithmeticNormIdeleClassIsMulCommutative
+local instance arithmeticNormIdeleClassSubgroupNormal
+    (K : Type) [Field K] [NumberField K]
+    (N : Subgroup (IdeleClassGroup K)) : N.Normal :=
+  N.normal_of_isMulCommutative
+
+@[instance_reducible]
+noncomputable local instance arithmeticNormIdeleClassNormQuotientCommGroup
+    (K L : Type) [Field K] [NumberField K]
+    [Field L] [NumberField L] [Algebra K L] [FiniteDimensional K L] :
+    CommGroup (IdeleClassGroup K ⧸ (_root_.ideleClassNorm K L).range) :=
+  QuotientGroup.Quotient.commGroup (_root_.ideleClassNorm K L).range
 
 /-- Inversion as a topological multiplicative automorphism of a
 commutative topological group. -/

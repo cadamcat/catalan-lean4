@@ -16,6 +16,10 @@ the original vendor snapshot at project commit
 replays it and reports any file that does not match. The original
 [Apache-2.0 license](LICENSE) is preserved.
 
+The selection remains at 871 source paths. Support declarations split into
+separate upstream modules, including the `ProCGroups` induced-function model,
+are inlined where retained files need them.
+
 The top-level Lake project uses Lean/Mathlib `v4.35.0-rc3` and `--trust=0`.
 Only the ClassFieldTheory library has a bounded `maxHeartbeats=1000000` setting.
 The selected source revision is fixed and is not updated automatically. The

@@ -2161,7 +2161,29 @@
       "sourcePath": "Lean4/ClassFieldTheory/AlgebraicNumberTheory/RayClass/IdealNorm.lean",
       "portCommit": "7713795234690681b4406ae198b07aa95e82716a",
       "portPath": "Lean4/ClassFieldTheory/AlgebraicNumberTheory/RayClass/IdealNorm.lean",
-      "patch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz"
+      "patch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz",
+      "mergedSources": [
+        {
+          "commit": "7713795234690681b4406ae198b07aa95e82716a",
+          "path": "Lean4/ClassFieldTheory/Definitions/ConductorsAndRayClassFields/FractionalIdealNorm.lean"
+        },
+        {
+          "commit": "7713795234690681b4406ae198b07aa95e82716a",
+          "path": "Lean4/ClassFieldTheory/Definitions/ConductorsAndRayClassFields/FractionalIdealNormExponentMap.lean"
+        },
+        {
+          "commit": "7713795234690681b4406ae198b07aa95e82716a",
+          "path": "Lean4/ClassFieldTheory/Definitions/FrobeniusAndHilbertClassFields/NumberFieldFractionalIdealFactorization.lean"
+        },
+        {
+          "commit": "7713795234690681b4406ae198b07aa95e82716a",
+          "path": "Lean4/ClassFieldTheory/Definitions/FrobeniusAndHilbertClassFields/FinitePrimeFractionalIdeal.lean"
+        },
+        {
+          "commit": "7713795234690681b4406ae198b07aa95e82716a",
+          "path": "Lean4/ClassFieldTheory/Definitions/FrobeniusAndHilbertClassFields/NumberFieldFractionalIdealGroup.lean"
+        }
+      ]
     },
     {
       "module": "ClassFieldTheory.AlgebraicNumberTheory.RayClass.LocalConductor",
@@ -2623,7 +2645,13 @@
       "sourcePath": "Lean4/ClassFieldTheory/GlobalClassFieldTheory/GlobalClassFields/ArithmeticUnramifiedPrimeArtin.lean",
       "portCommit": "7713795234690681b4406ae198b07aa95e82716a",
       "portPath": "Lean4/ClassFieldTheory/GlobalClassFieldTheory/GlobalClassFields/ArithmeticUnramifiedPrimeArtin.lean",
-      "patch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz"
+      "patch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz",
+      "mergedSources": [
+        {
+          "commit": "7713795234690681b4406ae198b07aa95e82716a",
+          "path": "Lean4/ClassFieldTheory/GlobalClassFieldTheory/Reciprocity/FinitePlaceArtin/UnramifiedNormalization.lean"
+        }
+      ]
     },
     {
       "module": "ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.BigHilbertClassField",
@@ -6077,7 +6105,13 @@
       "sourcePath": "Lean4/GaloisCohomology/Cyclic/Herbrand/Induced.lean",
       "portCommit": "7713795234690681b4406ae198b07aa95e82716a",
       "portPath": "Lean4/GaloisCohomology/Cyclic/Herbrand/Induced.lean",
-      "patch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz"
+      "patch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz",
+      "mergedSources": [
+        {
+          "commit": "7713795234690681b4406ae198b07aa95e82716a",
+          "path": "Lean4/ProCGroups/InducedFunctions.lean"
+        }
+      ]
     },
     {
       "module": "GaloisCohomology.Cyclic.Herbrand.NormalBasisLattice",
@@ -7353,7 +7387,17 @@
       "sourcePath": "Lean4/ValuedFieldTheory/LocalField/DiscreteValuationField/PrincipalUnitPadicAction/FiniteQuotientPadicModule.lean",
       "portCommit": "7713795234690681b4406ae198b07aa95e82716a",
       "portPath": "Lean4/ValuedFieldTheory/LocalField/DiscreteValuationField/PrincipalUnitPadicAction/FiniteQuotientPadicModule.lean",
-      "patch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz"
+      "patch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz",
+      "mergedSources": [
+        {
+          "commit": "7713795234690681b4406ae198b07aa95e82716a",
+          "path": "Lean4/ValuedFieldTheory/LocalField/DiscreteValuationField/PrincipalUnitPadicAction/PadicReductionContinuous.lean"
+        },
+        {
+          "commit": "7713795234690681b4406ae198b07aa95e82716a",
+          "path": "Lean4/ValuedFieldTheory/LocalField/DiscreteValuationField/PrincipalUnitPadicAction/QuotientTransition.lean"
+        }
+      ]
     },
     {
       "module": "ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.InverseLimitCore",
@@ -9604,5 +9648,5 @@
   "baselineProjectCommit": "c08bf727e7e0f773edd2f4777fd0d12152f44ed6",
   "portCommit": "7713795234690681b4406ae198b07aa95e82716a",
   "portPatch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz",
-  "portPatchSha256": "a76bf20551496e4d45fa1a4406c6d9bd2efd3bb56b41e75b78d8e4fec9b4d9e0"
+  "portPatchSha256": "ed786de7cc446b7109d76184fdbb303683c618cc5b4a1156737ae74d6ce0043b"
 }

@@ -163,7 +163,7 @@ theorem finiteUnramifiedRestriction_frobenius
     L.toGaloisSubextension.extensionQuotientMulEquiv.apply_symm_apply
       (D.unramifiedFrobenius K L.field L.below)
 
-private theorem finiteUnramifiedDegreeHom_killsExtension
+theorem finiteUnramifiedDegreeHom_killsExtension
     (D : DegreeData G) (K : FiniteResidueAbstractField D)
     (L : FiniteGaloisSubextension K.field)
     (hUnramified : L.IsUnramified D) :

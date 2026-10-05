@@ -69,31 +69,19 @@ noncomputable def valuationSubringEquivDecompositionFieldOfEqTop
   let eFZ : F ≃ₐ[F] Z :=
     (IntermediateField.botEquiv F Omega).symm.trans
       (IntermediateField.equivOfEq hZ.symm)
-  refine
-    { toFun := fun x => ⟨eFZ (x : F), ?_⟩
-      invFun := fun z => ⟨eFZ.symm (z : Z), ?_⟩
-      left_inv := fun x => by
-        apply Subtype.ext
-        exact eFZ.symm_apply_apply (x : F)
-      right_inv := fun z => by
-        apply Subtype.ext
-        exact eFZ.apply_symm_apply (z : Z)
-      map_add' := fun x y => by
-        apply Subtype.ext
-        exact map_add eFZ (x : F) (y : F)
-      map_mul' := fun x y => by
-        apply Subtype.ext
-        exact map_mul eFZ (x : F) (y : F) }
-  · change ((eFZ x : Z) : Omega) ∈ A
-    have he : ((eFZ x : Z) : Omega) =
-        algebraMap F Omega (x : F) := by
-      rfl
+  have hto (x : C) : ((eFZ (x : F) : Z) : Omega) ∈ A := by
+    have he : ((eFZ (x : F) : Z) : Omega) =
+        algebraMap F Omega (x : F) := rfl
     rw [he]
     have hx : (x : F) ∈ A.comap (algebraMap F Omega) := by
       rw [hC]
       exact x.property
     exact hx
-  · have hz : eFZ.symm (z : Z) ∈ A.comap (algebraMap F Omega) := by
+  let toFun : C → decompositionFieldValuationSubring F A :=
+    fun x => ⟨eFZ (x : F), hto x⟩
+  have hinv (z : decompositionFieldValuationSubring F A) :
+      eFZ.symm (z : Z) ∈ C := by
+    have hz : eFZ.symm (z : Z) ∈ A.comap (algebraMap F Omega) := by
       change algebraMap F Omega (eFZ.symm (z : Z)) ∈ A
       have he : algebraMap F Omega (eFZ.symm (z : Z)) =
           ((z : Z) : Omega) := by
@@ -102,6 +90,31 @@ noncomputable def valuationSubringEquivDecompositionFieldOfEqTop
       exact z.property
     rw [hC] at hz
     exact hz
+  let invFun : decompositionFieldValuationSubring F A → C :=
+    fun z => ⟨eFZ.symm (z : Z), hinv z⟩
+  refine
+    { toFun := toFun
+      invFun := invFun
+      left_inv := fun x => by
+        dsimp [toFun, invFun]
+        apply Subtype.ext
+        change eFZ.symm (eFZ (x : F)) = (x : F)
+        exact eFZ.symm_apply_apply (x : F)
+      right_inv := fun z => by
+        dsimp [toFun, invFun]
+        apply Subtype.ext
+        change eFZ (eFZ.symm (z : Z)) = (z : Z)
+        exact eFZ.apply_symm_apply (z : Z)
+      map_add' := fun x y => by
+        dsimp [toFun]
+        apply Subtype.ext
+        change eFZ ((x : F) + (y : F)) = eFZ (x : F) + eFZ (y : F)
+        exact map_add eFZ (x : F) (y : F)
+      map_mul' := fun x y => by
+        dsimp [toFun]
+        apply Subtype.ext
+        change eFZ ((x : F) * (y : F)) = eFZ (x : F) * eFZ (y : F)
+        exact map_mul eFZ (x : F) (y : F) }
 
 /-- The corresponding equivalence between literal and intrinsic residue
 fields. -/

@@ -57,7 +57,7 @@ variable (hsquare : tauL.comp (algebraMap K L) =
 variable [Normal K L]
 
 include hsquare in
-private def galoisPullbackElement (sigma : L' ≃ₐ[K'] L') : L ≃ₐ[K] L := by
+def galoisPullbackElement (sigma : L' ≃ₐ[K'] L') : L ≃ₐ[K] L := by
   letI : Algebra K K' := tauK.toAlgebra
   letI : Algebra K L' := ((algebraMap K' L').comp tauK).toAlgebra
   letI : Algebra L L' := tauL.toAlgebra
@@ -161,10 +161,10 @@ open RamificationTheory.HilbertRamification.ValuationSubring
 
 variable (A' : _root_.ValuationSubring L')
 
-private abbrev pulledValuationSubring : _root_.ValuationSubring L :=
+abbrev pulledValuationSubring : _root_.ValuationSubring L :=
   A'.comap tauL
 
-private theorem mem_nonunits_pulled_iff (x : L) :
+theorem mem_nonunits_pulled_iff (x : L) :
     x ∈ (pulledValuationSubring tauL A').nonunits ↔
       tauL x ∈ A'.nonunits := by
   rw [_root_.ValuationSubring.mem_nonunits_iff_or,
@@ -192,7 +192,7 @@ private theorem units_map_mem_principalUnitGroup_iff (x : Lˣ) :
   rw [hcoe]
   simpa only [_root_.ValuationSubring.mem_nonunits_iff, map_sub, map_one] using h
 
-private theorem mem_inertiaGroup_iff_sub_mem_nonunits
+theorem mem_inertiaGroup_iff_sub_mem_nonunits_baseChange
     {F : Type*} {E : Type*} [Field F] [Field E] [Algebra F E]
     (A : _root_.ValuationSubring E) (sigma : decompositionGroup F A) :
     sigma ∈ inertiaGroup F A ↔
@@ -251,7 +251,7 @@ def galoisPullback_decompositionGroupMap :
     exact map_mul (galoisPullback_galoisPullback tauK tauL hsquare)
       (sigma : L' ≃ₐ[K'] L') (rho : L' ≃ₐ[K'] L')
 
-private theorem decompositionGroupMap_commutes
+theorem decompositionGroupMap_commutes
     (sigma : decompositionGroup K' A') (x : L) :
     tauL ((((galoisPullback_decompositionGroupMap tauK tauL hsquare A' sigma :
       decompositionGroup K (pulledValuationSubring tauL A')) :
@@ -270,11 +270,11 @@ def galoisPullback_inertiaGroupMap :
     let delta := galoisPullback_decompositionGroupMap tauK tauL hsquare A'
       (sigma : decompositionGroup K' A')
     refine ⟨delta, ?_⟩
-    rw [mem_inertiaGroup_iff_sub_mem_nonunits]
+    rw [mem_inertiaGroup_iff_sub_mem_nonunits_baseChange]
     intro x
     rw [mem_nonunits_pulled_iff]
     rw [map_sub, decompositionGroupMap_commutes]
-    exact (mem_inertiaGroup_iff_sub_mem_nonunits A'
+    exact (mem_inertiaGroup_iff_sub_mem_nonunits_baseChange A'
       (sigma : decompositionGroup K' A')).mp sigma.property
       ⟨tauL (x : L), x.property⟩
   map_one' := by

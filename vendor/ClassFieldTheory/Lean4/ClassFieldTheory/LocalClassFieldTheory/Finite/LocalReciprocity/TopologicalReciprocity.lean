@@ -372,7 +372,7 @@ variable (K L : Type) [Field K] [Field L] [Algebra K L]
   [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
   [FiniteDimensional K L] [IsGalois K L]
 
-private theorem commutator_topologicalClosure_eq
+theorem commutator_topologicalClosure_eq
     (G : Type) [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
     [DiscreteTopology G] :
     Subgroup.topologicalClosure (commutator G) = commutator G := by

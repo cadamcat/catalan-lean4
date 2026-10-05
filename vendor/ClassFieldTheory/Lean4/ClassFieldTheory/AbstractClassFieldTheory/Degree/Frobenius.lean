@@ -174,7 +174,7 @@ theorem normalizedDegree_ker (D : DegreeData G)
     rw [show D.degree k.1 = 1 from hk]
     simp
 
-private theorem fieldInertiaWithin_le_normalizedDegree_ker
+theorem fieldInertiaWithin_le_normalizedDegree_ker
     (D : DegreeData G) (K : FiniteResidueAbstractField D) :
     D.fieldInertiaWithin K.field ≤ (D.normalizedDegree K).toMonoidHom.ker := by
   rw [D.normalizedDegree_ker K]
@@ -290,7 +290,7 @@ theorem frobeniusRestrictionNaturality_normalizedDegree (D : DegreeData G)
     E.residueDegree_mul_absoluteResidueDegree D,
     D.residueDegree_nsmul_normalizedDegree E.field]
 
-private theorem fieldInertiaWithin_le_comap_inclusion
+theorem fieldInertiaWithin_le_comap_inclusion
     (D : DegreeData G) {L K : ClosedSubgroup G}
     (hLK : L.toSubgroup ≤ K.toSubgroup) :
     D.fieldInertiaWithin L ≤

@@ -134,13 +134,13 @@ abbrev rationalFractionalIdeal (I : FractionalIdealGroup ℚ) :
 
 /-- An arbitrary principal generator of a nonzero rational fractional
 ideal, before choosing its sign. -/
-private noncomputable def rawRationalIdealGenerator
+noncomputable def rawRationalIdealGenerator
     (I : FractionalIdealGroup ℚ) : ℚ :=
   Submodule.IsPrincipal.generator
     ((rationalFractionalIdeal I : FractionalIdeal
       (nonZeroDivisors (𝓞 ℚ)) ℚ) : Submodule (𝓞 ℚ) ℚ)
 
-private theorem rawRationalIdealGenerator_ne_zero
+theorem rawRationalIdealGenerator_ne_zero
     (I : FractionalIdealGroup ℚ) :
     rawRationalIdealGenerator I ≠ 0 := by
   apply mt

@@ -55,7 +55,7 @@ private theorem zpowers_eq_top_of_forall_mem_zpowers {G : Type} [Group G] (g : G
   · intro _
     exact hg x
 
-private theorem isCyclic_of_forall_mem_zpowers {G : Type} [Group G] (g : G)
+theorem isCyclic_of_forall_mem_zpowers {G : Type} [Group G] (g : G)
     (hg : ∀ x : G, x ∈ Subgroup.zpowers g) :
     IsCyclic G := by
   rw [isCyclic_iff_exists_zpowers_eq_top]

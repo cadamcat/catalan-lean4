@@ -132,7 +132,7 @@ noncomputable def padicValuationUnitToCompletedUnramifiedWittUnit
   Units.map
     (padicValuationSubringToCompletedUnramifiedWittRing p).toMonoidHom
 
-private theorem completedUnramifiedWittUnit_coeff_zero_ne_zero
+theorem completedUnramifiedWittUnit_coeff_zero_ne_zero
     (p : ℕ) [Fact p.Prime]
     (u : (padicCompletedUnramifiedWittRing p)ˣ) :
     ((u : padicCompletedUnramifiedWittRing p).coeff 0) ≠ 0 := by
@@ -143,7 +143,7 @@ private theorem completedUnramifiedWittUnit_coeff_zero_ne_zero
     u.isUnit.map WittVector.constantCoeff
   simpa only [WittVector.constantCoeff_apply] using hu.ne_zero
 
-private theorem padicChangedUniformizerRotation_coeff_zero_ne_zero
+theorem padicChangedUniformizerRotation_coeff_zero_ne_zero
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ) :
     (WittVector.frobeniusRotation p

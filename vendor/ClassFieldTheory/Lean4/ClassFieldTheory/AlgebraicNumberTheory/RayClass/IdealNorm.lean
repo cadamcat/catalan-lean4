@@ -2,6 +2,7 @@
 MODIFIED FROM UPSTREAM:
 n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
 Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+Merged the excluded fractional-ideal norm and factorization support into this retained file to keep the 871-file subset.
 -/
 module
 
@@ -14,11 +15,16 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlaceIdeal
 public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Ideal
 public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Topology
-public import ClassFieldTheory.Definitions.ConductorsAndRayClassFields.FractionalIdealNorm
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNormComponents
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.NormLocalOrder
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormContinuity
 public import Mathlib.Algebra.BigOperators.Finsupp.Basic
+public import Mathlib.NumberTheory.NumberField.Basic
+public import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
+public import Mathlib.RingTheory.ClassGroup.Basic
+public import Mathlib.RingTheory.DedekindDomain.Factorization
+public import Mathlib.RingTheory.Ideal.GoingUp
+public import Mathlib.RingTheory.Ideal.Norm.RelNorm
 
 
 /-!
@@ -50,6 +56,209 @@ open scoped BigOperators Classical NumberField Topology
 open NumberField IsDedekindDomain
 
 noncomputable section
+
+namespace ClassFieldTheory
+
+universe u
+
+/-- The group of nonzero fractional ideals of a number field. -/
+abbrev NumberFieldFractionalIdealGroup
+    (K : Type u) [Field K] [NumberField K] :=
+  (FractionalIdeal (nonZeroDivisors (𝓞 K)) K)ˣ
+
+end ClassFieldTheory
+
+namespace ClassFieldTheory
+
+universe u
+
+/-- The nonzero fractional ideal represented by a finite prime. -/
+def finitePrimeFractionalIdeal
+    {K : Type u} [Field K] [NumberField K]
+    (v : HeightOneSpectrum (𝓞 K)) :
+    NumberFieldFractionalIdealGroup K :=
+  Units.mk0
+    (v.asIdeal : FractionalIdeal (nonZeroDivisors (𝓞 K)) K)
+    (FractionalIdeal.coeIdeal_ne_zero.mpr v.ne_bot)
+
+end ClassFieldTheory
+
+namespace ClassFieldTheory
+
+universe u
+
+namespace NumberFieldFractionalIdealGroup
+
+variable {K : Type u} [Field K] [NumberField K]
+
+/-- The integer exponent of one finite prime, viewed multiplicatively. -/
+def primePowerHom (v : HeightOneSpectrum (𝓞 K)) :
+    Multiplicative ℤ →* NumberFieldFractionalIdealGroup K :=
+  MonoidHom.mk'
+    (fun n => finitePrimeFractionalIdeal v ^ n.toAdd)
+    (fun m n => by simp only [toAdd_mul, zpow_add])
+
+/-- Reconstruct a nonzero fractional ideal from finitely many prime
+exponents. -/
+def factorization :
+    Multiplicative (HeightOneSpectrum (𝓞 K) →₀ ℤ) →*
+      NumberFieldFractionalIdealGroup K :=
+  MonoidHom.mk'
+    (fun exps =>
+      exps.toAdd.prod fun v n => primePowerHom v (Multiplicative.ofAdd n))
+    (fun a b => by
+      exact Finsupp.prod_hom_add_index (fun v => primePowerHom v))
+
+@[simp]
+theorem factorization_val
+    (exps : Multiplicative (HeightOneSpectrum (𝓞 K) →₀ ℤ)) :
+    ((factorization exps : NumberFieldFractionalIdealGroup K) :
+      FractionalIdeal (nonZeroDivisors (𝓞 K)) K) =
+      exps.toAdd.prod fun v n =>
+        (v.asIdeal : FractionalIdeal (nonZeroDivisors (𝓞 K)) K) ^ n := by
+  classical
+  simp [factorization, primePowerHom, finitePrimeFractionalIdeal, Finsupp.prod]
+
+/-- Only finitely many finite primes occur with nonzero exponent in a
+nonzero fractional ideal. -/
+theorem finite_count_support (I : NumberFieldFractionalIdealGroup K) :
+    {v : HeightOneSpectrum (𝓞 K) |
+      FractionalIdeal.count K v
+        (I : FractionalIdeal (nonZeroDivisors (𝓞 K)) K) ≠ 0}.Finite :=
+  Filter.eventually_cofinite.mp
+    (FractionalIdeal.finite_factors
+      (I : FractionalIdeal (nonZeroDivisors (𝓞 K)) K))
+
+/-- The finitely supported prime-exponent vector of a nonzero fractional
+ideal. -/
+def countVector (I : NumberFieldFractionalIdealGroup K) :
+    HeightOneSpectrum (𝓞 K) →₀ ℤ :=
+  Finsupp.onFinset (finite_count_support I).toFinset
+    (fun v => FractionalIdeal.count K v
+      (I : FractionalIdeal (nonZeroDivisors (𝓞 K)) K))
+    (fun v hv => by
+      rw [Set.Finite.mem_toFinset]
+      exact hv)
+
+@[simp]
+theorem countVector_apply (I : NumberFieldFractionalIdealGroup K)
+    (v : HeightOneSpectrum (𝓞 K)) :
+    countVector I v =
+      FractionalIdeal.count K v
+        (I : FractionalIdeal (nonZeroDivisors (𝓞 K)) K) :=
+  rfl
+
+@[simp]
+theorem count_factorization
+    (exps : Multiplicative (HeightOneSpectrum (𝓞 K) →₀ ℤ))
+    (v : HeightOneSpectrum (𝓞 K)) :
+    FractionalIdeal.count K v
+      ((factorization exps : NumberFieldFractionalIdealGroup K) :
+        FractionalIdeal (nonZeroDivisors (𝓞 K)) K) =
+      exps.toAdd v := by
+  rw [factorization_val]
+  exact FractionalIdeal.count_finsuppProd K v exps.toAdd
+
+theorem ext_count {I J : NumberFieldFractionalIdealGroup K}
+    (h : ∀ v : HeightOneSpectrum (𝓞 K),
+      FractionalIdeal.count K v
+        (I : FractionalIdeal (nonZeroDivisors (𝓞 K)) K) =
+      FractionalIdeal.count K v
+        (J : FractionalIdeal (nonZeroDivisors (𝓞 K)) K)) :
+    I = J := by
+  apply Units.ext
+  rw [← FractionalIdeal.finprod_heightOneSpectrum_factorization'
+      K (Units.ne_zero I),
+    ← FractionalIdeal.finprod_heightOneSpectrum_factorization'
+      K (Units.ne_zero J)]
+  exact finprod_congr fun v => congrArg
+    (fun n : ℤ =>
+      (v.asIdeal : FractionalIdeal (nonZeroDivisors (𝓞 K)) K) ^ n) (h v)
+
+theorem factorization_injective :
+    Function.Injective (factorization (K := K)) := by
+  intro a b hab
+  apply Multiplicative.ext
+  ext v
+  rw [← count_factorization a v, ← count_factorization b v, hab]
+
+theorem factorization_surjective :
+    Function.Surjective (factorization (K := K)) := by
+  intro I
+  refine ⟨Multiplicative.ofAdd (countVector I), ?_⟩
+  apply ext_count
+  intro v
+  rw [count_factorization]
+  change countVector I v =
+    FractionalIdeal.count K v
+      (I : FractionalIdeal (nonZeroDivisors (𝓞 K)) K)
+  exact countVector_apply I v
+
+/-- Multiplicative prime factorization of nonzero fractional ideals. -/
+def factorizationEquiv :
+    Multiplicative (HeightOneSpectrum (𝓞 K) →₀ ℤ) ≃*
+      NumberFieldFractionalIdealGroup K :=
+  MulEquiv.ofBijective (factorization (K := K))
+    ⟨factorization_injective, factorization_surjective⟩
+
+end NumberFieldFractionalIdealGroup
+
+end ClassFieldTheory
+
+namespace ClassFieldTheory
+
+universe u v
+
+/-- The finite prime below a finite prime in an extension of number fields. -/
+def fractionalIdealNormPrimeBelow
+    (K : Type u) (L : Type v)
+    [Field K] [NumberField K]
+    [Field L] [NumberField L] [Algebra K L]
+    (W : HeightOneSpectrum (𝓞 L)) :
+    HeightOneSpectrum (𝓞 K) where
+  asIdeal := W.asIdeal.under (𝓞 K)
+  isPrime := inferInstance
+  ne_bot :=
+    Ring.ne_bot_of_isMaximal_of_not_isField
+      (M := W.asIdeal.under (𝓞 K)) inferInstance
+      (RingOfIntegers.not_isField K)
+
+/-- The relative ideal norm on formal finite-prime exponent vectors. The
+coefficient at an upstairs prime is transferred to its contracted prime and
+multiplied by the inertia degree. -/
+def fractionalIdealNormExponentMap
+    (K : Type u) (L : Type v)
+    [Field K] [NumberField K]
+    [Field L] [NumberField L] [Algebra K L]
+    [FiniteDimensional K L] :
+    (HeightOneSpectrum (𝓞 L) →₀ ℤ) →+
+      (HeightOneSpectrum (𝓞 K) →₀ ℤ) :=
+  Finsupp.liftAddHom fun W =>
+    (Finsupp.singleAddHom (fractionalIdealNormPrimeBelow K L W)).comp
+      (AddMonoidHom.mulLeft (W.asIdeal.inertiaDeg (𝓞 K) : ℤ))
+
+end ClassFieldTheory
+
+namespace ClassFieldTheory
+
+universe u v
+
+/-- The relative norm of nonzero fractional ideals of number fields,
+defined by its inertia-degree-weighted action on prime exponents. -/
+def fractionalIdealNorm
+    (K : Type u) (L : Type v)
+    [Field K] [NumberField K]
+    [Field L] [NumberField L] [Algebra K L]
+    [FiniteDimensional K L] :
+    NumberFieldFractionalIdealGroup L →*
+      NumberFieldFractionalIdealGroup K :=
+  (NumberFieldFractionalIdealGroup.factorizationEquiv
+      (K := K)).toMonoidHom.comp
+    ((fractionalIdealNormExponentMap K L).toMultiplicative.comp
+      (NumberFieldFractionalIdealGroup.factorizationEquiv
+        (K := L)).symm.toMonoidHom)
+
+end ClassFieldTheory
 
 namespace RayClass
 

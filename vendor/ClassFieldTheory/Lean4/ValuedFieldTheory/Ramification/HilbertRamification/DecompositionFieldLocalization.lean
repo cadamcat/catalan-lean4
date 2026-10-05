@@ -1,7 +1,7 @@
 /-
 MODIFIED FROM UPSTREAM:
 n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
-Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3. Renamed its exported localization helpers to avoid collisions with LocalizationDensity. Renamed retained helper declarations to avoid collisions after making their interface public.
 -/
 module
 
@@ -63,18 +63,18 @@ local instance proposition98CompletionBaseSMul : SMul K w.1.Completion :=
 local instance proposition98CompletionAlgebra : Algebra vK.Completion w.1.Completion :=
   AbsoluteValue.completionAlgebra vK w.1 w.2
 
-private abbrev localization : IntermediateField vK.Completion w.1.Completion :=
+abbrev decompositionFieldLocalization : IntermediateField vK.Completion w.1.Completion :=
   AbsoluteValue.algebraicLocalization vK w.1 w.2
 
-private abbrev toLocalization : L →+* localization vK w :=
+abbrev toDecompositionFieldLocalization : L →+* decompositionFieldLocalization vK w :=
   AbsoluteValue.toAlgebraicLocalization vK w.1 w.2
 
-local instance proposition98LocalizationBaseAlgebra : Algebra K (localization vK w) :=
-  ((algebraMap vK.Completion (localization vK w)).comp
+local instance proposition98LocalizationBaseAlgebra : Algebra K (decompositionFieldLocalization vK w) :=
+  ((algebraMap vK.Completion (decompositionFieldLocalization vK w)).comp
     (algebraMap K vK.Completion)).toAlgebra
 
 local instance proposition98LocalizationScalarTower :
-    IsScalarTower K vK.Completion (localization vK w) :=
+    IsScalarTower K vK.Completion (decompositionFieldLocalization vK w) :=
   IsScalarTower.of_algebraMap_eq' (by
     ext x
     rfl)
@@ -82,8 +82,8 @@ local instance proposition98LocalizationScalarTower :
 /-- The dense copy of `L` in the localization, as a `K`-algebra embedding
 for the scalar tower `K → K_v → L_w`. -/
 def decompositionField_toLocalizationAlgHom :
-    L →ₐ[K] localization vK w where
-  __ := toLocalization vK w
+    L →ₐ[K] decompositionFieldLocalization vK w where
+  __ := toDecompositionFieldLocalization vK w
   commutes' x := AbsoluteValue.toAlgebraicLocalization_algebraMap vK w.1 w.2 x
 
 omit [IsGalois K L] in
@@ -91,12 +91,12 @@ omit [IsGalois K L] in
 `L`, not only by its ambient-completion representatives. -/
 theorem decompositionField_localization_adjoin_range_eq_top :
     IntermediateField.adjoin vK.Completion
-      (Set.range (toLocalization vK w)) = ⊤ := by
-  let E := localization vK w
+      (Set.range (toDecompositionFieldLocalization vK w)) = ⊤ := by
+  let E := decompositionFieldLocalization vK w
   apply IntermediateField.lift_injective E
   rw [IntermediateField.lift_adjoin, IntermediateField.lift_top]
   change IntermediateField.adjoin vK.Completion
-      (Subtype.val '' Set.range (toLocalization vK w)) =
+      (Subtype.val '' Set.range (toDecompositionFieldLocalization vK w)) =
     AbsoluteValue.algebraicLocalization vK w.1 w.2
   congr 1
   ext z
@@ -104,12 +104,12 @@ theorem decompositionField_localization_adjoin_range_eq_top :
   · rintro ⟨_, ⟨x, rfl⟩, rfl⟩
     exact ⟨x, rfl⟩
   · rintro ⟨x, rfl⟩
-    exact ⟨toLocalization vK w x, ⟨x, rfl⟩, rfl⟩
+    exact ⟨toDecompositionFieldLocalization vK w x, ⟨x, rfl⟩, rfl⟩
 
 omit hvK in
 /-- Every generator coming from `L` is separable over `K_v`. -/
 theorem decompositionField_toLocalization_isSeparable (x : L) :
-    IsSeparable vK.Completion (toLocalization vK w x) := by
+    IsSeparable vK.Completion (toDecompositionFieldLocalization vK w x) := by
   have hx : IsSeparable K
       (decompositionField_toLocalizationAlgHom vK w x) :=
     (Algebra.IsSeparable.isSeparable K x).map
@@ -121,26 +121,26 @@ omit hvK in
 /-- Every generator coming from `L` has its `K_v`-minimal polynomial split
 inside the localization. -/
 theorem decompositionField_toLocalization_minpoly_splits (x : L) :
-    ((minpoly vK.Completion (toLocalization vK w x)).map
-      (algebraMap vK.Completion (localization vK w))).Splits := by
+    ((minpoly vK.Completion (toDecompositionFieldLocalization vK w x)).map
+      (algebraMap vK.Completion (decompositionFieldLocalization vK w))).Splits := by
   let i := decompositionField_toLocalizationAlgHom vK w
   have hxint : IsIntegral K x := Algebra.IsIntegral.isIntegral x
   have hsK : ((minpoly K x).map
-      (algebraMap K (localization vK w))).Splits := by
+      (algebraMap K (decompositionFieldLocalization vK w))).Splits := by
     have hi : i.toRingHom.comp (algebraMap K L) =
-        algebraMap K (localization vK w) := i.comp_algebraMap
+        algebraMap K (decompositionFieldLocalization vK w) := i.comp_algebraMap
     have hs := (Normal.splits (F := K) (K := L) inferInstance x).map
       i.toRingHom
     simpa only [Polynomial.map_map, hi] using hs
   have hsTower : (((minpoly K x).map (algebraMap K vK.Completion)).map
-      (algebraMap vK.Completion (localization vK w))).Splits := by
+      (algebraMap vK.Completion (decompositionFieldLocalization vK w))).Splits := by
     simpa only [Polynomial.map_map,
-      IsScalarTower.algebraMap_eq K vK.Completion (localization vK w)] using hsK
-  have hdvd : minpoly vK.Completion (toLocalization vK w x) ∣
+      IsScalarTower.algebraMap_eq K vK.Completion (decompositionFieldLocalization vK w)] using hsK
+  have hdvd : minpoly vK.Completion (toDecompositionFieldLocalization vK w x) ∣
       (minpoly K x).map (algebraMap K vK.Completion) := by
     have h := minpoly.dvd_map_of_isScalarTower K vK.Completion
-      (toLocalization vK w x)
-    have hmin : minpoly K (toLocalization vK w x) = minpoly K x :=
+      (toDecompositionFieldLocalization vK w x)
+    have hmin : minpoly K (toDecompositionFieldLocalization vK w x) = minpoly K x :=
       minpoly.algHom_eq i i.injective x
     rwa [hmin] at h
   exact hsTower.of_dvd
@@ -152,16 +152,16 @@ omit hvK in
 /-- The algebraic localization of a Galois extension is normal over the
 completed base field, with no finite-degree hypothesis. -/
 theorem decompositionField_localization_normal :
-    Normal vK.Completion (localization vK w) := by
-  let : Algebra.IsAlgebraic vK.Completion (localization vK w) :=
+    Normal vK.Completion (decompositionFieldLocalization vK w) := by
+  let : Algebra.IsAlgebraic vK.Completion (decompositionFieldLocalization vK w) :=
     AbsoluteValue.algebraicLocalization_isAlgebraic vK w.1 w.2
   rw [normal_iff]
   intro z
   refine ⟨Algebra.IsIntegral.isIntegral z, ?_⟩
   apply IntermediateField.splits_of_mem_adjoin
-      (F := vK.Completion) (K := localization vK w)
-      (L := localization vK w)
-      (S := Set.range (toLocalization vK w))
+      (F := vK.Completion) (K := decompositionFieldLocalization vK w)
+      (L := decompositionFieldLocalization vK w)
+      (S := Set.range (toDecompositionFieldLocalization vK w))
   · intro y hy
     rcases hy with ⟨x, rfl⟩
     exact ⟨(decompositionField_toLocalization_isSeparable vK w x).isIntegral,
@@ -173,12 +173,12 @@ omit hvK in
 /-- The algebraic localization of a Galois extension is separable over the
 completed base field, with no finite-degree hypothesis. -/
 theorem decompositionField_localization_separable :
-    Algebra.IsSeparable vK.Completion (localization vK w) := by
-  let S := Set.range (toLocalization vK w)
+    Algebra.IsSeparable vK.Completion (decompositionFieldLocalization vK w) := by
+  let S := Set.range (toDecompositionFieldLocalization vK w)
   have hS : Algebra.IsSeparable vK.Completion
       (IntermediateField.adjoin vK.Completion S) :=
     (IntermediateField.isSeparable_adjoin_iff_isSeparable
-      (F := vK.Completion) (E := localization vK w)).mpr fun y hy => by
+      (F := vK.Completion) (E := decompositionFieldLocalization vK w)).mpr fun y hy => by
       rcases hy with ⟨x, rfl⟩
       exact decompositionField_toLocalization_isSeparable vK w x
   let : Algebra.IsSeparable vK.Completion
@@ -188,21 +188,21 @@ theorem decompositionField_localization_separable :
     rw [decompositionField_localization_adjoin_range_eq_top vK w]
     trivial
   exact IntermediateField.isSeparable_of_mem_isSeparable vK.Completion
-    (localization vK w) hz
+    (decompositionFieldLocalization vK w) hz
 
 omit hvK in
 /-- The algebraic localization of a Galois extension is Galois over `K_v`.
 This permits the fixed-field argument in infinite degree. -/
 theorem algebraicLocalization_isGalois :
-    IsGalois vK.Completion (localization vK w) :=
+    IsGalois vK.Completion (decompositionFieldLocalization vK w) :=
   isGalois_iff.mpr
     ⟨decompositionField_localization_separable vK w,
       decompositionField_localization_normal vK w⟩
 
 /-- The copy of `K_v` as an actual subfield of the algebraic localization. -/
 abbrev decompositionField_completionImageSubfield :
-    Subfield (localization vK w) :=
-  (algebraMap vK.Completion (localization vK w)).fieldRange
+    Subfield (decompositionFieldLocalization vK w) :=
+  (algebraMap vK.Completion (decompositionFieldLocalization vK w)).fieldRange
 
 include hvK
 
@@ -211,59 +211,59 @@ decomposition field exactly when its image in `L_w` belongs to the embedded
 copy of `K_v`. -/
 theorem decompositionField_decompositionField_eq_completionImage_comap :
     (decompositionField_completionImageSubfield vK w).comap
-        (toLocalization vK w) =
+        (toDecompositionFieldLocalization vK w) =
       (absoluteValueDecompositionField K w.1).toSubfield := by
-  let : IsGalois vK.Completion (localization vK w) :=
+  let : IsGalois vK.Completion (decompositionFieldLocalization vK w) :=
     algebraicLocalization_isGalois vK w
   ext x
-  change toLocalization vK w x ∈
-      Set.range (algebraMap vK.Completion (localization vK w)) ↔
+  change toDecompositionFieldLocalization vK w x ∈
+      Set.range (algebraMap vK.Completion (decompositionFieldLocalization vK w)) ↔
     x ∈ absoluteValueDecompositionField K w.1
   rw [InfiniteGalois.mem_range_algebraMap_iff_fixed,
     mem_absoluteValueDecompositionField_iff]
   constructor
   · intro hfixed σ hσ
     let δ : absoluteValueDecompositionGroup K w.1 := ⟨σ, hσ⟩
-    apply (toLocalization vK w).injective
+    apply (toDecompositionFieldLocalization vK w).injective
     calc
-      toLocalization vK w (σ x) =
+      toDecompositionFieldLocalization vK w (σ x) =
           decompositionGroupEquivAlgebraicLocalizationAut vK hvK w δ
-            (toLocalization vK w x) :=
+            (toDecompositionFieldLocalization vK w x) :=
         (localizationRamificationGroups_decompositionGroupEquiv_toLocalization
           vK hvK w δ x).symm
-      _ = toLocalization vK w x := hfixed _
+      _ = toDecompositionFieldLocalization vK w x := hfixed _
   · intro hZ τ
     let δ : absoluteValueDecompositionGroup K w.1 :=
       (decompositionGroupEquivAlgebraicLocalizationAut vK hvK w).symm τ
     have hδ : ((δ : L ≃ₐ[K] L) x) = x := hZ δ δ.property
     calc
-      τ (toLocalization vK w x) =
+      τ (toDecompositionFieldLocalization vK w x) =
           decompositionGroupEquivAlgebraicLocalizationAut vK hvK w δ
-            (toLocalization vK w x) := by
+            (toDecompositionFieldLocalization vK w x) := by
         rw [MulEquiv.apply_symm_apply]
-      _ = toLocalization vK w ((δ : L ≃ₐ[K] L) x) :=
+      _ = toDecompositionFieldLocalization vK w ((δ : L ≃ₐ[K] L) x) :=
         localizationRamificationGroups_decompositionGroupEquiv_toLocalization
           vK hvK w δ x
-      _ = toLocalization vK w x := congrArg (toLocalization vK w) hδ
+      _ = toDecompositionFieldLocalization vK w x := congrArg (toDecompositionFieldLocalization vK w) hδ
 
 /-- The decomposition-field extension comparison, literal intersection form inside `L_w`:
 the image of `Z_w` is the infimum of the images of `L` and `K_v`. -/
 theorem decompositionField_decompositionField_image_eq_intersection :
-    (toLocalization vK w).fieldRange ⊓
+    (toDecompositionFieldLocalization vK w).fieldRange ⊓
         decompositionField_completionImageSubfield vK w =
       (absoluteValueDecompositionField K w.1).toSubfield.map
-        (toLocalization vK w) := by
+        (toDecompositionFieldLocalization vK w) := by
   calc
-    (toLocalization vK w).fieldRange ⊓
+    (toDecompositionFieldLocalization vK w).fieldRange ⊓
         decompositionField_completionImageSubfield vK w =
       decompositionField_completionImageSubfield vK w ⊓
-        (toLocalization vK w).fieldRange := by rw [inf_comm]
+        (toDecompositionFieldLocalization vK w).fieldRange := by rw [inf_comm]
     _ = ((decompositionField_completionImageSubfield vK w).comap
-        (toLocalization vK w)).map (toLocalization vK w) :=
-      (Subfield.map_comap_eq (toLocalization vK w)
+        (toDecompositionFieldLocalization vK w)).map (toDecompositionFieldLocalization vK w) :=
+      (Subfield.map_comap_eq (toDecompositionFieldLocalization vK w)
         (decompositionField_completionImageSubfield vK w)).symm
     _ = (absoluteValueDecompositionField K w.1).toSubfield.map
-        (toLocalization vK w) := by
+        (toDecompositionFieldLocalization vK w) := by
       rw [decompositionField_decompositionField_eq_completionImage_comap
         vK hvK w]
 
@@ -329,9 +329,9 @@ theorem decompositionField_decompositionField_valueRange_eq
     rcases hz with ⟨y, hy⟩
     have hvalue : wZ z = AbsoluteValue.completionAbsoluteValue vK y := by
       calc
-        wZ z = aE (toLocalization vK w (z : L)) :=
+        wZ z = aE (toDecompositionFieldLocalization vK w (z : L)) :=
           (AbsoluteValue.algebraicLocalizationAbsoluteValue_toAlgebraicLocalization vK w.1 w.2 (z : L)).symm
-        _ = aE (algebraMap vK.Completion (localization vK w) y) := by
+        _ = aE (algebraMap vK.Completion (decompositionFieldLocalization vK w) y) := by
           rw [hy]
         _ = AbsoluteValue.completionAbsoluteValue vK y :=
           AbsoluteValue.algebraicLocalizationAbsoluteValue_extends vK w.1 w.2 y
@@ -447,9 +447,9 @@ theorem decompositionField_decompositionField_residueMap_surjective
         z.property
   have hyle : aK y ≤ 1 := by
     calc
-      aK y = aE (algebraMap vK.Completion (localization vK w) y) :=
+      aK y = aE (algebraMap vK.Completion (decompositionFieldLocalization vK w) y) :=
         (AbsoluteValue.algebraicLocalizationAbsoluteValue_extends vK w.1 w.2 y).symm
-      _ = aE (toLocalization vK w ((z : Z) : L)) := by rw [hy]
+      _ = aE (toDecompositionFieldLocalization vK w ((z : Z) : L)) := by rw [hy]
       _ = w.1 ((z : Z) : L) :=
         AbsoluteValue.algebraicLocalizationAbsoluteValue_toAlgebraicLocalization vK w.1 w.2 _
       _ ≤ 1 := hzle
@@ -488,13 +488,13 @@ theorem decompositionField_decompositionField_residueMap_surjective
   calc
     (AlgebraicNumberTheory.Valuations.absoluteValueRestrictIntermediateField w.1 Z)
         (((f xA : AZ) : Z) - (z : Z)) =
-      aE (toLocalization vK w
+      aE (toDecompositionFieldLocalization vK w
         ((((f xA : AZ) : Z) - (z : Z) : Z) : L)) :=
         (AbsoluteValue.algebraicLocalizationAbsoluteValue_toAlgebraicLocalization vK w.1 w.2 _).symm
-    _ = aE (algebraMap vK.Completion (localization vK w)
+    _ = aE (algebraMap vK.Completion (decompositionFieldLocalization vK w)
         (algebraMap K vK.Completion x - y)) := by
       congr 1
-      rw [map_sub (algebraMap vK.Completion (localization vK w))]
+      rw [map_sub (algebraMap vK.Completion (decompositionFieldLocalization vK w))]
       dsimp [f]
       dsimp [xA]
       rw [map_sub, AbsoluteValue.toAlgebraicLocalization_algebraMap, ← hy]

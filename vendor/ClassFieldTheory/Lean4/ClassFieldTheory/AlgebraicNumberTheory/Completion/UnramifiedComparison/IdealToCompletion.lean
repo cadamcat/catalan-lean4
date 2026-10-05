@@ -311,8 +311,11 @@ theorem chosenFinitePlace_integral_uniformizer_not_mem_maximalIdeal_sq
           (v.valuation K (π : K)) ^
             v.asIdeal.ramificationIdx' W.asIdeal := by
         symm
-        exact HeightOneSpectrum.valuation_liesOver
+        have hval := HeightOneSpectrum.valuation_liesOver
           L v W (π : K)
+        rw [← Ideal.ramificationIdx'_eq_ramificationIdx
+          v.asIdeal W.asIdeal v.ne_bot] at hval
+        exact hval
       _ = WithZero.exp (-1 : ℤ) := by
         rw [hglobal, pow_one,
           HeightOneSpectrum.valuation_of_algebraMap, hπ]

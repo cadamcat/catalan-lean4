@@ -736,7 +736,7 @@ omit [CommGroup A] [CommGroup C]
     [MulDistribMulAction G A] [MulDistribMulAction G B]
     [MulDistribMulAction G C] in
 /-- `H⁰` of the right-regular multiplicative induced module. -/
-def rightRegularFunctionHerbrandH0 := by
+def rightRegularFunctionHerbrandH0 : Type (max uG uB) := by
   letI := rightRegularFunctionMulDistribMulAction (G := G) (B := B)
   exact HerbrandH0 G (G → B)
 
@@ -770,7 +770,7 @@ omit [CommGroup A] [CommGroup C]
     [MulDistribMulAction G A] [MulDistribMulAction G B]
     [MulDistribMulAction G C] in
 /-- `H^{-1}` of the right-regular multiplicative induced module. -/
-def rightRegularFunctionHerbrandHMinusOne (σ : G) := by
+def rightRegularFunctionHerbrandHMinusOne (σ : G) : Type (max uG uB) := by
   letI := rightRegularFunctionMulDistribMulAction (G := G) (B := B)
   exact HerbrandHMinusOne G (G → B) σ
 

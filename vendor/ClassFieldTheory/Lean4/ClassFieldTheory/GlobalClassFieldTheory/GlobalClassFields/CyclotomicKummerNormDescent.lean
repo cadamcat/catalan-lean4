@@ -311,7 +311,7 @@ noncomputable local instance
 cyclotomic number field.  This is deliberately a named, non-instance boundary:
 downstream base-tower instances must not make every `NumberField` search unfold
 the full S-unit Kummer construction. -/
-private theorem cyclotomicKummerNormDescent_kummerNumberField
+public theorem cyclotomicKummerNormDescent_kummerNumberField
     (n : ℕ+)
     (seed : Finset (HeightOneSpectrum (𝓞 K))) :
     NumberField

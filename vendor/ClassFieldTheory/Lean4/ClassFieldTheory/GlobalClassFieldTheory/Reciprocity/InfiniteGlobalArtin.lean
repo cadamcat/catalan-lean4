@@ -57,7 +57,7 @@ theorem rationalInfinitePlace_isReal
   rw [Subsingleton.elim v Rat.infinitePlace]
   exact Rat.isReal_infinitePlace
 
-private noncomputable def rationalPositiveArchimedeanLocalComponent
+public noncomputable def rationalPositiveArchimedeanLocalComponent
     (v : InfinitePlace ℚ) :
     ℝ≥0ˣ →* v.Completionˣ :=
   (Units.mapEquiv
@@ -65,7 +65,7 @@ private noncomputable def rationalPositiveArchimedeanLocalComponent
         (rationalInfinitePlace_isReal v)).symm.toMulEquiv).toMonoidHom.comp
     (Units.map NNReal.toRealHom.toMonoidHom)
 
-private noncomputable def rationalPositiveArchimedeanInfinitePart :
+public noncomputable def rationalPositiveArchimedeanInfinitePart :
     ℝ≥0ˣ →* InfiniteIdeleGroup ℚ :=
   ContinuousMulEquiv.piUnits.symm.toMonoidHom.comp
     (MonoidHom.pi rationalPositiveArchimedeanLocalComponent)

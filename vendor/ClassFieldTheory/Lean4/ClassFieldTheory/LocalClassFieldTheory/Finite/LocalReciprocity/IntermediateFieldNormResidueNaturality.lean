@@ -53,15 +53,15 @@ universe u v
 variable {K : Type u} {Omega : Type v}
   [Field K] [Field Omega] [Algebra K Omega]
 
-private abbrev absoluteGalois (K : Type) [Field K] :=
+abbrev fixedFieldNormResidueAbsoluteGalois (K : Type) [Field K] :=
   intrinsicAbsoluteGalois K
 
-private abbrev absoluteUnits (K : Type) [Field K] :
-    Rep ℤ (absoluteGalois K) :=
+abbrev fixedFieldNormResidueAbsoluteUnits (K : Type) [Field K] :
+    Rep ℤ (fixedFieldNormResidueAbsoluteGalois K) :=
   intrinsicAbsoluteUnits K
 
-private abbrev abstractBase (K : Type) [Field K] :
-    ClosedSubgroup (absoluteGalois K) :=
+abbrev fixedFieldNormResidueAbstractBase (K : Type) [Field K] :
+    ClosedSubgroup (fixedFieldNormResidueAbsoluteGalois K) :=
   intrinsicAbstractBase K
 
 section AbstractToConcrete
@@ -71,12 +71,12 @@ variable (K L : Type) [Field K] [Field L] [Algebra K L]
 
 /-- The finite abstract norm class represented by a base-field unit in an
 explicit separable-closure realization. -/
-private def embeddedBaseNormClass
+def embeddedBaseNormClass
     (i : L →ₐ[K] SeparableClosure K) (a : Kˣ) :
-    FiniteNormQuotient (absoluteUnits K) (abstractBase K)
+    FiniteNormQuotient (fixedFieldNormResidueAbsoluteUnits K) (fixedFieldNormResidueAbstractBase K)
       (finiteGaloisAbstractExtensionOfEmbedding K L i).field
       (finiteGaloisAbstractExtensionOfEmbedding K L i).below :=
-  finiteNormClass (absoluteUnits K) (abstractBase K)
+  finiteNormClass (fixedFieldNormResidueAbsoluteUnits K) (fixedFieldNormResidueAbstractBase K)
     (finiteGaloisAbstractExtensionOfEmbedding K L i).field
     (finiteGaloisAbstractExtensionOfEmbedding K L i).below
     (baseUnitsEquivGaloisAmbientFixed K (SeparableClosure K)
@@ -88,20 +88,20 @@ equivalence.  This pointwise transport formula expresses abstract
 restriction naturality as a statement about actual field automorphisms. -/
 theorem concreteNormResidueSymbolOfEmbedding_eq_abstract
     (i : L →ₐ[K] SeparableClosure K)
-    (D : DegreeData (absoluteGalois K))
-    (v : ValuationData D (absoluteUnits K))
-    (hcf : SatisfiesClassFieldAxiom (absoluteUnits K)) (a : Kˣ) :
+    (D : DegreeData (fixedFieldNormResidueAbsoluteGalois K))
+    (v : ValuationData D (fixedFieldNormResidueAbsoluteUnits K))
+    (hcf : SatisfiesClassFieldAxiom (fixedFieldNormResidueAbsoluteUnits K)) (a : Kˣ) :
     concreteNormResidueSymbolOfEmbedding K L i D v hcf a =
       (finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding
         K L i).abelianizationCongr
         (Additive.toMul
-          (D.normResidueSymbol (absoluteUnits K) v hcf (intrinsicFiniteAbstractBase K)
+          (D.normResidueSymbol (fixedFieldNormResidueAbsoluteUnits K) v hcf (intrinsicFiniteAbstractBase K)
             (finiteGaloisAbstractExtensionOfEmbedding K L i)
             (embeddedBaseNormClass K L i a))) := by
   let Eabs := finiteGaloisAbstractExtensionOfEmbedding K L i
   let q := finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding K L i
   let xabs := embeddedBaseNormClass K L i a
-  let z := D.normResidueSymbol (absoluteUnits K) v hcf
+  let z := D.normResidueSymbol (fixedFieldNormResidueAbsoluteUnits K) v hcf
     (intrinsicFiniteAbstractBase K) Eabs xabs
   have hnorm :
       finiteNormQuotientEquivEmbeddedNormQuotient
@@ -123,18 +123,18 @@ theorem concreteNormResidueSymbolOfEmbedding_eq_abstract
           (normClass K L a) := by
     change finiteNormQuotientEquivEmbeddedNormQuotient
         K (SeparableClosure K) L i
-        (D.abstractReciprocityEquiv (absoluteUnits K) v hcf (intrinsicFiniteAbstractBase K) Eabs
+        (D.abstractReciprocityEquiv (fixedFieldNormResidueAbsoluteUnits K) v hcf (intrinsicFiniteAbstractBase K) Eabs
           (MulEquiv.toAdditive q.abelianizationCongr.symm
             (Additive.ofMul
               (q.abelianizationCongr (Additive.toMul z))))) = _
     rw [hsource]
     change finiteNormQuotientEquivEmbeddedNormQuotient
         K (SeparableClosure K) L i
-        (D.abstractReciprocityEquiv (absoluteUnits K) v hcf (intrinsicFiniteAbstractBase K) Eabs
+        (D.abstractReciprocityEquiv (fixedFieldNormResidueAbsoluteUnits K) v hcf (intrinsicFiniteAbstractBase K) Eabs
           ((D.abstractReciprocityEquiv
-            (absoluteUnits K) v hcf (intrinsicFiniteAbstractBase K) Eabs).symm xabs)) = _
+            (fixedFieldNormResidueAbsoluteUnits K) v hcf (intrinsicFiniteAbstractBase K) Eabs).symm xabs)) = _
     rw [(D.abstractReciprocityEquiv
-      (absoluteUnits K) v hcf (intrinsicFiniteAbstractBase K) Eabs).apply_symm_apply,
+      (fixedFieldNormResidueAbsoluteUnits K) v hcf (intrinsicFiniteAbstractBase K) Eabs).apply_symm_apply,
       hnorm]
   change (concreteReciprocityEquivOfEmbedding K L i D v hcf).symm
       (normClass K L a) =
@@ -152,7 +152,7 @@ variable (K : Type) [Field K]
   [ValuativeRel K] [TopologicalSpace K]
   [IsNonarchimedeanLocalField K]
 
-private theorem commGroup_abelianizationCongr_of
+theorem commGroup_abelianizationCongr_of
     {G H : Type*} [Group G] [CommGroup H]
     (q : G ≃* H) (x : G) :
     (Abelianization.equivOfComm (H := H)).symm
@@ -164,11 +164,11 @@ private theorem commGroup_abelianizationCongr_of
       ((Abelianization.equivOfComm (H := H)).symm_apply_apply (q x))
 
 omit [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] in
-private theorem intermediateFieldRestrict_abstractQuotient_mk
+theorem intermediateFieldRestrict_abstractQuotient_mk
     (E F : IntermediateField K (SeparableClosure K)) (hEF : E ≤ F)
     [FiniteDimensional K E] [FiniteDimensional K F]
     [IsGalois K E] [IsGalois K F]
-    (sigma : (abstractBase K).toSubgroup) :
+    (sigma : (fixedFieldNormResidueAbstractBase K).toSubgroup) :
     intermediateFieldRestrictNormalHom E F hEF
         (finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding K F F.val
           (QuotientGroup.mk sigma)) =
@@ -197,7 +197,7 @@ private theorem intermediateFieldRestrict_abstractQuotient_mk
         K E E.val (Subgroup.inclusion le_rfl sigma) x).symm
 
 omit [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] in
-private theorem embeddedAbstractExtension_field_le
+theorem embeddedAbstractExtension_field_le
     (E F : IntermediateField K (SeparableClosure K)) (hEF : E ≤ F)
     [FiniteDimensional K E] [FiniteDimensional K F]
     [IsGalois K E] [IsGalois K F] :
@@ -213,11 +213,11 @@ private theorem embeddedAbstractExtension_field_le
   exact E.fixingSubgroup_le hEF
 
 omit [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] in
-private theorem intermediateFieldRestrict_abstractAbelianization_of_mk
+theorem intermediateFieldRestrict_abstractAbelianization_of_mk
     (E F : IntermediateField K (SeparableClosure K)) (hEF : E ≤ F)
     [FiniteDimensional K E] [FiniteDimensional K F]
     [IsAbelianGalois K E] [IsAbelianGalois K F]
-    (sigma : (abstractBase K).toSubgroup) :
+    (sigma : (fixedFieldNormResidueAbstractBase K).toSubgroup) :
     intermediateFieldRestrictNormalHom E F hEF
         ((Abelianization.equivOfComm (H := Gal(F / K))).symm
           ((finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding
@@ -227,14 +227,14 @@ private theorem intermediateFieldRestrict_abstractAbelianization_of_mk
         ((finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding
           K E E.val).abelianizationCongr
             (normResidueNaturalityAbelianizedRestriction
-              (abstractBase K) (abstractBase K)
+              (fixedFieldNormResidueAbstractBase K) (fixedFieldNormResidueAbstractBase K)
               (finiteGaloisAbstractExtensionOfEmbedding K E E.val).field
               (finiteGaloisAbstractExtensionOfEmbedding K F F.val).field
               (finiteGaloisAbstractExtensionOfEmbedding K E E.val).below
               (finiteGaloisAbstractExtensionOfEmbedding K F F.val).below
               le_rfl (embeddedAbstractExtension_field_le K E F hEF)
               (Abelianization.of (QuotientGroup.mk sigma)))) := by
-  let B := abstractBase K
+  let B := fixedFieldNormResidueAbstractBase K
   let EE := finiteGaloisAbstractExtensionOfEmbedding K E E.val
   let EF := finiteGaloisAbstractExtensionOfEmbedding K F F.val
   let qE := finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding K E E.val
@@ -279,7 +279,7 @@ private theorem intermediateFieldRestrict_abstractAbelianization_of_mk
         hrestriction.symm
 
 omit [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] in
-private theorem intermediateFieldRestrict_abstractAbelianization
+theorem intermediateFieldRestrict_abstractAbelianization
     (E F : IntermediateField K (SeparableClosure K)) (hEF : E ≤ F)
     [FiniteDimensional K E] [FiniteDimensional K F]
     [IsAbelianGalois K E] [IsAbelianGalois K F]
@@ -292,7 +292,7 @@ private theorem intermediateFieldRestrict_abstractAbelianization
       (Abelianization.equivOfComm (H := Gal(E / K))).symm
         ((finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding K E E.val).abelianizationCongr
           (normResidueNaturalityAbelianizedRestriction
-            (abstractBase K) (abstractBase K)
+            (fixedFieldNormResidueAbstractBase K) (fixedFieldNormResidueAbstractBase K)
             (finiteGaloisAbstractExtensionOfEmbedding K E E.val).field
             (finiteGaloisAbstractExtensionOfEmbedding K F F.val).field
             (finiteGaloisAbstractExtensionOfEmbedding K E E.val).below
@@ -313,9 +313,9 @@ theorem concreteNormResidueAutomorphism_restrict
     (E F : IntermediateField K (SeparableClosure K)) (hEF : E ≤ F)
     [FiniteDimensional K E] [FiniteDimensional K F]
     [IsAbelianGalois K E] [IsAbelianGalois K F]
-    (D : DegreeData (absoluteGalois K))
-    (v : ValuationData D (absoluteUnits K))
-    (hcf : SatisfiesClassFieldAxiom (absoluteUnits K)) (a : Kˣ) :
+    (D : DegreeData (fixedFieldNormResidueAbsoluteGalois K))
+    (v : ValuationData D (fixedFieldNormResidueAbsoluteUnits K))
+    (hcf : SatisfiesClassFieldAxiom (fixedFieldNormResidueAbsoluteUnits K)) (a : Kˣ) :
     intermediateFieldRestrictNormalHom E F hEF
         ((Abelianization.equivOfComm (H := Gal(F / K))).symm
           (concreteNormResidueSymbolOfEmbedding
@@ -323,7 +323,7 @@ theorem concreteNormResidueAutomorphism_restrict
       (Abelianization.equivOfComm (H := Gal(E / K))).symm
         (concreteNormResidueSymbolOfEmbedding
           K E E.val D v hcf a) := by
-  let B := abstractBase K
+  let B := fixedFieldNormResidueAbstractBase K
   let BF := intrinsicFiniteAbstractBase K
   let EE := finiteGaloisAbstractExtensionOfEmbedding K E E.val
   let EF := finiteGaloisAbstractExtensionOfEmbedding K F F.val
@@ -354,7 +354,7 @@ theorem concreteNormResidueAutomorphism_restrict
         exact sigma.2
     rw [htop]
     infer_instance
-  let T : FiniteAbstractFieldExtension (absoluteGalois K) := {
+  let T : FiniteAbstractFieldExtension (fixedFieldNormResidueAbsoluteGalois K) := {
     field := BF
     base := BF
     below := le_rfl
@@ -375,25 +375,25 @@ theorem concreteNormResidueAutomorphism_restrict
         extensionSubgroup T.field.field EF.field EF.below) := by
     change Finite (B.toSubgroup ⧸ extensionSubgroup B EF.field EF.below)
     exact hEFFinite
-  have hnorm : finiteReciprocityNaturalityNormMap (absoluteUnits K)
+  have hnorm : finiteReciprocityNaturalityNormMap (fixedFieldNormResidueAbsoluteUnits K)
         B B EE.field EF.field EE.below EF.below le_rfl hFE xF = xE := by
     let aB := baseUnitsEquivGaloisAmbientFixed K (SeparableClosure K)
       (Additive.ofMul a)
     have hmap := finiteReciprocityNaturalityNormMap_finiteNormClass
-      (absoluteUnits K) B B EE.field EF.field EE.below EF.below le_rfl hFE aB
+      (fixedFieldNormResidueAbsoluteUnits K) B B EE.field EF.field EE.below EF.below le_rfl hFE aB
     exact hmap.trans (congrArg
-      (finiteNormClass (absoluteUnits K) B EE.field EE.below)
-      (relativeNorm_self (absoluteUnits K) B aB))
+      (finiteNormClass (fixedFieldNormResidueAbsoluteUnits K) B EE.field EE.below)
+      (relativeNorm_self (fixedFieldNormResidueAbsoluteUnits K) B aB))
   have hraw := D.normResidueNaturality_norm_restriction
-    (absoluteUnits K) v hcf
+    (fixedFieldNormResidueAbsoluteUnits K) v hcf
     T EE.field EF.field EE.below EF.below hFE
   have hrawa := DFunLike.congr_fun hraw xF
   change _ =
-    D.normResidueSymbol (absoluteUnits K) v hcf BF EE
-      (finiteReciprocityNaturalityNormMap (absoluteUnits K) B B EE.field EF.field EE.below EF.below le_rfl hFE xF) at hrawa
+    D.normResidueSymbol (fixedFieldNormResidueAbsoluteUnits K) v hcf BF EE
+      (finiteReciprocityNaturalityNormMap (fixedFieldNormResidueAbsoluteUnits K) B B EE.field EF.field EE.below EF.below le_rfl hFE xF) at hrawa
   rw [hnorm] at hrawa
-  let zF := D.normResidueSymbol (absoluteUnits K) v hcf BF EF xF
-  let zE := D.normResidueSymbol (absoluteUnits K) v hcf BF EE xE
+  let zF := D.normResidueSymbol (fixedFieldNormResidueAbsoluteUnits K) v hcf BF EF xF
+  let zE := D.normResidueSymbol (fixedFieldNormResidueAbsoluteUnits K) v hcf BF EE xE
   have hz : normResidueNaturalityAbelianizedRestriction
         B B EE.field EF.field EE.below EF.below le_rfl hFE
         (Additive.toMul zF) = Additive.toMul zE := by

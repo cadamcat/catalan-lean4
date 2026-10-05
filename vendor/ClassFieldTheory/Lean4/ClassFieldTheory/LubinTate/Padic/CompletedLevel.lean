@@ -234,7 +234,7 @@ theorem padicCompletedPrimitivePolynomial_adjoin_rootSet
   Polynomial.SplittingField.adjoin_rootSet
     (padicCompletedPrimitivePolynomial p n)
 
-private theorem padicCompletedPrimitivePolynomial_map_degree_ne_zero
+theorem padicCompletedPrimitivePolynomial_map_degree_ne_zero
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     ((padicCompletedPrimitivePolynomial p n).map
       (algebraMap (padicCompletedUnramifiedField p)
@@ -312,7 +312,7 @@ theorem padicCompletedPrimitiveRoot_isIntegral
     padicCompletedPrimitivePolynomialInteger_monic p n,
     padicCompletedPrimitiveRoot_aeval_integerPolynomial p n⟩
 
-private theorem padicCompletedLevelCompleteDVFData_exists
+theorem padicCompletedLevelCompleteDVFData_exists
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     ∃ target : CompleteDVF.{0, 0} (padicCompletedLevelField p n),
       ∃ hExt :
@@ -482,20 +482,20 @@ theorem padicCompletedPrimitiveRootInteger_mem_maximalIdeal
     (IsLocalRing.maximalIdeal.isMaximal
       target.valuationSubring).isPrime.mem_of_pow_mem _ hlambdaPow'
 
-private noncomputable local instance (priority := 50)
+noncomputable local instance (priority := 50)
     padicCompletedLevelWittUniformSpace
     (p : ℕ) [Fact p.Prime] :
     UniformSpace (padicCompletedUnramifiedWittRing p) :=
   ⊥
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedLevelTargetWithIdeal
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     WithIdeal
       (padicCompletedLevelCompleteDVF p n).valuationSubring where
   i := (padicCompletedLevelCompleteDVF p n).maximalIdeal
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedLevelTargetCompleteSpace
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     CompleteSpace
@@ -504,7 +504,7 @@ private noncomputable local instance
   have hadic : IsAdic target.maximalIdeal := rfl
   exact (hadic.isAdicComplete_iff.mp target.isAdicComplete).1
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedLevelTargetT2Space
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     T2Space
@@ -554,7 +554,7 @@ theorem padicCompletedLevelWittCoefficientHom_continuous
     Continuous (padicCompletedLevelWittCoefficientHom p n) :=
   continuous_of_discreteTopology
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedLevelWittAlgebra
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     Algebra (padicCompletedUnramifiedWittRing p)

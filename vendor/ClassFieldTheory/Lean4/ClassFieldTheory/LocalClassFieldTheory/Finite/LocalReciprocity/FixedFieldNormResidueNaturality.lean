@@ -537,10 +537,19 @@ theorem upperAbsoluteFinite
 /-- The fixed-field norm-residue symbol for the lower horizontal extension,
 induced by the canonical local class formation. -/
 noncomputable def lowerNormResidueSymbol
-    (T : LocalFixedFieldNormRestrictionSquare k) := by
-  letI := T.lowerNormal
-  letI := T.lowerFinite
-  letI := T.lowerAbsoluteFinite
+    (T : LocalFixedFieldNormRestrictionSquare k) :
+    Additive (abstractFixedField k (SeparableClosure k) T.lowerBase)ˣ →+
+      Additive (Abelianization
+        ((abstractRelativeFixedField k (SeparableClosure k) T.lowerTop_le_lowerBase) ≃ₐ[
+          abstractFixedField k (SeparableClosure k) T.lowerBase]
+            (abstractRelativeFixedField k (SeparableClosure k) T.lowerTop_le_lowerBase))) := by
+  letI : (extensionSubgroup T.lowerBase T.lowerTop T.lowerTop_le_lowerBase).Normal :=
+    T.lowerNormal
+  letI : Finite (T.lowerBase.toSubgroup ⧸
+      extensionSubgroup T.lowerBase T.lowerTop T.lowerTop_le_lowerBase) := T.lowerFinite
+  letI : Finite ((baseField (Gal(SeparableClosure k / k))).toSubgroup ⧸
+      extensionSubgroup (baseField (Gal(SeparableClosure k / k)))
+        T.lowerBase (le_baseField T.lowerBase)) := T.lowerAbsoluteFinite
   exact
     abstractFixedFieldNormResidueSymbol k (SeparableClosure k)
       (localResidueDatum k) (localHenselianValuation k)
@@ -550,10 +559,19 @@ noncomputable def lowerNormResidueSymbol
 /-- The fixed-field norm-residue symbol for the upper horizontal extension,
 induced by the canonical local class formation. -/
 noncomputable def upperNormResidueSymbol
-    (T : LocalFixedFieldNormRestrictionSquare k) := by
-  letI := T.upperNormal
-  letI := T.upperFinite
-  letI := upperAbsoluteFinite T
+    (T : LocalFixedFieldNormRestrictionSquare k) :
+    Additive (abstractFixedField k (SeparableClosure k) T.upperBase)ˣ →+
+      Additive (Abelianization
+        ((abstractRelativeFixedField k (SeparableClosure k) T.upperTop_le_upperBase) ≃ₐ[
+          abstractFixedField k (SeparableClosure k) T.upperBase]
+            (abstractRelativeFixedField k (SeparableClosure k) T.upperTop_le_upperBase))) := by
+  letI : (extensionSubgroup T.upperBase T.upperTop T.upperTop_le_upperBase).Normal :=
+    T.upperNormal
+  letI : Finite (T.upperBase.toSubgroup ⧸
+      extensionSubgroup T.upperBase T.upperTop T.upperTop_le_upperBase) := T.upperFinite
+  letI : Finite ((baseField (Gal(SeparableClosure k / k))).toSubgroup ⧸
+      extensionSubgroup (baseField (Gal(SeparableClosure k / k)))
+        T.upperBase (le_baseField T.upperBase)) := upperAbsoluteFinite T
   exact
     abstractFixedFieldNormResidueSymbol k (SeparableClosure k)
       (localResidueDatum k) (localHenselianValuation k)
@@ -568,9 +586,19 @@ noncomputable def normUnits
 
 /-- Restriction between the abelianized actual relative Galois groups. -/
 noncomputable def abelianizedRestriction
-    (T : LocalFixedFieldNormRestrictionSquare k) := by
-  letI := T.lowerNormal
-  letI := T.upperNormal
+    (T : LocalFixedFieldNormRestrictionSquare k) :
+    Additive (Abelianization
+      ((abstractRelativeFixedField k (SeparableClosure k) T.upperTop_le_upperBase) ≃ₐ[
+        abstractFixedField k (SeparableClosure k) T.upperBase]
+          (abstractRelativeFixedField k (SeparableClosure k) T.upperTop_le_upperBase))) →+
+      Additive (Abelianization
+        ((abstractRelativeFixedField k (SeparableClosure k) T.lowerTop_le_lowerBase) ≃ₐ[
+          abstractFixedField k (SeparableClosure k) T.lowerBase]
+            (abstractRelativeFixedField k (SeparableClosure k) T.lowerTop_le_lowerBase))) := by
+  letI : (extensionSubgroup T.lowerBase T.lowerTop T.lowerTop_le_lowerBase).Normal :=
+    T.lowerNormal
+  letI : (extensionSubgroup T.upperBase T.upperTop T.upperTop_le_upperBase).Normal :=
+    T.upperNormal
   exact
     abstractFixedFieldAbelianizedRestriction k (SeparableClosure k)
       T.lowerBase T.upperBase T.lowerTop T.upperTop
@@ -697,7 +725,14 @@ theorem intermediateAbsoluteFinite
 /-- The fixed-field norm-residue symbol for the total extension, induced by
 the canonical local class formation. -/
 noncomputable def baseNormResidueSymbol
-    (T : LocalFixedFieldTransferTower k) := by
+    (T : LocalFixedFieldTransferTower k) :
+    Additive (abstractFixedField k (SeparableClosure k) T.base)ˣ →+
+      Additive (Abelianization
+        ((abstractRelativeFixedField k (SeparableClosure k)
+            (T.top_le_intermediate.trans T.intermediate_le_base)) ≃ₐ[
+          abstractFixedField k (SeparableClosure k) T.base]
+            (abstractRelativeFixedField k (SeparableClosure k)
+              (T.top_le_intermediate.trans T.intermediate_le_base)))) := by
   letI := T.totalNormal
   letI := T.totalFinite
   letI := T.baseAbsoluteFinite
@@ -711,7 +746,12 @@ noncomputable def baseNormResidueSymbol
 /-- The fixed-field norm-residue symbol after changing the base to the
 intermediate fixed field, induced by the canonical local class formation. -/
 noncomputable def intermediateNormResidueSymbol
-    (T : LocalFixedFieldTransferTower k) := by
+    (T : LocalFixedFieldTransferTower k) :
+    Additive (abstractFixedField k (SeparableClosure k) T.intermediate)ˣ →+
+      Additive (Abelianization
+        ((abstractRelativeFixedField k (SeparableClosure k) T.top_le_intermediate) ≃ₐ[
+          abstractFixedField k (SeparableClosure k) T.intermediate]
+            (abstractRelativeFixedField k (SeparableClosure k) T.top_le_intermediate))) := by
   letI := intermediateNormal T
   letI := intermediateFinite T
   letI := intermediateAbsoluteFinite T
@@ -729,7 +769,17 @@ noncomputable def unitsInclusion
 
 /-- Transfer between the abelianized actual relative Galois groups. -/
 noncomputable def abelianizedTransfer
-    (T : LocalFixedFieldTransferTower k) := by
+    (T : LocalFixedFieldTransferTower k) :
+    Additive (Abelianization
+      ((abstractRelativeFixedField k (SeparableClosure k)
+          (T.top_le_intermediate.trans T.intermediate_le_base)) ≃ₐ[
+        abstractFixedField k (SeparableClosure k) T.base]
+          (abstractRelativeFixedField k (SeparableClosure k)
+            (T.top_le_intermediate.trans T.intermediate_le_base)))) →+
+      Additive (Abelianization
+        ((abstractRelativeFixedField k (SeparableClosure k) T.top_le_intermediate) ≃ₐ[
+          abstractFixedField k (SeparableClosure k) T.intermediate]
+            (abstractRelativeFixedField k (SeparableClosure k) T.top_le_intermediate))) := by
   letI := T.totalNormal
   letI := T.totalFinite
   exact

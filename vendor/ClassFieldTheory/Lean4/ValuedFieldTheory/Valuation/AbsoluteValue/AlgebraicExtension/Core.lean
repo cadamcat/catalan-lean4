@@ -426,7 +426,7 @@ private noncomputable def algebraicExtension_baseRingEquiv
             simpa using (hvσ (σ.symm z)).symm }
 
 /-- The archimedean branch of the unique algebraic-extension construction. -/
-private noncomputable def algebraicExtension_archimedean
+noncomputable def algebraicExtension_archimedean
     {K L : Type*} [Field K] [Field L] [Algebra K L]
     [Algebra.IsAlgebraic K L]
     (v : AbsoluteValue K ℝ)
@@ -474,7 +474,7 @@ private noncomputable def algebraicExtension_archimedean
 
 /-- nonarchimedean algebraic-extension theorem:
 existence and uniqueness of the extension over any algebraic extension. -/
-private noncomputable def algebraicExtension_nonarchimedean
+noncomputable def algebraicExtension_nonarchimedean
     {K L : Type*} [Field K] [Field L] [Algebra K L]
     [Algebra.IsAlgebraic K L]
     (v : AbsoluteValue K ℝ)

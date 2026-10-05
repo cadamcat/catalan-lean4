@@ -47,12 +47,28 @@ open NumberField IsDedekindDomain IdeleGroup
 
 universe u
 
-private theorem rayClassPrimeIdeleClassGroupIsMulCommutative
+@[instance_reducible]
+noncomputable local instance rayClassPrimeIdeleClassGroupCommGroup
+    (F : Type u) [Field F] [NumberField F] :
+    CommGroup (IdeleClassGroup F) :=
+  QuotientGroup.Quotient.commGroup (IdeleGroup.principalSubgroup F)
+
+noncomputable local instance rayClassPrimeIdeleClassGroupIsMulCommutative
     (F : Type u) [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
-  IsMulCommutative.of_comm (fun a b => mul_comm a b)
+  ⟨⟨fun a b => mul_comm a b⟩⟩
 
-attribute [local instance] rayClassPrimeIdeleClassGroupIsMulCommutative
+local instance rayClassPrimeIdeleSubgroupNormal
+    (F : Type u) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) : N.Normal :=
+  N.normal_of_isMulCommutative
+
+@[instance_reducible]
+noncomputable local instance rayClassPrimeIdeleQuotientCommGroup
+    (F : Type u) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) :
+    CommGroup (IdeleClassGroup F ⧸ N) :=
+  QuotientGroup.Quotient.commGroup N
 
 section GenericPrimeIdele
 

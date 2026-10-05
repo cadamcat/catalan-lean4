@@ -47,7 +47,7 @@ variable {K : Type*} [Field K] [NumberField K]
 
 /-- Fix the canonical commutativity needed for Hilbert norm-subgroup
 quotients in this module. -/
-private theorem hilbertClassFieldComparison_ideleClassGroupIsMulCommutative :
+theorem hilbertClassFieldComparison_ideleClassGroupIsMulCommutative :
     IsMulCommutative (IdeleClassGroup K) :=
   ⟨⟨fun a b => mul_comm a b⟩⟩
 
@@ -176,7 +176,7 @@ theorem
             (K := K)).symm.injective
         simpa only [map_one] using hs
 
-private theorem
+theorem
     realSignToBigHilbertClassFieldQuotient_range_le_bigToSmallHilbertKernel :
     (realSignToBigHilbertClassFieldQuotient (K := K)).range ≤
       MonoidHom.ker
@@ -197,7 +197,7 @@ private theorem
   rw [← RayClass.signToNarrow_range_eq_narrowToClassGroup_ker]
   exact ⟨s, rfl⟩
 
-private theorem
+theorem
     bigToSmallHilbertKernel_le_realSignToBigHilbertClassFieldQuotient_range :
     MonoidHom.ker
         (bigHilbertClassFieldQuotientToSmallHilbertClassFieldQuotient
@@ -269,7 +269,7 @@ theorem hilbertClassFieldSign_exact_sequence :
       bigHilbertClassFieldQuotientToSmallHilbertClassFieldQuotient_surjective
         (K := K)⟩
 
-private theorem bigHilbertQuotientEquiv_mem_narrowClassKernel
+theorem bigHilbertQuotientEquiv_mem_narrowClassKernel
     (q : MonoidHom.ker
       (bigHilbertClassFieldQuotientToSmallHilbertClassFieldQuotient
         (K := K))) :
@@ -282,7 +282,7 @@ private theorem bigHilbertQuotientEquiv_mem_narrowClassKernel
       (K := K) q.1]
   rw [MonoidHom.mem_ker.mp q.2, map_one]
 
-private theorem bigHilbertQuotientEquiv_symm_mem_bigToSmallKernel
+theorem bigHilbertQuotientEquiv_symm_mem_bigToSmallKernel
     (c : MonoidHom.ker
       (RayClass.narrowToClassGroup (K := K))) :
     (bigHilbertClassFieldQuotientEquivNarrowClassGroup
@@ -333,7 +333,7 @@ def bigToSmallHilbertKernelEquivNarrowClassKernel :
       (bigHilbertClassFieldQuotientEquivNarrowClassGroup
         (K := K)).map_mul q.1 r.1
 
-private theorem signToNarrow_mem_narrowClassKernel
+theorem signToNarrow_mem_narrowClassKernel
     (s : RayClass.realSignGroup K) :
     RayClass.signToNarrow (K := K) s ∈
       MonoidHom.ker (RayClass.narrowToClassGroup (K := K)) := by

@@ -66,7 +66,7 @@ theorem smallHilbertClassField_ideleClassNorm_range_eq_intrinsic :
 /-- Global reciprocity identifies the genuine Galois group of the
 selected small Hilbert class field with the ordinary ideal class group
 of the original number field. -/
-private noncomputable def smallHilbertClassFieldReciprocityData :
+public noncomputable def smallHilbertClassFieldReciprocityData :
     {e : Gal((smallHilbertClassField K) /
           (smallHilbertClassFieldBase K)) ≃*
         ClassGroup (𝓞 K) //

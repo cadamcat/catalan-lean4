@@ -45,6 +45,7 @@ Part of the vendored ClassFieldTheory source bundle.
 @[expose] public section
 
 set_option autoImplicit false
+set_option synthInstance.maxHeartbeats 100000
 
 /-!
 # Finite-place Artin symbols in rational cyclotomic levels
@@ -937,18 +938,18 @@ private theorem rationalCyclotomicLevel_galEquivZMod_eq_unitOfCoprime
   apply Units.ext
   simpa using hPowers
 
-private abbrev rationalCyclotomicArtinPlace (q : Nat.Primes) :
+public abbrev rationalCyclotomicArtinPlace (q : Nat.Primes) :
     HeightOneSpectrum (𝓞 ℚ) :=
   RayClass.rationalPrime q
 
-private abbrev rationalCyclotomicArtinBaseAbv (q : Nat.Primes) :
+public abbrev rationalCyclotomicArtinBaseAbv (q : Nat.Primes) :
     AbsoluteValue ℚ ℝ :=
   HeightOneSpectrum.adicAbv ℚ (rationalCyclotomicArtinPlace q)
 
-private abbrev rationalCyclotomicArtinLevel (m : ℕ+) :=
+public abbrev rationalCyclotomicArtinLevel (m : ℕ+) :=
   KummerTheory.rationalCyclotomicLevel m
 
-private abbrev rationalCyclotomicArtinExtension
+public abbrev rationalCyclotomicArtinExtension
     (m : ℕ+) (q : Nat.Primes) :
     AbsoluteValueExtension
       (rationalCyclotomicArtinBaseAbv q)
@@ -957,7 +958,7 @@ private abbrev rationalCyclotomicArtinExtension
     (L := rationalCyclotomicArtinLevel m)
     (rationalCyclotomicArtinPlace q)
 
-private abbrev rationalCyclotomicArtinLocalizedField
+public abbrev rationalCyclotomicArtinLocalizedField
     (m : ℕ+) (q : Nat.Primes) :=
   AlgebraicNumberTheory.Valuations.LocalizedCompletion
     (rationalCyclotomicArtinBaseAbv q)
@@ -1300,7 +1301,7 @@ noncomputable local instance
     Algebra ℚ_[p.1] (rationalCyclotomicArtinLocalizedField m p) :=
   rationalCyclotomicPrincipalPrimeLocalizedPadicAlgebra m p
 
-private noncomputable def rationalFinitePlaceCompletionAlgEquivPadic
+public noncomputable def rationalFinitePlaceCompletionAlgEquivPadic
     (p : Nat.Primes) :
     (rationalCyclotomicArtinBaseAbv p).Completion ≃ₐ[ℚ] ℚ_[p.1] :=
   AlgEquiv.ofRingEquiv
@@ -1317,7 +1318,7 @@ noncomputable local instance
   simp only [Algebra.smul_def, map_mul, eq_ratCast,
     map_ratCast, mul_assoc]
 
-private theorem rationalCyclotomicArtin_padic_algebraMap
+public theorem rationalCyclotomicArtin_padic_algebraMap
     (m : ℕ+) (p : Nat.Primes) :
     algebraMap (rationalCyclotomicArtinBaseAbv p).Completion
         (rationalCyclotomicArtinLocalizedField m p) =
@@ -1338,7 +1339,7 @@ private theorem rationalCyclotomicArtin_padic_algebraMap
         (rationalCyclotomicArtinLocalizedField m p))
       ((rationalFinitePlaceCompletionRingEquivPadic p).symm_apply_apply a).symm
 
-private theorem rationalCyclotomicArtin_algebraAdjoin_restrictScalars
+public theorem rationalCyclotomicArtin_algebraAdjoin_restrictScalars
     (m : ℕ+) (p : Nat.Primes) :
     (Algebra.adjoin (rationalCyclotomicArtinBaseAbv p).Completion
       (Set.singleton (rationalCyclotomicLocalizedPrimitiveRoot m
@@ -1386,7 +1387,7 @@ private theorem
       (rationalCyclotomicArtinLocalizedField m p) => A.restrictScalars ℚ)
     hTop
 
-private theorem rationalCyclotomicArtin_restrictScalars_top_base_eq_padic
+public theorem rationalCyclotomicArtin_restrictScalars_top_base_eq_padic
     (m : ℕ+) (p : Nat.Primes) :
     (⊤ : Subalgebra (rationalCyclotomicArtinBaseAbv p).Completion
         (rationalCyclotomicArtinLocalizedField m p)).restrictScalars ℚ =
@@ -1540,7 +1541,7 @@ private theorem
       (rationalCyclotomicArtin_padicAlgebraAdjoin_restrict_eq_top
         (rationalCyclotomicPrincipalPrimeModulus p n) p)
 
-private theorem
+public theorem
     rationalCyclotomicPrincipalPrimeLocalizedLevel_isCyclotomicExtension
     (p : Nat.Primes) (n : ℕ) :
     IsCyclotomicExtension {p.1 ^ (n + 1)} ℚ_[p.1]
@@ -2439,7 +2440,7 @@ private noncomputable def rationalCyclotomicChosenArithmeticFrobenius
     rationalCyclotomicArtinGlobalFrobeniusOf m q
       (rationalCyclotomicArtinUnramified m q hq)
 
-private noncomputable abbrev rationalCyclotomicArtinLocalInput
+public noncomputable abbrev rationalCyclotomicArtinLocalInput
     (q : Nat.Primes)
     (x : ((RayClass.rationalPrime q).adicCompletion ℚ)ˣ) :
     (rationalCyclotomicArtinBaseAbv q).Completionˣ :=
@@ -2545,7 +2546,7 @@ private theorem
           (rationalCyclotomicArtinBaseAbv q).Completion
           (rationalCyclotomicArtinLocalizedField m q))) ^
         rationalCyclotomicArtinLocalExponent q x
-  exact
+  simpa only [rationalCyclotomicArtinLocalExponent] using
     mappedAbelianLocalArtin_eq_frobenius_zpow
       (F := (rationalCyclotomicArtinBaseAbv q).Completion)
       (E := rationalCyclotomicArtinLocalizedField m q)
@@ -2937,7 +2938,7 @@ theorem galEquivZMod_chosenFinitePlaceArtinMonoidHom_of_not_dvd
   rw [chosenFinitePlaceArtin_eq_chosenArithmeticFrobenius_zpow
       m q hq x, map_zpow,
     galEquivZMod_chosenArithmeticFrobenius m q hq]
-  rfl
+  congr 1
 
 /-- Away from the cyclotomic level, a finite-place input of normalized
 valuation zero has trivial cyclotomic character. -/

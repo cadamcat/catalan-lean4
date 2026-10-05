@@ -101,7 +101,7 @@ private theorem finiteDimensional_comap_algEquiv
         simp }
   exact Module.Finite.equiv eLin.symm
 
-private theorem finiteDimensional_map_algEquiv
+theorem finiteDimensional_map_algEquiv
     {F : Type u} {A : Type v} {B : Type w} [Field F] [Field A] [Field B]
     [Algebra F A] [Algebra F B]
     (e : A ≃ₐ[F] B) (E : IntermediateField F A)

@@ -56,10 +56,10 @@ open Polynomial
 
 variable (k : Type u) [Field k] [Fintype k]
 
-private instance finiteFieldRingCharPrime : Fact (ringChar k).Prime :=
+instance finiteFieldRingCharPrime : Fact (ringChar k).Prime :=
   ⟨CharP.char_is_prime k (ringChar k)⟩
 
-private noncomputable instance absoluteGaloisGroupT2 :
+noncomputable instance absoluteGaloisGroupT2 :
     T2Space (Field.absoluteGaloisGroup k) := by
   unfold Field.absoluteGaloisGroup
   exact krullTopology_t2

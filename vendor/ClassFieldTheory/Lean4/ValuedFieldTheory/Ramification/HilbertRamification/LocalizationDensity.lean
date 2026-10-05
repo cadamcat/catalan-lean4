@@ -147,13 +147,13 @@ local instance completionBaseSMul : SMul K w.1.Completion :=
 local instance completionAlgebra : Algebra vK.Completion w.1.Completion :=
   AbsoluteValue.completionAlgebra vK w.1 w.2
 
-private abbrev localization : IntermediateField vK.Completion w.1.Completion :=
+abbrev localization : IntermediateField vK.Completion w.1.Completion :=
   AbsoluteValue.algebraicLocalization vK w.1 w.2
 
-private abbrev toLocalization : L →+* localization vK w :=
+abbrev toLocalization : L →+* localization vK w :=
   AbsoluteValue.toAlgebraicLocalization vK w.1 w.2
 
-private abbrev localizationAbsoluteValue :
+abbrev localizationAbsoluteValue :
     AbsoluteValue (localization vK w) ℝ :=
   AbsoluteValue.algebraicLocalizationAbsoluteValue vK w.1 w.2
 
@@ -184,12 +184,12 @@ theorem algebraicLocalizationDensity_localization_nonarchimedean
     AbsoluteValue.algebraicLocalizationAbsoluteValue_toAlgebraicLocalization vK w.1 w.2 (n : L)
   simpa using hrestrict.trans_le (hC n)
 
-private abbrev extensionValuationSubring
+abbrev extensionValuationSubring
     (hw : LubinTate.Valuations.NonarchimedeanAbsoluteValue w.1) :
     _root_.ValuationSubring L :=
   absoluteValueValuationSubring w.1 hw
 
-private abbrev localizationValuationSubring
+abbrev localizationValuationSubring
     (hw : LubinTate.Valuations.NonarchimedeanAbsoluteValue w.1) :
     _root_.ValuationSubring (localization vK w) :=
   absoluteValueValuationSubring

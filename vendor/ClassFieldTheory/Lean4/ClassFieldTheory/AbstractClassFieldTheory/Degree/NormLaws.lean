@@ -105,7 +105,7 @@ theorem conjugateFixedElement_coe [ContinuousMul G]
       A.ρ σ⁻¹ a.1 :=
   rfl
 
-private def absoluteConjugationEquiv {G : Type*} [Group G] [TopologicalSpace G]
+def absoluteConjugationEquiv {G : Type*} [Group G] [TopologicalSpace G]
     (σ : G) :
     (baseField G).toSubgroup ≃
       (baseField G).toSubgroup where

@@ -46,14 +46,14 @@ open ClassFormation
 open RamificationTheory.HilbertRamification.ValuationSubring
 
 
-private abbrev absoluteGalois (K : Type) [Field K] :=
+abbrev absoluteGalois (K : Type) [Field K] :=
   intrinsicAbsoluteGalois K
 
-private abbrev abstractBase (K : Type) [Field K] :
+abbrev abstractBase (K : Type) [Field K] :
     ClosedSubgroup (absoluteGalois K) :=
   intrinsicAbstractBase K
 
-private noncomputable def finiteResidueAbstractBase
+noncomputable def finiteResidueAbstractBase
     (K : Type) [Field K] [ValuativeRel K] [TopologicalSpace K]
     [IsNonarchimedeanLocalField K] :
     DegreeData.FiniteResidueAbstractField (localResidueDatum K) :=
@@ -72,7 +72,7 @@ theorem intrinsicFiniteAbstractBase_residueDegree_eq_one :
     FiniteAbstractField.base_residueDegree]
   rfl
 
-private theorem finiteResidueAbstractBase_residueDegree_eq_one :
+theorem finiteResidueAbstractBase_residueDegree_eq_one :
     ((finiteResidueAbstractBase K).residueDegree : ℕ) = 1 := by
   change ((intrinsicFiniteAbstractBase K).residueDegree (localResidueDatum K) : ℕ) = 1
   exact intrinsicFiniteAbstractBase_residueDegree_eq_one K
@@ -85,14 +85,14 @@ variable (K : Type) [Field K] [ValuativeRel K] [TopologicalSpace K]
   [IsNonarchimedeanLocalField K]
 
 /-- The chosen degree-one lift used in the abstract unramified Frobenius. -/
-private noncomputable def abstractBaseFrobeniusLift :
+noncomputable def abstractBaseFrobeniusLift :
     (abstractBase K).toSubgroup :=
   Classical.choose
     ((localResidueDatum K).normalizedDegree_surjective
       (finiteResidueAbstractBase K)
       (Multiplicative.ofAdd (1 : ZHat)))
 
-private theorem abstractBaseFrobeniusLift_normalizedDegree :
+theorem abstractBaseFrobeniusLift_normalizedDegree :
     (localResidueDatum K).normalizedDegree
         (finiteResidueAbstractBase K)
         (abstractBaseFrobeniusLift K) =
@@ -102,7 +102,7 @@ private theorem abstractBaseFrobeniusLift_normalizedDegree :
       (finiteResidueAbstractBase K)
       (Multiplicative.ofAdd (1 : ZHat)))
 
-private theorem abstractBaseFrobeniusLift_degree :
+theorem abstractBaseFrobeniusLift_degree :
     localResidueDegree K (abstractBaseFrobeniusLift K).1 =
       Multiplicative.ofAdd (1 : ZHat) := by
   apply Multiplicative.ext
@@ -116,7 +116,7 @@ private theorem abstractBaseFrobeniusLift_degree :
 
 /-- A degree-one element of the local absolute Galois group acts by the
 arithmetic Frobenius on the selected residue algebraic closure. -/
-private theorem localSeparableResidueAlgAction_eq_frobenius_of_degree_one
+theorem localSeparableResidueAlgAction_eq_frobenius_of_degree_one
     (sigma : Gal((SeparableClosure K) / K))
     (hsigma : localResidueDegree K sigma =
       Multiplicative.ofAdd (1 : ZHat)) :
@@ -151,7 +151,7 @@ variable (K L : Type)
   [Valuation.HasExtension (ValuativeRel.valuation K)
     (ValuativeRel.valuation L)]
 
-private noncomputable instance comparisonIntegerRingIsIntegralClosure :
+noncomputable instance comparisonIntegerRingIsIntegralClosure :
     IsIntegralClosure 𝒪[L] 𝒪[K] L :=
   localCompleteDVF_integerRing_isIntegralClosure K L
 
@@ -373,7 +373,7 @@ section AbstractUnramifiedFrobenius
 omit [ValuativeRel L] [TopologicalSpace L] [IsNonarchimedeanLocalField L]
   [Valuation.HasExtension (ValuativeRel.valuation K) (ValuativeRel.valuation L)]
   [LocalFieldTheory.IsNonarchimedeanLocalField.IsUnramifiedValuedExtension K L] in
-private theorem finiteGaloisResidueBaseExtension_normal :
+theorem finiteGaloisResidueBaseExtension_normal :
     (extensionSubgroup (finiteResidueAbstractBase K).field
       (finiteGaloisAbstractExtensionOfEmbedding K L i).field
       (finiteGaloisAbstractExtensionOfEmbedding K L i).below).Normal :=

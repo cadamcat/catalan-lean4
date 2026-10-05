@@ -1,46 +1,48 @@
-import hashlib
 import importlib.util
-import json
 from pathlib import Path
+import shutil
+import subprocess
 import tempfile
 import unittest
 
-spec = importlib.util.spec_from_file_location("check_vendor", Path(__file__).parents[1] / "check_vendor.py")
+
+spec = importlib.util.spec_from_file_location(
+    "check_vendor", Path(__file__).parents[1] / "check_vendor.py"
+)
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
 
-class VendorTests(unittest.TestCase):
-    def fixture(self, root):
-        vendor = root / "vendor" / "ClassFieldTheory"
-        (vendor / "Lean4").mkdir(parents=True)
-        data = b"-- test fixture\n"
-        (vendor / "Lean4" / "Test.lean").write_bytes(data)
-        (vendor / "LICENSE").write_bytes(b"test license")
-        (vendor / "SOURCES.json").write_text(json.dumps({
-            "moduleCount": 1,
-            "files": [{"path": "Lean4/Test.lean", "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}],
-            "licenseSha256": hashlib.sha256(b"test license").hexdigest()}))
-        return vendor
+class VendorReconstructionMutationControl(unittest.TestCase):
+    def test_one_byte_mutation_fails_for_named_vendored_file(self):
+        source = Path(__file__).resolve().parents[2]
+        relative = "Lean4/ClassFieldTheory/AlgebraicNumberTheory/AdeleBaseChange.lean"
 
-    def test_valid_fixture(self):
-        with tempfile.TemporaryDirectory() as d:
-            root = Path(d)
-            self.fixture(root)
-            self.assertEqual(module.check(root), 1)
+        with tempfile.TemporaryDirectory(prefix="cft-vendor-mutation-control-") as d:
+            copy = Path(d) / "repo"
+            subprocess.run(
+                ["git", "clone", "--shared", "--no-checkout", str(source), str(copy)],
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+            )
+            shutil.copytree(
+                source / "vendor" / "ClassFieldTheory",
+                copy / "vendor" / "ClassFieldTheory",
+            )
 
-    def test_mutated_source_rejected(self):
-        with tempfile.TemporaryDirectory() as d:
-            root = Path(d)
-            vendor = self.fixture(root)
-            (vendor / "Lean4" / "Test.lean").write_text("changed")
-            with self.assertRaisesRegex(ValueError, "vendor_source_hash_mismatch"):
-                module.check(root)
+            vendored_file = copy / "vendor" / "ClassFieldTheory" / relative
+            original = vendored_file.read_bytes()
+            vendored_file.write_bytes(bytes([original[0] ^ 1]) + original[1:])
 
-    def test_unlisted_source_rejected(self):
-        with tempfile.TemporaryDirectory() as d:
-            root = Path(d)
-            vendor = self.fixture(root)
-            (vendor / "Lean4" / "Extra.lean").write_text("-- extra")
-            with self.assertRaisesRegex(ValueError, "vendor_inventory_mismatch"):
-                module.check(root)
+            with self.assertRaises(ValueError) as caught:
+                module.check(copy)
+            self.assertEqual(
+                str(caught.exception),
+                "vendor_patch_reproduction_mismatch: " + relative,
+            )
+
+
+if __name__ == "__main__":
+    unittest.main()

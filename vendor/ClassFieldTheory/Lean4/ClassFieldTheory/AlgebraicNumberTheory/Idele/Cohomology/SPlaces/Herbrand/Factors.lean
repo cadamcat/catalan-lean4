@@ -56,7 +56,7 @@ variable {K L : Type}
 
 omit [NumberField L] in
 @[reducible]
-private noncomputable def
+noncomputable def
     relativeUnrestrictedSPlaceFactorsActionProvider
     (S : Finset (HeightOneSpectrum (𝓞 K))) :
     MulDistribMulAction (L ≃ₐ[K] L)
@@ -67,7 +67,7 @@ private noncomputable def
 
 omit [NumberField L] in
 @[reducible]
-private noncomputable def
+noncomputable def
     relativeUnrestrictedSPlaceLocalBlockFamilyActionProvider
     (S : Finset (HeightOneSpectrum (𝓞 K))) :
     MulDistribMulAction (L ≃ₐ[K] L)

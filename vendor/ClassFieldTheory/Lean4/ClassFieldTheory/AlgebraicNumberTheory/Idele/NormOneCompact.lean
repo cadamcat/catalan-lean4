@@ -415,7 +415,7 @@ theorem mem_annulus_of_logNorm_le
       _ ≤ Real.exp B := Real.exp_le_exp.mpr habs.2
 
 /-- A real basis obtained from the full unit lattice. -/
-private def unitLatticeRealBasis :
+def unitLatticeRealBasis :
     Module.Basis
       (Module.Free.ChooseBasisIndex ℤ
         (NumberField.Units.unitLattice K))
@@ -623,7 +623,7 @@ theorem exists_compactIntegralNormOneSet_representative
 
 /-- For every ordinary ideal class which occurs on a norm-one idele, choose
 one such representative; use `1` for the (irrelevant) remaining classes. -/
-private def normOneIdealClassRepresentative
+def normOneIdealClassRepresentative
     (c : ClassGroup (𝓞 K)) : IdeleGroup K :=
   if h : ∃ a : IdeleGroup K,
       a ∈ normOneSubgroup (K := K) ∧ idealClass a = c then

@@ -52,14 +52,14 @@ namespace LubinTate
 open LocalFieldTheory.DiscreteValuationField
 open LocalFieldTheory.DiscreteValuationField.Examples.Qp
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedActionTargetWithIdeal
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     WithIdeal
       (padicCompletedLevelCompleteDVF p n).valuationSubring where
   i := (padicCompletedLevelCompleteDVF p n).maximalIdeal
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedActionTargetCompleteSpace
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     CompleteSpace
@@ -68,7 +68,7 @@ private noncomputable local instance
   have hadic : IsAdic target.maximalIdeal := rfl
   exact (hadic.isAdicComplete_iff.mp target.isAdicComplete).1
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedActionTargetT2Space
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     T2Space

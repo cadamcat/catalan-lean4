@@ -445,18 +445,14 @@ noncomputable def numberFieldTowerSeparableClosureToBaseSubgroup :
       numberFieldTowerSeparableClosureBaseAlgebra K L
     Gal(SeparableClosure ℚ / K) →*
       (numberFieldTowerBaseSubgroup K L).toSubgroup := by
-  let _ : Algebra K (SeparableClosure ℚ) :=
+  letI : Algebra K (SeparableClosure ℚ) :=
     numberFieldTowerSeparableClosureBaseAlgebra K L
-  refine
-    { toFun := fun σ =>
-        ⟨AlgEquiv.restrictScalars ℚ σ, ?_⟩
-      map_one' := by
-        apply Subtype.ext
-        rfl
-      map_mul' := by
-        intro σ τ
-        apply Subtype.ext
-        rfl }
+  let res : Gal(SeparableClosure ℚ / K) →*
+      Gal(SeparableClosure ℚ / ℚ) :=
+    AlgEquiv.restrictScalarsHom (R := ℚ)
+  refine res.codRestrict
+    (numberFieldTowerBaseSubgroup K L).toSubgroup ?_
+  intro σ
   change
     AlgEquiv.restrictScalars ℚ σ ∈
       (numberFieldTowerBaseField K L).fixingSubgroup
@@ -497,12 +493,14 @@ noncomputable def numberFieldTowerSeparableClosureEquivBaseSubgroup :
   · intro σ
     apply AlgEquiv.ext
     intro x
-    rfl
+    simp [numberFieldTowerSeparableClosureToBaseSubgroup,
+      AlgEquiv.restrictScalars]
   · intro τ
     apply Subtype.ext
     apply AlgEquiv.ext
     intro x
-    rfl
+    simp [numberFieldTowerSeparableClosureToBaseSubgroup,
+      AlgEquiv.restrictScalars]
 
 omit [FiniteDimensional K L] [IsGalois K L] in
 /-- Coercing the base-subgroup comparison equivalence gives restriction of
@@ -524,7 +522,9 @@ theorem numberFieldTowerSeparableClosureEquivBaseSubgroup_apply_coe
   change
     (numberFieldTowerSeparableClosureToBaseSubgroup K L σ).1 =
       AlgEquiv.restrictScalars ℚ σ
-  rfl
+  apply AlgEquiv.ext
+  intro x
+  simp [numberFieldTowerSeparableClosureToBaseSubgroup, AlgEquiv.restrictScalars]
 
 end Reciprocity
 end GlobalClassFieldTheory

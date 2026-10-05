@@ -168,14 +168,14 @@ private theorem valuationSubring_isLinearTopology_adic :
       (Ideal.hasBasis_nhds_zero_adic F.maximalIdeal)
 
 /-- The `WithIdeal` adic topology on the valuation ring is linear. -/
-private theorem valuationSubring_isLinearTopology_withIdeal :
+theorem valuationSubring_isLinearTopology_withIdeal :
     letI : WithIdeal F.valuationSubring := { i := F.maximalIdeal }
     IsLinearTopology F.valuationSubring F.valuationSubring := by
   let : WithIdeal F.valuationSubring := { i := F.maximalIdeal }
   exact valuationSubring_isLinearTopology_adic (F := F)
 
 /-- The valuation ring is complete for its maximal-ideal adic topology. -/
-private theorem valuationSubring_completeSpace_withIdeal :
+theorem valuationSubring_completeSpace_withIdeal :
     letI : WithIdeal F.valuationSubring := { i := F.maximalIdeal }
     CompleteSpace F.valuationSubring := by
   let : WithIdeal F.valuationSubring := { i := F.maximalIdeal }
@@ -183,7 +183,7 @@ private theorem valuationSubring_completeSpace_withIdeal :
   exact (hadic.isAdicComplete_iff.mp F.isAdicComplete).1
 
 /-- The valuation ring is Hausdorff for its maximal-ideal adic topology. -/
-private theorem valuationSubring_t2Space_withIdeal :
+theorem valuationSubring_t2Space_withIdeal :
     letI : WithIdeal F.valuationSubring := { i := F.maximalIdeal }
     T2Space F.valuationSubring := by
   let : WithIdeal F.valuationSubring := { i := F.maximalIdeal }

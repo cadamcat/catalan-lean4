@@ -53,7 +53,7 @@ noncomputable def algebraicLocalization
   exact IntermediateField.adjoin vK.Completion
     (Set.range (toCompletion wL))
 
-private theorem toCompletion_mem_algebraicLocalization
+theorem toCompletion_mem_algebraicLocalization
     {K : Type u} {L : Type v} [Field K] [Field L] [Algebra K L]
     (vK : AbsoluteValue K ℝ) (wL : AbsoluteValue L ℝ)
     (hw : Extends vK wL) (x : L) :

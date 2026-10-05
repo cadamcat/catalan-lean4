@@ -62,19 +62,27 @@ open KummerTheory
 
 /-- Fix the canonical class-group dictionary before forming norm quotients. -/
 @[instance_reducible]
-private noncomputable def globalNormResidueIdeleClassCommGroup
+noncomputable local instance globalNormResidueIdeleClassCommGroup
     (F : Type) [Field F] [NumberField F] :
     CommGroup (IdeleClassGroup F) :=
   QuotientGroup.Quotient.commGroup (IdeleGroup.principalSubgroup F)
 
-attribute [local instance] globalNormResidueIdeleClassCommGroup
-
-private theorem globalNormResidueIdeleClassIsMulCommutative
+noncomputable local instance globalNormResidueIdeleClassIsMulCommutative
     (F : Type) [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
-  IsMulCommutative.of_comm (fun a b => mul_comm a b)
+  ⟨⟨fun a b => mul_comm a b⟩⟩
 
-attribute [local instance] globalNormResidueIdeleClassIsMulCommutative
+local instance globalNormResidueIdeleClassSubgroupNormal
+    (F : Type) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) : N.Normal :=
+  N.normal_of_isMulCommutative
+
+@[instance_reducible]
+noncomputable local instance globalNormResidueIdeleClassNormQuotientCommGroup
+    (F E : Type) [Field F] [NumberField F]
+    [Field E] [NumberField E] [Algebra F E] [FiniteDimensional F E] :
+    CommGroup (IdeleClassGroup F ⧸ (_root_.ideleClassNorm F E).range) :=
+  QuotientGroup.Quotient.commGroup (_root_.ideleClassNorm F E).range
 
 variable
     (K L : Type) [Field K] [NumberField K]
@@ -139,7 +147,7 @@ theorem
 Galois-group comparison.  Keeping this composition behind a typed boundary
 prevents the finite norm quotient from being reconstructed while composing
 with the concrete quotient comparison. -/
-private noncomputable def
+public noncomputable def
     numberFieldTowerAbstractNormResidueGaloisEquiv :
     FiniteNormQuotient rationalIdeleClassRepresentation
         (numberFieldTowerBaseSubgroup K L)

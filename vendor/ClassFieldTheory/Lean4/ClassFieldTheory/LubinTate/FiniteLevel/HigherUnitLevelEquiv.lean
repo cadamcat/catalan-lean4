@@ -1252,7 +1252,7 @@ private theorem
 
 /-- Inside the common compositum, the restricted copies of the original and
 changed standard levels coincide at principal-unit depth `n + 1`. -/
-private theorem
+public theorem
     standardLubinTateHigherUnit_restrict_changedLevel_eq_originalLevel
     {F : LocalField.{u, v} K} {π : F.valuationSubring}
     (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K))

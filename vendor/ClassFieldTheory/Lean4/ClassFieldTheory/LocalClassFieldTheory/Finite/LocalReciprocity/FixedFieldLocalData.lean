@@ -27,6 +27,7 @@ Part of the vendored ClassFieldTheory source bundle.
 @[expose] public section
 
 set_option autoImplicit false
+set_option synthInstance.maxHeartbeats 100000
 
 /-!
 # Canonical local data on finite fixed fields
@@ -45,7 +46,7 @@ open scoped NNReal Pointwise ValuativeRel
 open ClassFormation LocalFieldTheory RamificationTheory CyclicCohomology
 open RamificationTheory.HilbertRamification.ValuationSubring
 
-private abbrev finiteFixedField
+abbrev finiteFixedField
     (K : Type) [Field K]
     (H : FiniteAbstractField (Gal(SeparableClosure K / K))) :
     Type :=
@@ -60,7 +61,7 @@ local instance finiteFixedFieldSeparableClosureAlgebra
     (AlgebraicClosure (finiteFixedField K H))).algebra
 
 @[reducible]
-private def valuationSubringEquivOfComapEq
+def valuationSubringEquivOfComapEq
     {L M : Type} [Field L] [Field M]
     (A : ValuationSubring M) (B : ValuationSubring L)
     (e : L ≃+* M) (h : B = A.comap e.toRingHom) :
@@ -86,7 +87,7 @@ private def valuationSubringEquivOfComapEq
     ext
     simp
 
-private theorem semilinearConjugate_commutes
+theorem semilinearConjugate_commutes
     {k k' Omega Omega' : Type}
     [Field k] [Field k'] [Field Omega] [Field Omega']
     [Algebra k Omega] [Algebra k' Omega']
@@ -346,7 +347,7 @@ theorem localSeparableDecompositionGroup_eq_top_finiteExtensionEquiv
   simpa [sigmaF, AlgEquiv.autCongr_apply] using hx.to_iff
 
 @[implicit_reducible]
-private noncomputable def finiteExtensionDecompositionResidueFintype
+noncomputable def finiteExtensionDecompositionResidueFintype
     (K F : Type)
     [Field K] [ValuativeRel K] [TopologicalSpace K]
     [IsNonarchimedeanLocalField K]
@@ -808,7 +809,7 @@ theorem localSeparableValuationSubring_eq_comap_abstractFixedFieldEquiv
 canonically equivalent to the residue intermediate field attached to the
 finite fixing subgroup, compatibly with their embeddings into the selected
 residue field. -/
-private theorem exists_abstractFixedFieldResidueEquiv
+theorem exists_abstractFixedFieldResidueEquiv
     (K : Type) [Field K] [ValuativeRel K] [TopologicalSpace K]
     [IsNonarchimedeanLocalField K]
     (H : FiniteAbstractField (Gal(SeparableClosure K / K)))
@@ -940,7 +941,7 @@ private theorem exists_abstractFixedFieldResidueEquiv
   rw [heTop]
   simp [bar]
 
-private theorem residueAbsoluteDegreeIn_eq_normalizedDegree_abstractFixedFieldEquiv
+theorem residueAbsoluteDegreeIn_eq_normalizedDegree_abstractFixedFieldEquiv
     (K : Type) [Field K] [ValuativeRel K] [TopologicalSpace K]
     [IsNonarchimedeanLocalField K]
     (H : FiniteAbstractField (Gal(SeparableClosure K / K)))

@@ -96,7 +96,7 @@ noncomputable local instance
       (KummerTheory.rationalCyclotomicLevel m) :=
   rationalCyclotomicPrincipalPrimeLevelIsAbelianGalois m
 
-private noncomputable def rationalCyclotomicPrincipalHeightOneArtinInput
+public noncomputable def rationalCyclotomicPrincipalHeightOneArtinInput
     (p : Nat.Primes) (k : ℕ) (x : ℚˣ)
     (v : HeightOneSpectrum (𝓞 ℚ)) :
     KummerTheory.rationalCyclotomicLevel
@@ -126,7 +126,7 @@ private theorem rationalCyclotomicPrincipalHeightOneArtinInput_spec
           (IdeleGroup.principalIdele ℚ x)) := by
   rfl
 
-private noncomputable def rationalCyclotomicPrincipalHeightOneCharacter
+public noncomputable def rationalCyclotomicPrincipalHeightOneCharacter
     (p : Nat.Primes) (k : ℕ) (x : ℚˣ)
     (v : HeightOneSpectrum (𝓞 ℚ)) :
     (ZMod (p.1 ^ k))ˣ :=

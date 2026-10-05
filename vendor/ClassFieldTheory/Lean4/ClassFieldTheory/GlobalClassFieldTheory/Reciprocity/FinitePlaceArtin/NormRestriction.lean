@@ -49,7 +49,7 @@ variable {K L : Type}
     [Field L] [Algebra K L]
     [FiniteDimensional K L] [IsAbelianGalois K L]
 
-private theorem finitePlaceArtinNormUnits_map_ringEquiv
+public theorem finitePlaceArtinNormUnits_map_ringEquiv
     {F M F' M' : Type}
     [Field F] [Field M] [Field F'] [Field M']
     [Algebra F M] [Algebra F' M']
@@ -69,12 +69,12 @@ private theorem finitePlaceArtinNormUnits_map_ringEquiv
   rw [Algebra.norm_eq_of_equiv_equiv eF eM he]
   exact eF.apply_symm_apply _
 
-private abbrev finitePlaceNormCompletion
+public abbrev finitePlaceNormCompletion
     (F : Type) [Field F] [NumberField F]
     (v : HeightOneSpectrum (𝓞 F)) :=
   (NumberField.HeightOneSpectrum.adicAbv F v).Completion
 
-private abbrev finitePlaceNormLocalizedCompletion
+public abbrev finitePlaceNormLocalizedCompletion
     (F M : Type) [Field F] [Field M] [Algebra F M]
     [NumberField F]
     (v : HeightOneSpectrum (𝓞 F))
@@ -83,7 +83,7 @@ private abbrev finitePlaceNormLocalizedCompletion
   AlgebraicNumberTheory.Valuations.LocalizedCompletion
     (NumberField.HeightOneSpectrum.adicAbv F v) w
 
-private noncomputable def finitePlaceRelativeNormUnits
+public noncomputable def finitePlaceRelativeNormUnits
     {K' : Type}
     [Field K'] [NumberField K'] [Algebra K K']
     (v : HeightOneSpectrum (𝓞 K))
@@ -100,7 +100,7 @@ private noncomputable def finitePlaceRelativeNormUnits
     (finitePlaceNormCompletion K v)
     (finitePlaceNormCompletion K' W)
 
-private noncomputable def finitePlaceConcreteNormUnits
+public noncomputable def finitePlaceConcreteNormUnits
     {K' : Type}
     [Field K'] [NumberField K'] [Algebra K K']
     (v : HeightOneSpectrum (𝓞 K))
@@ -113,7 +113,7 @@ private noncomputable def finitePlaceConcreteNormUnits
   exact LocalFieldTheory.normUnits
     (v.adicCompletion K) (W.adicCompletion K')
 
-private theorem finitePlaceArtinConcreteNormUnits
+public theorem finitePlaceArtinConcreteNormUnits
     {K' : Type}
     [Field K'] [NumberField K'] [Algebra K K']
     (v : HeightOneSpectrum (𝓞 K))
@@ -207,7 +207,7 @@ private theorem finitePlaceArtinConcreteNormUnits
             ((Units.mapEquiv eD.toMulEquiv).symm x) = x
       exact (Units.mapEquiv eD.toMulEquiv).apply_symm_apply x
 
-private theorem finitePlaceArtinHasExtension_of_norm
+public theorem finitePlaceArtinHasExtension_of_norm
     {A B C D : Type}
     [NormedField A] [NormedField B]
     [NormedField C] [NormedField D]
@@ -259,7 +259,7 @@ private theorem finitePlaceArtinHasExtension_of_norm
   rw [hTargetNormNN, ← hSourceNormNN]
   exact_mod_cast hBaseNorm (eC x)
 
-private theorem finitePlaceArtinCompletionHasExtension
+public theorem finitePlaceArtinCompletionHasExtension
     {K' : Type}
     [Field K'] [NumberField K'] [Algebra K K']
     (v : HeightOneSpectrum (𝓞 K))
@@ -351,7 +351,7 @@ private theorem finitePlaceArtinCompletionHasExtension
       (fun _ => rfl)
       (fun _ => rfl)
 
-private theorem finitePlaceLocalArtin_norm_restriction_apply
+public theorem finitePlaceLocalArtin_norm_restriction_apply
     {C D E E' : Type}
     [Field C] [ValuativeRel C] [TopologicalSpace C]
     [IsNonarchimedeanLocalField C]
@@ -377,7 +377,7 @@ private theorem finitePlaceLocalArtin_norm_restriction_apply
     (LocalClassFieldTheory.abelianLocalArtinMonoidHom_norm_restriction
       C D E E') y
 
-private abbrev finitePlaceNormLocalizedAut
+public abbrev finitePlaceNormLocalizedAut
     (F M : Type) [Field F] [Field M] [Algebra F M]
     [NumberField F]
     (v : HeightOneSpectrum (𝓞 F))
@@ -567,7 +567,7 @@ local instance finitePlaceNormUpperLocalField :
   finitePlaceArtinCompletionIsNonarchimedeanLocalField vKₙ'
     (NumberField.HeightOneSpectrum.isNonarchimedean_adicAbv K' W)
 
-private noncomputable def finitePlaceNormRestrictedArtin
+public noncomputable def finitePlaceNormRestrictedArtin
     [NumberField L]
     (hW : finitePlaceBelow (K := K) W = v)
     (hcentres :
@@ -586,7 +586,7 @@ private noncomputable def finitePlaceNormRestrictedArtin
         (K := K') (L := L') W w'
         (finitePlaceCompletionUnitsContinuousMulEquiv W y))
 
-private noncomputable def finitePlaceNormLowerArtin
+public noncomputable def finitePlaceNormLowerArtin
     (hW : finitePlaceBelow (K := K) W = v)
     (y : Dₙˣ) :
     finitePlaceNormLocalizedAut K L v w := by
@@ -597,13 +597,13 @@ private noncomputable def finitePlaceNormLowerArtin
       (finitePlaceRelativeNormUnits
           (K := K) (K' := K') v W hW y))
 
-private noncomputable def finitePlaceNormUpperRawArtin
+public noncomputable def finitePlaceNormUpperRawArtin
     (y : Dₙˣ) :
     finitePlaceNormLocalizedAut K' L' W w' :=
   LocalClassFieldTheory.abelianLocalArtinMonoidHom
     Dₙ Eₙ' y
 
-private noncomputable def finitePlaceNormLowerRawArtin
+public noncomputable def finitePlaceNormLowerRawArtin
     (hW : finitePlaceBelow (K := K) W = v)
     (y : Dₙˣ) :
     finitePlaceNormLocalizedAut K L v w :=
@@ -612,7 +612,7 @@ private noncomputable def finitePlaceNormLowerRawArtin
     (finitePlaceRelativeNormUnits
       (K := K) (K' := K') v W hW y)
 
-private theorem finitePlaceNormUpperArtin_eq_raw
+public theorem finitePlaceNormUpperArtin_eq_raw
     (y : Dₙˣ) :
     finitePlaceLocalArtinMonoidHom
         (K := K') (L := L') W w'
@@ -632,7 +632,7 @@ private theorem finitePlaceNormUpperArtin_eq_raw
   rw [hy]
   rfl
 
-private theorem finitePlaceNormLowerArtin_eq_raw
+public theorem finitePlaceNormLowerArtin_eq_raw
     (hW : finitePlaceBelow (K := K) W = v)
     (y : Dₙˣ) :
     finitePlaceNormLowerArtin
@@ -660,7 +660,7 @@ private theorem finitePlaceNormLowerArtin_eq_raw
   rw [hy]
   rfl
 
-private theorem finitePlaceNormRawArtin_naturality
+public theorem finitePlaceNormRawArtin_naturality
     [NumberField L]
     (hW : finitePlaceBelow (K := K) W = v)
     (hcentres :
@@ -733,7 +733,7 @@ private theorem finitePlaceNormRawArtin_naturality
         (LocalFieldTheory.normUnits C D y)
   exact finitePlaceLocalArtin_norm_restriction_apply y
 
-private theorem finitePlaceNormLocalizedArtin_naturality
+public theorem finitePlaceNormLocalizedArtin_naturality
     [NumberField L]
     (hW : finitePlaceBelow (K := K) W = v)
     (hcentres :
@@ -778,7 +778,7 @@ private theorem finitePlaceNormLocalizedArtin_naturality
         (K := K) (L := L) (K' := K')
         v W w hW y).symm
 
-private theorem
+public theorem
     finitePlaceLocalArtinMonoidHom_norm_restriction_localized
     {K' L' : Type}
     [Field K'] [NumberField K']

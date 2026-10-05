@@ -42,13 +42,28 @@ namespace GlobalClassFields
 
 open Reciprocity
 
-/-- Canonical class-group commutativity supplies normality for the two quotients. -/
-private theorem closedFiniteIndexTopologicalClassGroupIsMulCommutative
+@[instance_reducible]
+noncomputable local instance closedFiniteIndexTopologicalClassGroupCommGroup
+    (F : Type) [Field F] [NumberField F] :
+    CommGroup (IdeleClassGroup F) :=
+  QuotientGroup.Quotient.commGroup (IdeleGroup.principalSubgroup F)
+
+noncomputable local instance closedFiniteIndexTopologicalClassGroupIsMulCommutative
     (F : Type) [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
-  IsMulCommutative.of_comm (fun a b => mul_comm a b)
+  ⟨⟨fun a b => mul_comm a b⟩⟩
 
-attribute [local instance] closedFiniteIndexTopologicalClassGroupIsMulCommutative
+local instance closedFiniteIndexTopologicalSubgroupNormal
+    (F : Type) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) : N.Normal :=
+  N.normal_of_isMulCommutative
+
+@[instance_reducible]
+noncomputable local instance closedFiniteIndexTopologicalQuotientCommGroup
+    (F : Type) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) :
+    CommGroup (IdeleClassGroup F ⧸ N) :=
+  QuotientGroup.Quotient.commGroup N
 
 variable {K : Type} [Field K] [NumberField K]
 

@@ -141,7 +141,7 @@ theorem quotientPower_card_commutes_degreeZero (D : DegreeData G)
     K L hLK k hkL τ hτ
   simpa [Q, n, hkq] using hcomm
 
-private theorem extensionNormalizedDegree_pow_of_degreeOne (D : DegreeData G)
+theorem extensionNormalizedDegree_pow_of_degreeOne (D : DegreeData G)
     (K : FiniteResidueAbstractField D) (L : ClosedSubgroup G)
     (hLK : L.toSubgroup ≤ K.field.toSubgroup)
     [hLnormal : (extensionSubgroup K.field L hLK).Normal]

@@ -225,7 +225,7 @@ local instance standardLubinTateLevelField_isSeparableInstance
     (Algebra.IsSeparable.isSeparable K
       (chosenStandardLubinTatePrimitiveRoot hπ n))
 
-private theorem standardLubinTateLevelCompleteDVFData_exists
+theorem standardLubinTateLevelCompleteDVFData_exists
     {F : LocalField.{u, v} K} {π : F.valuationSubring}
     (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ) :
     ∃ target : CompleteDVF.{u, 0} (standardLubinTateLevelField hπ n),

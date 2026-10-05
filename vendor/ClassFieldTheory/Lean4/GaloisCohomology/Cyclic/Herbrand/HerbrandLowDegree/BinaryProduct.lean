@@ -52,7 +52,7 @@ abbrev BinaryCoefficientFamily : Bool → Type uA
   | false => A
   | true => B
 
-private instance binaryCoefficientFamilyCommGroup :
+@[reducible] instance binaryCoefficientFamilyCommGroup :
     ∀ i, CommGroup (BinaryCoefficientFamily A B i)
   | false => inferInstance
   | true => inferInstance
@@ -65,7 +65,7 @@ noncomputable def binaryCoefficientFamilyAction :
   | false => inferInstance
   | true => inferInstance
 
-private noncomputable instance
+@[reducible] noncomputable instance
     (i : Bool) :
     MulDistribMulAction G
       (BinaryCoefficientFamily A B i) :=
@@ -103,7 +103,7 @@ theorem prodEquivBinaryCoefficientFamily_smul
   funext i
   cases i <;> rfl
 
-private noncomputable def piHerbrandH0EquivProd :
+noncomputable def piHerbrandH0EquivProd :
     (∀ i, HerbrandH0 G
       (BinaryCoefficientFamily A B i)) ≃*
         HerbrandH0 G A × HerbrandH0 G B where
@@ -117,7 +117,7 @@ private noncomputable def piHerbrandH0EquivProd :
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
-private noncomputable def piHerbrandHMinusOneEquivProd
+noncomputable def piHerbrandHMinusOneEquivProd
     (σ : G) :
     (∀ i, HerbrandHMinusOne G
       (BinaryCoefficientFamily A B i) σ) ≃*
@@ -147,7 +147,7 @@ noncomputable def herbrandH0ProdEquiv :
   exact
     (herbrandH0EquivariantMulEquiv
       (prodEquivBinaryCoefficientFamily A B)
-      (prodEquivBinaryCoefficientFamily_smul A B)).trans
+      (prodEquivBinaryCoefficientFamily_smul (A := A) (B := B))).trans
       ((herbrandH0PiEquiv
         (G := G) (BinaryCoefficientFamily A B)).trans
         (piHerbrandH0EquivProd A B))
@@ -160,7 +160,7 @@ noncomputable def herbrandHMinusOneProdEquiv
         HerbrandHMinusOne G B σ := by
   letI familyAction : ∀ i, MulDistribMulAction G
       (BinaryCoefficientFamily A B i) :=
-    binaryCoefficientFamilyAction A B
+      binaryCoefficientFamilyAction A B
   letI piAction : MulDistribMulAction G
       (∀ i, BinaryCoefficientFamily A B i) :=
     piMulDistribMulAction G
@@ -168,7 +168,7 @@ noncomputable def herbrandHMinusOneProdEquiv
   exact
     (herbrandHMinusOneEquivariantMulEquiv
       (prodEquivBinaryCoefficientFamily A B)
-      (prodEquivBinaryCoefficientFamily_smul A B) σ).trans
+      (prodEquivBinaryCoefficientFamily_smul (A := A) (B := B)) σ).trans
       ((herbrandHMinusOnePiEquiv
         (G := G) (BinaryCoefficientFamily A B) σ).trans
         (piHerbrandHMinusOneEquivProd A B σ))

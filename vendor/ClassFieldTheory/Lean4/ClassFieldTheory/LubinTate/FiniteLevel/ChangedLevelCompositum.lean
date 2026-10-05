@@ -127,7 +127,7 @@ theorem standardLubinTateChangedLevelCompositumField_isGalois
     { to_isSeparable := inferInstance
       to_normal := inferInstance }
 
-private theorem
+public theorem
     standardLubinTateChangedLevelCompositumCompleteDVFData_exists
     {F : LocalField.{u, v} K} {π : F.valuationSubring}
     (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K))

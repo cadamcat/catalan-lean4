@@ -33,7 +33,7 @@ underlying adele rings.  The additive structure is needed to transport
 determinant norms in a field tower.
 -/
 
-open scoped NumberField TensorProduct RestrictedProduct
+open scoped NumberField NumberField.LiesOver TensorProduct RestrictedProduct
 open NumberField IsDedekindDomain
 
 noncomputable section
@@ -239,8 +239,12 @@ theorem infinitePlaceTensorRingEquivAbove_tmul
       NumberField.LiesOver.completionMap
           (v := w) (w := W.1) a *
         algebraMap L W.1.Completion x := by
-  let : W.1.1.LiesOver w.1 :=
+  letI : W.1.1.LiesOver w.1 :=
     ⟨congrArg (fun q : InfinitePlace K => q.1) W.2⟩
+  let u : AbsoluteValueExtension w.1 L :=
+    ⟨W.1.1, fun x => congrArg (fun q : InfinitePlace K => q.1 x) W.2⟩
+  letI : Algebra w.1.Completion u.1.Completion :=
+    AbsoluteValue.completionAlgebra w.1 u.1 u.2
   rw [infinitePlaceTensorRingEquivAbove_apply]
   change
     (InfinitePlace.Completion.equiv W.1).symm
@@ -255,6 +259,22 @@ theorem infinitePlaceTensorRingEquivAbove_tmul
   dsimp only [infinitePlaceAboveToExtension]
   rw [completionTensorDecomposition_left_tmul_apply, map_mul]
   congr 1
+  have hcomp := infinitePlaceCompletionAlgEquiv_algebraMap
+    (K := K) (L := L) w W.1 W.2
+  have hcomp' := (RingHom.ext_iff.mp hcomp) a
+  simp only [RingHom.comp_apply] at hcomp'
+  change
+    algebraMap w.1.Completion u.1.Completion
+        (infinitePlaceCompletionAlgEquiv w a) =
+      (infinitePlaceCompletionAlgEquiv W.1).toRingEquiv
+        (algebraMap w.Completion W.1.Completion a) at hcomp'
+  change
+    (infinitePlaceCompletionAlgEquiv W.1).toRingEquiv.symm
+        (algebraMap w.1.Completion u.1.Completion
+          (infinitePlaceCompletionAlgEquiv w a)) =
+      NumberField.LiesOver.completionMap (v := w) (w := W.1) a
+  rw [hcomp']
+  simp only [RingEquiv.symm_apply_apply, RingHom.algebraMap_toAlgebra]
 
 /-- Flatten the products over finite base places and places above them
 to the product over all finite places of the extension field. -/

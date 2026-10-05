@@ -128,7 +128,7 @@ private instance
     Monoid (RelativeIdeleGroup.ClassGroup ℚ E) :=
   inferInstance
 
-private noncomputable instance :
+noncomputable instance :
     ∀ E : FiniteGaloisIntermediateField ℚ (SeparableClosure ℚ),
       MulDistribMulAction
         (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ)
@@ -382,7 +382,7 @@ theorem rationalRelativeIdeleClassEmbedding_comp
       (rationalRelativeAdeleEmbedding_comp hEF hFH
         (a : RelativeAdeleRing ℚ E)))
 
-private noncomputable instance :
+noncomputable instance :
     DirectedSystem
       (fun E : FiniteGaloisIntermediateField ℚ (SeparableClosure ℚ) =>
         RelativeIdeleGroup.ClassGroup ℚ E)

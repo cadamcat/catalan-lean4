@@ -40,11 +40,11 @@ universe u v
 
 variable {G : Type u} {D : Type v} [Group G] [Group D]
 
-private def kernelToSaturation (d : G →* D) (L K : Subgroup G) :
+def kernelToSaturation (d : G →* D) (L K : Subgroup G) :
     ↑(K ⊓ d.ker) →* ↑(K ⊓ (L ⊔ d.ker)) :=
   Subgroup.inclusion (inf_le_inf le_rfl le_sup_right)
 
-private theorem kernelToSaturation_rel_iff (d : G →* D) (L K : Subgroup G)
+theorem kernelToSaturation_rel_iff (d : G →* D) (L K : Subgroup G)
     (x y : ↑(K ⊓ d.ker)) :
     QuotientGroup.leftRel ((L ⊓ d.ker).subgroupOf (K ⊓ d.ker)) x y ↔
       QuotientGroup.leftRel (L.subgroupOf (K ⊓ (L ⊔ d.ker)))
@@ -55,13 +55,13 @@ private theorem kernelToSaturation_rel_iff (d : G →* D) (L K : Subgroup G)
   · intro h
     exact ⟨h, d.ker.mul_mem (d.ker.inv_mem x.property.2) y.property.2⟩
 
-private noncomputable def kernelCosetToSaturationCoset (d : G →* D) (L K : Subgroup G) :
+noncomputable def kernelCosetToSaturationCoset (d : G →* D) (L K : Subgroup G) :
     (↑(K ⊓ d.ker) ⧸ (L ⊓ d.ker).subgroupOf (K ⊓ d.ker)) →
       (↑(K ⊓ (L ⊔ d.ker)) ⧸ L.subgroupOf (K ⊓ (L ⊔ d.ker))) :=
   Quotient.map' (kernelToSaturation d L K) fun x y h ↦
     (kernelToSaturation_rel_iff d L K x y).mp h
 
-private theorem kernelCosetToSaturationCoset_injective (d : G →* D) (L K : Subgroup G) :
+theorem kernelCosetToSaturationCoset_injective (d : G →* D) (L K : Subgroup G) :
     Function.Injective (kernelCosetToSaturationCoset d L K) := by
   intro q₁ q₂
   refine Quotient.inductionOn₂ q₁ q₂ ?_
@@ -71,7 +71,7 @@ private theorem kernelCosetToSaturationCoset_injective (d : G →* D) (L K : Sub
   apply Quotient.eq''.mp
   simpa only [kernelCosetToSaturationCoset, Quotient.map'_mk''] using h
 
-private theorem kernelCosetToSaturationCoset_surjective (d : G →* D) {L K : Subgroup G}
+theorem kernelCosetToSaturationCoset_surjective (d : G →* D) {L K : Subgroup G}
     (hLK : L ≤ K) : Function.Surjective (kernelCosetToSaturationCoset d L K) := by
   intro q
   refine Quotient.inductionOn q ?_

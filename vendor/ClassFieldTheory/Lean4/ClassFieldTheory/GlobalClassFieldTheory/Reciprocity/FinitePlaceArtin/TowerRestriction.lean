@@ -462,7 +462,7 @@ theorem decompositionGroupEquivAlgebraicLocalizationAut_restrict_of_commutes
           ((rhoE.1 : E ≃ₐ[K] E) z)) := by
             rw [hlocalization]
 
-private noncomputable def finitePlaceLocalRestrictionMonoidHom
+noncomputable def finitePlaceLocalRestrictionMonoidHom
     {E : Type}
     [Field E] [Algebra K E] [Algebra E L]
     [IsScalarTower K E L]

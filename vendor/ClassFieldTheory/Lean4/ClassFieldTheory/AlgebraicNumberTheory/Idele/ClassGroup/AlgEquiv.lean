@@ -415,7 +415,7 @@ theorem finitePlaceCongr_asIdeal
   ext x
   exact Ideal.symm_apply_mem_of_equiv_iff
 
-private theorem finitePlaceBelow_eq_finitePlaceCongr_symm
+theorem finitePlaceBelow_eq_finitePlaceCongr_symm
     (e : K ≃ₐ[ℚ] M)
     (W : HeightOneSpectrum (𝓞 M)) :
     letI : Algebra K M := e.toRingHom.toAlgebra
@@ -1060,7 +1060,7 @@ variable
 fields in a finite extension.  The coefficient-ring equivalence is kept
 explicit so the inverse uses that exact equivalence rather than a second
 choice. -/
-private noncomputable def relativeAdeleMapOfCompatibleEquiv
+noncomputable def relativeAdeleMapOfCompatibleEquiv
     (eK : K ≃ₐ[ℚ] K')
     (eA :
       NumberField.AdeleRing (𝓞 K) K ≃+*
@@ -1115,7 +1115,7 @@ private noncomputable def relativeAdeleMapOfCompatibleEquiv
       fA fL (fun _ _ ↦ Commute.all _ _)).toRingHom
 
 @[simp]
-private theorem relativeAdeleMapOfCompatibleEquiv_tmul
+theorem relativeAdeleMapOfCompatibleEquiv_tmul
     (eK : K ≃ₐ[ℚ] K')
     (eA :
       NumberField.AdeleRing (𝓞 K) K ≃+*

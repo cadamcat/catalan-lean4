@@ -134,7 +134,7 @@ theorem denseRange_toCompletion
       (WithAbs.toAbs_surjective vK).denseRange
       (@UniformSpace.Completion.continuous_coe (WithAbs vK) inferInstance)
 
-private noncomputable def baseToExtensionCompletion
+noncomputable def baseToExtensionCompletion
     {K : Type u} {L : Type v} [Field K] [Field L] [Algebra K L]
     (vK : AbsoluteValue K ℝ) (wL : AbsoluteValue L ℝ) :
     WithAbs vK →+* wL.Completion :=
@@ -152,7 +152,7 @@ private theorem baseToExtensionCompletion_norm
     WithAbs.norm_eq_apply_ofAbs, WithAbs.ofAbs_algebraMap]
   exact hw x.ofAbs
 
-private theorem baseToExtensionCompletion_isometry
+theorem baseToExtensionCompletion_isometry
     {K : Type u} {L : Type v} [Field K] [Field L] [Algebra K L]
     (vK : AbsoluteValue K ℝ) (wL : AbsoluteValue L ℝ)
     (hw : Extends vK wL) :
@@ -334,7 +334,7 @@ section CompleteTarget
 
 variable {K : Type u} {D : Type w} [Field K] [Field D]
 
-private noncomputable def toCompleteTargetRingHom
+noncomputable def toCompleteTargetRingHom
     (vK : AbsoluteValue K ℝ) (vD : AbsoluteValue D ℝ)
     (i : K →+* D) :
     WithAbs vK →+* WithAbs vD :=
@@ -349,7 +349,7 @@ private theorem toCompleteTargetRingHom_norm
   change vD (i (WithAbs.equiv vK x)) = vK (WithAbs.equiv vK x)
   exact hi _
 
-private theorem toCompleteTargetRingHom_isometry
+theorem toCompleteTargetRingHom_isometry
     (vK : AbsoluteValue K ℝ) (vD : AbsoluteValue D ℝ)
     (i : K →+* D) (hi : ∀ x : K, vD (i x) = vK x) :
     Isometry (toCompleteTargetRingHom vK vD i) :=

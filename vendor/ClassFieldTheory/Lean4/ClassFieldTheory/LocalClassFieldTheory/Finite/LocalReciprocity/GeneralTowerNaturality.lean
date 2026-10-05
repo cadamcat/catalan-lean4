@@ -46,18 +46,18 @@ open LocalFieldTheory RamificationTheory CyclicCohomology KummerTheory
 open ClassFormation LocalClassFieldTheory
 open scoped IsMulCommutative
 
-private abbrev towerAbsoluteGalois (K : Type) [Field K] :=
+abbrev towerAbsoluteGalois (K : Type) [Field K] :=
   intrinsicAbsoluteGalois K
 
-private abbrev towerAbsoluteUnits (K : Type) [Field K] :
+abbrev towerAbsoluteUnits (K : Type) [Field K] :
     Rep ℤ (towerAbsoluteGalois K) :=
   intrinsicAbsoluteUnits K
 
-private abbrev towerAbstractBase (K : Type) [Field K] :
+abbrev towerAbstractBase (K : Type) [Field K] :
     ClosedSubgroup (towerAbsoluteGalois K) :=
   intrinsicAbstractBase K
 
-private def towerLowerEmbedding
+def towerLowerEmbedding
     (K E L : Type)
     [Field K] [Field E] [Field L]
     [Algebra K E] [Algebra E L] [Algebra K L]
@@ -66,7 +66,7 @@ private def towerLowerEmbedding
     E →ₐ[K] SeparableClosure K :=
   iL.comp (IsScalarTower.toAlgHom K E L)
 
-private def towerEmbeddedBaseNormClass
+def towerEmbeddedBaseNormClass
     (K L : Type) [Field K] [Field L] [Algebra K L]
     [FiniteDimensional K L] [IsGalois K L]
     (i : L →ₐ[K] SeparableClosure K) (a : Kˣ) :
@@ -79,7 +79,7 @@ private def towerEmbeddedBaseNormClass
     (baseUnitsEquivGaloisAmbientFixed K (SeparableClosure K)
       (Additive.ofMul a))
 
-private theorem towerEmbeddedFieldRange_le
+theorem towerEmbeddedFieldRange_le
     (K E L : Type)
     [Field K] [Field E] [Field L]
     [Algebra K E] [Algebra E L] [Algebra K L]
@@ -91,7 +91,7 @@ private theorem towerEmbeddedFieldRange_le
   rcases hx with ⟨y, rfl⟩
   exact ⟨algebraMap E L y, rfl⟩
 
-private theorem towerEmbeddedAbstractExtension_field_le
+theorem towerEmbeddedAbstractExtension_field_le
     (K E L : Type)
     [Field K] [Field E] [Field L]
     [Algebra K E] [Algebra E L] [Algebra K L]
@@ -114,7 +114,7 @@ private theorem towerEmbeddedAbstractExtension_field_le
     (AlgHom.fieldRange (towerLowerEmbedding K E L iL)).fixingSubgroup_le
       (towerEmbeddedFieldRange_le K E L iL)
 
-private theorem towerRestrict_abstractQuotient_mk
+theorem towerRestrict_abstractQuotient_mk
     (K E L : Type)
     [Field K] [Field E] [Field L]
     [Algebra K E] [Algebra E L] [Algebra K L]
@@ -163,7 +163,7 @@ private theorem towerRestrict_abstractQuotient_mk
         (finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding_mk_apply
           K E iE (Subgroup.inclusion le_rfl sigma) x).symm
 
-private theorem towerRestrict_abstractAbelianization
+theorem towerRestrict_abstractAbelianization
     (K E L : Type)
     [Field K] [Field E] [Field L]
     [Algebra K E] [Algebra E L] [Algebra K L]

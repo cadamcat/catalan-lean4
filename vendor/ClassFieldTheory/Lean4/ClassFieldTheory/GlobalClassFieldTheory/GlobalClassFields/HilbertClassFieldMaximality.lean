@@ -43,7 +43,7 @@ namespace GlobalClassFields
 
 open NumberField
 
-private theorem hilbertClassFieldMaximalityIdeleClassGroupIsMulCommutative
+theorem hilbertClassFieldMaximalityIdeleClassGroupIsMulCommutative
     {F : Type} [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
   ⟨⟨fun a b => mul_comm a b⟩⟩
@@ -57,7 +57,7 @@ variable
     [FiniteDimensional K L] [IsGalois K L]
     [IsCyclic (L ≃ₐ[K] L)]
 
-private instance narrowClassGroup_finite :
+instance narrowClassGroup_finite :
     Finite (RayClass.NarrowClassGroup K) :=
   Finite.of_equiv
     (RayClass.RayClassGroup
@@ -66,7 +66,7 @@ private instance narrowClassGroup_finite :
     (RayClass.rayClassGroupNarrowZeroEquivNarrowClassGroup
       (K := K)).toEquiv
 
-private instance bigHilbertNormQuotient_finite :
+instance bigHilbertNormQuotient_finite :
     Finite
       (IdeleClassGroup K ⧸
         bigHilbertClassFieldNormSubgroup (K := K)) :=
@@ -75,7 +75,7 @@ private instance bigHilbertNormQuotient_finite :
     (bigHilbertClassFieldQuotientEquivNarrowClassGroup
       (K := K)).symm.toEquiv
 
-private instance bigHilbertNormSubgroup_finiteIndex :
+instance bigHilbertNormSubgroup_finiteIndex :
     (bigHilbertClassFieldNormSubgroup
       (K := K)).FiniteIndex :=
   Subgroup.finiteIndex_of_finite_quotient

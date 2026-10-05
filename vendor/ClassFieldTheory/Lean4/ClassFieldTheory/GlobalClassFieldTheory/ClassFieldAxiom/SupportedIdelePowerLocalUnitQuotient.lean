@@ -43,7 +43,7 @@ namespace GlobalClassFieldTheory.ClassFieldAxiom
 
 variable {K : Type*} [Field K] [NumberField K]
 
-private noncomputable def quotientEquivOfSurjectiveWithKernel
+noncomputable def quotientEquivOfSurjectiveWithKernel
     {G H : Type*} [Group G] [Group H]
     (f : G →* H)
     (N : Subgroup G) [N.Normal]

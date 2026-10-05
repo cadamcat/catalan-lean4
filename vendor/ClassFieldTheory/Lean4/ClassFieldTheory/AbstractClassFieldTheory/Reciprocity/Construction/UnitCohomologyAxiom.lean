@@ -311,7 +311,7 @@ noncomputable def unitRepresentationOverK
         rw [map_mul]
         rfl }
 
-private theorem unitRepresentationOverK_isTrivialOnExtension
+theorem unitRepresentationOverK_isTrivialOnExtension
     (v : ValuationData D A) (E : FiniteAbstractFieldExtension G)
     (hnormal : (extensionSubgroup E.base.field E.field.field E.below).Normal) :
     Representation.IsTrivial

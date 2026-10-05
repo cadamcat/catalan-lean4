@@ -461,7 +461,7 @@ noncomputable def galoisGroupEquivZModOfUnramifiedValuation
 /-- Internal quotient construction for a specified additive generator. The
 public local-field API below supplies `horder` and `hgen` from the already proved
 Frobenius source lemmas, so these hypotheses are not exposed as new endpoints. -/
-private noncomputable def zmodAddEquivOfGenerator {A : Type*} [AddGroup A]
+noncomputable def zmodAddEquivOfGenerator {A : Type*} [AddGroup A]
     (g : A) {n : Nat} (horder : addOrderOf g = n)
     (hgen : AddSubgroup.zmultiples g = ⊤) :
     ZMod n ≃+ A := by
@@ -483,7 +483,7 @@ private noncomputable def zmodAddEquivOfGenerator {A : Type*} [AddGroup A]
     rcases hx with ⟨i, hi⟩
     exact ⟨(i : ZMod n), by simpa [f, ZMod.lift_coe] using hi⟩
 
-private theorem zmodAddEquivOfGenerator_apply_one {A : Type*} [AddGroup A]
+theorem zmodAddEquivOfGenerator_apply_one {A : Type*} [AddGroup A]
     (g : A) {n : Nat} (horder : addOrderOf g = n)
     (hgen : AddSubgroup.zmultiples g = ⊤) :
     zmodAddEquivOfGenerator g horder hgen (1 : ZMod n) = g := by
@@ -499,7 +499,7 @@ private theorem zmodAddEquivOfGenerator_apply_one {A : Type*} [AddGroup A]
   rw [← hcast, ZMod.lift_castAddHom]
   simp [f, zmultiplesHom_apply]
 
-private lemma additive_zmultiples_eq_top_of_zpowers_eq_top {G : Type*} [Group G]
+lemma additive_zmultiples_eq_top_of_zpowers_eq_top {G : Type*} [Group G]
     (g : G) (hgen : Subgroup.zpowers g = ⊤) :
     AddSubgroup.zmultiples (Additive.ofMul g) = ⊤ := by
   ext x
@@ -513,7 +513,7 @@ private lemma additive_zmultiples_eq_top_of_zpowers_eq_top {G : Type*} [Group G]
     rw [hgen]
     exact Subgroup.mem_top (Additive.toMul x)
 
-private noncomputable def zmodCyclicMulEquivOfGenerator {G : Type*} [Group G]
+noncomputable def zmodCyclicMulEquivOfGenerator {G : Type*} [Group G]
     (g : G) {n : Nat} (horder : orderOf g = n)
     (hgen : Subgroup.zpowers g = ⊤) :
     Multiplicative (ZMod n) ≃* G :=
@@ -522,7 +522,7 @@ private noncomputable def zmodCyclicMulEquivOfGenerator {G : Type*} [Group G]
       (by simpa [addOrderOf_ofMul_eq_orderOf] using horder)
       (additive_zmultiples_eq_top_of_zpowers_eq_top g hgen)
 
-private theorem zmodCyclicMulEquivOfGenerator_apply_one {G : Type*} [Group G]
+theorem zmodCyclicMulEquivOfGenerator_apply_one {G : Type*} [Group G]
     (g : G) {n : Nat} (horder : orderOf g = n)
     (hgen : Subgroup.zpowers g = ⊤) :
     zmodCyclicMulEquivOfGenerator g horder hgen

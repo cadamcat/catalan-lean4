@@ -235,7 +235,7 @@ theorem
 
 section PadicStandardLevelRestriction
 
-private theorem padicArtinStandardLevel_normal
+theorem padicArtinStandardLevel_normal
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     Normal ℚ_[p]
       (standardLubinTateLevelField

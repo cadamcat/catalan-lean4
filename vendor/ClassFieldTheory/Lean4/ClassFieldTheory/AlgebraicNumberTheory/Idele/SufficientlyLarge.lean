@@ -55,25 +55,25 @@ variable {K : Type*} [Field K] [NumberField K]
 namespace IdeleGroup
 
 /-- A chosen idele representing an ordinary ideal class. -/
-private def classRepresentative (c : ClassGroup (𝓞 K)) :
+def classRepresentative (c : ClassGroup (𝓞 K)) :
     IdeleGroup K :=
   Classical.choose (idealClass_surjective (K := K) c)
 
 @[simp]
-private theorem idealClass_classRepresentative
+theorem idealClass_classRepresentative
     (c : ClassGroup (𝓞 K)) :
     idealClass (classRepresentative (K := K) c) = c :=
   Classical.choose_spec (idealClass_surjective (K := K) c)
 
 /-- A finite set outside which the chosen representative of `c` is
 integral. -/
-private def classRepresentativeSupport (c : ClassGroup (𝓞 K)) :
+def classRepresentativeSupport (c : ClassGroup (𝓞 K)) :
     Finset (HeightOneSpectrum (𝓞 K)) :=
   Classical.choose
     (exists_finset_supportedAt
       (classRepresentative (K := K) c))
 
-private theorem classRepresentative_mem_support
+theorem classRepresentative_mem_support
     (c : ClassGroup (𝓞 K)) :
     classRepresentative (K := K) c ∈
       supportedAt (K := K)
@@ -89,7 +89,7 @@ def sufficientlyLargeFiniteSet :
   classical
   exact Finset.univ.biUnion (classRepresentativeSupport (K := K))
 
-private theorem classRepresentative_mem_sufficientlyLarge
+theorem classRepresentative_mem_sufficientlyLarge
     (c : ClassGroup (𝓞 K)) :
     classRepresentative (K := K) c ∈
       supportedAt (K := K)

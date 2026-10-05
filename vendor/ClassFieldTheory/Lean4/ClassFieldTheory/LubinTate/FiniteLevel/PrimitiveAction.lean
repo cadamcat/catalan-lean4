@@ -56,13 +56,43 @@ open ValuationTheory.DiscreteValuationField
 
 variable {K : Type u} [Field K]
 
+noncomputable local instance (priority := 50)
+    primitiveActionCoefficientUniformSpace
+    (F : LocalField.{u, v} K) : UniformSpace F.valuationSubring :=
+  ⊥
+
+noncomputable local instance
+    primitiveActionTargetWithIdeal
+    {F : LocalField.{u, v} K} {π : F.valuationSubring}
+    (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ) :
+    WithIdeal (standardLubinTateLevelCompleteDVF hπ n).valuationSubring where
+  i := (standardLubinTateLevelCompleteDVF hπ n).maximalIdeal
+
+noncomputable local instance
+    primitiveActionTargetCompleteSpace
+    {F : LocalField.{u, v} K} {π : F.valuationSubring}
+    (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ) :
+    CompleteSpace (standardLubinTateLevelCompleteDVF hπ n).valuationSubring := by
+  let target := standardLubinTateLevelCompleteDVF hπ n
+  have hadic : IsAdic target.maximalIdeal := rfl
+  exact (hadic.isAdicComplete_iff.mp target.isAdicComplete).1
+
+noncomputable local instance
+    primitiveActionTargetT2Space
+    {F : LocalField.{u, v} K} {π : F.valuationSubring}
+    (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ) :
+    T2Space (standardLubinTateLevelCompleteDVF hπ n).valuationSubring := by
+  let target := standardLubinTateLevelCompleteDVF hπ n
+  have hadic : IsAdic target.maximalIdeal := rfl
+  exact (hadic.isAdicComplete_iff.mp target.isAdicComplete).2
+
 namespace SameUniformizer
 
 variable {F : LocalField.{u, v} K} {π : F.valuationSubring}
 
 /-- The standard Lubin--Tate series itself has the prescribed linear term
 `π X`. -/
-private theorem standardLubinTateSeries_hasLinearTerm
+theorem standardLubinTateSeries_hasLinearTerm
     (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) :
     HasLinearTerm (standardLubinTateSeries hπ).toPowerSeries
       (fun _ : Unit => π) := by
@@ -115,7 +145,7 @@ section AnalyticAction
 
 variable {F : LocalField.{u, v} K} {π : F.valuationSubring}
 
-private noncomputable local instance
+noncomputable local instance
     standardLubinTatePrimitiveActionCoefficientUniformSpace :
     UniformSpace F.valuationSubring :=
   ⊥
@@ -242,7 +272,7 @@ theorem standardLubinTateEndomorphismValue_add
     (standardLubinTatePrimitivePointInteger hπ n)
     (standardLubinTatePrimitivePointInteger_hasEval hπ n) a b
 
-private theorem standardLubinTateEndomorphismEvalAt_eq_of_point_eq
+theorem standardLubinTateEndomorphismEvalAt_eq_of_point_eq
     (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ)
     (x y : (standardLubinTateLevelCompleteDVF hπ n).valuationSubring)
     (hx : PowerSeries.HasEval x) (hy : PowerSeries.HasEval y)

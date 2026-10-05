@@ -63,7 +63,7 @@ section GroupEquiv
 variable {R Q P : Type} [CommRing R]
   [CommGroup Q] [CommGroup P] [Fintype Q] [Fintype P]
 
-private theorem res_norm_eq (e : Q ≃* P) (A : Rep R P) :
+theorem res_norm_eq (e : Q ≃* P) (A : Rep R P) :
     let Ares : Rep R Q :=
       Rep.res e.toMonoidHom A
     ModuleCat.ofHom Ares.norm.hom.toLinearMap =

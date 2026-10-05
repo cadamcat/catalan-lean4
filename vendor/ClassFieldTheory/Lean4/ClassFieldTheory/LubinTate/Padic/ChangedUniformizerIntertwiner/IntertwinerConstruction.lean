@@ -38,7 +38,7 @@ open LocalFieldTheory.DiscreteValuationField
 open LocalFieldTheory.DiscreteValuationField.Examples.Qp
 open SameUniformizer
 
-private structure PadicChangedUniformizerApproximation
+structure PadicChangedUniformizerApproximation
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ) where
   series : PowerSeries (padicCompletedUnramifiedWittRing p)
@@ -49,7 +49,7 @@ private structure PadicChangedUniformizerApproximation
       (padicChangedUniformizerLinearCoefficient p u :
         padicCompletedUnramifiedWittRing p)
 
-private noncomputable def padicChangedUniformizerApproximation
+public noncomputable def padicChangedUniformizerApproximation
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ) :
     ℕ → PadicChangedUniformizerApproximation p u
@@ -80,7 +80,7 @@ private noncomputable def padicChangedUniformizerApproximation
             PowerSeries.coeff_monomial]
           simp [m] }
 
-private theorem padicChangedUniformizerApproximation_succ
+theorem padicChangedUniformizerApproximation_succ
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ)
     (n : ℕ) :
@@ -93,7 +93,7 @@ private theorem padicChangedUniformizerApproximation_succ
             (n + 2) (by omega)) :=
   rfl
 
-private theorem
+theorem
     padicChangedUniformizerApproximation_coeff_succ_eq_of_lt
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ)
@@ -106,7 +106,7 @@ private theorem
     PowerSeries.coeff_monomial, ite_eq_right (Nat.ne_of_lt hq)]
   exact add_zero _
 
-private theorem padicChangedUniformizerApproximation_coeff_eq_of_le
+theorem padicChangedUniformizerApproximation_coeff_eq_of_le
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ)
     (q : ℕ) {a b : ℕ} (hab : a ≤ b)
@@ -122,7 +122,7 @@ private theorem padicChangedUniformizerApproximation_coeff_eq_of_le
         p u b q (by omega)]
       exact ih
 
-private theorem
+theorem
     padicChangedUniformizerApproximation_succ_defect_coeff
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ)
@@ -190,7 +190,7 @@ theorem padicChangedUniformizerIntertwiner_hasSubst
   PowerSeries.HasSubst.of_constantCoeff_zero'
     (padicChangedUniformizerIntertwiner_constantCoeff p u)
 
-private theorem padicChangedUniformizerIntertwiner_coeff_eq_approximation
+theorem padicChangedUniformizerIntertwiner_coeff_eq_approximation
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ)
     (q a : ℕ) (hq : q < a + 2) :
@@ -208,7 +208,7 @@ private theorem padicChangedUniformizerIntertwiner_coeff_eq_approximation
     rw [padicChangedUniformizerApproximation_coeff_succ_eq_of_lt
       p u a (a + 1) (by omega)]
 
-private theorem padicChangedUniformizerDefect_coeff_zero
+theorem padicChangedUniformizerDefect_coeff_zero
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ) :
     PowerSeries.coeff 0
@@ -238,7 +238,7 @@ private theorem padicChangedUniformizerDefect_coeff_zero
       (padicCompletedChangedStandardSeries p u) hE,
     sub_zero]
 
-private theorem padicChangedUniformizerDefect_coeff_one
+theorem padicChangedUniformizerDefect_coeff_one
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ) :
     PowerSeries.coeff 1
@@ -341,7 +341,7 @@ private theorem padicChangedUniformizerDefect_coeff_one
   rw [hlinear]
   ring
 
-private theorem padicChangedUniformizerDefect_coeff_succ_succ
+theorem padicChangedUniformizerDefect_coeff_succ_succ
     (p : ℕ) [Fact p.Prime]
     (u : (padicLocalField p).valuationSubringˣ)
     (n : ℕ) :

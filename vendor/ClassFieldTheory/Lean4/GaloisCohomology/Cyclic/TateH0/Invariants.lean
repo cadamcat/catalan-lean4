@@ -41,7 +41,7 @@ def unitsInvariantSubmodule (K L : Type) [Field K] [Field L] [Algebra K L] :
     Submodule ℤ (Additive Lˣ) :=
   (Rep.ofAlgebraAutOnUnits K L).ρ.invariants
 
-private noncomputable def invariantUnitToBaseUnit (K L : Type)
+noncomputable def invariantUnitToBaseUnit (K L : Type)
     [Field K] [Field L] [Algebra K L] [IsGalois K L] [FiniteDimensional K L]
     (x : unitsInvariantSubmodule K L) : Kˣ := by
   classical
@@ -89,7 +89,7 @@ private lemma invariantUnitToBaseUnit_spec (K L : Type)
   change algebraMap K L (Classical.choose hmem) = (y : L)
   exact Classical.choose_spec hmem
 
-private noncomputable def baseUnitToInvariantUnit (K L : Type)
+noncomputable def baseUnitToInvariantUnit (K L : Type)
     [Field K] [Field L] [Algebra K L] (x : Kˣ) : unitsInvariantSubmodule K L where
   val := Additive.ofMul (Units.map (algebraMap K L).toMonoidHom x)
   property := by
@@ -111,7 +111,7 @@ private lemma invariantUnitToBaseUnit_baseUnitToInvariantUnit (K L : Type)
   rw [invariantUnitToBaseUnit_spec]
   rfl
 
-private lemma baseUnitToInvariantUnit_invariantUnitToBaseUnit (K L : Type)
+lemma baseUnitToInvariantUnit_invariantUnitToBaseUnit (K L : Type)
     [Field K] [Field L] [Algebra K L] [IsGalois K L] [FiniteDimensional K L]
     (x : unitsInvariantSubmodule K L) :
     baseUnitToInvariantUnit K L (invariantUnitToBaseUnit K L x) = x := by

@@ -1119,7 +1119,7 @@ instance
 
 /-- The canonical inclusion of the finite cyclotomic layer into the
 full abstract-fixed-field compositum. -/
-private noncomputable def
+public noncomputable def
     abstractFixedFieldCyclotomicFiniteLayerInclusion
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1137,7 +1137,7 @@ private noncomputable def
 
 /-- The two embeddings of a finite rational cyclotomic layer into the
 full abstract-fixed-field compositum agree. -/
-private theorem
+public theorem
     abstractFixedFieldCyclotomicFiniteLayerEmbedding_inclusion
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1153,7 +1153,7 @@ private theorem
 
 /-- Restriction to `E` commutes pointwise with the restriction from the
 full rational cyclotomic tower. -/
-private theorem
+public theorem
     restrictNormalHom_abstractFixedFieldCyclotomicRestriction_apply
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1180,7 +1180,7 @@ private theorem
 
 /-- The raw cyclotomic restriction commutes with the canonical embedding
 of the full rational cyclotomic tower. -/
-private theorem
+public theorem
     abstractFixedFieldCyclotomicRestriction_embedding_apply
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1208,7 +1208,7 @@ private theorem
 
 /-- Restriction to the finite compositum layer commutes with its
 canonical inclusion into the full compositum. -/
-private theorem
+public theorem
     restrictNormalHom_abstractFixedFieldCyclotomicFiniteLayer_apply
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1246,7 +1246,7 @@ private theorem
 
 /-- Restricting the finite-compositum action further to `E` commutes
 with the explicit embedding of `E` into that finite layer. -/
-private theorem
+public theorem
     abstractFixedFieldCyclotomicFiniteLayerEmbedding_restrict_apply
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1293,7 +1293,7 @@ private theorem
 
 /-- The left finite-level restriction, after both canonical embeddings into
 the full compositum, is the action of `σ` on the cyclotomic embedding. -/
-private theorem
+public theorem
     restrictNormalHom_abstractFixedFieldCyclotomicRestriction_left_embedded
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1341,7 +1341,7 @@ private theorem
 
 /-- The right finite-level restriction, after both canonical embeddings into
 the full compositum, is the same action of `σ`. -/
-private theorem
+public theorem
     restrictNormalHom_abstractFixedFieldCyclotomicRestriction_right_embedded
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1403,7 +1403,7 @@ private theorem
         (abstractFixedFieldCyclotomicFiniteLayerEmbedding_inclusion H E x)
 
 /-- Pointwise form of finite-layer restriction compatibility. -/
-private theorem
+public theorem
     restrictNormalHom_abstractFixedFieldCyclotomicRestriction_pointwise
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1504,26 +1504,26 @@ section FiniteCoordinateHelpers
 
 /-- Opaque three-step equality composition used to keep large dependent
 finite-level coordinates out of endpoint proof normalization. -/
-private theorem cyclotomicAbstractFixedFieldArtin_eqTransThree
+public theorem cyclotomicAbstractFixedFieldArtin_eqTransThree
     {α : Type} {a b c d : α}
     (hab : a = b) (hbc : b = c) (hcd : c = d) :
     a = d :=
   hab.trans (hbc.trans hcd)
 
-private abbrev cyclotomicAbstractFixedFieldArtinCoordinateBase
+public abbrev cyclotomicAbstractFixedFieldArtinCoordinateBase
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ)) :=
   LocalClassFieldTheory.abstractFixedField
     ℚ (SeparableClosure ℚ) H.field
 
-private abbrev cyclotomicAbstractFixedFieldArtinCoordinateRelative
+public abbrev cyclotomicAbstractFixedFieldArtinCoordinateRelative
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ)) :=
   LocalClassFieldTheory.abstractRelativeFixedField
     ℚ (SeparableClosure ℚ)
     (rationalCyclotomicFieldInertia_le H.field)
 
-private abbrev cyclotomicAbstractFixedFieldArtinCoordinateLayer
+public abbrev cyclotomicAbstractFixedFieldArtinCoordinateLayer
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (E :
@@ -1770,7 +1770,7 @@ noncomputable local instance
 
 /-- The full abstract Artin symbol whose finite coordinates are compared
 below.  Naming this endpoint keeps its relative fixed-field data opaque. -/
-private noncomputable def
+public noncomputable def
     cyclotomicAbstractFixedFieldArtinAbstractEndpoint
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1783,7 +1783,7 @@ private noncomputable def
       (cyclotomicAbstractFixedFieldArtinCoordinateRelative H) a)
 
 /-- The rational norm Artin symbol serving as the other full endpoint. -/
-private noncomputable def
+public noncomputable def
     cyclotomicAbstractFixedFieldArtinRationalEndpoint
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1797,7 +1797,7 @@ private noncomputable def
 /-- The finite restriction map packaged together with its pointwise Artin
 naturality law.  The map is inferred from the generic hom-level theorem, so
 no concrete instance tower is compared after the opaque boundary. -/
-private noncomputable def cyclotomicAbstractFixedFieldArtinCoordinateMapData
+public noncomputable def cyclotomicAbstractFixedFieldArtinCoordinateMapData
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (E :
@@ -1866,7 +1866,7 @@ private noncomputable def cyclotomicAbstractFixedFieldArtinCoordinateMapData
 
 /-- The fixed restriction map from the relative finite layer to one rational
 cyclotomic coordinate. -/
-private noncomputable def cyclotomicAbstractFixedFieldArtinCoordinateMap
+public noncomputable def cyclotomicAbstractFixedFieldArtinCoordinateMap
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (E :
@@ -1879,7 +1879,7 @@ private noncomputable def cyclotomicAbstractFixedFieldArtinCoordinateMap
 
 /-- Naturality of the named coordinate map, kept at the hom level so later
 pointwise rewrites match the opaque map without unfolding its data package. -/
-private theorem cyclotomicAbstractFixedFieldArtinCoordinateMap_naturality
+public theorem cyclotomicAbstractFixedFieldArtinCoordinateMap_naturality
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (E :
@@ -1896,7 +1896,7 @@ private theorem cyclotomicAbstractFixedFieldArtinCoordinateMap_naturality
 
 /-- Pointwise identification of the named coordinate map with the concrete
 two-stage restriction used by the abstract fixed-field comparison. -/
-private theorem cyclotomicAbstractFixedFieldArtinCoordinateMap_apply
+public theorem cyclotomicAbstractFixedFieldArtinCoordinateMap_apply
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (E :
@@ -1923,7 +1923,7 @@ private theorem cyclotomicAbstractFixedFieldArtinCoordinateMap_apply
 /-- The relative projection, common rational finite value, and rational
 infinite projection, with both comparison steps packaged by the generic
 provider before this concrete tower becomes opaque. -/
-private noncomputable def
+public noncomputable def
     cyclotomicAbstractFixedFieldArtinCoordinateBridgeData
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1952,7 +1952,7 @@ private noncomputable def
       (cyclotomicAbstractFixedFieldArtinCoordinateMap_naturality H E)
 
 /-- The abstract endpoint after projection to one finite coordinate. -/
-private noncomputable def
+public noncomputable def
     cyclotomicAbstractFixedFieldArtinAbstractCoordinate
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1967,7 +1967,7 @@ private noncomputable def
 
 /-- The relative infinite Artin symbol, restricted to a finite layer and
 then mapped to the corresponding rational coordinate. -/
-private noncomputable def
+public noncomputable def
     cyclotomicAbstractFixedFieldArtinRestrictedLayerCoordinate
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1980,7 +1980,7 @@ private noncomputable def
   (cyclotomicAbstractFixedFieldArtinCoordinateBridgeData H a E).1.1
 
 /-- The finite relative Artin symbol mapped to one rational coordinate. -/
-private noncomputable def
+public noncomputable def
     cyclotomicAbstractFixedFieldArtinFiniteCoordinate
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -1993,7 +1993,7 @@ private noncomputable def
   (cyclotomicAbstractFixedFieldArtinCoordinateBridgeData H a E).1.2.1
 
 /-- The finite rational Artin coordinate of the idele norm. -/
-private noncomputable def
+public noncomputable def
     cyclotomicAbstractFixedFieldArtinRationalCoordinate
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -2007,7 +2007,7 @@ private noncomputable def
 
 /-- Naturality of the finite global Artin map at the concrete cyclotomic
 coordinate. -/
-private theorem
+public theorem
     cyclotomicAbstractFixedFieldArtinCoordinateNaturality
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -2021,7 +2021,7 @@ private theorem
   rfl
 
 /-- The rational endpoint after projection to one finite coordinate. -/
-private noncomputable def
+public noncomputable def
     cyclotomicAbstractFixedFieldArtinRationalEndpointCoordinate
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -2034,7 +2034,7 @@ private noncomputable def
   (cyclotomicAbstractFixedFieldArtinCoordinateBridgeData H a E).1.2.2
 
 /-- The abstract restriction map projected to the concrete finite layer. -/
-private theorem
+public theorem
     cyclotomicAbstractFixedFieldArtinCoordinateRestriction
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -2065,7 +2065,7 @@ private theorem
 
 /-- Restricting the infinite relative Artin symbol supplies exactly the
 finite Artin coordinate. -/
-private theorem
+public theorem
     cyclotomicAbstractFixedFieldArtinCoordinateLayerProjection
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -2080,7 +2080,7 @@ private theorem
 
 /-- The rational cyclotomic Artin map projected to the same finite
 coordinate. -/
-private theorem
+public theorem
     cyclotomicAbstractFixedFieldArtinCoordinateRationalProjection
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -2095,7 +2095,7 @@ private theorem
     (cyclotomicAbstractFixedFieldArtinCoordinateBridgeData H a E).2.2.symm
 
 /-- Equality of the two full endpoints at one opaque finite coordinate. -/
-private theorem
+public theorem
     cyclotomicAbstractFixedFieldArtinFiniteCoordinateComparison
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -2120,7 +2120,7 @@ private theorem
 
 /-- The finite-coordinate comparison assembled in the rational cyclotomic
 inverse limit. -/
-private theorem
+public theorem
     abstractFixedFieldCyclotomicRestriction_infiniteGlobalArtin_inverseLimit
     (H : FiniteAbstractField
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))

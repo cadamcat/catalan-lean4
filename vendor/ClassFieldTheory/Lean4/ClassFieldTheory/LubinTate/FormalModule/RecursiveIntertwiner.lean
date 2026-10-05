@@ -59,23 +59,23 @@ theorem linearForm_hasLinearTerm
     HasLinearTerm (linearForm L) L := by
   simp [HasLinearTerm]
 
-private abbrev Approximation
+abbrev Approximation
     (L : sigma → F.valuationSubring) :=
   {H : MvPowerSeries sigma F.valuationSubring // HasLinearTerm H L}
 
 /-- The finite list of all monomials of a fixed total degree. -/
-private noncomputable def degreeIndexList (m : ℕ) :
+noncomputable def degreeIndexList (m : ℕ) :
     List {d : sigma →₀ ℕ // d.degree = m} :=
   letI : Fintype {d : sigma →₀ ℕ // d.degree = m} :=
     (Finsupp.finite_of_degree_eq m).fintype
   Finset.univ.toList
 
-private theorem degreeIndexList_nodup (m : ℕ) :
+theorem degreeIndexList_nodup (m : ℕ) :
     (degreeIndexList (sigma := sigma) m).Nodup := by
   classical
   simp [degreeIndexList, Finset.nodup_toList]
 
-private theorem mem_degreeIndexList
+theorem mem_degreeIndexList
     (m : ℕ) (d : {d : sigma →₀ ℕ // d.degree = m}) :
     d ∈ degreeIndexList (sigma := sigma) m := by
   classical
@@ -83,7 +83,7 @@ private theorem mem_degreeIndexList
 
 /-- One step in a fixed-degree correction list, bundled with preservation of
 the prescribed linear term. -/
-private noncomputable def correctionStep
+noncomputable def correctionStep
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -98,7 +98,7 @@ private noncomputable def correctionStep
       correctedIntertwiner_hasLinearTerm hpi e ebar H.2 d.1 hd⟩
 
 /-- Apply a list of fixed-degree monomial corrections from left to right. -/
-private noncomputable def correctList
+noncomputable def correctList
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -108,7 +108,7 @@ private noncomputable def correctList
     Approximation (F := F) L :=
   ds.foldl (correctionStep hpi e ebar hm) H
 
-private theorem coeff_correctionStep_eq_of_degree_lt
+theorem coeff_correctionStep_eq_of_degree_lt
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -128,7 +128,7 @@ private theorem coeff_correctionStep_eq_of_degree_lt
     monomialCorrection, map_add,
     MvPowerSeries.coeff_monomial_ne hqd, add_zero]
 
-private theorem coeff_correctList_eq_of_degree_lt
+theorem coeff_correctList_eq_of_degree_lt
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -155,7 +155,7 @@ private theorem coeff_correctList_eq_of_degree_lt
           coeff_correctionStep_eq_of_degree_lt
             hpi e ebar hm H d q hq
 
-private theorem coeff_defect_correctionStep_eq_of_ne
+theorem coeff_defect_correctionStep_eq_of_ne
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -178,7 +178,7 @@ private theorem coeff_defect_correctionStep_eq_of_ne
     e ebar H.2 q.1 d.1 (by omega) (by omega)]
   simp [hval]
 
-private theorem coeff_defect_correctList_eq_of_not_mem
+theorem coeff_defect_correctList_eq_of_not_mem
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -217,7 +217,7 @@ private theorem coeff_defect_correctList_eq_of_not_mem
           coeff_defect_correctionStep_eq_of_ne
             hpi e ebar hm H q d hqd
 
-private theorem coeff_defect_correctList_eq_zero_of_mem
+theorem coeff_defect_correctList_eq_zero_of_mem
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -270,7 +270,7 @@ private theorem coeff_defect_correctList_eq_zero_of_mem
           ih (correctionStep hpi e ebar hm H d) hds' hqds
 
 /-- Correct every monomial in one fixed total degree. -/
-private noncomputable def correctDegree
+noncomputable def correctDegree
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -279,7 +279,7 @@ private noncomputable def correctDegree
     Approximation (F := F) L :=
   correctList hpi e ebar hm (degreeIndexList (sigma := sigma) m) H
 
-private theorem coeff_correctDegree_eq_of_degree_lt
+theorem coeff_correctDegree_eq_of_degree_lt
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -291,7 +291,7 @@ private theorem coeff_correctDegree_eq_of_degree_lt
   coeff_correctList_eq_of_degree_lt
     hpi e ebar hm (degreeIndexList (sigma := sigma) m) H q hq
 
-private theorem coeff_defect_correctDegree_eq_zero
+theorem coeff_defect_correctDegree_eq_zero
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
@@ -314,7 +314,7 @@ private theorem coeff_defect_correctDegree_eq_zero
 
 /-- The bundled finite-degree approximations.  Stage zero is the prescribed
 linear form, and stage `n + 1` corrects total degree `n + 2`. -/
-private noncomputable def approximation
+noncomputable def approximation
     (hpi : F.toCompleteDVF.valuation.IsUniformizer (pi : K))
     (e ebar : LubinTateSeries F pi)
     (L : sigma → F.valuationSubring) :
@@ -516,7 +516,7 @@ theorem recursiveIntertwiner_intertwines
   intro d
   exact coeff_defect_recursiveIntertwiner_eq_zero hpi e ebar L d
 
-private theorem hasLinearTerm_add_monomial
+theorem hasLinearTerm_add_monomial
     {H : MvPowerSeries sigma F.valuationSubring}
     {L : sigma → F.valuationSubring}
     (hH : HasLinearTerm H L)
@@ -545,7 +545,7 @@ private theorem hasLinearTerm_add_monomial
 
 /-- Replace one coefficient in a fixed total degree by the corresponding
 coefficient of a target series. -/
-private noncomputable def replacementStep
+noncomputable def replacementStep
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
     (target : MvPowerSeries sigma F.valuationSubring)
@@ -560,7 +560,7 @@ private noncomputable def replacementStep
         MvPowerSeries.coeff d.1 H.1)⟩
 
 /-- Replace the coefficients indexed by a list in a fixed total degree. -/
-private noncomputable def replaceList
+noncomputable def replaceList
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
     (target : MvPowerSeries sigma F.valuationSubring)
@@ -569,7 +569,7 @@ private noncomputable def replaceList
     Approximation (F := F) L :=
   ds.foldl (replacementStep hm target) H
 
-private theorem coeff_replacementStep_self
+theorem coeff_replacementStep_self
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
     (target : MvPowerSeries sigma F.valuationSubring)
@@ -579,7 +579,7 @@ private theorem coeff_replacementStep_self
       MvPowerSeries.coeff d.1 target := by
   simp [replacementStep, MvPowerSeries.coeff_monomial_same]
 
-private theorem coeff_replacementStep_eq_of_ne
+theorem coeff_replacementStep_eq_of_ne
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
     (target : MvPowerSeries sigma F.valuationSubring)
@@ -593,7 +593,7 @@ private theorem coeff_replacementStep_eq_of_ne
     exact hqd (Subtype.ext h)
   simp [replacementStep, MvPowerSeries.coeff_monomial_ne hval]
 
-private theorem coeff_replaceList_eq_of_degree_lt
+theorem coeff_replaceList_eq_of_degree_lt
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
     (target : MvPowerSeries sigma F.valuationSubring)
@@ -624,7 +624,7 @@ private theorem coeff_replaceList_eq_of_degree_lt
           simp [replacementStep,
             MvPowerSeries.coeff_monomial_ne hqd]
 
-private theorem coeff_replaceList_eq_of_not_mem
+theorem coeff_replaceList_eq_of_not_mem
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
     (target : MvPowerSeries sigma F.valuationSubring)
@@ -658,7 +658,7 @@ private theorem coeff_replaceList_eq_of_not_mem
           coeff_replacementStep_eq_of_ne
             hm target H q d hqd
 
-private theorem coeff_replaceList_eq_target_of_mem
+theorem coeff_replaceList_eq_target_of_mem
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
     (target : MvPowerSeries sigma F.valuationSubring)
@@ -699,7 +699,7 @@ private theorem coeff_replaceList_eq_target_of_mem
         exact
           ih (replacementStep hm target H d) hds' hqds
 
-private theorem coeff_defect_replacementStep_eq_of_ne
+theorem coeff_defect_replacementStep_eq_of_ne
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
@@ -722,7 +722,7 @@ private theorem coeff_defect_replacementStep_eq_of_ne
     e ebar H.2 q.1 d.1 (by omega) (by omega)]
   simp [hval]
 
-private theorem coeff_defect_replaceList_eq_of_not_mem
+theorem coeff_defect_replaceList_eq_of_not_mem
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
@@ -762,7 +762,7 @@ private theorem coeff_defect_replaceList_eq_of_not_mem
           coeff_defect_replacementStep_eq_of_ne
             e ebar hm target H q d hqd
 
-private theorem coeff_defect_replaceList_of_mem
+theorem coeff_defect_replaceList_of_mem
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
     {m : ℕ} (hm : 2 ≤ m)
@@ -852,7 +852,7 @@ private theorem coeff_defect_replaceList_of_mem
 
 /-- Replace every coefficient of one total degree by the corresponding
 coefficient of a target series. -/
-private noncomputable def replaceDegree
+noncomputable def replaceDegree
     {L : sigma → F.valuationSubring}
     (target : MvPowerSeries sigma F.valuationSubring)
     (H : Approximation (F := F) L)
@@ -860,7 +860,7 @@ private noncomputable def replaceDegree
     Approximation (F := F) L :=
   replaceList hm target (degreeIndexList (sigma := sigma) m) H
 
-private theorem coeff_replaceDegree_eq_target_of_degree_le
+theorem coeff_replaceDegree_eq_target_of_degree_le
     {L : sigma → F.valuationSubring}
     (target : MvPowerSeries sigma F.valuationSubring)
     (H : Approximation (F := F) L)
@@ -886,7 +886,7 @@ private theorem coeff_replaceDegree_eq_target_of_degree_le
           (degreeIndexList_nodup m) q'
           (mem_degreeIndexList m q')
 
-private theorem coeff_defect_replaceDegree
+theorem coeff_defect_replaceDegree
     (e ebar : LubinTateSeries F pi)
     {L : sigma → F.valuationSubring}
     (target : MvPowerSeries sigma F.valuationSubring)
@@ -906,7 +906,7 @@ private theorem coeff_defect_replaceDegree
         (degreeIndexList_nodup m) q'
         (mem_degreeIndexList m q')
 
-private theorem coeff_eq_linearForm_of_hasLinearTerm
+theorem coeff_eq_linearForm_of_hasLinearTerm
     {H : MvPowerSeries sigma F.valuationSubring}
     {L : sigma → F.valuationSubring}
     (hH : HasLinearTerm H L)

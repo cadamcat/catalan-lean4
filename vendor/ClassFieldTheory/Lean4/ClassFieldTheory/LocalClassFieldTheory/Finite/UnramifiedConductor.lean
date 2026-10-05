@@ -48,7 +48,7 @@ open scoped ValuativeRel IsMulCommutative
 open LocalFieldTheory
 open LocalFieldTheory.IsNonarchimedeanLocalField
 
-private theorem normQuotientFiniteOfIsAbelianGalois
+theorem normQuotientFiniteOfIsAbelianGalois
     (K L : Type)
     [Field K] [ValuativeRel K] [TopologicalSpace K]
     [IsNonarchimedeanLocalField K]

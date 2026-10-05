@@ -51,19 +51,27 @@ namespace Reciprocity
 
 /-- Fix the canonical class-group dictionary before bundling norm-quotient maps. -/
 @[instance_reducible]
-private noncomputable def topologicalNormResidueIdeleClassCommGroup
+noncomputable local instance topologicalNormResidueIdeleClassCommGroup
     (F : Type) [Field F] [NumberField F] :
     CommGroup (IdeleClassGroup F) :=
   QuotientGroup.Quotient.commGroup (IdeleGroup.principalSubgroup F)
 
-attribute [local instance] topologicalNormResidueIdeleClassCommGroup
-
-private theorem topologicalNormResidueIdeleClassIsMulCommutative
+noncomputable local instance topologicalNormResidueIdeleClassIsMulCommutative
     (F : Type) [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
-  IsMulCommutative.of_comm (fun a b => mul_comm a b)
+  ⟨⟨fun a b => mul_comm a b⟩⟩
 
-attribute [local instance] topologicalNormResidueIdeleClassIsMulCommutative
+local instance topologicalNormResidueIdeleClassSubgroupNormal
+    (F : Type) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) : N.Normal :=
+  N.normal_of_isMulCommutative
+
+@[instance_reducible]
+noncomputable local instance topologicalNormResidueIdeleClassNormQuotientCommGroup
+    (F E : Type) [Field F] [NumberField F]
+    [Field E] [NumberField E] [Algebra F E] [FiniteDimensional F E] :
+    CommGroup (IdeleClassGroup F ⧸ (_root_.ideleClassNorm F E).range) :=
+  QuotientGroup.Quotient.commGroup (_root_.ideleClassNorm F E).range
 
 variable
     (K L : Type) [Field K] [NumberField K]

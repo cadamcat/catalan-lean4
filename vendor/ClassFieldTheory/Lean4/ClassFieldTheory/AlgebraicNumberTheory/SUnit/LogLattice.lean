@@ -1150,7 +1150,7 @@ noncomputable def rootsOfUnityEquivTorsion :
 
 /-- A linear section of the quotient by torsion.  It exists because
 the quotient is a free, hence projective, `ℤ`-module. -/
-private noncomputable def torsionQuotientSection :
+noncomputable def torsionQuotientSection :
     FreeQuotient (K := K) S →ₗ[ℤ]
       Additive (SUnitGroup (K := K) S) :=
   (Module.projective_lifting_property
@@ -1158,7 +1158,7 @@ private noncomputable def torsionQuotientSection :
     LinearMap.id
     (TorsionAdditive (K := K) S).mkQ_surjective).choose
 
-private theorem torsionQuotientSection_spec :
+theorem torsionQuotientSection_spec :
     (TorsionAdditive (K := K) S).mkQ.comp
         (torsionQuotientSection (K := K) S) =
       LinearMap.id :=
@@ -1169,7 +1169,7 @@ private theorem torsionQuotientSection_spec :
 
 /-- Splitting the exact sequence consisting of torsion, the `S`-unit
 group, and its torsion-free quotient. -/
-private noncomputable def torsionProdFreeQuotientEquiv :
+noncomputable def torsionProdFreeQuotientEquiv :
     Additive (SUnitGroup (K := K) S) ≃ₗ[ℤ]
       TorsionAdditive (K := K) S ×
         FreeQuotient (K := K) S :=

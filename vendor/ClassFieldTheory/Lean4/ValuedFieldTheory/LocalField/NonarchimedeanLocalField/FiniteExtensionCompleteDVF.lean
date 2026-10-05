@@ -127,7 +127,7 @@ theorem localCompleteDVF_integerRing_moduleFinite
 
 /-! ## Chosen ramification data for an arbitrary finite local extension -/
 
-private theorem chosenLocalExtensionCompleteDVF_exists
+theorem chosenLocalExtensionCompleteDVF_exists
     (K L : Type) [Field K] [Field L] [Algebra K L]
     [FiniteDimensional K L] [Algebra.IsSeparable K L]
     [ValuativeRel K] [TopologicalSpace K]

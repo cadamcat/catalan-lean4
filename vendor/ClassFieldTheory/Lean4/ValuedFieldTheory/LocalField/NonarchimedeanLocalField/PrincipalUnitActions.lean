@@ -121,7 +121,7 @@ theorem maximalIdealPowMapEquivOfIntegerRingEquiv_apply
     (maximalIdealPowMapEquivOfIntegerRingEquiv K n e a : 𝒪[K]) = e (a : 𝒪[K]) :=
   rfl
 
-private theorem maximalIdealPowSuccQuotMapOfIntegerRingEquiv_respects
+theorem maximalIdealPowSuccQuotMapOfIntegerRingEquiv_respects
     (K : Type u) [Field K] [ValuativeRel K]
     (n : Nat) (e : 𝒪[K] ≃+* 𝒪[K])
     (a b : ((𝓂[K] ^ n : Ideal 𝒪[K]) : Type u))

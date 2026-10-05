@@ -67,7 +67,7 @@ namespace AlgebraicNumberTheory.Valuations
 
 universe u v
 
-private theorem completionNonarchimedean
+theorem completionNonarchimedean
     {K : Type u} [Field K] (vK : AbsoluteValue K ℝ)
     (hv : LubinTate.Valuations.NonarchimedeanAbsoluteValue vK) :
     LubinTate.Valuations.NonarchimedeanAbsoluteValue

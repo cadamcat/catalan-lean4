@@ -47,20 +47,20 @@ open LocalFieldTheory.DiscreteValuationField.CompleteDVF
 open LocalFieldTheory.DiscreteValuationField.Examples.Qp
 open ValuationTheory.DiscreteValuationField
 
-private noncomputable local instance (priority := 50)
+noncomputable local instance (priority := 50)
     padicCompletedFrobeniusEvaluationWittUniformSpace
     (p : ℕ) [Fact p.Prime] :
     UniformSpace (padicCompletedUnramifiedWittRing p) :=
   ⊥
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedFrobeniusEvaluationTargetWithIdeal
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     WithIdeal
       (padicCompletedLevelCompleteDVF p n).valuationSubring where
   i := (padicCompletedLevelCompleteDVF p n).maximalIdeal
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedFrobeniusEvaluationTargetCompleteSpace
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     CompleteSpace
@@ -69,7 +69,7 @@ private noncomputable local instance
   have hadic : IsAdic target.maximalIdeal := rfl
   exact (hadic.isAdicComplete_iff.mp target.isAdicComplete).1
 
-private noncomputable local instance
+noncomputable local instance
     padicCompletedFrobeniusEvaluationTargetT2Space
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     T2Space

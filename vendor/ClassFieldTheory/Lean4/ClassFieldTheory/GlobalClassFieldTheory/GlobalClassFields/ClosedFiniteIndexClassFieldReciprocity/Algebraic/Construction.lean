@@ -43,13 +43,28 @@ noncomputable section
 namespace GlobalClassFieldTheory
 namespace GlobalClassFields
 
-/-- Canonical class-group commutativity supplies normality of the defining subgroup. -/
-private theorem closedFiniteIndexAlgebraicClassGroupIsMulCommutative
+@[instance_reducible]
+noncomputable local instance closedFiniteIndexAlgebraicClassGroupCommGroup
+    (F : Type) [Field F] [NumberField F] :
+    CommGroup (IdeleClassGroup F) :=
+  QuotientGroup.Quotient.commGroup (IdeleGroup.principalSubgroup F)
+
+noncomputable local instance closedFiniteIndexAlgebraicClassGroupIsMulCommutative
     (F : Type) [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
-  IsMulCommutative.of_comm (fun a b => mul_comm a b)
+  ⟨⟨fun a b => mul_comm a b⟩⟩
 
-attribute [local instance] closedFiniteIndexAlgebraicClassGroupIsMulCommutative
+local instance closedFiniteIndexAlgebraicSubgroupNormal
+    (F : Type) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) : N.Normal :=
+  N.normal_of_isMulCommutative
+
+@[instance_reducible]
+noncomputable local instance closedFiniteIndexAlgebraicQuotientCommGroup
+    (F : Type) [Field F] [NumberField F]
+    (N : Subgroup (IdeleClassGroup F)) :
+    CommGroup (IdeleClassGroup F ⧸ N) :=
+  QuotientGroup.Quotient.commGroup N
 
 variable {K : Type} [Field K] [NumberField K]
 

@@ -49,25 +49,25 @@ open LocalFieldTheory.DiscreteValuationField.Examples.Qp
 open ValuationTheory.DiscreteValuationField
 open SameUniformizer
 
-private noncomputable local instance
+noncomputable local instance
     padicStandardLevelTransportCoefficientUniformSpace
     (p : ℕ) [Fact p.Prime] :
     UniformSpace (padicLocalField p).valuationSubring :=
   ⊥
 
-private noncomputable local instance
+noncomputable local instance
     padicStandardLevelTransportCoefficientTopologicalSpace
     (p : ℕ) [Fact p.Prime] :
     TopologicalSpace (padicLocalField p).valuationSubring :=
   ⊥
 
-private noncomputable local instance (priority := 50)
+noncomputable local instance (priority := 50)
     padicStandardLevelTransportWittUniformSpace
     (p : ℕ) [Fact p.Prime] :
     UniformSpace (padicCompletedUnramifiedWittRing p) :=
   ⊥
 
-private noncomputable local instance
+noncomputable local instance
     padicStandardLevelTransportSourceWithIdeal
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     WithIdeal
@@ -79,14 +79,14 @@ private noncomputable local instance
       (padicMultiplicativeLubinTateSeries_isUniformizer p) n
     ).maximalIdeal
 
-private noncomputable local instance
+noncomputable local instance
     padicStandardLevelTransportTargetWithIdeal
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     WithIdeal
       (padicCompletedLevelCompleteDVF p n).valuationSubring where
   i := (padicCompletedLevelCompleteDVF p n).maximalIdeal
 
-private noncomputable local instance
+noncomputable local instance
     padicStandardLevelTransportSourceCompleteSpace
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     CompleteSpace
@@ -99,7 +99,7 @@ private noncomputable local instance
   have hadic : IsAdic source.maximalIdeal := rfl
   exact (hadic.isAdicComplete_iff.mp source.isAdicComplete).1
 
-private noncomputable local instance
+noncomputable local instance
     padicStandardLevelTransportSourceT2Space
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     T2Space
@@ -112,7 +112,7 @@ private noncomputable local instance
   have hadic : IsAdic source.maximalIdeal := rfl
   exact (hadic.isAdicComplete_iff.mp source.isAdicComplete).2
 
-private noncomputable local instance
+noncomputable local instance
     padicStandardLevelTransportTargetCompleteSpace
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     CompleteSpace
@@ -121,7 +121,7 @@ private noncomputable local instance
   have hadic : IsAdic target.maximalIdeal := rfl
   exact (hadic.isAdicComplete_iff.mp target.isAdicComplete).1
 
-private noncomputable local instance
+noncomputable local instance
     padicStandardLevelTransportTargetT2Space
     (p : ℕ) [Fact p.Prime] (n : ℕ) :
     T2Space

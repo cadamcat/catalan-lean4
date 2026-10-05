@@ -417,7 +417,7 @@ end DegreeData
 
 /-- Finiteness of the upper-left-to-lower-right composite extension in the
 first diagram. -/
-private theorem finiteReciprocityNaturality_tower_finite
+theorem finiteReciprocityNaturality_tower_finite
     (K K' L' : ClosedSubgroup G)
     (hK'K : K'.toSubgroup ≤ K.toSubgroup)
     (hL'K' : L'.toSubgroup ≤ K'.toSubgroup)
@@ -1097,7 +1097,7 @@ theorem finiteReciprocityNaturalityFrobeniusConjugationLift_exponent
 
 section ConjugateFrobeniusQuotients
 
-private theorem finiteReciprocityNaturalityConjugateInertia_normal
+instance finiteReciprocityNaturalityConjugateInertia_normal
     (D : DegreeData G) [IsTopologicalGroup G]
     (K : FiniteResidueAbstractField D) (L : ClosedSubgroup G)
     (hLK : L.toSubgroup ≤ K.field.toSubgroup) (s : G)
@@ -1111,7 +1111,6 @@ private theorem finiteReciprocityNaturalityConjugateInertia_normal
     (hLnormal := D.finiteReciprocityNaturalityFiniteResidueConjugate_normal
       K L hLK s (hLnormal := hLnormal))
 
-attribute [local instance] finiteReciprocityNaturalityConjugateInertia_normal
 
 
 /-- The continuous conjugation equivalence identifies the two closed cyclic
@@ -1377,6 +1376,8 @@ theorem finiteReciprocityNaturality_conjugation_commutes
     letI : Finite
         (Ks.field.toSubgroup ⧸ extensionSubgroup Ks.field Ls hLsKs) :=
       finite_conjugateExtension K.field L hLK s
+    letI : AddCommGroup (FiniteNormQuotient A Ks.field Ls hLsKs) :=
+      finiteNormQuotientAddCommGroup A Ks.field Ls hLsKs
     (finiteReciprocityNaturalityConjugationNormMap A K.field L hLK s).comp
         (D.finiteReciprocityHom A v hAxiom K L hLK) =
       (D.finiteReciprocityHom A v hAxiom Ks Ls hLsKs).comp

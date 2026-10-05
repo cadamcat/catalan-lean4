@@ -52,7 +52,7 @@ private def continuousQuotientMk
 
 /-- The continuous lift of a homomorphism through a quotient, used locally
 below. -/
-private def continuousQuotientLift
+def continuousQuotientLift
     {A : Type*} {B : Type*} [Group A] [TopologicalSpace A]
     [Group B] [TopologicalSpace B]
     (N : Subgroup A) [N.Normal] (f : A →ₜ* B)
@@ -66,7 +66,7 @@ private def continuousQuotientLift
         (QuotientGroup.isQuotientMap_mk (G := A) (N := N)).continuous_iff.2 hcomp }
 
 /-- Inclusion of a subgroup with its subtype topology, used locally below. -/
-private def continuousSubgroupSubtype
+def continuousSubgroupSubtype
     {A : Type*} [Group A] [TopologicalSpace A]
     (H : Subgroup A) : H →ₜ* A where
   toMonoidHom := H.subtype
@@ -74,7 +74,7 @@ private def continuousSubgroupSubtype
 
 /-- A bijective continuous homomorphism from a compact group to a Hausdorff
 group is a continuous multiplicative equivalence. -/
-private noncomputable def continuousMulEquivOfBijectiveCompactToT2
+noncomputable def continuousMulEquivOfBijectiveCompactToT2
     {A : Type*} {B : Type*} [Group A] [TopologicalSpace A]
     [Group B] [TopologicalSpace B] [CompactSpace A] [T2Space B]
     (φ : A →* B) (hφcont : Continuous φ) (hφ : Function.Bijective φ) :

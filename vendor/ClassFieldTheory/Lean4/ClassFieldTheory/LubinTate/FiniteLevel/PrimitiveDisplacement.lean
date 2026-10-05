@@ -58,6 +58,30 @@ open ValuationTheory.DiscreteValuationField
 variable {K : Type u} [Field K]
 variable {F : LocalField.{u, v} K} {π : F.valuationSubring}
 
+noncomputable local instance (priority := 50)
+    primitiveDisplacementCoefficientUniformSpace :
+    UniformSpace F.valuationSubring :=
+  ⊥
+
+noncomputable local instance primitiveDisplacementTargetWithIdeal
+    (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ) :
+    WithIdeal (standardLubinTateLevelCompleteDVF hπ n).valuationSubring where
+  i := (standardLubinTateLevelCompleteDVF hπ n).maximalIdeal
+
+noncomputable local instance primitiveDisplacementTargetCompleteSpace
+    (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ) :
+    CompleteSpace (standardLubinTateLevelCompleteDVF hπ n).valuationSubring := by
+  let target := standardLubinTateLevelCompleteDVF hπ n
+  have hadic : IsAdic target.maximalIdeal := rfl
+  exact (hadic.isAdicComplete_iff.mp target.isAdicComplete).1
+
+noncomputable local instance primitiveDisplacementTargetT2Space
+    (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ) :
+    T2Space (standardLubinTateLevelCompleteDVF hπ n).valuationSubring := by
+  let target := standardLubinTateLevelCompleteDVF hπ n
+  have hadic : IsAdic target.maximalIdeal := rfl
+  exact (hadic.isAdicComplete_iff.mp target.isAdicComplete).2
+
 section FormalFactors
 
 private theorem coeff_subst_X_zero

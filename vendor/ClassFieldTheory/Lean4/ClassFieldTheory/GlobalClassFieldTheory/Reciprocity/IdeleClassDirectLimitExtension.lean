@@ -23,6 +23,7 @@ Part of the vendored ClassFieldTheory source bundle.
 @[expose] public section
 
 set_option autoImplicit false
+set_option synthInstance.maxHeartbeats 100000
 
 /-!
 # Finite extensions in the rational idele-class representation
@@ -40,7 +41,7 @@ open ClassFormation
 open LocalClassFieldTheory
 open CyclicCohomology
 
-private noncomputable instance
+noncomputable instance
     rationalAbstractTowerClassGroupCommGroup
     (F E : Type)
     [Field F] [NumberField F]
@@ -55,7 +56,7 @@ private noncomputable instance
     QuotientGroup.Quotient.commGroup
       (TowerRelativeIdeleGroup.principalSubgroup ℚ F E)
 
-private noncomputable instance
+noncomputable instance
     rationalAbstractTowerClassGroupMul
     (F E : Type)
     [Field F] [NumberField F]
@@ -66,7 +67,7 @@ private noncomputable instance
     Mul (TowerRelativeIdeleGroup.ClassGroup ℚ F E) :=
   (rationalAbstractTowerClassGroupCommGroup F E).toMul
 
-private noncomputable instance
+noncomputable instance
     rationalAbstractTowerClassGroupMulOneClass
     (F E : Type)
     [Field F] [NumberField F]
@@ -77,7 +78,7 @@ private noncomputable instance
     MulOneClass (TowerRelativeIdeleGroup.ClassGroup ℚ F E) :=
   (rationalAbstractTowerClassGroupCommGroup F E).toMulOneClass
 
-private noncomputable instance
+noncomputable instance
     rationalAbstractRelativeClassGroupCommGroup
     (F E : Type)
     [Field F] [NumberField F]
@@ -90,7 +91,7 @@ private noncomputable instance
     QuotientGroup.Quotient.commGroup
       (RelativeIdeleGroup.principalSubgroup F E)
 
-private noncomputable instance
+noncomputable instance
     rationalAbstractRelativeClassGroupMul
     (F E : Type)
     [Field F] [NumberField F]
@@ -99,7 +100,7 @@ private noncomputable instance
     Mul (RelativeIdeleGroup.ClassGroup F E) :=
   (rationalAbstractRelativeClassGroupCommGroup F E).toMul
 
-private noncomputable instance
+noncomputable instance
     rationalAbstractRelativeClassGroupMulOneClass
     (F E : Type)
     [Field F] [NumberField F]
@@ -107,6 +108,37 @@ private noncomputable instance
     [Algebra F E] [FiniteDimensional F E] :
     MulOneClass (RelativeIdeleGroup.ClassGroup F E) :=
   (rationalAbstractRelativeClassGroupCommGroup F E).toMulOneClass
+
+noncomputable local instance extensionAbstractFixedFieldFiniteDimensional
+    (K : ClosedSubgroup
+      (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
+    [hfinite : Finite
+      ((baseField
+        (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ)).toSubgroup ⧸
+        extensionSubgroup
+          (baseField
+            (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
+          K (le_baseField K))] :
+    FiniteDimensional ℚ
+      (LocalClassFieldTheory.abstractFixedField
+        ℚ (SeparableClosure ℚ) K) :=
+  LocalClassFieldTheory.abstractFixedField_finiteDimensional
+    ℚ (SeparableClosure ℚ) K hfinite
+
+noncomputable local instance extensionAbstractFixedFieldNumberField
+    (K : ClosedSubgroup
+      (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
+    [hfinite : Finite
+      ((baseField
+        (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ)).toSubgroup ⧸
+        extensionSubgroup
+          (baseField
+            (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
+          K (le_baseField K))] :
+    NumberField
+      (LocalClassFieldTheory.abstractFixedField
+        ℚ (SeparableClosure ℚ) K) :=
+  NumberField.of_module_finite ℚ _
 
 /-- The coefficient representation attached to a finite abstract
 extension is the existing relative idele class group of its two actual

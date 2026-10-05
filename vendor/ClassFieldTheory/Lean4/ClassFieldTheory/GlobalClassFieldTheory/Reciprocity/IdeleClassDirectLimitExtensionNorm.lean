@@ -81,7 +81,7 @@ private theorem eq_of_common_ofMul_image
   change f a = f b at h
   exact hf h
 
-private noncomputable def relativeIdeleClassNormAdditiveValue
+public noncomputable def relativeIdeleClassNormAdditiveValue
     (F E : Type)
     [Field F] [NumberField F]
     [Field E] [NumberField E]
@@ -92,7 +92,7 @@ private noncomputable def relativeIdeleClassNormAdditiveValue
     (RelativeIdeleGroup.Cohomology.ideleClassNorm F E
       (Additive.toMul c))
 
-private noncomputable def includedRelativeIdeleClassNormAdditiveValue
+public noncomputable def includedRelativeIdeleClassNormAdditiveValue
     (F E : Type)
     [Field F] [NumberField F]
     [Field E] [NumberField E]
@@ -104,7 +104,7 @@ private noncomputable def includedRelativeIdeleClassNormAdditiveValue
       (RelativeIdeleGroup.Cohomology.ideleClassNorm F E
         (Additive.toMul c)))
 
-private noncomputable def rationalFixedFieldInclusionComparison
+public noncomputable def rationalFixedFieldInclusionComparison
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -149,7 +149,7 @@ private noncomputable def rationalFixedFieldInclusionComparison
         (_root_.relativeIdeleClassBaseChangeMulEquiv
           (K := ℚ) (L := F) c)))
 
-private noncomputable def rationalExtensionNormComparison
+public noncomputable def rationalExtensionNormComparison
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -191,7 +191,7 @@ private noncomputable def rationalExtensionNormComparison
   (e (M.norm.hom x),
     includedRelativeIdeleClassNormAdditiveValue F E (e x))
 
-private noncomputable def rationalRelativeNormComparison
+public noncomputable def rationalRelativeNormComparison
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -237,7 +237,7 @@ private noncomputable def rationalRelativeNormComparison
     relativeIdeleClassNormAdditiveValue F E
       (e (eAmbient.symm a)))
 
-private noncomputable def rationalFixedFieldIdeleClassAdditiveType
+public noncomputable def rationalFixedFieldIdeleClassAdditiveType
     (K : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     [hKfinite : Finite
@@ -254,7 +254,7 @@ private noncomputable def rationalFixedFieldIdeleClassAdditiveType
   letI : NumberField F := NumberField.of_module_finite ℚ F
   Additive (IdeleClassGroup F)
 
-private noncomputable def rationalFixedFieldIdeleClassType
+public noncomputable def rationalFixedFieldIdeleClassType
     (K : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     [hKfinite : Finite
@@ -271,7 +271,7 @@ private noncomputable def rationalFixedFieldIdeleClassType
   letI : NumberField F := NumberField.of_module_finite ℚ F
   IdeleClassGroup F
 
-private noncomputable def rationalRelativeNormSource
+public noncomputable def rationalRelativeNormSource
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -293,7 +293,7 @@ private noncomputable def rationalRelativeNormSource
     (hKfinite := hKfinite) (hfinite := hfinite)
     K L hLK hnormal a).1
 
-private noncomputable def rationalRelativeNormTarget
+public noncomputable def rationalRelativeNormTarget
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -315,7 +315,7 @@ private noncomputable def rationalRelativeNormTarget
     (hKfinite := hKfinite) (hfinite := hfinite)
     K L hLK hnormal a).2
 
-private noncomputable def rationalRelativeNormClassNormSource
+public noncomputable def rationalRelativeNormClassNormSource
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -338,7 +338,7 @@ private noncomputable def rationalRelativeNormClassNormSource
       (hKfinite := hKfinite) (hfinite := hfinite)
       K L hLK hnormal a)
 
-private noncomputable def rationalRelativeNormClassNormTarget
+public noncomputable def rationalRelativeNormClassNormTarget
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -608,7 +608,7 @@ theorem rationalAbstractExtensionIdeleClassEquiv_norm
       c).symm
   exact Eq.trans hActionProd (Eq.trans hReindex hNormProd)
 
-private theorem rationalRelativeNorm_representation_norm
+public theorem rationalRelativeNorm_representation_norm
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -658,7 +658,7 @@ private theorem rationalRelativeNorm_representation_norm
   rw [hxa] at hNormCoe
   exact hNormCoe
 
-private theorem rationalRelativeNormClassNorm_eq
+public theorem rationalRelativeNormClassNorm_eq
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)

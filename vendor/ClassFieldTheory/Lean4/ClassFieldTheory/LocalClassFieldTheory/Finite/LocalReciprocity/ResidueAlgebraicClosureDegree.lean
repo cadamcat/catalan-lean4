@@ -56,16 +56,16 @@ variable (k : Type u) [Field k] [Fintype k]
 variable (Omega : Type v) [Field Omega] [Algebra k Omega]
   [Algebra.IsAlgebraic k Omega] [IsAlgClosed Omega]
 
-private instance finiteResidueBaseRingCharPrime : Fact (ringChar k).Prime :=
+instance finiteResidueBaseRingCharPrime : Fact (ringChar k).Prime :=
   ⟨CharP.char_is_prime k (ringChar k)⟩
 
-private instance residueAlgebraicClosureIsAlgClosure : IsAlgClosure k Omega :=
+instance residueAlgebraicClosureIsAlgClosure : IsAlgClosure k Omega :=
   ⟨inferInstance, inferInstance⟩
 
-private instance residueAlgebraicClosureIsGalois : IsGalois k Omega := by
+instance residueAlgebraicClosureIsGalois : IsGalois k Omega := by
   infer_instance
 
-private instance residueAlgebraicClosureGaloisT2 :
+instance residueAlgebraicClosureGaloisT2 :
     T2Space (Omega ≃ₐ[k] Omega) := by
   infer_instance
 

@@ -63,7 +63,7 @@ open scoped IsMulCommutative
 open KummerTheory
 open ClassFormation
 
-private noncomputable def rationalCyclotomicTorsionRestrictionEquiv :
+public noncomputable def rationalCyclotomicTorsionRestrictionEquiv :
     (rationalCyclotomicField ≃ₐ[ℚ]
         rationalCyclotomicField) ⧸
         rationalCyclotomicTorsionClosure.toSubgroup ≃ₜ*
@@ -101,7 +101,7 @@ noncomputable def rationalCyclotomicTorsionFixedFieldGalEquivZHat :
         zHatUnitsDecomposition)
       dense_torsion_cyclotomicFinitePart
 
-private theorem rationalCyclotomicTorsionRestrictionEquiv_apply_mk
+theorem rationalCyclotomicTorsionRestrictionEquiv_apply_mk
     (σ :
       rationalCyclotomicField ≃ₐ[ℚ]
         rationalCyclotomicField) :
@@ -113,7 +113,7 @@ private theorem rationalCyclotomicTorsionRestrictionEquiv_apply_mk
     InfiniteGalois.normalAutEquivQuotient_apply
       rationalCyclotomicTorsionClosure σ
 
-private theorem rationalCyclotomicTorsionRestrictionEquiv_symm_restrictNormal
+theorem rationalCyclotomicTorsionRestrictionEquiv_symm_restrictNormal
     (σ :
       rationalCyclotomicField ≃ₐ[ℚ]
         rationalCyclotomicField) :
@@ -124,7 +124,7 @@ private theorem rationalCyclotomicTorsionRestrictionEquiv_symm_restrictNormal
   apply rationalCyclotomicTorsionRestrictionEquiv.symm_apply_eq.mpr
   exact (rationalCyclotomicTorsionRestrictionEquiv_apply_mk σ).symm
 
-private theorem rationalCyclotomicTorsionCoordinate_restrictNormal
+theorem rationalCyclotomicTorsionCoordinate_restrictNormal
     (σ :
       rationalCyclotomicField ≃ₐ[ℚ]
         rationalCyclotomicField) :

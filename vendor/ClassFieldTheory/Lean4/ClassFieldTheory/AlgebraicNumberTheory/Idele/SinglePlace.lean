@@ -46,7 +46,7 @@ variable {K : Type*} [Field K] [NumberField K]
 
 /-- The dependent archimedean value which is `x` at `v` and `1`
 elsewhere. -/
-private def infinitePlaceValue
+def infinitePlaceValue
     (v : InfinitePlace K)
     (x : v.Completionˣ) :
     (w : InfinitePlace K) → w.Completionˣ :=
@@ -56,7 +56,7 @@ private def infinitePlaceValue
 
 omit [NumberField K] in
 @[simp]
-private theorem infinitePlaceValue_same
+theorem infinitePlaceValue_same
     (v : InfinitePlace K)
     (x : v.Completionˣ) :
     infinitePlaceValue v x v = x := by
@@ -65,7 +65,7 @@ private theorem infinitePlaceValue_same
 
 omit [NumberField K] in
 @[simp]
-private theorem infinitePlaceValue_of_ne
+theorem infinitePlaceValue_of_ne
     (v w : InfinitePlace K)
     (x : v.Completionˣ)
     (h : w ≠ v) :
@@ -201,7 +201,7 @@ def infinitePlaceIdeleClass
       (infinitePlaceIdele v)
 
 /-- The dependent local value which is `x` at `v` and `1` elsewhere. -/
-private def finitePlaceValue
+def finitePlaceValue
     (v : HeightOneSpectrum (𝓞 K))
     (x : (v.adicCompletion K)ˣ)
     (w : HeightOneSpectrum (𝓞 K)) :
@@ -209,14 +209,14 @@ private def finitePlaceValue
   if h : w = v then h.symm ▸ x else 1
 
 @[simp]
-private theorem finitePlaceValue_same
+theorem finitePlaceValue_same
     (v : HeightOneSpectrum (𝓞 K))
     (x : (v.adicCompletion K)ˣ) :
     finitePlaceValue v x v = x := by
   simp [finitePlaceValue]
 
 @[simp]
-private theorem finitePlaceValue_of_ne
+theorem finitePlaceValue_of_ne
     (v w : HeightOneSpectrum (𝓞 K))
     (x : (v.adicCompletion K)ˣ)
     (h : w ≠ v) :
@@ -315,7 +315,7 @@ variable
 
 /-- The dependent archimedean tensor value which is `z` at `v` and
 `1` elsewhere. -/
-private def relativeInfinitePlaceValue
+def relativeInfinitePlaceValue
     (v : InfinitePlace K)
     (z : (v.Completion ⊗[K] L)ˣ)
     (w : InfinitePlace K) :
@@ -324,7 +324,7 @@ private def relativeInfinitePlaceValue
 
 omit [NumberField K] [NumberField L] [FiniteDimensional K L] in
 @[simp]
-private theorem relativeInfinitePlaceValue_same
+theorem relativeInfinitePlaceValue_same
     (v : InfinitePlace K)
     (z : (v.Completion ⊗[K] L)ˣ) :
     relativeInfinitePlaceValue (L := L) v z v = z := by
@@ -332,7 +332,7 @@ private theorem relativeInfinitePlaceValue_same
 
 omit [NumberField K] [NumberField L] [FiniteDimensional K L] in
 @[simp]
-private theorem relativeInfinitePlaceValue_of_ne
+theorem relativeInfinitePlaceValue_of_ne
     (v w : InfinitePlace K)
     (z : (v.Completion ⊗[K] L)ˣ)
     (h : w ≠ v) :
@@ -340,7 +340,7 @@ private theorem relativeInfinitePlaceValue_of_ne
   simp [relativeInfinitePlaceValue, h]
 
 /-- Restricted local tensor data supported at one archimedean place. -/
-private noncomputable def relativeInfinitePlaceData
+noncomputable def relativeInfinitePlaceData
     (v : InfinitePlace K)
     (z : (v.Completion ⊗[K] L)ˣ) :
     RelativeLocalIdeleData (K := K) (L := L) where
@@ -439,7 +439,7 @@ theorem relativeInfinitePlaceIdele_finiteComponent
 
 /-- The dependent local tensor value which is `z` at `v` and `1`
 elsewhere. -/
-private def relativeFinitePlaceValue
+def relativeFinitePlaceValue
     (v : HeightOneSpectrum (𝓞 K))
     (z : (v.adicCompletion K ⊗[K] L)ˣ)
     (w : HeightOneSpectrum (𝓞 K)) :
@@ -448,7 +448,7 @@ private def relativeFinitePlaceValue
 
 omit [NumberField L] [FiniteDimensional K L] in
 @[simp]
-private theorem relativeFinitePlaceValue_same
+theorem relativeFinitePlaceValue_same
     (v : HeightOneSpectrum (𝓞 K))
     (z : (v.adicCompletion K ⊗[K] L)ˣ) :
     relativeFinitePlaceValue (L := L) v z v = z := by
@@ -456,7 +456,7 @@ private theorem relativeFinitePlaceValue_same
 
 omit [NumberField L] [FiniteDimensional K L] in
 @[simp]
-private theorem relativeFinitePlaceValue_of_ne
+theorem relativeFinitePlaceValue_of_ne
     (v w : HeightOneSpectrum (𝓞 K))
     (z : (v.adicCompletion K ⊗[K] L)ˣ)
     (h : w ≠ v) :
@@ -464,7 +464,7 @@ private theorem relativeFinitePlaceValue_of_ne
   simp [relativeFinitePlaceValue, h]
 
 /-- Restricted local data supported at one finite place. -/
-private noncomputable def relativeFinitePlaceData
+noncomputable def relativeFinitePlaceData
     (v : HeightOneSpectrum (𝓞 K))
     (z : (v.adicCompletion K ⊗[K] L)ˣ) :
     RelativeLocalIdeleData (K := K) (L := L) where

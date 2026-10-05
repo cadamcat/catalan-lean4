@@ -40,6 +40,37 @@ namespace Reciprocity
 open ClassFormation
 open CyclicCohomology
 
+noncomputable local instance rationalAbstractFixedFieldFiniteDimensional
+    (K : ClosedSubgroup
+      (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
+    [hfinite : Finite
+      ((baseField
+        (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ)).toSubgroup ⧸
+        extensionSubgroup
+          (baseField
+            (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
+          K (le_baseField K))] :
+    FiniteDimensional ℚ
+      (LocalClassFieldTheory.abstractFixedField
+        ℚ (SeparableClosure ℚ) K) :=
+  LocalClassFieldTheory.abstractFixedField_finiteDimensional
+    ℚ (SeparableClosure ℚ) K hfinite
+
+noncomputable local instance rationalAbstractFixedFieldNumberField
+    (K : ClosedSubgroup
+      (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
+    [hfinite : Finite
+      ((baseField
+        (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ)).toSubgroup ⧸
+        extensionSubgroup
+          (baseField
+            (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
+          K (le_baseField K))] :
+    NumberField
+      (LocalClassFieldTheory.abstractFixedField
+        ℚ (SeparableClosure ℚ) K) :=
+  NumberField.of_module_finite ℚ _
+
 /-- The ordinary rational idele class group is the fixed part at the
 distinguished base subgroup.  This is `rationalIdeleClassEquivFixed` at
 the bottom intermediate field, transported along mathlib's canonical

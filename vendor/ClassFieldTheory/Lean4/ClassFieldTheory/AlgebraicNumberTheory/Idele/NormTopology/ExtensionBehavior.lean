@@ -56,12 +56,49 @@ private theorem infinitePlaceCompletionMap_isometry
     Isometry
       (NumberField.LiesOver.completionMap
         (v := v₀) (w := W)) := by
-  unfold NumberField.LiesOver.completionMap
-  exact
-    (InfinitePlace.Completion.isometryEquivCompletion W).symm.isometry.comp
-      ((UniformSpace.Completion.isometry_mapRingHom
-          (InfinitePlace.LiesOver.isometry_algebraMap W v₀)).comp
-        (InfinitePlace.Completion.isometryEquivCompletion v₀).isometry)
+  let eK := InfinitePlace.Completion.equiv v₀
+  let eL := InfinitePlace.Completion.equiv W
+  let f : v₀.1.Completion →+* W.1.Completion :=
+    UniformSpace.Completion.mapRingHom _
+      (InfinitePlace.LiesOver.isometry_algebraMap W v₀).continuous
+  have hfun : (fun x : v₀.1.Completion =>
+      eL (NumberField.LiesOver.completionMap
+        (v := v₀) (w := W) (eK.symm x))) = f := by
+    apply UniformSpace.Completion.ext
+    · exact (InfinitePlace.Completion.continuous_toCompletion W).comp
+        (NumberField.LiesOver.continuous_completionMap.comp
+          (InfinitePlace.Completion.continuous_ofCompletion v₀))
+    · change Continuous (UniformSpace.Completion.map
+        (algebraMap (WithAbs v₀.1) (WithAbs W.1)))
+      exact UniformSpace.Completion.continuous_map
+    · intro x
+      have hcoe : eK.symm (x : v₀.1.Completion) = (x : v₀.Completion) := by
+        apply eK.injective
+        simp [eK]
+      rw [hcoe]
+      have h := congrArg eL
+        (NumberField.LiesOver.completionMap_coe
+          (v := v₀) (w := W) x)
+      have hmap : UniformSpace.Completion.map
+          (algebraMap (WithAbs v₀.1) (WithAbs W.1))
+          (x : WithAbs v₀.1) =
+            ((algebraMap (WithAbs v₀.1) (WithAbs W.1) x : WithAbs W.1) :
+              W.1.Completion) :=
+        UniformSpace.Completion.map_coe
+          (InfinitePlace.LiesOver.isometry_algebraMap W v₀).uniformContinuous x
+      rw [← hmap] at h
+      exact h
+  have hcomp : (fun x : v₀.Completion => eL.symm (f (eK x))) =
+      NumberField.LiesOver.completionMap (v := v₀) (w := W) := by
+    funext x
+    apply eL.injective
+    have hx := congrFun hfun (eK x)
+    simpa only [RingEquiv.symm_apply_apply, RingEquiv.apply_symm_apply] using hx.symm
+  rw [← hcomp]
+  exact (InfinitePlace.Completion.isometryEquivCompletion W).symm.isometry.comp
+    ((UniformSpace.Completion.isometry_mapRingHom
+        (InfinitePlace.LiesOver.isometry_algebraMap W v₀)).comp
+      (InfinitePlace.Completion.isometryEquivCompletion v₀).isometry)
 
 omit [NumberField L] in
 /-- Mapping a unit along an infinite-place completion map preserves its

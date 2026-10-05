@@ -63,7 +63,7 @@ local instance
 
 /-- Arithmetic reciprocity followed by transport between equal norm
 quotients sends a norm-residue symbol to its represented quotient class. -/
-private theorem
+public theorem
     arithmeticReciprocity_quotientTransport_globalNormResidue
     {F E : Type} [Field F] [NumberField F]
     [Field E] [NumberField E] [Algebra F E]
@@ -101,7 +101,7 @@ private theorem
 
 /-- Postcomposing transported arithmetic reciprocity with any quotient
 equivalence preserves the represented quotient class formula. -/
-private theorem
+public theorem
     arithmeticReciprocity_quotientTransport_trans_globalNormResidue
     {F E A : Type} [Field F] [NumberField F]
     [Field E] [NumberField E] [Algebra F E]
@@ -128,7 +128,7 @@ private theorem
         (arithmeticReciprocity_quotientTransport_globalNormResidue
           H h c)
 
-private noncomputable def arithmeticBigHilbertClassFieldReciprocityData
+public noncomputable def arithmeticBigHilbertClassFieldReciprocityData
     (K : Type) [Field K] [NumberField K] :
     { e : Gal((bigHilbertClassField K) / K) ≃*
         RayClass.NarrowClassGroup K //
@@ -153,7 +153,7 @@ private noncomputable def arithmeticBigHilbertClassFieldReciprocityData
       (bigHilbertClassFieldQuotientEquivNarrowClassGroup
         (K := K))⟩
 
-private noncomputable def arithmeticSmallHilbertClassFieldReciprocityData
+public noncomputable def arithmeticSmallHilbertClassFieldReciprocityData
     (K : Type) [Field K] [NumberField K] :
     { e : Gal((smallHilbertClassField K) / K) ≃*
         ClassGroup (𝓞 K) //

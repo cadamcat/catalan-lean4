@@ -100,7 +100,7 @@ private theorem spectral_spectralNorm_strong_triangle
 
 /-- existence branch: the spectral extension vanishes exactly
 at zero. -/
-private theorem spectral_spectralNorm_eq_zero_iff
+theorem spectral_spectralNorm_eq_zero_iff
     {K L : Type*} [Field K] [Field L] [Algebra K L]
     [Algebra.IsAlgebraic K L]
     (v : AbsoluteValue K ℝ) (x : L) :
@@ -118,7 +118,7 @@ private theorem spectral_spectralNorm_eq_zero_iff
 
 /-- existence branch: multiplicativity of the spectral
 extension over an algebraic extension. -/
-private theorem spectral_spectralNorm_mul
+theorem spectral_spectralNorm_mul
     {K L : Type*} [Field K] [Field L] [Algebra K L]
     [Algebra.IsAlgebraic K L]
     (v : AbsoluteValue K ℝ)

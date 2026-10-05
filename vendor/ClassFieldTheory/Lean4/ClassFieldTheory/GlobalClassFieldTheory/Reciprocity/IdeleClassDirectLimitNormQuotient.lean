@@ -54,18 +54,18 @@ local instance
   N.normal_of_isMulCommutative
 
 @[instance_reducible]
-private noncomputable def rationalNormQuotientIdeleClassCommGroup
+public noncomputable def rationalNormQuotientIdeleClassCommGroup
     (F : Type) [Field F] [NumberField F] :
     CommGroup (IdeleClassGroup F) :=
   open scoped IsMulCommutative in
     inferInstance
 
-private theorem rationalNormQuotientNumberFieldOfFiniteDimensional
+public theorem rationalNormQuotientNumberFieldOfFiniteDimensional
     (F : Type*) [Field F] [Algebra ℚ F] [FiniteDimensional ℚ F] :
     NumberField F :=
   NumberField.of_module_finite ℚ F
 
-private theorem rationalNormQuotientAbstractFixedFieldNumberField
+public theorem rationalNormQuotientAbstractFixedFieldNumberField
     (K : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     [hKfinite : Finite
@@ -85,7 +85,7 @@ private theorem rationalNormQuotientAbstractFixedFieldNumberField
     NumberField.of_module_finite ℚ
       (abstractFixedField ℚ (SeparableClosure ℚ) K)
 
-private theorem rationalNormQuotientAbstractRelativeFixedFieldNumberField
+public theorem rationalNormQuotientAbstractRelativeFixedFieldNumberField
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -183,7 +183,7 @@ private theorem rationalTowerRelativeClass_norm
     (ordinaryIdeleClassNorm_relativeIdeleClassBaseChange dF).symm.trans
       (congrArg (_root_.ideleClassNorm F E) hbase)
 
-private noncomputable abbrev rationalRelativeFixedFieldIdeleClassAdditiveType
+public noncomputable abbrev rationalRelativeFixedFieldIdeleClassAdditiveType
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -211,7 +211,7 @@ private noncomputable abbrev rationalRelativeFixedFieldIdeleClassAdditiveType
     NumberField.of_module_finite ℚ E
   Additive (IdeleClassGroup E)
 
-private noncomputable abbrev rationalOrdinaryNormQuotientAdditiveType
+public noncomputable abbrev rationalOrdinaryNormQuotientAdditiveType
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -246,7 +246,7 @@ private noncomputable abbrev rationalOrdinaryNormQuotientAdditiveType
   Additive
     (IdeleClassGroup F ⧸ (_root_.ideleClassNorm F E).range)
 
-@[instance_reducible] private noncomputable instance
+@[instance_reducible] public noncomputable instance
     rationalOrdinaryNormQuotientAdditiveTypeAddCommGroup
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
@@ -291,7 +291,7 @@ private noncomputable abbrev rationalOrdinaryNormQuotientAdditiveType
         (IdeleClassGroup F ⧸ (_root_.ideleClassNorm F E).range))
   infer_instance
 
-private def quotientAddEquivOfEquivMapEq
+public def quotientAddEquivOfEquivMapEq
     {A B : Type*} [AddCommGroup A] [AddCommGroup B]
     (S : AddSubgroup A) (T : AddSubgroup B)
     (e : B ≃+ A)
@@ -337,7 +337,7 @@ private def quotientAddEquivOfEquivMapEq
         rw [e.symm_apply_apply]
       map_add' := f.map_add }
 
-private theorem quotientAddEquivOfEquivMapEq_mk
+public theorem quotientAddEquivOfEquivMapEq_mk
     {A B : Type*} [AddCommGroup A] [AddCommGroup B]
     (S : AddSubgroup A) (T : AddSubgroup B)
     (e : B ≃+ A)
@@ -359,7 +359,7 @@ private theorem quotientAddEquivOfEquivMapEq_mk
   rw [QuotientAddGroup.map_mk']
   rfl
 
-private noncomputable def additiveQuotientEquiv
+public noncomputable def additiveQuotientEquiv
     {G : Type*} [CommGroup G] (H : Subgroup G) :
     (Additive G ⧸ H.toAddSubgroup) ≃+
       Additive (G ⧸ H) := by
@@ -396,7 +396,7 @@ private noncomputable def additiveQuotientEquiv
     (QuotientAddGroup.quotientKerEquivOfSurjective
       normAdd hsurjective)
 
-private noncomputable def quotientAddEquivOfEquivMapEqToQuotient
+public noncomputable def quotientAddEquivOfEquivMapEqToQuotient
     {A G : Type*} [AddCommGroup A] [CommGroup G]
     (S : AddSubgroup A) (N : Subgroup G) [N.Normal]
     (e : Additive G ≃+ A)
@@ -405,7 +405,7 @@ private noncomputable def quotientAddEquivOfEquivMapEqToQuotient
   (quotientAddEquivOfEquivMapEq S N.toAddSubgroup e hmap).trans
     (additiveQuotientEquiv N)
 
-private noncomputable def addEquivTransQuotientOfEquivMapEq
+public noncomputable def addEquivTransQuotientOfEquivMapEq
     {Q A G : Type*}
     [AddCommGroup Q] [AddCommGroup A] [CommGroup G]
     (S : AddSubgroup A) (N : Subgroup G) [N.Normal]
@@ -415,7 +415,7 @@ private noncomputable def addEquivTransQuotientOfEquivMapEq
   eConcrete.trans
     (quotientAddEquivOfEquivMapEqToQuotient S N e hmap)
 
-private theorem map_addRange_eq_monoidRange_toAddSubgroup_of_equiv
+public theorem map_addRange_eq_monoidRange_toAddSubgroup_of_equiv
     {U A G H : Type*}
     [AddCommGroup U] [AddCommGroup A] [CommGroup G] [CommGroup H]
     (f : U →+ A) (g : G →* H)
@@ -491,7 +491,7 @@ noncomputable def
     rationalAbstractRelativeFixedFieldIdeleClassEquivFixedOfFiniteDimensional
       K L hLK
 
-private noncomputable def rationalRelativeFixedFieldNormComparison
+public noncomputable def rationalRelativeFixedFieldNormComparison
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -951,7 +951,7 @@ theorem
   apply eK.injective
   exact Eq.trans (eK.apply_symm_apply (f (eUpper c))) hcompat
 
-private noncomputable def rationalFiniteNormQuotientConcreteStep
+public noncomputable def rationalFiniteNormQuotientConcreteStep
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
@@ -1051,7 +1051,7 @@ noncomputable def
     (hmap := map_rationalFiniteNormSubgroup_eq_ordinaryIdeleClassNormRange_concrete
       (hKfinite := hKfinite) (hfinite := hfinite) K L hLK hnormal)
 
-private noncomputable def rationalFiniteNormQuotientClassValue
+public noncomputable def rationalFiniteNormQuotientClassValue
     (K L : ClosedSubgroup
       (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
     (hLK : L.toSubgroup ≤ K.toSubgroup)

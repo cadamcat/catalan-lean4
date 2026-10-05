@@ -85,7 +85,7 @@ instance extensionInertiaWithin_normal (D : DegreeData G)
   rw [extensionInertiaWithin]
   infer_instance
 
-private theorem extensionInertiaWithin_le_normalizedDegree_ker
+theorem extensionInertiaWithin_le_normalizedDegree_ker
     (D : DegreeData G) (K : FiniteResidueAbstractField D)
     (L : ClosedSubgroup G)
     (hLK : L.toSubgroup ≤ K.field.toSubgroup) :

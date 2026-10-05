@@ -614,7 +614,7 @@ private theorem finiteReciprocityValue_eq_of_same_restriction_of_mul
 /-- The finite degree-quotient decomposition candidate is additive as soon as reciprocity multiplicativity
 is available.  Lift-independence is invoked for the chosen lift of a
 product and the product of the two chosen lifts. -/
-private theorem finiteReciprocityCandidate_add_of_mul
+theorem finiteReciprocityCandidate_add_of_mul
     (D : DegreeData G) (A : Rep ℤ G) (v : ValuationData D A)
     [IsTopologicalGroup G] [CompactSpace G] [T2Space G]
     (K : FiniteAbstractField G) (L : ClosedSubgroup G)
@@ -659,7 +659,7 @@ private theorem finiteReciprocityCandidate_add_of_mul
 
 /-- The finite reciprocity equivalence with the semigroup-additivity input isolated.  The
 final theorem discharges this input directly from reciprocity multiplicativity. -/
-private def finiteReciprocityHom_of_mul
+def finiteReciprocityHom_of_mul
     (D : DegreeData G) (A : Rep ℤ G) (v : ValuationData D A)
     [IsTopologicalGroup G] [CompactSpace G] [T2Space G]
     (K : FiniteAbstractField G) (L : ClosedSubgroup G)

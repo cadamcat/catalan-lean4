@@ -280,7 +280,7 @@ theorem maximalUnramifiedNormSubgroup_le_finiteNormSubgroup
   refine iInf_le_of_le (D.fieldAsMaximalUnramifiedIntermediate K L hLK) ?_
   rfl
 
-private theorem maximalUnramifiedNormSubgroup_le_finiteNormClassHom_ker
+theorem maximalUnramifiedNormSubgroup_le_finiteNormClassHom_ker
     (D : DegreeData G) (A : Rep ℤ G)
     (K L : ClosedSubgroup G) (hLK : L.toSubgroup ≤ K.toSubgroup)
     [hfinite : Finite (K.toSubgroup ⧸ extensionSubgroup K L hLK)] :

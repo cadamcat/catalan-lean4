@@ -73,7 +73,7 @@ local instance localSeparableClosureScalarTower :
 
 /-- A Chevalley extension of the local valuation to the chosen algebraic
 closure.  This is the valuation choice `w | v` made in the finite local reciprocity construction. -/
-private noncomputable def localAbsoluteValuationSubring :
+noncomputable def localAbsoluteValuationSubring :
     ValuationSubring (AlgebraicClosure K) :=
   Classical.choose
     (ValuationTheory.DiscreteValuationField.Valuation.exists_extension_valuationSubring
@@ -188,7 +188,7 @@ theorem localSeparableDecompositionGroup_eq_top :
 
 /-- When the decomposition subgroup is top, the valuation ring on the
 decomposition field is the original local valuation ring. -/
-private noncomputable def localBaseValuationSubringEquivDecompositionField :
+noncomputable def localBaseValuationSubringEquivDecompositionField :
     (localCompleteDVF K).valuationSubring ≃+*
       decompositionFieldValuationSubring K
         (localSeparableValuationSubring K) := by
@@ -203,35 +203,47 @@ private noncomputable def localBaseValuationSubringEquivDecompositionField :
   let eKZ : K ≃ₐ[K] Z :=
     (IntermediateField.botEquiv K (SeparableClosure K)).symm.trans
       (IntermediateField.equivOfEq hZ.symm)
-  refine
-    { toFun := fun x => ⟨eKZ (x : K), ?_⟩
-      invFun := fun z => ⟨eKZ.symm (z : Z), ?_⟩
-      left_inv := fun x => by
-        apply Subtype.ext
-        exact eKZ.symm_apply_apply (x : K)
-      right_inv := fun z => by
-        apply Subtype.ext
-        exact eKZ.apply_symm_apply (z : Z)
-      map_add' := fun x y => by
-        apply Subtype.ext
-        exact map_add eKZ (x : K) (y : K)
-      map_mul' := fun x y => by
-        apply Subtype.ext
-        exact map_mul eKZ (x : K) (y : K) }
-  · change ((eKZ x : Z) : SeparableClosure K) ∈ A
-    have he : ((eKZ x : Z) : SeparableClosure K) =
-        algebraMap K (SeparableClosure K) (x : K) := by
-      rfl
+  have hto (x : (localCompleteDVF K).valuationSubring) :
+      ((eKZ (x : K) : Z) : SeparableClosure K) ∈ A := by
+    have he : ((eKZ (x : K) : Z) : SeparableClosure K) =
+        algebraMap K (SeparableClosure K) (x : K) := rfl
     rw [he]
     exact (localSeparableValuationSubring_pullback K (x : K)).2 x.property
-  · change eKZ.symm (z : Z) ∈
-      (localCompleteDVF K).valuation.valuationSubring
+  let toFun : (localCompleteDVF K).valuationSubring →
+      decompositionFieldValuationSubring K A :=
+    fun x => ⟨eKZ (x : K), hto x⟩
+  have hinv (z : decompositionFieldValuationSubring K A) :
+      eKZ.symm (z : Z) ∈ (localCompleteDVF K).valuation.valuationSubring := by
     apply (localSeparableValuationSubring_pullback K (eKZ.symm (z : Z))).1
     have he : algebraMap K (SeparableClosure K) (eKZ.symm (z : Z)) =
         ((z : Z) : SeparableClosure K) := by
       exact congrArg Subtype.val (eKZ.apply_symm_apply (z : Z))
     rw [he]
     exact z.property
+  let invFun : decompositionFieldValuationSubring K A →
+      (localCompleteDVF K).valuationSubring :=
+    fun z => ⟨eKZ.symm (z : Z), hinv z⟩
+  refine
+    { toFun := toFun
+      invFun := invFun
+      left_inv := fun x => by
+        dsimp [toFun, invFun]
+        apply Subtype.ext
+        change eKZ.symm (eKZ (x : K)) = (x : K)
+        exact eKZ.symm_apply_apply (x : K)
+      right_inv := fun z => by
+        dsimp [toFun, invFun]
+        apply Subtype.ext
+        change eKZ (eKZ.symm (z : Z)) = (z : Z)
+        exact eKZ.apply_symm_apply (z : Z)
+      map_add' := fun x y => by
+        dsimp [toFun]
+        apply Subtype.ext
+        exact eKZ.map_add (x : K) (y : K)
+      map_mul' := fun x y => by
+        dsimp [toFun]
+        apply Subtype.ext
+        exact eKZ.map_mul (x : K) (y : K) }
 
 /-- The residue field in the residue-action exact sequence is canonically the finite residue
 field of the original local field. -/
@@ -331,7 +343,7 @@ private theorem localSelectedResidueLift_residue
 the residue field is continuous for the Krull topologies.  A finite residue
 subextension is controlled by adjoining to `K` one lift of each of its
 finitely many elements. -/
-private theorem localSeparableResidueAlgAction_continuous :
+theorem localSeparableResidueAlgAction_continuous :
     Continuous
       (residueAlgActionOfEqTop K
         (localSeparableValuationSubring K)

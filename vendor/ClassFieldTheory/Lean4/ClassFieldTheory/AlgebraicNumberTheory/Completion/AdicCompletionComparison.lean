@@ -400,7 +400,9 @@ theorem finitePlaceExtensionAdicCompletionMap_valued
             HeightOneSpectrum.valuedAdicCompletion_eq_valuation']
     _ = (w.valuation K k) ^
           w.asIdeal.ramificationIdx' W.asIdeal :=
-      (HeightOneSpectrum.valuation_liesOver L w W k).symm
+      by
+        rw [Ideal.ramificationIdx'_eq_ramificationIdx w.asIdeal W.asIdeal w.ne_bot]
+        exact (HeightOneSpectrum.valuation_liesOver L w W k).symm
     _ = Valued.v x ^
           w.asIdeal.ramificationIdx' W.asIdeal := by
       rw [hkval]

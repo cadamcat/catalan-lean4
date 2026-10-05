@@ -103,7 +103,7 @@ theorem abstractFixedFieldCosetToAlgHom_mk
         (abstractRelativeFixedField k Ω hLK).val :=
   rfl
 
-private theorem abstractFixedFieldCosetToAlgHom_surjective
+theorem abstractFixedFieldCosetToAlgHom_surjective
     (K L : ClosedSubgroup (Gal(Ω / k)))
     (hLK : L.toSubgroup ≤ K.toSubgroup)
     [FiniteDimensional (abstractFixedField k Ω K)
@@ -142,7 +142,7 @@ private theorem abstractFixedFieldCosetToAlgHom_surjective
   exact hx
 
 omit [IsSepClosed Ω] in
-private theorem abstractFixedFieldCosetToAlgHom_injective
+theorem abstractFixedFieldCosetToAlgHom_injective
     (K L : ClosedSubgroup (Gal(Ω / k)))
     (hLK : L.toSubgroup ≤ K.toSubgroup) :
     Function.Injective
