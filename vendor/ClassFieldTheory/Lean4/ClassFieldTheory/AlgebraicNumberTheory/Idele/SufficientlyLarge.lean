@@ -1,13 +1,29 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.BaseChange
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Core
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormalClosureNorm
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerAlgEquivNaturality
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseChange
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.SPlaces
-import Mathlib.NumberTheory.NumberField.ClassNumber
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.BaseChange
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Core
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormalClosureNorm
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerAlgEquivNaturality
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseChange
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.SPlaces
+public import Mathlib.NumberTheory.NumberField.ClassNumber
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

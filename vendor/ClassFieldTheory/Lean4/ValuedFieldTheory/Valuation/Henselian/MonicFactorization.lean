@@ -1,9 +1,25 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
-import ValuedFieldTheory.Valuation.Henselian.Factorization.CoefficientMinimum
-import ValuedFieldTheory.Valuation.Henselian.PrimitiveFactorization
-import Mathlib.FieldTheory.Normal.Basic
-import Mathlib.RingTheory.Norm.Basic
-import Mathlib.RingTheory.Polynomial.Vieta
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.CoefficientMinimum
+public import ValuedFieldTheory.Valuation.Henselian.PrimitiveFactorization
+public import Mathlib.FieldTheory.Normal.Basic
+public import Mathlib.RingTheory.Norm.Basic
+public import Mathlib.RingTheory.Polynomial.Vieta
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -200,7 +216,7 @@ theorem valuation_multiset_prod_lt_one_of_mem_lt_one
           (ih (fun c hc => hu c (by simp [hc])))
   have htprod : w t.prod ≤ 1 :=
     hprodle t (fun b hb => hs b (by simp [hb]))
-  exact mul_lt_one_of_nonneg_of_lt_one_left zero_le halt htprod
+  exact mul_lt_one_of_lt_of_le halt htprod
 
 /-- The boundary elementary symmetric function is dominated by the unique
 term using all roots of maximal value.  This is the valuation-theoretic
@@ -802,9 +818,7 @@ theorem not_all_roots_same_valuation_of_primitive_irreducible_endpoints_nonunit
             ((roots.map (fun x =>
               Polynomial.X - Polynomial.C x)).prod).coeff i) < 1 := by
       rw [B.valuation.map_mul]
-      exact mul_lt_one_of_nonneg_of_lt_one_left
-        (bot_le : 0 ≤ B.valuation (algebraMap K L (p.leadingCoeff : K)))
-        hleadTarget hprodCoeff
+      exact mul_lt_one_of_lt_of_le hleadTarget hprodCoeff
     have hcoeffLt :
         B.valuation (algebraMap K L (p.coeff i : K)) < 1 := by
       rw [hcoeffFactor i]

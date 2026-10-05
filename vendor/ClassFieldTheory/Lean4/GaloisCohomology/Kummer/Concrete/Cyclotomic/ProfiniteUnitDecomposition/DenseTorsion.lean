@@ -1,4 +1,20 @@
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Decomposition
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Decomposition
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -48,7 +64,7 @@ theorem dense_torsion_pi_of_finite
     by_cases hi : i ∈ S
     · rw [Pi.pow_apply]
       dsimp only [y]
-      rw [dif_pos hi]
+      rw [dite_eq_left hi]
       exact orderOf_dvd_iff_pow_eq_one.mp
         (Finset.dvd_prod_of_mem
           (fun j => orderOf (x j)) hi)

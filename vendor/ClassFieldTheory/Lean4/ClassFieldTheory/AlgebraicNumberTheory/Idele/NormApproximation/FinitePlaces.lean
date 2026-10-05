@@ -1,15 +1,31 @@
-import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Approximation
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.CompMulEquiv
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Algebra
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Generator
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.HerbrandEquiv
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Finite
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.H0
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.HMinusOne
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.Trivial
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.Quotient
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.TopologicalReciprocity
-import ValuedFieldTheory.Valuation.Completion.ExtensionFactorClassification
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Approximation
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.CompMulEquiv
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Algebra
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Generator
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.HerbrandEquiv
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Finite
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.H0
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.HMinusOne
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.Trivial
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.Quotient
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.TopologicalReciprocity
+public import ValuedFieldTheory.Valuation.Completion.ExtensionFactorClassification
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -88,7 +104,9 @@ noncomputable def finitePlaceCompletionRingHom
     (v : HeightOneSpectrum (𝓞 K)) :
     (NumberField.HeightOneSpectrum.adicAbv K v).Completion →+*
       v.adicCompletion K :=
-  (finitePlaceCompletionBaseMap_isometry v).extensionHom
+  UniformSpace.Completion.extensionHom
+    (finitePlaceCompletionBaseMap v)
+    (finitePlaceCompletionBaseMap_isometry v).continuous
 
 @[simp]
 theorem finitePlaceCompletionRingHom_coe
@@ -99,7 +117,9 @@ theorem finitePlaceCompletionRingHom_coe
         (x :
           (NumberField.HeightOneSpectrum.adicAbv K v).Completion) =
       finitePlaceCompletionBaseMap v x :=
-  (finitePlaceCompletionBaseMap_isometry v).extensionHom_coe x
+  UniformSpace.Completion.extensionHom_coe
+    (finitePlaceCompletionBaseMap v)
+    (finitePlaceCompletionBaseMap_isometry v).continuous x
 
 theorem finitePlaceCompletionRingHom_isometry
     (v : HeightOneSpectrum (𝓞 K)) :
@@ -352,6 +372,7 @@ noncomputable def chosenFinitePlaceNormQuotientEquiv
           (K := K) (L := L) v)
         e heq)
 
+omit [FiniteDimensional K L] in
 @[simp]
 theorem chosenFinitePlaceNormQuotientEquiv_normClass
     (v : HeightOneSpectrum (𝓞 K))
@@ -410,6 +431,7 @@ noncomputable def principalLocalNormQuotientMap
     (fun v ↦ chosenFinitePlaceLocalNormSubgroup
       (K := K) (L := L) v.1)
 
+omit [FiniteDimensional K L] in
 @[simp]
 theorem principalLocalNormQuotientMap_apply
     (S : Finset (HeightOneSpectrum (𝓞 K)))
@@ -470,6 +492,7 @@ theorem principalIntrinsicLocalNormQuotientMap_surjective
         (K := K) (L := L) S x) = q
   rw [hx, E.symm_apply_apply]
 
+omit [FiniteDimensional K L] in
 /-- Kernel membership has the expected simultaneous local-norm
 description. -/
 theorem mem_ker_principalLocalNormQuotientMap_iff
@@ -494,6 +517,7 @@ theorem mem_ker_principalLocalNormQuotientMap_iff
       (QuotientGroup.eq_one_iff _).mpr
         (hx v)
 
+omit [FiniteDimensional K L] in
 /-- The kernel is the intersection of the pullbacks of the actual local
 norm subgroups. -/
 theorem principalLocalNormQuotientMap_ker

@@ -1,10 +1,26 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Basic
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalCore
-import Mathlib.FieldTheory.Galois.NormalBasis
-import Mathlib.GroupTheory.GroupAction.Defs
-import Mathlib.LinearAlgebra.TensorProduct.Basis
-import Mathlib.RingTheory.Norm.Basic
-import Mathlib.RingTheory.TensorProduct.Maps
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Basic
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalCore
+public import Mathlib.FieldTheory.Galois.NormalBasis
+public import Mathlib.GroupTheory.GroupAction.Defs
+public import Mathlib.LinearAlgebra.TensorProduct.Basis
+public import Mathlib.RingTheory.Norm.Basic
+public import Mathlib.RingTheory.TensorProduct.Maps
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -370,10 +386,7 @@ theorem galoisAverage_mem_adeleInclusion_range
     (z : RelativeAdeleRing K L) :
     ∃ a : NumberField.AdeleRing (𝓞 K) K,
       adeleInclusion K L a = galoisAverage K L z := by
-  induction z using TensorProduct.induction_on with
-  | zero =>
-      refine ⟨0, ?_⟩
-      simp [galoisAverage]
+  induction z using TensorProduct.inductionOn with
   | tmul a x =>
       refine ⟨a * algebraMap K
         (NumberField.AdeleRing (𝓞 K) K)

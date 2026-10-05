@@ -1,15 +1,31 @@
-import Mathlib.LinearAlgebra.Determinant
-import Mathlib.RingTheory.Norm.Transitivity
-import Mathlib.RingTheory.Valuation.Integral
-import ValuedFieldTheory.LocalField.NormUnits
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuativeExtension
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Basic
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.LinearAlgebra.Determinant
+public import Mathlib.RingTheory.Norm.Transitivity
+public import Mathlib.RingTheory.Valuation.Integral
+public import ValuedFieldTheory.LocalField.NormUnits
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuativeExtension
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Basic
 /-!
 # Norms in valued field extensions
 
 Packages field norms as homomorphisms on units and restricts them to valuation
 rings and their unit groups under the appropriate integral hypotheses.
 -/
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

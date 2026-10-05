@@ -1,12 +1,28 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.Complete
-import Mathlib.Algebra.CharP.Algebra
-import Mathlib.Algebra.CharP.Lemmas
-import Mathlib.Data.Rat.Cast.CharZero
-import Mathlib.Data.Rat.Lemmas
-import Mathlib.FieldTheory.Perfect
-import Mathlib.NumberTheory.LocalField.Basic
-import Mathlib.NumberTheory.Padics.PadicNumbers
-import Mathlib.RingTheory.Algebraic.Integral
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.Complete
+public import Mathlib.Algebra.CharP.Algebra
+public import Mathlib.Algebra.CharP.Lemmas
+public import Mathlib.Data.Rat.Cast.CharZero
+public import Mathlib.Data.Rat.Lemmas
+public import Mathlib.FieldTheory.Perfect
+public import Mathlib.NumberTheory.LocalField.Basic
+public import Mathlib.NumberTheory.Padics.PadicNumbers
+public import Mathlib.RingTheory.Algebraic.Integral
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

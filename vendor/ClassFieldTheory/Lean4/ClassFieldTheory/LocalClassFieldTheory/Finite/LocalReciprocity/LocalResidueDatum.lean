@@ -1,7 +1,23 @@
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.ResidueActionIndex
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure
-import ValuedFieldTheory.Ramification.GaloisValuation.AbsoluteGalois.FiniteExtensionCorrespondence
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteExtensionCompleteDVF
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.ResidueActionIndex
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure
+public import ValuedFieldTheory.Ramification.GaloisValuation.AbsoluteGalois.FiniteExtensionCorrespondence
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteExtensionCompleteDVF
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -272,7 +288,8 @@ instance localSelectedResidueIsAlgClosed :
       (F := SeparableClosure K) A
   let : PerfectField (decompositionResidueField K B) := inferInstance
   let : Algebra.IsAlgebraic (decompositionResidueField K B)
-      (selectedResidueField B) := inferInstance
+      (selectedResidueField B) :=
+    (decompositionResidueExtension_normal (K := K) B).toIsAlgebraic
   let : PerfectField (selectedResidueField B) :=
     Algebra.IsAlgebraic.perfectField
       (K := decompositionResidueField K B)

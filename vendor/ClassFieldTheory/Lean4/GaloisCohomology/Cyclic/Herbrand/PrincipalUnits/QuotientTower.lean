@@ -1,7 +1,23 @@
-import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Core
-import GaloisCohomology.Cyclic.Herbrand.PrincipalUnits.QuotientReps
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.GaloisIntegerRing
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotients
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Core
+public import GaloisCohomology.Cyclic.Herbrand.PrincipalUnits.QuotientReps
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.GaloisIntegerRing
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotients
+
+
+@[expose] public section
 
 set_option autoImplicit false
 /-! Provides the public declarations in the `CyclicCohomology.Herbrand.PrincipalUnits.QuotientTower` Lean module. -/

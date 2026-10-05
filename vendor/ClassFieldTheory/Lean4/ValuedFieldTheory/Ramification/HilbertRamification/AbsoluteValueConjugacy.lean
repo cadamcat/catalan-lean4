@@ -1,25 +1,41 @@
-import ValuedFieldTheory.Valuation.AbsoluteValue.Completion
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.Core
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.FiniteNormExtension
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormula
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaAbsoluteValue
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaCoefficients
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaExtension
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaIntegralClosure
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.RamificationInvariants
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueExtensionCoefficients
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueValuationSubring
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicLocalization
-import ValuedFieldTheory.Valuation.AbsoluteValue.Completeness
-import ValuedFieldTheory.Valuation.AbsoluteValue.ExponentialValuation
-import ValuedFieldTheory.Valuation.AbsoluteValue.Extension
-import ValuedFieldTheory.Valuation.AbsoluteValue.Nonarchimedean
-import ValuedFieldTheory.Valuation.AbsoluteValue.Ostrowski
-import ValuedFieldTheory.Valuation.AbsoluteValue.PrincipalAdicCompleteness
-import ValuedFieldTheory.Valuation.AbsoluteValue.SpectralExtension
-import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.Core
-import ValuedFieldTheory.Valuation.AbsoluteValue.ValuationSubring
-import ValuedFieldTheory.Valuation.Completion.AbsoluteValueExtensions
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Completion
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.Core
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.FiniteNormExtension
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormula
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaAbsoluteValue
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaCoefficients
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaExtension
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaIntegralClosure
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.RamificationInvariants
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueExtensionCoefficients
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueValuationSubring
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicLocalization
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Completeness
+public import ValuedFieldTheory.Valuation.AbsoluteValue.ExponentialValuation
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Extension
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Nonarchimedean
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Ostrowski
+public import ValuedFieldTheory.Valuation.AbsoluteValue.PrincipalAdicCompleteness
+public import ValuedFieldTheory.Valuation.AbsoluteValue.SpectralExtension
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.Core
+public import ValuedFieldTheory.Valuation.AbsoluteValue.ValuationSubring
+public import ValuedFieldTheory.Valuation.Completion.AbsoluteValueExtensions
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

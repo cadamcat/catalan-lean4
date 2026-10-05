@@ -1,6 +1,22 @@
-import GaloisCohomology.Kummer.Abstract.KummerAbelianAssembly
-import GaloisCohomology.Cyclic.IntegralRepUniverse
-import GaloisCohomology.Cyclic.NormKernelVanishing
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import GaloisCohomology.Kummer.Abstract.KummerAbelianAssembly
+public import GaloisCohomology.Cyclic.IntegralRepUniverse
+public import GaloisCohomology.Cyclic.NormKernelVanishing
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -52,7 +68,7 @@ def kummerDeltaAddSubgroup
     (A : Rep ℤ G) (wp : A ⟶ A) (K L : ClosedSubgroup G) :
     AddSubgroup A.V :=
   (ambientFixedAddSubgroup A L).map
-      (AddMonoidHomClass.toAddMonoidHom wp.hom) ⊓
+      (AddMonoidHom.ofClass wp.hom) ⊓
     ambientFixedAddSubgroup A K
 
 /-- The radical set `wp⁻¹(Delta)` in the additive abstract model. -/
@@ -60,7 +76,7 @@ def kummerRadicalAddSubgroup
     (A : Rep ℤ G) (wp : A ⟶ A) (K L : ClosedSubgroup G) :
     AddSubgroup A.V :=
   (kummerDeltaAddSubgroup A wp K L).comap
-    (AddMonoidHomClass.toAddMonoidHom wp.hom)
+    (AddMonoidHom.ofClass wp.hom)
 
 /-- The Kummer radical consists of fixed elements annihilated by the Kummer exponent. -/
 @[simp]
@@ -78,7 +94,7 @@ theorem kummerRadical_fixed_of_ker_le_zmultiples
     (hLK : L.toSubgroup ≤ K.toSubgroup)
     (xi : A.V)
     (hxi_fixed : ∀ k : K.toSubgroup, A.ρ k.1 xi = xi)
-    (hker : AddMonoidHom.ker (AddMonoidHomClass.toAddMonoidHom wp.hom) ≤
+    (hker : AddMonoidHom.ker (AddMonoidHom.ofClass wp.hom) ≤
       AddSubgroup.zmultiples xi)
     {a : A.V} (ha : a ∈ kummerRadicalAddSubgroup A wp K L)
     (l : L.toSubgroup) :
@@ -86,12 +102,12 @@ theorem kummerRadical_fixed_of_ker_le_zmultiples
   have haDelta : wp.hom a ∈ kummerDeltaAddSubgroup A wp K L := ha
   have haImage : wp.hom a ∈
       (ambientFixedAddSubgroup A L).map
-        (AddMonoidHomClass.toAddMonoidHom wp.hom) :=
+        (AddMonoidHom.ofClass wp.hom) :=
     haDelta.1
   obtain ⟨b, hb_fixed, hba⟩ := haImage
   have hba' : wp.hom b = wp.hom a := hba
   have hd_ker : a - b ∈
-      AddMonoidHom.ker (AddMonoidHomClass.toAddMonoidHom wp.hom) := by
+      AddMonoidHom.ker (AddMonoidHom.ofClass wp.hom) := by
     rw [AddMonoidHom.mem_ker]
     change wp.hom (a - b) = 0
     rw [map_sub, ← hba', sub_self]
@@ -126,7 +142,7 @@ theorem finiteAbelian_kummerRadical_fixingSubgroup_eq
     (hxi_order : addOrderOf xi = (n : ℕ))
     (hxi_kernel : wp.hom xi = 0)
     (hxi_fixed : ∀ k : K.toSubgroup, A.ρ k.1 xi = xi)
-    (hker : AddMonoidHom.ker (AddMonoidHomClass.toAddMonoidHom wp.hom) ≤
+    (hker : AddMonoidHom.ker (AddMonoidHom.ofClass wp.hom) ≤
       AddSubgroup.zmultiples xi)
     (hexponent :
       ∀ q : K.toSubgroup ⧸ extensionSubgroup (G := G) K L hLK,

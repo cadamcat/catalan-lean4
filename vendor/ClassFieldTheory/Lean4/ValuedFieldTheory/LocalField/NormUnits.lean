@@ -1,4 +1,17 @@
-import Mathlib.RingTheory.Norm.Transitivity
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.RingTheory.Norm.Transitivity
 
 /-!
 # Field norms on unit groups
@@ -7,6 +20,9 @@ This file provides the common algebraic norm map on unit groups.  It is
 independent of any valuation or local-field structure, so valued-field and
 discrete-valuation APIs can share the same definition.
 -/
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

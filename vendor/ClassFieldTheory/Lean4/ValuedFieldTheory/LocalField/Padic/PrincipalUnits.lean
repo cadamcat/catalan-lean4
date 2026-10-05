@@ -1,12 +1,28 @@
-import ValuedFieldTheory.Valuation.LocalRingEquiv
-import ValuedFieldTheory.LocalField.Analytic.PrincipalUnitExpLogEquiv
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicField
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicPowerIndex
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotients
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UniformizerPrincipalQuotient
-import ValuedFieldTheory.LocalField.Padic.NonarchimedeanLocalField
-import Mathlib.NumberTheory.Padics.ValuativeRel
-import Mathlib.NumberTheory.Padics.ProperSpace
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.LocalRingEquiv
+public import ValuedFieldTheory.LocalField.Analytic.PrincipalUnitExpLogEquiv
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicField
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicPowerIndex
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotients
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UniformizerPrincipalQuotient
+public import ValuedFieldTheory.LocalField.Padic.NonarchimedeanLocalField
+public import Mathlib.NumberTheory.Padics.ValuativeRel
+public import Mathlib.NumberTheory.Padics.ProperSpace
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -398,12 +414,42 @@ theorem expLogMulEquivOfWithZeroValuation_fieldVal
           (fun m =>
             Nat.cast_ne_zero.mpr (Nat.factorial_ne_zero m)) := by
   let : Valued K (WithZero (Multiplicative ℤ)) := Valued.mk' v
+  let p : ℕ :=
+    (LocalFieldTheory.DiscreteValuationField.LocalField.ofWithZeroValuation v).residueCharacteristic
+  let _ : Fact p.Prime := by
+    dsimp [p]
+    infer_instance
   simp only [expLogMulEquivOfWithZeroValuation]
   simp only [
     LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.chosenExpLogContinuousMulEquiv,
     LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.principalUnitExpLogContinuousMulEquivOfExact_ofWithZeroValuationScaled,
     LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.principalUnitExpLogMulEquivOfExact_ofWithZeroValuationScaled]
-  simp
+  apply
+    LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.principalUnitExpSeries_maximalIdealPow_val_ofWithZeroValuationScaled
+      (v := v) (p := p)
+      (LocalFieldTheory.DiscreteValuationField.LocalField.ramificationIndexOfWithZeroValuation v)
+      n
+  case hπval =>
+    exact Classical.choose_spec
+      (LocalFieldTheory.DiscreteValuationField.WithZeroValuation.exists_valuationSubring_valuation_eq_exp_neg_one_of_surjective
+        v hv)
+  case hπ =>
+    exact
+      LocalFieldTheory.DiscreteValuationField.WithZeroValuation.isUniformizer_of_valuation_eq_exp_neg_one
+        v _
+        (Classical.choose_spec
+          (LocalFieldTheory.DiscreteValuationField.WithZeroValuation.exists_valuationSubring_valuation_eq_exp_neg_one_of_surjective
+            v hv))
+  case hlevel => exact hlevel
+  case hnval =>
+    intro m
+    exact
+      LocalFieldTheory.DiscreteValuationField.LocalField.valuation_natCast_factorial_eq_exp_neg_ramificationIndex_mul_padicValNat
+        v m
+  case hcomplete =>
+    exact
+      LocalFieldTheory.DiscreteValuationField.WithZeroValuationTopology.completeSpace_ofWithZeroValuation
+        v
 
 /-- For odd `p`, every element of `U^(k+1)` is a
 `((p-1) * p^k)`-th power of an element of `U¹`. -/

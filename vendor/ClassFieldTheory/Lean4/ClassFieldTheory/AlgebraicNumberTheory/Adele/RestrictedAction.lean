@@ -1,4 +1,20 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Adele.RestrictedProduct
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Adele.RestrictedProduct
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -77,8 +93,7 @@ theorem scalarTensorConjugation_one
     scalarTensorConjugation
         (K := K) (L := L) (A := A)
         (1 : L ≃ₐ[K] L) z = z := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x => simp
   | add x y hx hy => simp [hx, hy]
 
@@ -93,8 +108,7 @@ theorem scalarTensorConjugation_mul
         (K := K) (L := L) (A := A) σ
         (scalarTensorConjugation
           (K := K) (L := L) (A := A) τ z) := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x => simp
   | add x y hx hy => simp [hx, hy]
 
@@ -160,8 +174,7 @@ theorem relativeAdeleInfiniteComponent_conjugation
         (A := w.Completion) σ
         (relativeAdeleInfiniteComponent
           (K := K) (L := L) w z) := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x => rfl
   | add x y hx hy => simp [hx, hy]
 
@@ -179,8 +192,7 @@ theorem relativeAdeleFiniteComponent_conjugation
         (A := w.adicCompletion K) σ
         (relativeAdeleFiniteComponent
           (K := K) (L := L) w z) := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x => rfl
   | add x y hx hy => simp [hx, hy]
 

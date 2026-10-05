@@ -1,7 +1,23 @@
-import Mathlib.FieldTheory.Galois.Basic
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldIntrinsicReciprocity.BaseComparison.EmbeddedInertiaComparison
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldNormResidueNaturality
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormQuotient
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.FieldTheory.Galois.Basic
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldIntrinsicReciprocity.BaseComparison.EmbeddedInertiaComparison
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldNormResidueNaturality
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormQuotient
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -489,7 +505,12 @@ theorem fixedFieldQuotientEquiv_mk_compatibility
           K (SeparableClosure K) H.field (φ τ.1) =
         AlgEquiv.autCongr e τ.1 :=
     by
-      simp [φ]
+      let A :=
+        abstractSubgroupEquivGaloisGroup
+          K (SeparableClosure K) H.field
+      change A (A.symm (AlgEquiv.autCongr e τ.1)) =
+        AlgEquiv.autCongr e τ.1
+      exact A.apply_symm_apply (AlgEquiv.autCongr e τ.1)
   calc
     E.val (qH (QuotientGroup.mk (φ τ.1)) x) =
         (φ τ.1).1 (E.val x) :=
@@ -499,13 +520,17 @@ theorem fixedFieldQuotientEquiv_mk_compatibility
     _ =
         abstractSubgroupEquivGaloisGroup
           K (SeparableClosure K) H.field (φ τ.1) (E.val x) := by
-      rw [abstractSubgroupEquivGaloisGroup_apply]
+      exact
+        (abstractSubgroupEquivGaloisGroup_apply
+          K (SeparableClosure K) H.field (φ τ.1) (E.val x)).symm
     _ = (AlgEquiv.autCongr e τ.1) (E.val x) := by
-      rw [hφ]
+      exact DFunLike.congr_fun hφ (E.val x)
     _ = e (τ.1 (e.symm (E.val x))) := rfl
     _ = e (τ.1 (i x)) := rfl
     _ = e (i (qF (QuotientGroup.mk τ) x)) := by
-      rw [finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding_mk_apply]
+      exact congrArg e
+        (finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding_mk_apply
+          F E i τ x).symm
     _ = E.val (qF (QuotientGroup.mk τ) x) :=
       e.apply_symm_apply (E.val (qF (QuotientGroup.mk τ) x))
 

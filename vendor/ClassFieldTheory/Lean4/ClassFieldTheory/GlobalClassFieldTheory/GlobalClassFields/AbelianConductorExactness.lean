@@ -1,12 +1,28 @@
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.AbelianConductorRamification
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.AbelianLocalConductorComparison
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ConductorInfinitePart
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.SmallHilbertNormCharacterization
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteLocalGlobalArtinCompatibility
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.SeparableClosurePadicLift
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.FinitePadicCyclicData
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.FinitePadicAuxiliaryField
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.Factorization
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.AbelianConductorRamification
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.AbelianLocalConductorComparison
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ConductorInfinitePart
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.SmallHilbertNormCharacterization
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteLocalGlobalArtinCompatibility
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.SeparableClosurePadicLift
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.FinitePadicCyclicData
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.FinitePadicAuxiliaryField
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.Factorization
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -497,3 +513,56 @@ theorem
 
 end GlobalClassFields
 end GlobalClassFieldTheory
+
+namespace ClassFieldTheory
+
+open NumberField IsDedekindDomain
+
+variable
+    {K L : Type}
+    [Field K] [NumberField K]
+    [Field L] [NumberField L] [Algebra K L]
+    [FiniteDimensional K L] [IsAbelianGalois K L]
+
+/-- The finite exponent of the full norm conductor is the local conductor
+exponent at the chosen completion above the place. -/
+theorem abelianFullConductor_finiteExponent_eq_localConductorExponent
+    (v : HeightOneSpectrum (𝓞 K)) :
+    (GlobalClassFieldTheory.GlobalClassFields.ideleClassNormConductorialSubgroup
+        (K := K) (L := L)).fullConductor.finitePart v =
+      GlobalClassFieldTheory.GlobalClassFields.ideleClassNormChosenFinitePlaceLocalConductorExponent
+        (K := K) (L := L) v := by
+  change
+    GlobalClassFieldTheory.GlobalClassFields.ideleClassNormNarrowFiniteConductor
+        (K := K) (L := L) v = _
+  exact
+    GlobalClassFieldTheory.GlobalClassFields.ideleClassNorm_narrowFiniteConductor_apply_eq_chosenLocalConductorExponent
+      (K := K) (L := L) v
+
+/-- A finite place has conductor exponent zero precisely when the chosen
+local extension is unramified. -/
+theorem abelianFullConductor_finiteExponent_eq_zero_iff_unramified
+    (v : HeightOneSpectrum (𝓞 K)) :
+    (GlobalClassFieldTheory.GlobalClassFields.ideleClassNormConductorialSubgroup
+        (K := K) (L := L)).fullConductor.finitePart v = 0 ↔
+      _root_.ChosenFinitePlaceIsUnramified
+        (K := K) (L := L) v := by
+  rw [abelianFullConductor_finiteExponent_eq_localConductorExponent]
+  rw [← GlobalClassFieldTheory.GlobalClassFields.ideleClassNormLocalHigherUnitExponent_eq_localConductorExponent
+    (K := K) (L := L) v]
+  exact
+    GlobalClassFieldTheory.GlobalClassFields.ideleClassNormLocalHigherUnitExponent_eq_zero_iff_chosenFinitePlaceIsUnramified
+      (K := K) (L := L) v
+
+/-- A real place belongs to the full norm conductor exactly when it
+ramifies, equivalently complexifies, in the extension. -/
+theorem abelianFullConductor_mem_infinitePart_iff_realRamified
+    (v : RayClass.RealPlace K) :
+    v ∈
+        (GlobalClassFieldTheory.GlobalClassFields.ideleClassNormConductorialSubgroup
+          (K := K) (L := L)).fullConductor.infinitePart ↔
+      ¬ v.1.IsUnramifiedIn L := by
+  rw [GlobalClassFieldTheory.GlobalClassFields.ideleClassNormFullConductor_infinitePart_eq_realRamificationLocus]
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+
+end ClassFieldTheory

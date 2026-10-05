@@ -1,5 +1,21 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitFixedPoints
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.AbstractFixedFieldNorm
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitFixedPoints
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.AbstractFixedFieldNorm
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -68,7 +84,7 @@ theorem rationalIdeleClassEquivFixed_extension_coe
         (Additive.ofMul
           (_root_.relativeIdeleClassBaseChangeMulEquiv
             (K := ℚ) (L := E)
-            (RelativeIdeleGroup.classEmbedding
+            (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := E)
               (IntermediateField.inclusion hFE) c)))).1 =
       (rationalIdeleClassEquivFixed F
         (Additive.ofMul
@@ -79,7 +95,7 @@ theorem rationalIdeleClassEquivFixed_extension_coe
         (rationalIntermediateIdeleClassToDirectLimit E
           (_root_.relativeIdeleClassBaseChangeMulEquiv
             (K := ℚ) (L := E)
-            (RelativeIdeleGroup.classEmbedding
+            (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := E)
               (IntermediateField.inclusion hFE) c))) =
       Additive.ofMul
         (rationalIntermediateIdeleClassToDirectLimit F
@@ -129,7 +145,7 @@ theorem rationalIdeleClassEquivBaseFixed_coe
         DFunLike.congr_fun
           (rationalIdeleClassExtension_eq_ideleClassCongr e) c
   have hclassEmbedding :
-      RelativeIdeleGroup.classEmbedding
+      RelativeIdeleGroup.classEmbedding (K := ℚ) (L := B) (M := E)
           (IntermediateField.inclusion hBE) cB =
         RelativeIdeleGroup.classInclusion ℚ E c := by
     simpa only [cB] using
@@ -159,7 +175,7 @@ theorem rationalIdeleClassEquivBaseFixed_coe
           (Additive.ofMul
             (_root_.relativeIdeleClassBaseChangeMulEquiv
               (K := ℚ) (L := E)
-              (RelativeIdeleGroup.classEmbedding
+              (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := B) (M := E)
                 (IntermediateField.inclusion hBE) cB)))).1 :=
     (rationalIdeleClassEquivFixed_extension_coe hBE cB).symm
   have h3 :
@@ -167,7 +183,7 @@ theorem rationalIdeleClassEquivBaseFixed_coe
           (Additive.ofMul
             (_root_.relativeIdeleClassBaseChangeMulEquiv
               (K := ℚ) (L := E)
-              (RelativeIdeleGroup.classEmbedding
+              (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := B) (M := E)
                 (IntermediateField.inclusion hBE) cB)))).1 =
         Additive.ofMul
           (rationalIntermediateIdeleClassToDirectLimit E
@@ -179,7 +195,7 @@ theorem rationalIdeleClassEquivBaseFixed_coe
           (rationalIntermediateIdeleClassToDirectLimit E
             (_root_.relativeIdeleClassBaseChangeMulEquiv
               (K := ℚ) (L := E)
-              (RelativeIdeleGroup.classEmbedding
+              (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := B) (M := E)
                 (IntermediateField.inclusion hBE) cB))) = _
     rw [hclassEmbedding]
   have h4 :

@@ -1,10 +1,26 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Norm
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNormComponents
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdealClass
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.NormLocalOrder
-import Mathlib.Algebra.BigOperators.Finprod
-import Mathlib.NumberTheory.NumberField.Completion.Ramification
-import Mathlib.RingTheory.Ideal.Norm.RelNorm
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Norm
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNormComponents
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdealClass
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.NormLocalOrder
+public import Mathlib.Algebra.BigOperators.Finprod
+public import Mathlib.NumberTheory.NumberField.Completion.Ramification
+public import Mathlib.RingTheory.Ideal.Norm.RelNorm
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

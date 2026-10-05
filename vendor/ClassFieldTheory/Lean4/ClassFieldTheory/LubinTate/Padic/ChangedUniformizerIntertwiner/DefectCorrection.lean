@@ -1,8 +1,24 @@
-import ClassFieldTheory.LubinTate.Padic.ChangedUniformizerIntertwiner.CompletedSeries
-import ClassFieldTheory.LubinTate.Padic.ChangedUniformizerCoefficient
-import Mathlib.RingTheory.PowerSeries.Expand
-import Mathlib.RingTheory.PowerSeries.Order
-import Mathlib.RingTheory.PowerSeries.Trunc
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.Padic.ChangedUniformizerIntertwiner.CompletedSeries
+public import ClassFieldTheory.LubinTate.Padic.ChangedUniformizerCoefficient
+public import Mathlib.RingTheory.PowerSeries.Expand
+public import Mathlib.RingTheory.PowerSeries.Order
+public import Mathlib.RingTheory.PowerSeries.Trunc
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -230,7 +246,7 @@ private theorem padicChangedUniformizer_coeff_pow_add_monomial
   have hm0 : m ≠ 0 := by omega
   have hNconstant : PowerSeries.constantCoeff N = 0 := by
     rw [← PowerSeries.coeff_zero_eq_constantCoeff,
-      PowerSeries.coeff_monomial, if_neg (Ne.symm hm0)]
+      PowerSeries.coeff_monomial, ite_eq_right (Ne.symm hm0)]
   have hAconstant : PowerSeries.constantCoeff A = 0 := by
     simp [A, hH, hNconstant]
   let Q :=
@@ -276,7 +292,7 @@ private theorem padicChangedUniformizer_coeff_pow_add_monomial
   have hNorder : (m : ℕ∞) ≤ N.order := by
     apply PowerSeries.nat_le_order
     intro i hi
-    rw [PowerSeries.coeff_monomial, if_neg]
+    rw [PowerSeries.coeff_monomial, ite_eq_right]
     exact Nat.ne_of_lt hi
   have hfactor :
       (A - H) * Q = A ^ p - H ^ p := by
@@ -399,7 +415,7 @@ private theorem padicChangedUniformizer_coeff_subst_changed_add_monomial
   have hm0 : m ≠ 0 := by omega
   have hNconstant : PowerSeries.constantCoeff N = 0 := by
     rw [← PowerSeries.coeff_zero_eq_constantCoeff,
-      PowerSeries.coeff_monomial, if_neg (Ne.symm hm0)]
+      PowerSeries.coeff_monomial, ite_eq_right (Ne.symm hm0)]
   have hAsubst : PowerSeries.HasSubst A :=
     PowerSeries.HasSubst.of_constantCoeff_zero' (by
       change PowerSeries.constantCoeff H +

@@ -1,5 +1,21 @@
-import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
-import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.SeriesTerms
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
+public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.SeriesTerms
+
+
+@[expose] public section
 
 set_option autoImplicit false
 /-!
@@ -98,7 +114,7 @@ theorem tendsto_zero_exp_term_ofWithZeroValuation_of_one_lt
   rcases hs with ⟨γ, hγs⟩
   let γ' : (WithZero (Multiplicative ℤ))ˣ :=
     Units.map (MonoidWithZeroHom.ValueGroup₀.embedding
-      (f := (.ofClass v))) γ
+      (f := (v : K →*₀ WithZero (Multiplicative ℤ)))) γ
   rcases WithZero.exists_exp_neg_natCast_lt γ'.ne_zero with ⟨N, hNγ⟩
   have hterm :=
     eventually_le_ofWithZeroValuation_val_exp_term_of_one_lt
@@ -285,7 +301,7 @@ theorem tendsto_zero_exp_term_ofWithZeroValuation_scaled_of_threshold
   rcases hs with ⟨γ, hγs⟩
   let γ' : (WithZero (Multiplicative ℤ))ˣ :=
     Units.map (MonoidWithZeroHom.ValueGroup₀.embedding
-      (f := (.ofClass v))) γ
+      (f := (v : K →*₀ WithZero (Multiplicative ℤ)))) γ
   rcases WithZero.exists_exp_neg_natCast_lt γ'.ne_zero with ⟨N, hNγ⟩
   have hterm :=
     eventually_le_ofWithZeroValuation_val_exp_term_scaled_of_threshold

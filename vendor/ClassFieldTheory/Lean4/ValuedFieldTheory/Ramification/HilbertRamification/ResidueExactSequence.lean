@@ -1,5 +1,21 @@
-import ValuedFieldTheory.Ramification.ClosedSubgroups
-import ValuedFieldTheory.Ramification.ProfiniteInvariant
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Ramification.ClosedSubgroups
+public import ValuedFieldTheory.Ramification.ProfiniteInvariant
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -189,6 +205,8 @@ private theorem decompositionFixedMaximalIdeal_isMaximal
     Algebra.IsInvariant.isIntegral_of_profinite
       (G := decompositionGroup K A)
   exact Ideal.isMaximal_comap_of_isIntegral_of_isMaximal
+    (decompositionFixedSubring K A).subtype
+    (fun x => Algebra.IsIntegral.isIntegral x)
     (IsLocalRing.maximalIdeal A)
 
 /-- Provides the instance `instIsMaximal`. -/

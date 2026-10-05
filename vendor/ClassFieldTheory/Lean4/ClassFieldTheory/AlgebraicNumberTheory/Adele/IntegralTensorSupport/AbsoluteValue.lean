@@ -1,17 +1,33 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.Support
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.FinitePlaceTensorNorm
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.RamificationInvariants
-import ValuedFieldTheory.Valuation.AbsoluteValue.ExponentialValuation
-import ValuedFieldTheory.Valuation.Henselian.Complete
-import ValuedFieldTheory.Valuation.Completion.TensorProductDecomposition
-import Mathlib.Algebra.Module.Torsion.Basic
-import Mathlib.LinearAlgebra.Basis.SMul
-import Mathlib.RingTheory.Algebraic.Integral
-import Mathlib.RingTheory.DedekindDomain.Factorization
-import Mathlib.RingTheory.Discriminant
-import Mathlib.RingTheory.Localization.Finiteness
-import Mathlib.RingTheory.Valuation.LocalSubring
-import Mathlib.RingTheory.Valuation.ValuationSubring
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.Support
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.FinitePlaceTensorNorm
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.RamificationInvariants
+public import ValuedFieldTheory.Valuation.AbsoluteValue.ExponentialValuation
+public import ValuedFieldTheory.Valuation.Henselian.Complete
+public import ValuedFieldTheory.Valuation.Completion.TensorProductDecomposition
+public import Mathlib.Algebra.Module.Torsion.Basic
+public import Mathlib.LinearAlgebra.Basis.SMul
+public import Mathlib.RingTheory.Algebraic.Integral
+public import Mathlib.RingTheory.DedekindDomain.Factorization
+public import Mathlib.RingTheory.Discriminant
+public import Mathlib.RingTheory.Localization.Finiteness
+public import Mathlib.RingTheory.Valuation.LocalSubring
+public import Mathlib.RingTheory.Valuation.ValuationSubring
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -102,7 +118,8 @@ theorem absoluteValueExtension_isNonarchimedean
     w.1 (n : E) =
         w.1 (algebraMap F E (n : F)) := by simp
     _ = vF (n : F) := w.2 (n : F)
-    _ ≤ 1 := hvF.apply_natCast_le_one
+    _ ≤ 1 :=
+      hvF.apply_natCast_le_one (map_zero_le vF 1) (map_one vF)
 
 /-- An element integral over `ℤ` lies in the valuation subring of
 every nonarchimedean real absolute value. -/

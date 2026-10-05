@@ -1,11 +1,27 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.AdicCompletionComparison
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.IdealMap
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.LocallyCompact
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.SeparableNormValuation
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormalizedIntegerValuation
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuedTopology
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Uniqueness
-import Mathlib.RingTheory.RamificationInertia.Inertia
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.AdicCompletionComparison
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.IdealMap
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.LocallyCompact
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.SeparableNormValuation
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormalizedIntegerValuation
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuedTopology
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Uniqueness
+public import Mathlib.RingTheory.RamificationInertia.Inertia
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

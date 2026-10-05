@@ -1,9 +1,25 @@
-import Mathlib.FieldTheory.Galois.Basic
-import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Main
-import ClassFieldTheory.AlgebraicNumberTheory.SeparableClosureEmbedding
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteGaloisRealization
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.IntrinsicAbsoluteData
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.SeparableUnitsNorm
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.FieldTheory.Galois.Basic
+public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Main
+public import ClassFieldTheory.AlgebraicNumberTheory.SeparableClosureEmbedding
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteGaloisRealization
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.IntrinsicAbsoluteData
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.SeparableUnitsNorm
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -40,6 +56,9 @@ private abbrev A (K : Type) [Field K] : Rep ℤ (G K) :=
 
 private abbrev B (K : Type) [Field K] : ClosedSubgroup (G K) :=
   intrinsicAbstractBase K
+
+private noncomputable instance intrinsicAbsoluteGaloisT2 : T2Space (G K) :=
+  krullTopology_t2
 
 /-! ## Transport relative to an explicit embedding -/
 

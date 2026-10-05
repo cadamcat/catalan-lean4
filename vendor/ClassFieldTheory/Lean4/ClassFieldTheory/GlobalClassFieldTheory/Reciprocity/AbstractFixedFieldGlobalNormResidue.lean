@@ -1,5 +1,21 @@
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ClassFieldRealization
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidue
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ClassFieldRealization
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidue
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -872,6 +888,26 @@ noncomputable def globalNormResidueEquivOfEmbedding
         (numberFieldEmbeddedAbelianizedExtensionQuotientEquivGaloisGroup
           K L j))
 
+/-- The explicit-embedding norm-residue equivalence on a finite norm class. -/
+theorem globalNormResidueEquivOfEmbedding_finiteNormClass
+    (j : L →ₐ[ℚ] SeparableClosure ℚ)
+    (x : FiniteNormQuotient rationalIdeleClassRepresentation
+      (numberFieldEmbeddedBaseSubgroup K L j)
+      (numberFieldEmbeddedTopSubgroup K L j)
+      (numberFieldEmbeddedTopSubgroup_le_baseSubgroup K L j)) :
+    globalNormResidueEquivOfEmbedding K L j
+        (numberFieldEmbeddedFiniteNormQuotientEquivIdeleClassNormQuotient
+          K L j x) =
+      numberFieldEmbeddedAbelianizedExtensionQuotientEquivGaloisGroup K L j
+        (rationalCyclotomicDegreeData.normResidueSymbol
+          rationalIdeleClassRepresentation
+          rationalCyclotomicIdeleClassValuationData
+          rationalIdeleClassRepresentation_satisfiesClassFieldAxiom
+          (numberFieldEmbeddedFiniteAbstractField K L j)
+          (numberFieldEmbeddedFiniteGaloisSubextension K L j) x) := by
+  simp only [globalNormResidueEquivOfEmbedding, AddEquiv.trans_apply,
+    AddEquiv.symm_apply_apply]
+
 /-- The global norm-residue homomorphism obtained from an explicit
 compatible embedding. -/
 noncomputable def globalNormResidueMonoidHomOfEmbedding
@@ -934,13 +970,145 @@ theorem globalNormResidueMonoidHomOfEmbedding_apply
     (numberFieldEmbeddedFiniteNormQuotientEquivIdeleClassNormQuotient
       K L j).symm_apply_apply]
 
+omit [FiniteDimensional K L] [IsAbelianGalois K L] in
+/-- The ambient-fixed idèle-class transport for the standard embedding is
+the same map as the transport for an explicitly supplied embedding.  This
+comparison is kept at the transport boundary, before forming norm quotients
+or applying reciprocity. -/
+theorem numberFieldTowerIdeleClassEquivAmbientFixed_eq_embedded_standard :
+    numberFieldTowerIdeleClassEquivAmbientFixed K L =
+      numberFieldEmbeddedIdeleClassEquivAmbientFixed K L
+        (numberFieldSeparableClosureEmbedding L) := by
+  let j := numberFieldSeparableClosureEmbedding L
+  have hBase :
+      numberFieldTowerAbstractBaseFieldEquiv K L =
+        numberFieldEmbeddedAbstractBaseFieldEquiv K L j := by
+    rfl
+  unfold numberFieldTowerIdeleClassEquivAmbientFixed
+    numberFieldEmbeddedIdeleClassEquivAmbientFixed
+  rw [hBase]
+  dsimp only
+  congr 1
+
+/- At the chosen embedding, both constructions use the same fixed tower and
+abstract reciprocity data.  We compare their values on the particular fixed
+idele class needed below; the two implementations of the finite norm-quotient
+equivalence are deliberately not compared as dependent structures. -/
+private theorem numberFieldTowerNormResidueValue_eq_embedded_standard
+    (c : IdeleClassGroup K) :
+    numberFieldTowerAbelianizedExtensionQuotientEquivGaloisGroup K L
+        (rationalCyclotomicDegreeData.normResidueSymbol
+          rationalIdeleClassRepresentation
+          rationalCyclotomicIdeleClassValuationData
+          rationalIdeleClassRepresentation_satisfiesClassFieldAxiom
+          (numberFieldTowerReciprocityFiniteAbstractField K L)
+          (numberFieldTowerFiniteGaloisSubextension K L)
+          (finiteNormClass rationalIdeleClassRepresentation
+            (numberFieldTowerBaseSubgroup K L)
+            (numberFieldTowerTopSubgroup L)
+            (numberFieldTowerTopSubgroup_le_baseSubgroup K L)
+            (numberFieldTowerIdeleClassEquivAmbientFixed K L (Additive.ofMul c)))) =
+      numberFieldEmbeddedAbelianizedExtensionQuotientEquivGaloisGroup
+        K L (numberFieldSeparableClosureEmbedding L)
+        (rationalCyclotomicDegreeData.normResidueSymbol
+          rationalIdeleClassRepresentation
+          rationalCyclotomicIdeleClassValuationData
+          rationalIdeleClassRepresentation_satisfiesClassFieldAxiom
+          (numberFieldEmbeddedFiniteAbstractField K L
+            (numberFieldSeparableClosureEmbedding L))
+          (numberFieldEmbeddedFiniteGaloisSubextension K L
+            (numberFieldSeparableClosureEmbedding L))
+          (finiteNormClass rationalIdeleClassRepresentation
+            (numberFieldEmbeddedBaseSubgroup K L
+              (numberFieldSeparableClosureEmbedding L))
+            (numberFieldEmbeddedTopSubgroup K L
+              (numberFieldSeparableClosureEmbedding L))
+            (numberFieldEmbeddedTopSubgroup_le_baseSubgroup K L
+              (numberFieldSeparableClosureEmbedding L))
+            (numberFieldEmbeddedIdeleClassEquivAmbientFixed K L
+              (numberFieldSeparableClosureEmbedding L) (Additive.ofMul c)))) := by
+  have hIdeleClassEquiv :
+      numberFieldTowerIdeleClassEquivAmbientFixed K L =
+        numberFieldEmbeddedIdeleClassEquivAmbientFixed K L
+          (numberFieldSeparableClosureEmbedding L) := by
+    exact numberFieldTowerIdeleClassEquivAmbientFixed_eq_embedded_standard K L
+  have hFiniteAbstractField :
+      numberFieldTowerReciprocityFiniteAbstractField K L =
+        numberFieldEmbeddedFiniteAbstractField K L
+          (numberFieldSeparableClosureEmbedding L) := by
+    rfl
+  have hSubextension :
+      numberFieldTowerFiniteGaloisSubextension K L =
+        numberFieldEmbeddedFiniteGaloisSubextension K L
+          (numberFieldSeparableClosureEmbedding L) := by
+    rfl
+  have hGaloisComparison :
+      numberFieldTowerAbelianizedExtensionQuotientEquivGaloisGroup K L =
+        numberFieldEmbeddedAbelianizedExtensionQuotientEquivGaloisGroup
+          K L (numberFieldSeparableClosureEmbedding L) := by
+    rfl
+  simp only [← hGaloisComparison]
+  cases hFiniteAbstractField
+  cases hSubextension
+  rw [← hIdeleClassEquiv]
+  rfl
+
+/-- At the standard embedding, the two global norm-residue equivalences
+agree on the actual norm quotient.  The comparison is extensional: it uses
+surjectivity of the quotient map and the established evaluation formulas,
+not definitional equality of the two quotient constructions. -/
+theorem globalNormResidueEquiv_eq_ofEmbedding_standard :
+    globalNormResidueEquiv K L =
+      globalNormResidueEquivOfEmbedding K L
+        (numberFieldSeparableClosureEmbedding L) := by
+  apply AddEquiv.ext
+  intro q
+  obtain ⟨c, hc⟩ :=
+    QuotientGroup.mk'_surjective
+      (_root_.ideleClassNorm K L).range (Additive.toMul q)
+  have hq :
+      Additive.ofMul
+          (QuotientGroup.mk' (_root_.ideleClassNorm K L).range c) = q :=
+    Additive.toMul.injective hc
+  rw [← hq]
+  have hTower :=
+    numberFieldTowerFiniteNormQuotientEquivIdeleClassNormQuotient_ideleClass
+      K L c
+  have hEmbedded :=
+    numberFieldEmbeddedFiniteNormQuotientEquivIdeleClassNormQuotient_ideleClass
+      K L (numberFieldSeparableClosureEmbedding L) c
+  conv_lhs =>
+    rw [← hTower, globalNormResidueEquiv_finiteNormClass]
+  conv_rhs =>
+    rw [← hEmbedded, globalNormResidueEquivOfEmbedding_finiteNormClass]
+  exact numberFieldTowerNormResidueValue_eq_embedded_standard K L c
+
 /-- The existing global norm-residue map is the explicit-embedding
 construction for the standard chosen embedding of the top field. -/
 theorem globalNormResidueMonoidHom_eq_ofEmbedding_standard :
     globalNormResidueMonoidHom K L =
       globalNormResidueMonoidHomOfEmbedding K L
         (numberFieldSeparableClosureEmbedding L) := by
-  rfl
+  apply MonoidHom.ext
+  intro c
+  apply Additive.toMul.injective
+  change
+    globalNormResidueEquiv K L
+        (Additive.ofMul
+          (QuotientGroup.mk' (_root_.ideleClassNorm K L).range c)) =
+      globalNormResidueEquivOfEmbedding K L
+        (numberFieldSeparableClosureEmbedding L)
+        (Additive.ofMul
+          (QuotientGroup.mk' (_root_.ideleClassNorm K L).range c))
+  exact congrArg
+    (fun e :
+      Additive
+          (IdeleClassGroup K ⧸
+            (_root_.ideleClassNorm K L).range) ≃+
+        Additive (Gal(L / K)) =>
+      e (Additive.ofMul
+        (QuotientGroup.mk' (_root_.ideleClassNorm K L).range c)))
+    (globalNormResidueEquiv_eq_ofEmbedding_standard K L)
 
 end EmbeddedNumberFieldRealization
 
@@ -1381,19 +1549,24 @@ private theorem
   have hmap :=
     map_rationalFiniteNormSubgroup_eq_ordinaryIdeleClassNormRange_concrete
       K.field L.field L.below L.normal
+  have hmem :
+      Additive.ofMul c ∈ S.map eK.symm.toAddMonoidHom ↔
+        Additive.ofMul c ∈ N.toAddSubgroup :=
+    Iff.of_eq (congrArg
+      (fun T : AddSubgroup (Additive (IdeleClassGroup
+        (abstractFixedField ℚ (SeparableClosure ℚ) K.field))) =>
+        Additive.ofMul c ∈ T) hmap)
   change eK (Additive.ofMul c) ∈ S ↔ Additive.ofMul c ∈ N.toAddSubgroup
   constructor
   · intro hc
     have hmapped :
         Additive.ofMul c ∈ S.map eK.symm.toAddMonoidHom :=
       ⟨eK (Additive.ofMul c), hc, eK.symm_apply_apply _⟩
-    rw [hmap] at hmapped
-    exact hmapped
+    exact hmem.mp hmapped
   · intro hc
     have hmapped :
         Additive.ofMul c ∈ S.map eK.symm.toAddMonoidHom := by
-      rw [hmap]
-      exact hc
+      exact hmem.mpr hc
     rcases hmapped with ⟨a, ha, hac⟩
     have hea : a = eK (Additive.ofMul c) :=
       (eK.apply_symm_apply a).symm.trans (congrArg eK hac)
@@ -1425,11 +1598,14 @@ theorem abstractFixedFieldGlobalNormResidueMonoidHom_eq_one_iff
           (ambientFixedGlobalNormResidueAddMonoidHom K L
             ((rationalAbstractFixedFieldIdeleClassEquivFixed K.field)
               (Additive.ofMul c))) = 1 := by
-          rw [abstractFixedFieldGlobalNormResidueMonoidHom_fixed_apply]
+          exact Iff.of_eq (congrArg (fun g => g = 1)
+            (abstractFixedFieldGlobalNormResidueMonoidHom_fixed_apply K L
+              ((rationalAbstractFixedFieldIdeleClassEquivFixed K.field)
+                (Additive.ofMul c))))
     _ ↔ ambientFixedGlobalNormResidueAddMonoidHom K L
           ((rationalAbstractFixedFieldIdeleClassEquivFixed K.field)
-            (Additive.ofMul c)) = 0 := by
-          rfl
+            (Additive.ofMul c)) = 0 :=
+      toMul_eq_one
     _ ↔ finiteNormClass rationalIdeleClassRepresentation
           K.field L.field L.below
           ((rationalAbstractFixedFieldIdeleClassEquivFixed K.field)

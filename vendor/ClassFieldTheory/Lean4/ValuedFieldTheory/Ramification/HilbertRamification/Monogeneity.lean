@@ -1,8 +1,24 @@
-import ValuedFieldTheory.Valuation.HenselLemma
-import ValuedFieldTheory.Ramification.HilbertRamification.UniqueExtensionIntegralClosure
-import ValuedFieldTheory.Ramification.HilbertRamification.Polynomial
-import Mathlib.NumberTheory.RamificationInertia.Inertia
-import Mathlib.NumberTheory.RamificationInertia.Ramification
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.HenselLemma
+public import ValuedFieldTheory.Ramification.HilbertRamification.UniqueExtensionIntegralClosure
+public import ValuedFieldTheory.Ramification.HilbertRamification.Polynomial
+public import Mathlib.NumberTheory.RamificationInertia.Inertia
+public import Mathlib.NumberTheory.RamificationInertia.Ramification
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -84,8 +100,8 @@ theorem residueField_finiteDimensional_of_moduleFinite_dvf
   change 0 < Module.finrank
     (base.valuationSubring ⧸ base.maximalIdeal)
     (target.valuationSubring ⧸ target.maximalIdeal)
-  have h := Ideal.inertiaDeg'_pos base.maximalIdeal target.maximalIdeal
-  rw [Ideal.inertiaDeg'_algebraMap] at h
+  have h := target.maximalIdeal.inertiaDeg_pos base.valuationSubring
+  rw [Ideal.inertiaDeg_eq_of_isMaximal base.maximalIdeal target.maximalIdeal] at h
   exact h
 
 omit [FiniteDimensional K L] [IsGalois K L] in

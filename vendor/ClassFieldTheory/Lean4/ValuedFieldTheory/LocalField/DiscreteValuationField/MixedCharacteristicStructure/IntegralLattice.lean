@@ -1,13 +1,29 @@
-import Mathlib.SetTheory.Cardinal.Finite
-import ValuedFieldTheory.LocalField.DiscreteValuationField.MixedCharacteristicQp
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicField
-import ValuedFieldTheory.LocalField.Analytic.PrincipalUnitExpLogEquiv
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.Core
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicModuleStructure
-import Mathlib.RingTheory.DedekindDomain.IntegralClosure
-import Mathlib.LinearAlgebra.Dimension.Torsion.Finite
-import Mathlib.Topology.Algebra.Module.Compact
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.SetTheory.Cardinal.Finite
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.MixedCharacteristicQp
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicField
+public import ValuedFieldTheory.LocalField.Analytic.PrincipalUnitExpLogEquiv
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.Core
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicModuleStructure
+public import Mathlib.RingTheory.DedekindDomain.IntegralClosure
+public import Mathlib.LinearAlgebra.Dimension.Torsion.Finite
+public import Mathlib.Topology.Algebra.Module.Compact
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

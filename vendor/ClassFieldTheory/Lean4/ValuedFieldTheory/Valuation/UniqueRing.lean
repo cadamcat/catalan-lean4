@@ -1,6 +1,22 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
-import Mathlib.RingTheory.Valuation.RamificationGroup
-import Mathlib.FieldTheory.Normal.Basic
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
+public import Mathlib.RingTheory.Valuation.RamificationGroup
+public import Mathlib.FieldTheory.Normal.Basic
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -179,7 +195,7 @@ theorem valuationSubringMapOfHasExtension_isLocalHom
     IsLocalHom (valuationSubringMapOfHasExtension V W hW) := by
   let : V.valuation.HasExtension W.valuation := hW
   apply ((IsLocalRing.local_hom_TFAE
-    (valuationSubringMapOfHasExtension V W hW)).out 4 0).mp
+    (valuationSubringMapOfHasExtension V W hW)).out 5 1).mp
   ext x
   rw [Ideal.mem_comap, W.valuation_lt_one_iff, V.valuation_lt_one_iff]
   change

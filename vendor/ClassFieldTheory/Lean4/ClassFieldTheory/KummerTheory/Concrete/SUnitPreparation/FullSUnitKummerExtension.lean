@@ -1,5 +1,21 @@
-import ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.SUnitPowerQuotient
-import GaloisCohomology.Kummer.Concrete.SUnitPreparation.PrimePowerKernelCoordinates
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.SUnitPowerQuotient
+public import GaloisCohomology.Kummer.Concrete.SUnitPreparation.PrimePowerKernelCoordinates
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -337,9 +353,7 @@ theorem exists_finset_fullSUnitKummerExtensionRoots_adjoin_eq_top
       (fun _ _ _ _ ihx ihy => by
         simpa using R.add_mem ihx ihy)
       (fun _ _ ihx => by
-        convert R.inv_mem ihx using 1
-        apply Subtype.ext
-        rfl)
+        convert R.inv_mem ihx using 1)
       (fun _ _ _ _ ihx ihy => by
         simpa using R.mul_mem ihx ihy)
       hx

@@ -1,5 +1,21 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.AbstractFixedFieldGlobalNormResidue
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicAbstractFixedFieldArtin
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.AbstractFixedFieldGlobalNormResidue
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicAbstractFixedFieldArtin
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -134,6 +150,35 @@ noncomputable def abstractFixedFieldCyclotomicFiniteRestrictionMonoidHom
       (@MonoidHom.comp _ _ _ _ _ _ finiteRestriction
         (@MonoidHom.comp _ _ _ _ _ _
           degreeEquiv.symm.toMonoidHom galEquiv.toMonoidHom))
+
+/-- Evaluate the finite cyclotomic restriction through its quotient coordinates. -/
+theorem abstractFixedFieldCyclotomicFiniteRestrictionMonoidHom_apply
+    (H : FiniteAbstractField
+      (SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ))
+    (L : FiniteAbelianSubextension H.field)
+    (hUnramified :
+      L.toFiniteGaloisExtension.IsUnramified
+        rationalCyclotomicDegreeData)
+    (σ : Gal(
+      LocalClassFieldTheory.abstractRelativeFixedField
+          ℚ (SeparableClosure ℚ)
+          (rationalCyclotomicFieldInertia_le H.field) /
+        LocalClassFieldTheory.abstractFixedField
+          ℚ (SeparableClosure ℚ) H.field)) :
+    abstractFixedFieldCyclotomicFiniteRestrictionMonoidHom H L hUnramified σ =
+      (L.toFiniteGaloisExtension.extensionQuotientMulEquiv.trans
+        (LocalClassFieldTheory.abstractExtensionQuotientEquivGaloisGroup
+          ℚ (SeparableClosure ℚ)
+          H.field L.field L.below L.normal))
+        (DegreeData.finiteUnramifiedRestriction
+          rationalCyclotomicDegreeData
+          (H.toFiniteResidueAbstractField rationalCyclotomicDegreeData)
+          L.toFiniteGaloisExtension hUnramified
+          ((rationalCyclotomicDegreeData.maximalUnramifiedDegreeEquiv
+            (H.toFiniteResidueAbstractField
+              rationalCyclotomicDegreeData)).symm
+            (abstractFixedFieldCyclotomicGalEquivZHat H σ))) := by
+  rfl
 
 /-- In the canonical `ZHat` coordinate, the genuine cyclotomic Artin
 symbol recovers the abstract maximal-unramified quotient class. -/

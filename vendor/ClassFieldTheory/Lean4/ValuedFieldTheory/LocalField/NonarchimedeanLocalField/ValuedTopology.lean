@@ -1,4 +1,20 @@
-import Mathlib.Topology.Algebra.Valued.ValuativeRel
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.Topology.Algebra.Valued.ValuativeRel
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -44,7 +60,7 @@ theorem isValuativeTopology_of_valued_ofValuation
     apply hδ
     exact
       (ValuativeRel.valuation_lt_symm_orderMonoidIso
-        v (δ : MonoidWithZeroHom.ValueGroup₀ (.ofClass v)) z).1
+        v δ.1 z).1
         (by simpa using hz)
   · rintro ⟨γ, hγ⟩
     refine
@@ -55,10 +71,10 @@ theorem isValuativeTopology_of_valued_ofValuation
     have hz' :
         v.restrict z <
           (ValuativeRel.ValueGroupWithZero.orderMonoidIso v)
-            (γ : ValuativeRel.ValueGroupWithZero F) := by
+            γ.1 := by
       exact hz
     exact
       (ValuativeRel.restrict_lt_orderMonoidIso
-        v (γ : ValuativeRel.ValueGroupWithZero F) z).1 hz'
+        v γ.1 z).1 hz'
 
 end LocalFieldTheory

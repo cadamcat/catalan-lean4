@@ -1,26 +1,42 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.CompletionToIdeal
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.IdealToCompletion
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.LocalNorm
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.BaseChange
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Core
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormalClosureNorm
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerAlgEquivNaturality
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseChange
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.FinitePlaceTensorNorm
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicFinitePlace
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicLocalization
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalPrimeFactorization
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalPrincipalLocalUnit
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.SemilinearNaturality
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedNormalization
-import ClassFieldTheory.LocalClassFieldTheory.LubinTateApplication.PadicMultiplicativeArtinComparison
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicValuationComparison
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UnramifiedFrobenius
-import ValuedFieldTheory.LocalField.Padic.Cyclotomic.TotallyRamified.EisensteinPolynomial
-import Mathlib.NumberTheory.NumberField.Cyclotomic.Galois
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.CompletionToIdeal
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.IdealToCompletion
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.LocalNorm
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.BaseChange
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Core
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormalClosureNorm
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerAlgEquivNaturality
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseChange
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.FinitePlaceTensorNorm
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicFinitePlace
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicLocalization
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalPrimeFactorization
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalPrincipalLocalUnit
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.SemilinearNaturality
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedNormalization
+public import ClassFieldTheory.LocalClassFieldTheory.LubinTateApplication.PadicMultiplicativeArtinComparison
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicValuationComparison
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UnramifiedFrobenius
+public import ValuedFieldTheory.LocalField.Padic.Cyclotomic.TotallyRamified.EisensteinPolynomial
+public import Mathlib.NumberTheory.NumberField.Cyclotomic.Galois
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -1319,28 +1335,28 @@ private theorem rationalCyclotomicArtin_padic_algebraMap
 private theorem rationalCyclotomicArtin_algebraAdjoin_restrictScalars
     (m : ℕ+) (p : Nat.Primes) :
     (Algebra.adjoin (rationalCyclotomicArtinBaseAbv p).Completion
-      ({rationalCyclotomicLocalizedPrimitiveRoot m
-        (rationalCyclotomicArtinPlace p)} :
+      (Set.singleton (rationalCyclotomicLocalizedPrimitiveRoot m
+        (rationalCyclotomicArtinPlace p)) :
         Set (rationalCyclotomicArtinLocalizedField m p))).restrictScalars ℚ =
       (Algebra.adjoin ℚ_[p.1]
-        ({rationalCyclotomicLocalizedPrimitiveRoot m
-          (rationalCyclotomicArtinPlace p)} :
+        (Set.singleton (rationalCyclotomicLocalizedPrimitiveRoot m
+          (rationalCyclotomicArtinPlace p)) :
           Set (rationalCyclotomicArtinLocalizedField m p))).restrictScalars ℚ := by
   exact
     Algebra.restrictScalars_adjoin_of_algEquiv
       (E := rationalCyclotomicArtinLocalizedField m p)
       (rationalFinitePlaceCompletionAlgEquivPadic p)
       (rationalCyclotomicArtin_padic_algebraMap m p)
-      ({rationalCyclotomicLocalizedPrimitiveRoot m
-        (rationalCyclotomicArtinPlace p)} :
+      (Set.singleton (rationalCyclotomicLocalizedPrimitiveRoot m
+        (rationalCyclotomicArtinPlace p)) :
         Set (rationalCyclotomicArtinLocalizedField m p))
 
 private theorem
     rationalCyclotomicArtin_baseAlgebraAdjoin_restrict_eq_top
     (m : ℕ+) (p : Nat.Primes) :
     (Algebra.adjoin (rationalCyclotomicArtinBaseAbv p).Completion
-      ({rationalCyclotomicLocalizedPrimitiveRoot m
-        (rationalCyclotomicArtinPlace p)} :
+      (Set.singleton (rationalCyclotomicLocalizedPrimitiveRoot m
+        (rationalCyclotomicArtinPlace p)) :
         Set (rationalCyclotomicArtinLocalizedField m p))).restrictScalars ℚ =
       (⊤ : Subalgebra (rationalCyclotomicArtinBaseAbv p).Completion
       (rationalCyclotomicArtinLocalizedField m p)).restrictScalars ℚ := by
@@ -1353,8 +1369,8 @@ private theorem
       m (rationalCyclotomicArtinPlace p)
   have hTop :
       Algebra.adjoin (rationalCyclotomicArtinBaseAbv p).Completion
-        ({rationalCyclotomicLocalizedPrimitiveRoot m
-          (rationalCyclotomicArtinPlace p)} :
+        (Set.singleton (rationalCyclotomicLocalizedPrimitiveRoot m
+          (rationalCyclotomicArtinPlace p)) :
           Set (rationalCyclotomicArtinLocalizedField m p)) = ⊤ :=
     IsCyclotomicExtension.adjoin_primitive_root_eq_top
       (A := (rationalCyclotomicArtinBaseAbv p).Completion)
@@ -1377,8 +1393,8 @@ private theorem
     rationalCyclotomicArtin_padicAlgebraAdjoin_restrict_eq_top
     (m : ℕ+) (p : Nat.Primes) :
     (Algebra.adjoin ℚ_[p.1]
-      ({rationalCyclotomicLocalizedPrimitiveRoot m
-        (rationalCyclotomicArtinPlace p)} :
+      (Set.singleton (rationalCyclotomicLocalizedPrimitiveRoot m
+        (rationalCyclotomicArtinPlace p)) :
         Set (rationalCyclotomicArtinLocalizedField m p))).restrictScalars ℚ =
       (⊤ : Subalgebra ℚ_[p.1]
         (rationalCyclotomicArtinLocalizedField m p)).restrictScalars ℚ := by
@@ -1507,9 +1523,9 @@ private theorem
     rationalCyclotomicPrincipalPrimeLocalizedPrimitiveRoot_adjoin_eq_top
     (p : Nat.Primes) (n : ℕ) :
     Algebra.adjoin ℚ_[p.1]
-        ({rationalCyclotomicLocalizedPrimitiveRoot
+        (Set.singleton (rationalCyclotomicLocalizedPrimitiveRoot
           (rationalCyclotomicPrincipalPrimeModulus p n)
-          (rationalCyclotomicArtinPlace p)} :
+          (rationalCyclotomicArtinPlace p)) :
           Set (rationalCyclotomicArtinLocalizedField
             (rationalCyclotomicPrincipalPrimeModulus p n) p)) =
       ⊤ := by

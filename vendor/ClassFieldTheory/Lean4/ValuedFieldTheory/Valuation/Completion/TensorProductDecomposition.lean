@@ -1,10 +1,26 @@
-import ValuedFieldTheory.Valuation.AbsoluteValue.Completion
-import ValuedFieldTheory.Valuation.Completion.ExtensionFactorClassification
-import ValuedFieldTheory.Valuation.Completion.SeparablePolynomialFactors
-import ValuedFieldTheory.Valuation.Completion.BaseChangeAdjoinRoot
-import ValuedFieldTheory.Valuation.Completion.PolynomialCRT
-import ValuedFieldTheory.Valuation.Completion.CanonicalTensorMap
-import Mathlib.Algebra.Group.Pi.Units
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Completion
+public import ValuedFieldTheory.Valuation.Completion.ExtensionFactorClassification
+public import ValuedFieldTheory.Valuation.Completion.SeparablePolynomialFactors
+public import ValuedFieldTheory.Valuation.Completion.BaseChangeAdjoinRoot
+public import ValuedFieldTheory.Valuation.Completion.PolynomialCRT
+public import ValuedFieldTheory.Valuation.Completion.CanonicalTensorMap
+public import Mathlib.Algebra.Group.Pi.Units
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

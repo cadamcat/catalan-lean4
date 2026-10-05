@@ -1,7 +1,23 @@
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.RangeRestriction
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.CyclicValueGroup
-import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationIdeal
-import Mathlib.RingTheory.AdicCompletion.Topology
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.RangeRestriction
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.CyclicValueGroup
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationIdeal
+public import Mathlib.RingTheory.AdicCompletion.Topology
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -157,6 +173,7 @@ theorem mrangeRestrict_units_isCyclic
           (MonoidWithZeroHom.ofClass F.valuation) :=
       MonoidWithZeroHom.mem_valueGroup
         (MonoidWithZeroHom.ofClass F.valuation) ⟨x, hx⟩
+    rw [_root_.Valuation.ofClass_eq_toMonoidWithZeroHom] at hηΓ_mem
     rw [← _root_.Valuation.IsRankOneDiscrete.generator_zpowers_eq_valueGroup
       F.valuation, Subgroup.mem_zpowers_iff] at hηΓ_mem
     rcases hηΓ_mem with ⟨z, hz⟩

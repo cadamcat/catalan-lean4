@@ -1,8 +1,24 @@
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.CompleteRangeRestriction
-import ValuedFieldTheory.Valuation.ValuedAdicComplete
-import Mathlib.RingTheory.AdicCompletion.Topology
-import Mathlib.Topology.Algebra.Valued.LocallyCompact
-import Mathlib.Topology.Algebra.Valued.NormedValued
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.CompleteRangeRestriction
+public import ValuedFieldTheory.Valuation.ValuedAdicComplete
+public import Mathlib.RingTheory.AdicCompletion.Topology
+public import Mathlib.Topology.Algebra.Valued.LocallyCompact
+public import Mathlib.Topology.Algebra.Valued.NormedValued
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -166,11 +182,11 @@ theorem mem_subfield_of_mrangeRestrict_isClosed_of_forall_valuationSubring_smodE
     change
       F.valuation ((z : K) - (b : K)) <
         ((MonoidWithZeroHom.ValueGroup₀.embedding
-            (f := MonoidWithZeroHom.ofClass
-              (Valued.v :
+            (f := ((Valued.v :
                 _root_.Valuation K
                   (MonoidHom.mrange
-                    F.valuation.toMonoidWithZeroHom)))
+                    F.valuation.toMonoidWithZeroHom)) :
+                K →*₀ MonoidHom.mrange F.valuation.toMonoidWithZeroHom))
             (↑gamma) :
           MonoidHom.mrange F.valuation.toMonoidWithZeroHom) : F.ValueGroup)
     simpa [gamma'] using hlt

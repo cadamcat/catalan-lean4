@@ -1,10 +1,26 @@
-import GaloisCohomology.Cyclic.TateH0.Invariants
-import GaloisCohomology.Cyclic.TateH0.NormImage
-import GaloisCohomology.Cyclic.TateH0.Main
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Induced
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteExtensionClassFieldAxiom
-import ValuedFieldTheory.Ramification.HilbertRamification.DecompositionFieldLocalization
-import Mathlib.FieldTheory.Galois.Infinite
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import GaloisCohomology.Cyclic.TateH0.Invariants
+public import GaloisCohomology.Cyclic.TateH0.NormImage
+public import GaloisCohomology.Cyclic.TateH0.Main
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Induced
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteExtensionClassFieldAxiom
+public import ValuedFieldTheory.Ramification.HilbertRamification.DecompositionFieldLocalization
+public import Mathlib.FieldTheory.Galois.Infinite
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

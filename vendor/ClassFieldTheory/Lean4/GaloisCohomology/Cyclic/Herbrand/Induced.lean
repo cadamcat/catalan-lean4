@@ -1,5 +1,22 @@
-import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Core
-import Mathlib.Logic.Equiv.Fin.Rotate
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Core
+public import ProCGroups.InducedFunctions
+public import Mathlib.Logic.Equiv.Fin.Rotate
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -14,8 +31,8 @@ Herbrand quotient calculation.  If `H ≤ G` acts on a commutative group `B`, th
 
 The ambient group acts by right translation.  This convention is the one
 used for the products of the local multiplicative groups above a place.
-The construction is self-contained in this public module and has no
-dependency on any protected development tree.
+The basic equivariant-function model is supplied by `ProCGroups.InducedFunctions`;
+this module adds the cyclic-coordinate and Herbrand calculations.
 -/
 
 noncomputable section
@@ -59,7 +76,7 @@ theorem prod_twistedFinRotate_div
       (∏ j : Fin n, u j) = (τ • v 0) * R := by
     rw [← Finset.mul_prod_erase Finset.univ u
       (Finset.mem_univ (0 : Fin n))]
-    simp only [u, if_pos, R]
+    simp only [u, ite_eq_left, R]
     congr 1
     apply Finset.prod_congr rfl
     intro j hj
@@ -152,69 +169,15 @@ noncomputable def quotientMulEquivOfSplit
     apply QuotientGroup.eq_iff_div_mem.mpr
     simp [hfs]
 
-/-- The concrete multiplicative induced module `Ind_H^G(B)`.  For finite
-index this equivariant-function model agrees with the usual direct-product
-model of induction. -/
-def inducedSubgroup [Group G] (H : Subgroup G) [CommGroup B]
-    [MulDistribMulAction H B] : Subgroup (G → B) where
-  carrier := {f | ∀ (h : H) (x : G), f (h.1 * x) = h • f x}
-  one_mem' := by simp
-  mul_mem' := by
-    intro f k hf hk h x
-    simp only [Pi.mul_apply, hf h x, hk h x]
-    exact (MulDistribMulAction.smul_mul h (f x) (k x)).symm
-  inv_mem' := by
-    intro f hf h x
-    simp only [Pi.inv_apply, hf h x]
-    exact (map_inv (MulDistribMulAction.toMonoidHom B h) (f x)).symm
+export ProCGroups.InducedFunctions
+  (inducedSubgroup InducedModule inducedEvaluation inducedEvaluation_apply)
 
-/-- The underlying group of the concrete induced module. -/
-abbrev InducedModule [Group G] (H : Subgroup G) [CommGroup B]
-    [MulDistribMulAction H B] :=
-  inducedSubgroup (G := G) (B := B) H
-
-/-- Right translation is the natural `G`-action on the induced module. -/
-instance inducedMulDistribMulAction [Group G] (H : Subgroup G) [CommGroup B]
+/-- Compatibility name for the canonical action supplied by the common core.
+This alias is not registered as an additional instance. -/
+abbrev inducedMulDistribMulAction [Group G] (H : Subgroup G) [CommGroup B]
     [MulDistribMulAction H B] :
-    MulDistribMulAction G (InducedModule (B := B) H) where
-  smul g f := ⟨fun x ↦ f.1 (x * g), by
-    intro h x
-    simpa only [mul_assoc] using f.2 h (x * g)⟩
-  one_smul := by
-    intro f
-    apply Subtype.ext
-    funext x
-    change f.1 (x * 1) = f.1 x
-    rw [mul_one]
-  mul_smul := by
-    intro g k f
-    apply Subtype.ext
-    funext x
-    change f.1 (x * (g * k)) = f.1 ((x * g) * k)
-    rw [mul_assoc]
-  smul_mul := by
-    intro g f k
-    ext x
-    rfl
-  smul_one := by
-    intro g
-    ext x
-    rfl
-
-/-- Evaluation at the identity.  On `G`-fixed induced functions its value
-is fixed by `H`; this is the degree-zero map in Shapiro's lemma. -/
-def inducedEvaluation [Group G] (H : Subgroup G) [CommGroup B]
-    [MulDistribMulAction H B] :
-    InducedModule (B := B) H →* B where
-  toFun f := f.1 1
-  map_one' := rfl
-  map_mul' _ _ := rfl
-
-@[simp]
-theorem inducedEvaluation_apply [Group G] (H : Subgroup G) [CommGroup B]
-    [MulDistribMulAction H B] (f : InducedModule (B := B) H) :
-    inducedEvaluation H f = f.1 1 :=
-  rfl
+    MulDistribMulAction G (InducedModule (B := B) H) :=
+  ProCGroups.InducedFunctions.inducedMulDistribMulAction H
 
 /-- Evaluation at the identity identifies the fixed points of an induced
 module with the fixed points for the inducing subgroup. -/

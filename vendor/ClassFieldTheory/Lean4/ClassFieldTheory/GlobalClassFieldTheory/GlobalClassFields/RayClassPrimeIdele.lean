@@ -1,7 +1,23 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.FinitePrime
-import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Ideal
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertClassFieldPrimeSplitting
-import ClassFieldTheory.GlobalClassFieldTheory.IdealClassFieldTheory.IdealFrobenius
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.FinitePrime
+public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Ideal
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertClassFieldPrimeSplitting
+public import ClassFieldTheory.GlobalClassFieldTheory.IdealClassFieldTheory.IdealFrobenius
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -23,14 +39,18 @@ namespace GlobalClassFields
 
 open NumberField IsDedekindDomain IdeleGroup
 
+universe u
+
 private theorem rayClassPrimeIdeleClassGroupIsMulCommutative
-    (F : Type) [Field F] [NumberField F] :
+    (F : Type u) [Field F] [NumberField F] :
     IsMulCommutative (IdeleClassGroup F) :=
   IsMulCommutative.of_comm (fun a b => mul_comm a b)
 
 attribute [local instance] rayClassPrimeIdeleClassGroupIsMulCommutative
 
-variable {K : Type} [Field K] [NumberField K]
+section GenericPrimeIdele
+
+variable {K : Type u} [Field K] [NumberField K]
 
 /-- A normalized one-place prime idèle is prime to a modulus whenever
 the supporting prime does not occur in the modulus. -/
@@ -150,6 +170,10 @@ theorem rayClassGroupEquivIdealRayClassGroup_mk_primeTo
   rw [← RayClass.quotientRaySubgroupEquivIdeleRayQuotient_mk m a,
     MulEquiv.symm_apply_apply,
     RayClass.quotientRaySubgroupEquivIdealRayClassGroup_mk]
+
+end GenericPrimeIdele
+
+variable {K : Type} [Field K] [NumberField K]
 
 /-- The ideal Artin map of the fractional ideal attached to a
 prime-to-modulus idèle is its direct class in the idèle-class

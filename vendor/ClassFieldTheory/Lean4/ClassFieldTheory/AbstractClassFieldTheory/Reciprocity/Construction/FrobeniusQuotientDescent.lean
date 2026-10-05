@@ -1,4 +1,20 @@
-import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.UniversalNormDescent
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.UniversalNormDescent
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -150,7 +166,7 @@ theorem frobeniusPowerSum_add (D : DegreeData G) (A : Rep ℤ G)
       D.frobeniusQuotientAction A K L hLK (φ ^ n) x :=
     (rep_action_pow_eq_iterate B φ n x).symm
   exact ((hsum (n + m) x).symm.trans
-    (birkhoffSum_add (B.ρ φ) id n m x)).trans
+    (birkhoffSum_add_right_apply (B.ρ φ) id n m x)).trans
       (congrArg₂
         (fun a b : ambientFixedAddSubgroup A (D.maximalUnramifiedField L) => a + b)
         (hsum n x)

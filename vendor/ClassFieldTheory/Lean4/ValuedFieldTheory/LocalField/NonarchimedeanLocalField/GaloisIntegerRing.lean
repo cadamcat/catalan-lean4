@@ -1,14 +1,30 @@
-import Mathlib.FieldTheory.Galois.IsGaloisGroup
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Norm
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.PrincipalUnitActions
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueExtension
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Valuation
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.FieldTheory.Galois.IsGaloisGroup
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Norm
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.PrincipalUnitActions
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueExtension
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Valuation
 /-!
 # Galois actions on valuation rings
 
 Restricts Galois automorphisms to valuation rings and transports their action
 to ideals, ideal-power quotients, principal units, and successive quotients.
 -/
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

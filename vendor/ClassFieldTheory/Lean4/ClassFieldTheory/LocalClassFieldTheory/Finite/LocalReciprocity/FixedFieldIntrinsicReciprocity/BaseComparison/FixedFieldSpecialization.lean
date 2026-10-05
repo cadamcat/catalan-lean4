@@ -1,5 +1,21 @@
-import Mathlib.FieldTheory.Galois.Basic
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldIntrinsicReciprocity.BaseComparison.FixedFieldNormQuotient
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.FieldTheory.Galois.Basic
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldIntrinsicReciprocity.BaseComparison.FixedFieldNormQuotient
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -16,6 +32,14 @@ namespace LocalClassFieldTheory
 open LocalFieldTheory RamificationTheory CyclicCohomology KummerTheory
 open ClassFormation
 open scoped ValuativeRel
+
+private theorem mem_subgroup_iff_of_map_eq_of_ker_eq
+    {G H Q : Type*} [Group G] [Group H] [Group Q]
+    (f : G →* Q) (g : H →* Q) (I : Subgroup G) (J : Subgroup H)
+    (hf : f.ker = I) (hg : g.ker = J) (x : G) (y : H)
+    (hxy : f x = g y) :
+    x ∈ I ↔ y ∈ J := by
+  rw [← hf, ← hg, MonoidHom.mem_ker, MonoidHom.mem_ker, hxy]
 
 /-- Transport through a separable-closure equivalence identifies membership in
 the intrinsic extension subgroup of a finite fixed-field extension with
@@ -216,11 +240,28 @@ theorem intrinsicExtensionInertia_iff_ambientFixedField
     ⟨τ.1, τ.2⟩
   let phiTauRH : RH.field.toSubgroup :=
     ⟨(φ τ.1).1, (φ τ.1).2⟩
+  have hRFker :
+      ((localResidueDatum F).normalizedDegree RF).toMonoidHom.ker =
+        (localResidueDatum F).fieldInertiaWithin RF.field :=
+    (localResidueDatum F).normalizedDegree_ker RF
+  have hRHker :
+      ((localResidueDatum K).normalizedDegree RH).toMonoidHom.ker =
+        (localResidueDatum K).fieldInertiaWithin RH.field :=
+    (localResidueDatum K).normalizedDegree_ker RH
   have hdegree :
       (localResidueDatum F).normalizedDegree RF tauRF =
         (localResidueDatum K).normalizedDegree RH phiTauRH := by
     simpa [RF, RH, φ, tauRF, phiTauRH] using
       intrinsicBase_normalizedDegree_eq_ambientFixedField K H e τ
+  have hinertia :
+      tauRF ∈ (localResidueDatum F).fieldInertiaWithin RF.field ↔
+        phiTauRH ∈ (localResidueDatum K).fieldInertiaWithin RH.field :=
+    mem_subgroup_iff_of_map_eq_of_ker_eq
+      ((localResidueDatum F).normalizedDegree RF).toMonoidHom
+      ((localResidueDatum K).normalizedDegree RH).toMonoidHom
+      ((localResidueDatum F).fieldInertiaWithin RF.field)
+      ((localResidueDatum K).fieldInertiaWithin RH.field)
+      hRFker hRHker tauRF phiTauRH hdegree
   change
     (τ ∈ extensionSubgroup
         (intrinsicAbstractBase F) EI.field EI.below ∧
@@ -233,48 +274,12 @@ theorem intrinsicExtensionInertia_iff_ambientFixedField
     refine
       ⟨(intrinsicExtensionSubgroup_iff_ambientFixedField
         K H J hJH e τ).1 hτextension, ?_⟩
-    have hτRF :
-        tauRF ∈
-          (localResidueDatum F).fieldInertiaWithin RF.field := by
-      exact hτinertia
-    have hnormalizedRF :
-        (localResidueDatum F).normalizedDegree RF tauRF = 1 := by
-      change
-        tauRF ∈
-          ((localResidueDatum F).normalizedDegree RF).toMonoidHom.ker
-      rw [(localResidueDatum F).normalizedDegree_ker RF]
-      exact hτRF
-    have hnormalizedRH :
-        (localResidueDatum K).normalizedDegree RH phiTauRH = 1 :=
-      hdegree.symm.trans hnormalizedRF
-    change
-      phiTauRH ∈
-        (localResidueDatum K).fieldInertiaWithin RH.field
-    rw [← (localResidueDatum K).normalizedDegree_ker RH]
-    exact hnormalizedRH
+    exact hinertia.1 hτinertia
   · rintro ⟨hφextension, hφinertia⟩
     refine
       ⟨(intrinsicExtensionSubgroup_iff_ambientFixedField
         K H J hJH e τ).2 hφextension, ?_⟩
-    have hphiTauRH :
-        phiTauRH ∈
-          (localResidueDatum K).fieldInertiaWithin RH.field := by
-      exact hφinertia
-    have hnormalizedRH :
-        (localResidueDatum K).normalizedDegree RH phiTauRH = 1 := by
-      change
-        phiTauRH ∈
-          ((localResidueDatum K).normalizedDegree RH).toMonoidHom.ker
-      rw [(localResidueDatum K).normalizedDegree_ker RH]
-      exact hphiTauRH
-    have hnormalizedRF :
-        (localResidueDatum F).normalizedDegree RF tauRF = 1 :=
-      hdegree.trans hnormalizedRH
-    change
-      tauRF ∈
-        (localResidueDatum F).fieldInertiaWithin RF.field
-    rw [← (localResidueDatum F).normalizedDegree_ker RF]
-    exact hnormalizedRF
+    exact hinertia.2 hφinertia
 
 /-- The type of algebra equivalences from the intrinsic separable closure of a
 finite fixed field to the ambient separable closure. -/

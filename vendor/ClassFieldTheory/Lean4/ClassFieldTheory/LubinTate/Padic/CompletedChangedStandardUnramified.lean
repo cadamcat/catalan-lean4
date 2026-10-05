@@ -1,12 +1,28 @@
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicValuationComparison
-import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationAddVal
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteUnramified
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteExtensionTopology
-import ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardFixedField
-import ClassFieldTheory.LubinTate.Padic.CompletedPrimitiveUniformizer
-import ValuedFieldTheory.Valuation.DiscreteValuationField.AmbientUniformizer
-import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Uniqueness
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicValuationComparison
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationAddVal
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteUnramified
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteExtensionTopology
+public import ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardFixedField
+public import ClassFieldTheory.LubinTate.Padic.CompletedPrimitiveUniformizer
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.AmbientUniformizer
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Uniqueness
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

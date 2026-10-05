@@ -1,16 +1,32 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FinitePlaceArtin.Core
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.SinglePlace
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.CompletionToIdeal
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.IdealToCompletion
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.LocalNorm
-import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlaceIdeal
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNormComponents
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormTopology.Continuity
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.SPlaces
-import ClassFieldTheory.AlgebraicNumberTheory.Ramification.FiniteRamifiedPrimes
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormalizedIntegerValuation
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Uniqueness
-import Mathlib.Algebra.BigOperators.Finprod
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FinitePlaceArtin.Core
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.SinglePlace
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.CompletionToIdeal
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.IdealToCompletion
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.LocalNorm
+public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlaceIdeal
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNormComponents
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormTopology.Continuity
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.SPlaces
+public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.FiniteRamifiedPrimes
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormalizedIntegerValuation
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Uniqueness
+public import Mathlib.Algebra.BigOperators.Finprod
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

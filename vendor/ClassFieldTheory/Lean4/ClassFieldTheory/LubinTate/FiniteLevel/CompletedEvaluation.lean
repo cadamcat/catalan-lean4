@@ -1,8 +1,24 @@
-import ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveUniformizer
-import ClassFieldTheory.LubinTate.FormalModule.StandardFormalGroup
-import Mathlib.RingTheory.AdicCompletion.Topology
-import Mathlib.RingTheory.PowerSeries.Evaluation
-import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveUniformizer
+public import ClassFieldTheory.LubinTate.FormalModule.StandardFormalGroup
+public import Mathlib.RingTheory.AdicCompletion.Topology
+public import Mathlib.RingTheory.PowerSeries.Evaluation
+public import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -87,9 +103,7 @@ theorem standardLubinTateLevelCoefficientHom_apply
     {F : LocalField.{u, v} K} {π : F.valuationSubring}
     (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K))
     (n : ℕ) (a : F.valuationSubring) :
-    ((standardLubinTateLevelCoefficientHom hπ n a :
-        (standardLubinTateLevelCompleteDVF hπ n).valuationSubring) :
-      standardLubinTateLevelField hπ n) =
+    (standardLubinTateLevelCoefficientHom hπ n a).1 =
         algebraMap K (standardLubinTateLevelField hπ n) (a : K) := by
   exact integerMap_apply F.toCompleteDVF.toDVF
     (standardLubinTateLevelCompleteDVF hπ n).toDVF a

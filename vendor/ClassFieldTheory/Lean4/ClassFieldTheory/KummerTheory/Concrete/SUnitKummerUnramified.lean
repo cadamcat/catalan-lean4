@@ -1,9 +1,25 @@
-import ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.Core
-import ClassFieldTheory.KummerTheory.Concrete.SimpleExtensionLocalBehavior
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.CompletionToIdeal
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.IdealToCompletion
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.LocalNorm
-import ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.CompositumUnramified
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.Core
+public import ClassFieldTheory.KummerTheory.Concrete.SimpleExtensionLocalBehavior
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.CompletionToIdeal
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.IdealToCompletion
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.LocalNorm
+public import ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.CompositumUnramified
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -204,7 +220,7 @@ theorem exists_sUnitRootUnit_generating_internalAdjoin
         (_ : B ≃ₐ[K] chosenSimpleKummerExtension K n hn u.1),
       alpha ^ (n : ℕ) =
           Units.map (algebraMap K B).toMonoidHom u.1 ∧
-        IntermediateField.adjoin K {(alpha : B)} = ⊤ := by
+        IntermediateField.adjoin K {alpha.val} = ⊤ := by
   classical
   dsimp only
   let B := IntermediateField.adjoin K {beta}
@@ -263,12 +279,12 @@ theorem exists_sUnitRootUnit_generating_internalAdjoin
     apply Subtype.ext
     simpa [alphaB, alphaE] using halphaOmegaVal
   have hgenerate :
-      IntermediateField.adjoin K {(alphaB : B)} = ⊤ := by
+      IntermediateField.adjoin K {alphaB.val} = ⊤ := by
     apply IntermediateField.map_injective B.val
     calc
-      (IntermediateField.adjoin K {(alphaB : B)}).map B.val =
+      (IntermediateField.adjoin K {alphaB.val}).map B.val =
           IntermediateField.adjoin K
-            {B.val (alphaB : B)} := by
+            {B.val alphaB.val} := by
         rw [IntermediateField.adjoin_map,
           Set.image_singleton]
       _ = IntermediateField.adjoin K {(alphaE : E)} := by

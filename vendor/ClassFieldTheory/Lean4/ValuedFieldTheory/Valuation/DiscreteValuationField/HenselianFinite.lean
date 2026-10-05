@@ -1,9 +1,25 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.Henselian
-import ValuedFieldTheory.Valuation.DiscreteValuationField.AdicPower
-import Mathlib.Algebra.Module.Shrink
-import Mathlib.RingTheory.AdicCompletion.AsTensorProduct
-import Mathlib.RingTheory.AdicCompletion.Noetherian
-import Mathlib.RingTheory.Nakayama
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.Henselian
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.AdicPower
+public import Mathlib.Algebra.Module.Shrink
+public import Mathlib.RingTheory.AdicCompletion.AsTensorProduct
+public import Mathlib.RingTheory.AdicCompletion.Noetherian
+public import Mathlib.RingTheory.Nakayama
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -62,7 +78,7 @@ theorem ideal_map_le_jacobson_bot_of_le_jacobson_bot_of_moduleFinite
   rw [Ideal.jacobson, le_sInf_iff]
   rintro Q ⟨-, hQmax⟩
   by_contra hle
-  rw [SetLike.le_def] at hle
+  rw [IsConcreteLE.le_iff] at hle
   push Not at hle
   rcases hle with ⟨x, hxI, hxQ⟩
   let : Q.IsMaximal := hQmax

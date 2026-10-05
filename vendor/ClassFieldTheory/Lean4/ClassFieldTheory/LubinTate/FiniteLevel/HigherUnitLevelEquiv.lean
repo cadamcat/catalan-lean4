@@ -1,11 +1,27 @@
-import ClassFieldTheory.LubinTate.FiniteLevel.ChangedPrimitiveEvaluation
-import ClassFieldTheory.LubinTate.FiniteLevel.ChangedLevelCompositum
-import ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveDisplacement
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PolynomialRootProximity
-import ValuedFieldTheory.Ramification.HilbertRamification.GaloisStabilizer
-import ValuedFieldTheory.Ramification.HilbertRamification.ValuationKrasner
-import ValuedFieldTheory.Ramification.HilbertRamification.ValuationRestriction
-import ValuedFieldTheory.Valuation.DiscreteValuationField.AddVal
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.FiniteLevel.ChangedPrimitiveEvaluation
+public import ClassFieldTheory.LubinTate.FiniteLevel.ChangedLevelCompositum
+public import ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveDisplacement
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PolynomialRootProximity
+public import ValuedFieldTheory.Ramification.HilbertRamification.GaloisStabilizer
+public import ValuedFieldTheory.Ramification.HilbertRamification.ValuationKrasner
+public import ValuedFieldTheory.Ramification.HilbertRamification.ValuationRestriction
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.AddVal
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -97,8 +113,8 @@ theorem
     intro a b hab
     apply standardLubinTateUnitParameterLevelRoot_injective F hπ n
     change
-      (root a : standardLubinTateLevelField hπ n) =
-        (root b : standardLubinTateLevelField hπ n)
+      ((root a).val : standardLubinTateLevelField hπ n) =
+        ((root b).val : standardLubinTateLevelField hπ n)
     exact congrArg Subtype.val hab
   let := Fintype.ofFinite (standardLubinTateUnitParameter F n)
   let rootEmbedding :
@@ -408,7 +424,7 @@ theorem
   have hyeval : p.eval y = 0 :=
     (Polynomial.mem_roots hpne).1 (by simpa [p] using hy)
   have hymin :
-      Polynomial.aeval (y : L)
+      Polynomial.aeval (y.val : L)
         (minpoly K (standardLubinTateLevelPowerBasis hπ n).gen) = 0 := by
     rw [standardLubinTateLevelPowerBasis_minpoly]
     let ι : target.valuationSubring →+* L :=
@@ -450,7 +466,7 @@ theorem
   have r_lambda : r lambda = y := by
     apply Subtype.ext
     change
-      sigma (standardLubinTateLevelPowerBasis hπ n).gen = (y : L)
+      sigma (standardLubinTateLevelPowerBasis hπ n).gen = (y.val : L)
     simpa [standardLubinTateLevelGenerator, lambda] using hsigma
   have heval :
       r (p.derivative.eval lambda) =
@@ -585,11 +601,11 @@ private theorem
     standardLubinTateLevelToChangedLevelCompositumIntegerMap_apply_coe]
   change
     algebraMap L' M
-        (standardLubinTateLevelCoefficientHom
-          (standardLubinTateChangedUniformizer_isUniformizer hπ u) n a :
+        ((standardLubinTateLevelCoefficientHom
+          (standardLubinTateChangedUniformizer_isUniformizer hπ u) n a).val :
           L') =
       algebraMap L M
-        (standardLubinTateLevelCoefficientHom hπ n a : L)
+        ((standardLubinTateLevelCoefficientHom hπ n a).val : L)
   rw [standardLubinTateLevelCoefficientHom_apply,
     standardLubinTateLevelCoefficientHom_apply]
   rw [← IsScalarTower.algebraMap_apply K L' M,
@@ -763,9 +779,9 @@ theorem
         (z : standardLubinTateChangedLevelCompositumField hπ u n)) hab
     change
       standardLubinTateChangedLevelToCompositum hπ u n
-          (a : standardLubinTateChangedLevelField hπ u n) =
+          (a.val : standardLubinTateChangedLevelField hπ u n) =
         standardLubinTateChangedLevelToCompositum hπ u n
-          (b : standardLubinTateChangedLevelField hπ u n) at hfield
+          (b.val : standardLubinTateChangedLevelField hπ u n) at hfield
     exact
       (standardLubinTateChangedLevelToCompositum
         hπ u n).injective hfield
@@ -1077,7 +1093,11 @@ private theorem
         integerMap level.toDVF target.toDVF
           (valuationSubringAutOfUniqueExtension hmiddle tau lambda -
             lambda)
-    rw [hrestrict, map_sub]
+    rw [hrestrict]
+    exact
+      ((integerMap level.toDVF target.toDVF).map_sub
+        (valuationSubringAutOfUniqueExtension hmiddle tau lambda)
+        lambda).symm
   rw [hdisplacement]
   change
     IsDiscreteValuationRing.addVal target.valuationSubring
@@ -1095,7 +1115,7 @@ private theorem
     nsmul_le_nsmul_right hlevel
       (standardLubinTateLevelToChangedLevelCompositumRamificationIndex
         hπ u n)
-  simpa [nsmul_eq_mul] using hscaled
+  simpa only [nsmul_eq_mul, Nat.cast_mul] using hscaled
 
 /-- A changed primitive root in the compositum lies in the restricted copy
 of the changed standard level. -/
@@ -1135,9 +1155,9 @@ private theorem
         (z : standardLubinTateChangedLevelCompositumField hπ u n)) hab
     change
       standardLubinTateChangedLevelToCompositum hπ u n
-          (a : standardLubinTateChangedLevelField hπ u n) =
+          (a.val : standardLubinTateChangedLevelField hπ u n) =
         standardLubinTateChangedLevelToCompositum hπ u n
-          (b : standardLubinTateChangedLevelField hπ u n) at hfield
+          (b.val : standardLubinTateChangedLevelField hπ u n) at hfield
     exact
       (standardLubinTateChangedLevelToCompositum
         hπ u n).injective hfield
@@ -1160,7 +1180,7 @@ private theorem
   rw [← hy,
     standardLubinTateChangedLevelToCompositumIntegerMap_apply_coe,
     standardLubinTateChangedLevelToCompositum_coe]
-  exact (y : standardLubinTateChangedLevelField hπ u n).property
+  exact y.val.property
 
 /-- A compositum automorphism fixing a sufficiently close changed root also
 fixes the old primitive point. -/

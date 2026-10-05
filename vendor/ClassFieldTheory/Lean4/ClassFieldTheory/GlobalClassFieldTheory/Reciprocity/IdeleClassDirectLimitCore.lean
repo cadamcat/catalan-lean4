@@ -1,7 +1,23 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
-import GaloisCohomology.Cyclic.NormKernelVanishing
-import Mathlib.Algebra.Colimit.DirectLimit
-import Mathlib.FieldTheory.Galois.Profinite
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
+public import GaloisCohomology.Cyclic.NormKernelVanishing
+public import Mathlib.Algebra.Colimit.DirectLimit
+public import Mathlib.FieldTheory.Galois.Profinite
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -120,6 +136,18 @@ private noncomputable instance :
         (RelativeIdeleGroup.ClassGroup ℚ E) :=
   fun E => (rationalAbsoluteGaloisIdeleClassAction E).toSMul
 
+@[simp]
+theorem rationalAbsoluteGaloisIdeleClass_smul_mk
+    (E : FiniteGaloisIntermediateField ℚ (SeparableClosure ℚ))
+    (σ : SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ)
+    (a : RelativeIdeleGroup ℚ E) :
+    σ • QuotientGroup.mk'
+          (RelativeIdeleGroup.principalSubgroup ℚ E) a =
+      QuotientGroup.mk'
+        (RelativeIdeleGroup.principalSubgroup ℚ E)
+        ((AlgEquiv.restrictNormalHom E σ) • a) :=
+  rfl
+
 /-- Relative-adele scalar extension intertwines conjugation with the
 restriction of an absolute Galois automorphism. -/
 theorem rationalRelativeAdeleEmbedding_conjugation_of_restrict
@@ -138,8 +166,7 @@ theorem rationalRelativeAdeleEmbedding_conjugation_of_restrict
       RelativeIdeleGroup.conjugation ℚ F
         (AlgEquiv.restrictNormalHom F σ)
         (RelativeIdeleGroup.adeleEmbedding (IntermediateField.inclusion h) z) := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x =>
       simp only [RelativeIdeleGroup.conjugation_tmul,
         RelativeIdeleGroup.adeleEmbedding,
@@ -202,17 +229,11 @@ theorem
       σ • RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion h) c := by
   refine QuotientGroup.induction_on c ?_
   intro a
-  change
-    QuotientGroup.mk'
-        (RelativeIdeleGroup.principalSubgroup ℚ F)
-        (RelativeIdeleGroup.ideleEmbedding (IntermediateField.inclusion h)
-          (τ • a)) =
-      QuotientGroup.mk'
-        (RelativeIdeleGroup.principalSubgroup ℚ F)
-        ((AlgEquiv.restrictNormalHom F σ) •
-          RelativeIdeleGroup.ideleEmbedding (IntermediateField.inclusion h) a)
-  rw [rationalRelativeIdeleEmbedding_conjugation_of_restrict
-    h σ τ hστ]
+  exact congrArg
+    (QuotientGroup.mk'
+      (RelativeIdeleGroup.principalSubgroup ℚ F))
+    (rationalRelativeIdeleEmbedding_conjugation_of_restrict
+      h σ τ hστ a)
 
 /-- The transition map between finite Galois relative idele class groups
 is equivariant for the rational absolute Galois action. -/
@@ -245,16 +266,6 @@ theorem
           (IntermediateField.inclusion h)) c := by
   refine QuotientGroup.induction_on c ?_
   intro a
-  change
-    QuotientGroup.mk'
-        (RelativeIdeleGroup.principalSubgroup ℚ F)
-        ((AlgEquiv.restrictNormalHom F σ) •
-          RelativeIdeleGroup.ideleEmbedding (IntermediateField.inclusion h) a) =
-      QuotientGroup.mk'
-        (RelativeIdeleGroup.principalSubgroup ℚ F)
-        (RelativeIdeleGroup.ideleEmbedding
-          ((AlgEquiv.restrictNormalHom F σ).toAlgHom.comp
-            (IntermediateField.inclusion h)) a)
   apply congrArg
     (QuotientGroup.mk'
       (RelativeIdeleGroup.principalSubgroup ℚ F))
@@ -269,8 +280,7 @@ theorem
           (IntermediateField.inclusion h))
         (a : RelativeAdeleRing ℚ E)
   induction (a : RelativeAdeleRing ℚ E) using
-      TensorProduct.induction_on with
-  | zero => simp
+      TensorProduct.inductionOn with
   | tmul y x =>
       simp only [RelativeIdeleGroup.adeleEmbedding,
         RelativeIdeleGroup.scalarEmbedding_tmul,
@@ -302,8 +312,7 @@ theorem rationalRelativeAdeleEmbedding_self
     (z : RelativeAdeleRing ℚ E) :
     RelativeIdeleGroup.adeleEmbedding
       (IntermediateField.inclusion (show E ≤ E from le_rfl)) z = z := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x =>
       simp only [RelativeIdeleGroup.adeleEmbedding,
         RelativeIdeleGroup.scalarEmbedding_tmul]
@@ -322,8 +331,7 @@ theorem rationalRelativeAdeleEmbedding_comp
         (RelativeIdeleGroup.adeleEmbedding (IntermediateField.inclusion hEF) z) =
       RelativeIdeleGroup.adeleEmbedding
         (IntermediateField.inclusion (hEF.trans hFH)) z := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x =>
       simp only [RelativeIdeleGroup.adeleEmbedding,
         RelativeIdeleGroup.scalarEmbedding_tmul]

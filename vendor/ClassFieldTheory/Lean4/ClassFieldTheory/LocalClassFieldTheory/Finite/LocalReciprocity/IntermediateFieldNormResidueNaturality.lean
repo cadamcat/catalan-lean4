@@ -1,7 +1,23 @@
-import Mathlib.GroupTheory.Abelianization.Defs
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.IntrinsicAbsoluteData
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Main
-import ValuedFieldTheory.Ramification.GaloisValuation.IntermediateFieldRestriction
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.GroupTheory.Abelianization.Defs
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.IntrinsicAbsoluteData
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Main
+public import ValuedFieldTheory.Ramification.GaloisValuation.IntermediateFieldRestriction
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -130,6 +146,17 @@ variable (K : Type) [Field K]
   [ValuativeRel K] [TopologicalSpace K]
   [IsNonarchimedeanLocalField K]
 
+private theorem commGroup_abelianizationCongr_of
+    {G H : Type*} [Group G] [CommGroup H]
+    (q : G ≃* H) (x : G) :
+    (Abelianization.equivOfComm (H := H)).symm
+        (q.abelianizationCongr (Abelianization.of x)) =
+      q x := by
+  exact
+    (congrArg (Abelianization.equivOfComm (H := H)).symm
+      (abelianizationCongr_of q x)).trans
+      ((Abelianization.equivOfComm (H := H)).symm_apply_apply (q x))
+
 omit [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] in
 private theorem intermediateFieldRestrict_abstractQuotient_mk
     (E F : IntermediateField K (SeparableClosure K)) (hEF : E ≤ F)
@@ -180,6 +207,72 @@ private theorem embeddedAbstractExtension_field_le
   exact E.fixingSubgroup_le hEF
 
 omit [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] in
+private theorem intermediateFieldRestrict_abstractAbelianization_of_mk
+    (E F : IntermediateField K (SeparableClosure K)) (hEF : E ≤ F)
+    [FiniteDimensional K E] [FiniteDimensional K F]
+    [IsAbelianGalois K E] [IsAbelianGalois K F]
+    (sigma : (abstractBase K).toSubgroup) :
+    intermediateFieldRestrictNormalHom E F hEF
+        ((Abelianization.equivOfComm (H := Gal(F / K))).symm
+          ((finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding
+            K F F.val).abelianizationCongr
+              (Abelianization.of (QuotientGroup.mk sigma)))) =
+      (Abelianization.equivOfComm (H := Gal(E / K))).symm
+        ((finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding
+          K E E.val).abelianizationCongr
+            (normResidueNaturalityAbelianizedRestriction
+              (abstractBase K) (abstractBase K)
+              (finiteGaloisAbstractExtensionOfEmbedding K E E.val).field
+              (finiteGaloisAbstractExtensionOfEmbedding K F F.val).field
+              (finiteGaloisAbstractExtensionOfEmbedding K E E.val).below
+              (finiteGaloisAbstractExtensionOfEmbedding K F F.val).below
+              le_rfl (embeddedAbstractExtension_field_le K E F hEF)
+              (Abelianization.of (QuotientGroup.mk sigma)))) := by
+  let B := abstractBase K
+  let EE := finiteGaloisAbstractExtensionOfEmbedding K E E.val
+  let EF := finiteGaloisAbstractExtensionOfEmbedding K F F.val
+  let qE := finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding K E E.val
+  let qF := finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding K F F.val
+  have hrestriction :
+      normResidueNaturalityAbelianizedRestriction
+          B B EE.field EF.field EE.below EF.below le_rfl
+          (embeddedAbstractExtension_field_le K E F hEF)
+          (Abelianization.of (QuotientGroup.mk sigma)) =
+        Abelianization.of
+          (QuotientGroup.mk (Subgroup.inclusion le_rfl sigma)) :=
+    normResidueNaturalityAbelianizedRestriction_of_mk
+      B B EE.field EF.field EE.below EF.below le_rfl
+      (embeddedAbstractExtension_field_le K E F hEF) sigma
+  calc
+    intermediateFieldRestrictNormalHom E F hEF
+        ((Abelianization.equivOfComm (H := Gal(F / K))).symm
+          (qF.abelianizationCongr
+            (Abelianization.of (QuotientGroup.mk sigma)))) =
+      intermediateFieldRestrictNormalHom E F hEF
+        (qF (QuotientGroup.mk sigma)) :=
+      congrArg (intermediateFieldRestrictNormalHom E F hEF)
+        (commGroup_abelianizationCongr_of
+          qF (QuotientGroup.mk sigma))
+    _ = qE (QuotientGroup.mk (Subgroup.inclusion le_rfl sigma)) :=
+      intermediateFieldRestrict_abstractQuotient_mk K E F hEF sigma
+    _ = (Abelianization.equivOfComm (H := Gal(E / K))).symm
+        (qE.abelianizationCongr
+          (Abelianization.of
+            (QuotientGroup.mk (Subgroup.inclusion le_rfl sigma)))) :=
+      (commGroup_abelianizationCongr_of qE
+        (QuotientGroup.mk (Subgroup.inclusion le_rfl sigma))).symm
+    _ = (Abelianization.equivOfComm (H := Gal(E / K))).symm
+        (qE.abelianizationCongr
+          (normResidueNaturalityAbelianizedRestriction
+            B B EE.field EF.field EE.below EF.below le_rfl
+            (embeddedAbstractExtension_field_le K E F hEF)
+            (Abelianization.of (QuotientGroup.mk sigma)))) :=
+      congrArg
+        (fun w => (Abelianization.equivOfComm
+          (H := Gal(E / K))).symm (qE.abelianizationCongr w))
+        hrestriction.symm
+
+omit [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] in
 private theorem intermediateFieldRestrict_abstractAbelianization
     (E F : IntermediateField K (SeparableClosure K)) (hEF : E ≤ F)
     [FiniteDimensional K E] [FiniteDimensional K F]
@@ -199,50 +292,11 @@ private theorem intermediateFieldRestrict_abstractAbelianization
             (finiteGaloisAbstractExtensionOfEmbedding K E E.val).below
             (finiteGaloisAbstractExtensionOfEmbedding K F F.val).below
             le_rfl (embeddedAbstractExtension_field_le K E F hEF) z)) := by
-  let B := abstractBase K
-  let EE := finiteGaloisAbstractExtensionOfEmbedding K E E.val
-  let EF := finiteGaloisAbstractExtensionOfEmbedding K F F.val
-  let qE := finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding K E E.val
-  let qF := finiteGaloisAbstractQuotientEquivGaloisGroupOfEmbedding K F F.val
-  let : (extensionSubgroup B EE.field EE.below).Normal := EE.normal
-  let : (extensionSubgroup B EF.field EF.below).Normal := EF.normal
   obtain ⟨q, rfl⟩ := QuotientGroup.mk_surjective z
   obtain ⟨sigma, rfl⟩ := QuotientGroup.mk_surjective q
-  change
-    intermediateFieldRestrictNormalHom E F hEF
-        ((Abelianization.equivOfComm (H := Gal(F / K))).symm
-          (qF.abelianizationCongr
-            (Abelianization.of (QuotientGroup.mk sigma)))) =
-      (Abelianization.equivOfComm (H := Gal(E / K))).symm
-        (qE.abelianizationCongr
-          (normResidueNaturalityAbelianizedRestriction
-            B B EE.field EF.field EE.below EF.below le_rfl
-            (embeddedAbstractExtension_field_le K E F hEF)
-            (Abelianization.of (QuotientGroup.mk sigma))))
-  rw [abelianizationCongr_of]
-  change
-    intermediateFieldRestrictNormalHom E F hEF
-        (qF (QuotientGroup.mk sigma)) =
-      (Abelianization.equivOfComm (H := Gal(E / K))).symm
-        (qE.abelianizationCongr
-          (normResidueNaturalityAbelianizedRestriction
-            B B EE.field EF.field EE.below EF.below le_rfl
-            (embeddedAbstractExtension_field_le K E F hEF)
-            (Abelianization.of (QuotientGroup.mk sigma))))
-  rw [normResidueNaturalityAbelianizedRestriction_of_mk]
-  change
-    intermediateFieldRestrictNormalHom E F hEF
-        (qF (QuotientGroup.mk sigma)) =
-      (Abelianization.equivOfComm (H := Gal(E / K))).symm
-        (qE.abelianizationCongr
-          (Abelianization.of
-            (QuotientGroup.mk (Subgroup.inclusion le_rfl sigma))))
-  rw [abelianizationCongr_of]
-  change
-    intermediateFieldRestrictNormalHom E F hEF
-        (qF (QuotientGroup.mk sigma)) =
-      qE (QuotientGroup.mk (Subgroup.inclusion le_rfl sigma))
-  exact intermediateFieldRestrict_abstractQuotient_mk K E F hEF sigma
+  exact
+    intermediateFieldRestrict_abstractAbelianization_of_mk
+      K E F hEF sigma
 
 omit [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] in
 /-- Restriction naturality for the concrete norm-residue symbol, before
@@ -359,7 +413,10 @@ theorem concreteNormResidueAutomorphism_restrict
       intermediateFieldRestrict_abstractAbelianization
         K E F hEF (Additive.toMul zF)
     _ = (Abelianization.equivOfComm (H := Gal(E / K))).symm
-        (qE.abelianizationCongr (Additive.toMul zE)) := by rw [hz]; rfl
+        (qE.abelianizationCongr (Additive.toMul zE)) :=
+      congrArg
+        (fun w => (Abelianization.equivOfComm
+          (H := Gal(E / K))).symm (qE.abelianizationCongr w)) hz
 
 /-- Restriction naturality for the canonical local norm-residue symbol,
 expressed through automorphisms of finite abelian intermediate fields. -/

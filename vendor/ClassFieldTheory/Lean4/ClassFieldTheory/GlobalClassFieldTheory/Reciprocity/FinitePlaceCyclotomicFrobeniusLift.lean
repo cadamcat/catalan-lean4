@@ -1,13 +1,29 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Galois.CyclicPrimeSubextension
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.OnePlaceBaseNorm
-import ClassFieldTheory.AbstractClassFieldTheory.Degree.FrobeniusLift
-import GaloisCohomology.ProfiniteIntegers.ProfiniteIntegerPrimeProduct
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicPrincipalIdele
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicZHatBaseChange
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicPrincipalPrimeFactor
-import ValuedFieldTheory.LocalField.Padic.ClosedAddSubgroup
-import Mathlib.GroupTheory.Nilpotent
-import Mathlib.Topology.Algebra.ContinuousMonoidHom
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Galois.CyclicPrimeSubextension
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.OnePlaceBaseNorm
+public import ClassFieldTheory.AbstractClassFieldTheory.Degree.FrobeniusLift
+public import GaloisCohomology.ProfiniteIntegers.ProfiniteIntegerPrimeProduct
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicPrincipalIdele
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicZHatBaseChange
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicPrincipalPrimeFactor
+public import ValuedFieldTheory.LocalField.Padic.ClosedAddSubgroup
+public import Mathlib.GroupTheory.Nilpotent
+public import Mathlib.Topology.Algebra.ContinuousMonoidHom
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -1257,7 +1273,7 @@ theorem
               (Nat.coprime_self_add_right.mpr
                 (Nat.coprime_one_right p.1))) ^ d := by
         dsimp only [σQ, b, x]
-        rw [if_pos hqp, ← hq, hqp]
+        rw [ite_eq_left hqp, ← hq, hqp]
         exact
           rationalCyclotomicCharacterPrimeProduct_finitePlaceIdele_primeSucc
             p d
@@ -1285,7 +1301,7 @@ theorem
               σQ p =
             ((padicNatUnit p q.1 hcoprime)⁻¹) ^ d := by
         dsimp only [σQ, b, x]
-        rw [if_neg hqp, ← hq]
+        rw [ite_eq_right hqp, ← hq]
         simpa only [hcoprime] using
           rationalCyclotomicCharacterPrimeProduct_finitePlaceIdele_primeAway
             p q hqp d
@@ -1435,7 +1451,8 @@ theorem
     intro n
     exact
       (hbase.le_one_iff).2
-        hvFna.apply_natCast_le_one
+        (hvFna.apply_natCast_le_one
+          (map_zero_le vF 1) (map_one vF))
   have hwCna :
       IsNonarchimedean
         (wC :
@@ -1453,7 +1470,9 @@ theorem
           (algebraMap F
             (numberFieldCyclotomicZHatCompositum F)) n).symm
     rw [hn]
-    exact hwFna.apply_natCast_le_one
+    exact
+      hwFna.apply_natCast_le_one
+        (map_zero_le wF 1) (map_one wF)
   obtain ⟨c, hc, hpow⟩ :=
     (AbsoluteValue.isEquiv_iff_exists_rpow_eq).1 hbase
   let wC' :

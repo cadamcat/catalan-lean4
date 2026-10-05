@@ -1,15 +1,32 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.Comparison
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.FinitePlaces
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.CompMulEquiv
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Algebra
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Generator
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.HerbrandEquiv
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Finite
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.H0
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.HMinusOne
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.Trivial
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.Quotient
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.NormResidue
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.Comparison
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.IdealMap
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.FinitePlaces
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.CompMulEquiv
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Algebra
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Generator
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.HerbrandEquiv
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Finite
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.H0
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.HMinusOne
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.Trivial
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.Cardinality.Quotient
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.NormResidue
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -341,6 +358,146 @@ theorem
   exact
     finitePlaceArtinCompletionIsNonarchimedeanLocalField
       vK hvKna
+
+/-- The local Artin input of a chosen order-one prime element has the
+inverse-standard normalized local valuation. -/
+theorem finitePlaceLocalArtinInput_chosenLocalOrderSection_valuationMap
+    (v : HeightOneSpectrum (𝓞 K)) :
+    let C := (NumberField.HeightOneSpectrum.adicAbv K v).Completion
+    letI : ValuativeRel C := finitePlaceLocalArtinCompletionValuativeRel v
+    letI : IsNonarchimedeanLocalField C :=
+      finitePlaceLocalArtinCompletionIsNonarchimedeanLocalField v
+    IsNonarchimedeanLocalField.valuationMap C
+      (Additive.ofMul
+        (finitePlaceLocalArtinInput v
+          (FiniteIdeleGroup.chosenLocalOrderSection v 1))) = -1 := by
+  let C := (NumberField.HeightOneSpectrum.adicAbv K v).Completion
+  let a : (v.adicCompletion K)ˣ :=
+    FiniteIdeleGroup.chosenLocalOrderSection v 1
+  let x : Cˣ := finitePlaceLocalArtinInput v a
+  let : IsUltrametricDist C :=
+    finitePlaceArtinCompletionIsUltrametricDist
+      (NumberField.HeightOneSpectrum.adicAbv K v)
+      (NumberField.HeightOneSpectrum.isNonarchimedean_adicAbv K v)
+  let : ValuativeRel C := finitePlaceLocalArtinCompletionValuativeRel v
+  let : IsNonarchimedeanLocalField C :=
+    finitePlaceLocalArtinCompletionIsNonarchimedeanLocalField v
+  let f := finitePlaceCompletionRingHom v
+  have hfx : f (x : C) = (a : v.adicCompletion K) := by
+    exact congrArg Units.val
+      ((finitePlaceCompletionUnitsContinuousMulEquiv v).apply_symm_apply a)
+  have hva : Valued.v (a : v.adicCompletion K) =
+      WithZero.exp (-1 : ℤ) := by
+    change Valued.v (Classical.choose
+      (HeightOneSpectrum.valuedAdicCompletion_surjective K v
+        (WithZero.exp (-1 : ℤ)))) = _
+    exact Classical.choose_spec
+      (HeightOneSpectrum.valuedAdicCompletion_surjective K v
+        (WithZero.exp (-1 : ℤ)))
+  have horder (y z : C) :
+      ValuativeRel.valuation C y ≤ ValuativeRel.valuation C z ↔
+        ‖y‖ ≤ ‖z‖ := by
+    change ValuativeRel.ValueGroupWithZero.mk y 1 ≤
+      ValuativeRel.ValueGroupWithZero.mk z 1 ↔ _
+    rw [ValuativeRel.ValueGroupWithZero.mk_le_mk]
+    simp only [Submonoid.coe_one, mul_one]
+    change NormedField.valuation y ≤ NormedField.valuation z ↔ _
+    simp only [NormedField.valuation_apply, ← NNReal.coe_le_coe, coe_nnnorm]
+  have hlt (y z : C) :
+      ValuativeRel.valuation C y < ValuativeRel.valuation C z ↔
+        ‖y‖ < ‖z‖ := by
+    rw [lt_iff_le_not_ge, lt_iff_le_not_ge]
+    exact and_congr (horder y z) (not_congr (horder z y))
+  have hIntegerBound (η : WithZero (Multiplicative ℤ)) (hη : η < 1) :
+      η ≤ WithZero.exp (-1 : ℤ) := by
+    cases η using WithZero.recZeroCoe with
+    | zero => exact bot_le
+    | coe d =>
+        change (d : WithZero (Multiplicative ℤ)) ≤
+          ((Multiplicative.ofAdd (-1 : ℤ) : Multiplicative ℤ) :
+            WithZero (Multiplicative ℤ))
+        rw [WithZero.coe_le_coe]
+        rw [← Multiplicative.toAdd_le]
+        change Multiplicative.toAdd d ≤ (-1 : ℤ)
+        have hd : Multiplicative.toAdd d < 0 := by
+          have hd' : d < (1 : Multiplicative ℤ) := by
+            simpa using hη
+          exact Multiplicative.toAdd_lt.mp hd'
+        omega
+  have hNormInput : ‖(x : C)‖ = ‖(a : v.adicCompletion K)‖ := by
+    rw [← hfx]
+    exact ((finitePlaceCompletionRingHom_isometry v).norm_map_of_map_zero
+      (map_zero f) (x : C)).symm
+  have hMax : ∀ δ : ValuativeRel.ValueGroupWithZero C,
+      δ < 1 → δ ≤ ValuativeRel.valuation C (x : C) := by
+    intro δ hδ
+    obtain ⟨y, rfl⟩ := ValuativeRel.valuation_surjective δ
+    have hyNorm : ‖y‖ < 1 := by
+      simpa only [norm_one] using (hlt y 1).mp (by simpa using hδ)
+    have hyConcrete : ‖f y‖ < 1 := by
+      rw [(finitePlaceCompletionRingHom_isometry v).norm_map_of_map_zero
+        (map_zero f) y]
+      exact hyNorm
+    let q : ℝ≥0 := v.asIdeal.absNorm
+    have hq : 1 < q := HeightOneSpectrum.one_lt_absNorm_nnreal v
+    have hyVal : Valued.v (f y) <
+        (1 : WithZero (Multiplicative ℤ)) := by
+      apply (WithZeroMulInt.toNNReal_lt_one_iff hq).mp
+      exact NNReal.coe_lt_coe.mp (by
+        simpa only [FinitePlace.norm_def, NNReal.coe_one] using hyConcrete)
+    have hyLe := hIntegerBound (Valued.v (f y)) hyVal
+    have hyNormLe : ‖f y‖ ≤ ‖(a : v.adicCompletion K)‖ := by
+      rw [FinitePlace.norm_def, FinitePlace.norm_def, hva]
+      exact NNReal.coe_le_coe.mpr
+        ((WithZeroMulInt.toNNReal_strictMono hq).monotone hyLe)
+    apply (horder y (x : C)).mpr
+    rw [hNormInput]
+    rw [← (finitePlaceCompletionRingHom_isometry v).norm_map_of_map_zero
+      (map_zero f) y]
+    exact hyNormLe
+  let φ := _root_.IsNonarchimedeanLocalField.valueGroupWithZeroIsoInt C
+  have hφlt : φ (ValuativeRel.valuation C (x : C)) < 1 := by
+    have hval : WithZero.exp (-1 : ℤ) <
+        (1 : WithZero (Multiplicative ℤ)) := by
+      rw [WithZero.exp_eq_coe_ofAdd, ← WithZero.coe_one,
+        WithZero.coe_lt_coe]
+      change (Multiplicative.ofAdd (-1 : ℤ) : Multiplicative ℤ) < 1
+      change (-1 : ℤ) < 0
+      omega
+    have hnorm : ‖(x : C)‖ < 1 := by
+      rw [hNormInput, FinitePlace.norm_def, hva]
+      exact_mod_cast
+        (WithZeroMulInt.toNNReal_lt_one_iff
+          (HeightOneSpectrum.one_lt_absNorm_nnreal v)).mpr hval
+    have hv : ValuativeRel.valuation C (x : C) < 1 := by
+      exact (hlt (x : C) 1).mpr (by simpa only [norm_one] using hnorm)
+    simpa only [map_one] using φ.strictMono hv
+  have hφmax : ∀ η : WithZero (Multiplicative ℤ),
+      η < 1 → η ≤ φ (ValuativeRel.valuation C (x : C)) := by
+    intro η hη
+    let δ := φ.symm η
+    have hδ : δ < 1 := by
+      simpa only [map_one] using φ.symm.strictMono hη
+    have h := φ.strictMono.monotone (hMax δ hδ)
+    change φ (φ.symm η) ≤ _ at h
+    simpa only [φ.apply_symm_apply] using h
+  have hφeq : φ (ValuativeRel.valuation C (x : C)) =
+      WithZero.exp (-1 : ℤ) := by
+    apply le_antisymm
+    · exact hIntegerBound _ hφlt
+    · apply hφmax
+      rw [WithZero.exp_eq_coe_ofAdd, ← WithZero.coe_one,
+        WithZero.coe_lt_coe]
+      change (Multiplicative.ofAdd (-1 : ℤ) : Multiplicative ℤ) < 1
+      change (-1 : ℤ) < 0
+      omega
+  change IsNonarchimedeanLocalField.valuationMap C (Additive.ofMul x) = -1
+  rw [IsNonarchimedeanLocalField.valuationMap_apply,
+    IsNonarchimedeanLocalField.v_apply]
+  change Multiplicative.toAdd
+    (WithZero.unzero
+      (x := φ (ValuativeRel.valuation C (x : C))) (by simp)) = -1
+  rw [WithZero.toAdd_unzero_eq_log, hφeq, WithZero.log_exp]
 
 /-- The canonical algebra structure on the localized completion used by the
 finite-place local Artin map. -/

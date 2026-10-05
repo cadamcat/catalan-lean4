@@ -1,5 +1,21 @@
-import ClassFieldTheory.LubinTate.Padic.CompletedFrobeniusLift
-import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.Padic.CompletedFrobeniusLift
+public import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -148,7 +164,7 @@ noncomputable def padicStandardLevelIntegerEmbedding
   apply RingHom.codRestrict f target.valuation.valuationSubring
   intro x
   have hxIntegral :
-      IsIntegral F.valuationSubring (x : L) :=
+      IsIntegral F.valuationSubring (x.val : L) :=
     (IsIntegralClosure.isIntegral_iff
       (A := source.valuationSubring)
       (R := F.valuationSubring)
@@ -176,7 +192,7 @@ noncomputable def padicStandardLevelIntegerEmbedding
       _ = ι (algebraMap ℚ_[p] L (a : ℚ_[p])) :=
         (ι.commutes (a : ℚ_[p])).symm
   have hxMappedIntegral :
-      IsIntegral A.valuationSubring (ι (x : L)) :=
+      IsIntegral A.valuationSubring (ι (x.val : L)) :=
     IsIntegral.map_of_comp_eq
       (padicCompletedUnramifiedIntegerMap p)
       ι.toRingHom hcomp hxIntegral
@@ -186,7 +202,9 @@ noncomputable def padicStandardLevelIntegerEmbedding
         (R := A.valuationSubring)
         (B := E)).1 hxMappedIntegral with
     ⟨z, hz⟩
-  exact hz ▸ z.property
+  change target.valuation (ι (x.val : L)) ≤ 1
+  rw [← hz]
+  exact z.property
 
 /-- Coercing the integral standard-level embedding to the completed field
 recovers the field embedding. -/
@@ -201,7 +219,7 @@ theorem padicStandardLevelIntegerEmbedding_coe
         (padicCompletedLevelCompleteDVF p n).valuationSubring) :
       padicCompletedLevelField p n) =
         padicStandardLevelEmbedding p n
-          (x :
+          (x.val :
             standardLubinTateLevelField
               (padicMultiplicativeLubinTateSeries_isUniformizer p) n) := by
   rfl
@@ -429,7 +447,7 @@ theorem
     _ =
         padicStandardLevelEmbedding p n
           ((standardLubinTatePrimitivePointIntegerAction hπ n u :
-            source.valuationSubring) :
+            source.valuationSubring).val :
               standardLubinTateLevelField hπ n) := by
       rw [padicStandardLevelIntegerEmbedding_coe]
     _ =

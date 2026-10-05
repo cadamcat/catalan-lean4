@@ -1,5 +1,21 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -104,8 +120,7 @@ theorem towerActualRelativeAdeleRingEquiv_unflatten_conjugation
       RelativeIdeleGroup.conjugation M L σ
         (towerActualRelativeAdeleRingEquiv K M L
           (towerRelativeAdeleUnflatten K M L z)) := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x =>
       simp [RelativeIdeleGroup.conjugation_tmul,
         towerRelativeAdeleUnflatten_tmul,
@@ -124,9 +139,7 @@ private theorem relativeAdeleBaseChangeRingEquiv_tower_finiteComponent
       (relativeAdeleBaseChangeRingEquiv
         (K := K) (L := L)
         (towerRelativeAdeleRingEquiv K M L z)).2 W := by
-  induction z using TensorProduct.induction_on with
-  | zero =>
-      simp
+  induction z using TensorProduct.inductionOn with
   | add z₁ z₂ hz₁ hz₂ =>
       simp only [map_add]
       change
@@ -140,9 +153,7 @@ private theorem relativeAdeleBaseChangeRingEquiv_tower_finiteComponent
             (towerRelativeAdeleRingEquiv K M L z₂)).2 W
       exact congrArg₂ (· + ·) hz₁ hz₂
   | tmul b x =>
-      induction b using TensorProduct.induction_on with
-      | zero =>
-          simp
+      induction b using TensorProduct.inductionOn with
       | add b₁ b₂ hb₁ hb₂ =>
           simp only [TensorProduct.add_tmul, map_add]
           change
@@ -241,9 +252,7 @@ private theorem relativeAdeleBaseChangeRingEquiv_tower_infiniteComponent
       (relativeAdeleBaseChangeRingEquiv
         (K := K) (L := L)
         (towerRelativeAdeleRingEquiv K M L z)).1 W := by
-  induction z using TensorProduct.induction_on with
-  | zero =>
-      simp
+  induction z using TensorProduct.inductionOn with
   | add z₁ z₂ hz₁ hz₂ =>
       simp only [map_add]
       change
@@ -257,9 +266,7 @@ private theorem relativeAdeleBaseChangeRingEquiv_tower_infiniteComponent
             (towerRelativeAdeleRingEquiv K M L z₂)).1 W
       exact congrArg₂ (· + ·) hz₁ hz₂
   | tmul b x =>
-      induction b using TensorProduct.induction_on with
-      | zero =>
-          simp
+      induction b using TensorProduct.inductionOn with
       | add b₁ b₂ hb₁ hb₂ =>
           simp only [TensorProduct.add_tmul, map_add]
           change
@@ -694,8 +701,7 @@ theorem towerRelativeIdeleBaseChangeMulEquiv_finiteComponent
         (AlgHom.id M L)
         (a : TowerRelativeAdeleRing K M L)
   induction (a : TowerRelativeAdeleRing K M L) using
-      TensorProduct.induction_on with
-  | zero => simp
+      TensorProduct.inductionOn with
   | add x y hx hy => simp [hx, hy]
   | tmul b x =>
       simp [towerActualRelativeAdeleRingEquiv_tmul,
@@ -726,8 +732,7 @@ theorem towerRelativeIdeleBaseChangeMulEquiv_infiniteComponent
         (AlgHom.id M L)
         (a : TowerRelativeAdeleRing K M L)
   induction (a : TowerRelativeAdeleRing K M L) using
-      TensorProduct.induction_on with
-  | zero => simp
+      TensorProduct.inductionOn with
   | add x y hx hy => simp [hx, hy]
   | tmul b x =>
       simp [towerActualRelativeAdeleRingEquiv_tmul,
@@ -787,7 +792,7 @@ noncomputable def intermediateFiniteComponent
   Units.map
     (towerIntermediateFiniteComponentAlgHom K M w uM).toRingHom
 
-omit [NumberField L] [Algebra K L] [IsScalarTower K M L] in
+omit [NumberField M] [NumberField L] [Algebra K L] [IsScalarTower K M L] in
 /-- Determinant norm commutes with the exact finite-place component of
 the fixed-bottom tower model. -/
 theorem towerIntermediateFiniteComponent_norm

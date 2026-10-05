@@ -1,7 +1,23 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.FinitePlaces
-import GaloisCohomology.Kummer.Concrete.RootCharacters
-import Mathlib.Algebra.Group.Hom.Basic
-import Mathlib.Algebra.Group.Subgroup.Ker
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.FinitePlaces
+public import GaloisCohomology.Kummer.Concrete.RootCharacters
+public import Mathlib.Algebra.Group.Hom.Basic
+public import Mathlib.Algebra.Group.Subgroup.Ker
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -161,6 +177,7 @@ theorem
       vK hvK w] at hcomap
   simpa [C, E, toE] using hcomap
 
+omit [FiniteDimensional K L] in
 /-- A Kummer radicand is an `n`-th power in the finite-place completion
 exactly when its chosen root belongs to the decomposition field at the
 chosen extension of that place. -/

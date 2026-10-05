@@ -1,6 +1,22 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.LocalComponent
-import Mathlib.RingTheory.IsTensorProduct
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.LocalComponent
+public import Mathlib.RingTheory.IsTensorProduct
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -249,7 +265,7 @@ theorem pushoutTowerClassInclusion_mk
         (pushoutTowerIdeleInclusion K M L N a) :=
   rfl
 
-omit [NumberField L] [NumberField N]
+omit [NumberField M] [NumberField L] [NumberField N]
     [FiniteDimensional K M] [FiniteDimensional L N] in
 /-- The determinant-norm square after adjoining the pushout field,
 descended to actual relative idele class groups. -/
@@ -290,7 +306,7 @@ def pushoutNormQuotientMap :
         ⟨pushoutTowerClassInclusion K M L N c,
           pushoutTowerClassNorm_inclusion K M L N c⟩)
 
-omit [NumberField L] [NumberField N]
+omit [NumberField M] [NumberField L] [NumberField N]
     [FiniteDimensional K M] [FiniteDimensional L N] in
 @[simp]
 theorem pushoutNormQuotientMap_mk
@@ -331,7 +347,7 @@ def changeIntermediateClassGroupEquiv :
   (TowerRelativeIdeleGroup.classGroupEquiv K M N).trans
     (TowerRelativeIdeleGroup.classGroupEquiv K L N).symm
 
-omit [Algebra.IsPushout K M L N] in
+omit [NumberField M] [NumberField L] [Algebra.IsPushout K M L N] in
 /-- Changing the intermediate tower presentation does not change the
 composite class norm to `K`. -/
 theorem towerCompositeClassNorm_changeIntermediate
@@ -343,7 +359,7 @@ theorem towerCompositeClassNorm_changeIntermediate
     towerCompositeClassNorm_eq_ideleClassNorm]
   simp [changeIntermediateClassGroupEquiv]
 
-omit [Algebra.IsPushout K M L N] in
+omit [NumberField M] [NumberField L] [Algebra.IsPushout K M L N] in
 /-- Every composite norm through `M` is, after changing the tower
 presentation, already a norm through `L`. -/
 theorem towerCompositeClassNorm_mem_ideleClassNormRange
@@ -371,7 +387,7 @@ def pushoutNormQuotientNormBack :
         towerCompositeClassNorm_mem_ideleClassNormRange
           K M L N c)
 
-omit [Algebra.IsPushout K M L N] in
+omit [NumberField M] [NumberField L] [Algebra.IsPushout K M L N] in
 @[simp]
 theorem pushoutNormQuotientNormBack_mk
     (c : RelativeIdeleGroup.ClassGroup K M) :
@@ -382,6 +398,7 @@ theorem pushoutNormQuotientNormBack_mk
         (RelativeIdeleGroup.classNorm K M c) :=
   rfl
 
+omit [NumberField M] [NumberField L] in
 /-- The norm-back composite is the `[M:K]`-power map on the original
 class-norm quotient. -/
 theorem pushoutNormQuotientNormBack_comp_map
@@ -399,6 +416,7 @@ theorem pushoutNormQuotientNormBack_comp_map
         Module.finrank K M
   rw [ideleClassNorm_classInclusion, map_pow]
 
+omit [NumberField M] [NumberField L] in
 /-- If the `[M:K]`-power map on the original norm quotient is
 injective, then so is the map induced by the pushout inclusion. -/
 theorem pushoutNormQuotientMap_injective_of_pow_injective

@@ -1,16 +1,37 @@
-import Mathlib.SetTheory.Cardinal.Finite
-import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.RingTheory.RamificationInertia.Basic
-import Mathlib.RingTheory.DedekindDomain.IntegralClosure
-import Mathlib.RingTheory.Trace.Basic
-import Mathlib.RingTheory.Valuation.Extension
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueUnits
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.SetTheory.Cardinal.Finite
+public import Mathlib.FieldTheory.Finite.GaloisField
+public import Mathlib.LinearAlgebra.Dimension.DivisionRing
+public import Mathlib.NumberTheory.RamificationInertia.Inertia
+public import Mathlib.NumberTheory.RamificationInertia.Ramification
+public import Mathlib.RingTheory.Ideal.Norm.AbsNorm
+public import Mathlib.RingTheory.RamificationInertia.Basic
+public import Mathlib.RingTheory.SimpleModule.Basic
+public import Mathlib.RingTheory.DedekindDomain.IntegralClosure
+public import Mathlib.RingTheory.Trace.Basic
+public import Mathlib.RingTheory.Valuation.Extension
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueUnits
 /-!
 # Residue extensions
 
 Constructs the maps induced on valuation rings, residue fields, and residue
 units by a valued extension, with degree, trace, norm, and Frobenius results.
 -/
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -302,9 +323,9 @@ theorem maximalIdeal_inertiaDeg_eq_residue_finrank (K L : Type u)
     [Field L] [ValuativeRel L] [TopologicalSpace L] [IsNonarchimedeanLocalField L]
     [Algebra K L]
     [Valuation.HasExtension (ValuativeRel.valuation K) (ValuativeRel.valuation L)] :
-    Ideal.inertiaDeg' (𝓂[K] : Ideal 𝒪[K]) (𝓂[L] : Ideal 𝒪[L]) =
+    (𝓂[L] : Ideal 𝒪[L]).inertiaDeg 𝒪[K] =
       Module.finrank 𝓀[K] 𝓀[L] := by
-  rw [Ideal.inertiaDeg'_algebraMap]
+  rw [Ideal.inertiaDeg_eq_of_isMaximal (𝓂[K] : Ideal 𝒪[K]) (𝓂[L] : Ideal 𝒪[L])]
   rfl
 
 /-- The residue-field automorphism group has order the mathlib inertia degree
@@ -315,7 +336,7 @@ theorem residueAlgEquiv_card_eq_maximalIdeal_inertiaDeg (K L : Type u)
     [Algebra K L]
     [Valuation.HasExtension (ValuativeRel.valuation K) (ValuativeRel.valuation L)] :
     Nat.card (𝓀[L] ≃ₐ[𝓀[K]] 𝓀[L]) =
-      Ideal.inertiaDeg' (𝓂[K] : Ideal 𝒪[K]) (𝓂[L] : Ideal 𝒪[L]) := by
+      (𝓂[L] : Ideal 𝒪[L]).inertiaDeg 𝒪[K] := by
   rw [residueAlgEquiv_card_eq_finrank K L,
     maximalIdeal_inertiaDeg_eq_residue_finrank K L]
 
@@ -351,7 +372,7 @@ theorem maximalIdeal_ramificationIdx_mul_inertiaDeg_eq_finrank (K L : Type u)
     [Valuation.HasExtension (ValuativeRel.valuation K) (ValuativeRel.valuation L)]
     [Module.Finite 𝒪[K] 𝒪[L]] :
     Ideal.ramificationIdx' (𝓂[K] : Ideal 𝒪[K]) (𝓂[L] : Ideal 𝒪[L]) *
-      Ideal.inertiaDeg' (𝓂[K] : Ideal 𝒪[K]) (𝓂[L] : Ideal 𝒪[L]) =
+      (𝓂[L] : Ideal 𝒪[L]).inertiaDeg 𝒪[K] =
         Module.finrank K L := by
   classical
   have := FaithfulSMul.of_field_isFractionRing 𝒪[K] 𝒪[L] K L
@@ -364,7 +385,6 @@ theorem maximalIdeal_ramificationIdx_mul_inertiaDeg_eq_finrank (K L : Type u)
     { default := ⟨𝓂[L], hprimes ▸ Set.mem_singleton _⟩
       uniq := fun q => Subtype.ext (Set.mem_singleton_iff.mp (hprimes ▸ q.property)) }
   rw [Ideal.ramificationIdx'_eq_ramificationIdx _ _ hp,
-    Ideal.inertiaDeg'_eq_inertiaDeg,
     IsFractionRing.finrank_eq 𝒪[K] K 𝒪[L] L]
   simpa only [Fintype.sum_unique, hq] using
     (Ideal.sum_ramification_inertia_eq_finrank (𝓂[K] : Ideal 𝒪[K]) 𝒪[L])

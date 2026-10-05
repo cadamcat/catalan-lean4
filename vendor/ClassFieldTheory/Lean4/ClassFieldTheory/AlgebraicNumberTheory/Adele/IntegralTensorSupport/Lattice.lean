@@ -1,4 +1,20 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Adele.IntegralTensorSupport.AbsoluteValue
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Adele.IntegralTensorSupport.AbsoluteValue
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -25,6 +41,7 @@ variable
     [Field L] [NumberField L] [Algebra K L]
     [FiniteDimensional K L]
 
+omit [NumberField K] in
 /-- One common nonzero integer scales every vector of the chosen
 `K`-basis into the ring of integers of `L`. -/
 theorem exists_integral_relativeBasis_scale :
@@ -57,6 +74,7 @@ noncomputable def chosenRelativeBasisIntegralScale : ℤ :=
     (exists_integral_relativeBasis_scale
       (K := K) (L := L))
 
+omit [NumberField K] in
 /-- The chosen integral scale is nonzero. -/
 theorem chosenRelativeBasisIntegralScale_ne_zero :
     chosenRelativeBasisIntegralScale (K := K) (L := L) ≠ 0 :=
@@ -64,6 +82,7 @@ theorem chosenRelativeBasisIntegralScale_ne_zero :
     (exists_integral_relativeBasis_scale
       (K := K) (L := L))).1
 
+omit [NumberField K] in
 /-- The chosen integral scale is integral in the base field. -/
 theorem chosenRelativeBasisIntegralScale_isIntegral
     (i : RelativeAdeleBasisIndex (K := K) (L := L)) :
@@ -406,8 +425,7 @@ theorem integralTensorControlElement_ne_zero :
 noncomputable def integralTensorControlIdeal :
     Ideal (𝓞 K) :=
   Ideal.span
-    ({integralTensorControlElement
-      (K := K) (L := L)} : Set (𝓞 K))
+    ({(integralTensorControlElement (K := K) (L := L))} : Set (𝓞 K))
 
 /-- The tensor control ideal is nontrivial. -/
 theorem integralTensorControlIdeal_ne_bot :

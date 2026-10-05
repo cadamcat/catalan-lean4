@@ -1,6 +1,22 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicZHatBaseChange
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalArtin
-import Mathlib.FieldTheory.Galois.Profinite
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicZHatBaseChange
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalArtin
+public import Mathlib.FieldTheory.Galois.Profinite
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -425,6 +441,46 @@ theorem restrictNormalHom_infiniteGlobalArtinMonoidHom_of_structures
     restrictNormalHom_infiniteGlobalArtinMonoidHom_of_numberField
       K Ω a E hE
 
+/-- Finite projection stated for a plain intermediate field with its finite
+Galois structures supplied separately.  This avoids packaging a concrete
+dependent field into `FiniteGaloisIntermediateField` at every call site. -/
+theorem restrictNormalHom_infiniteGlobalArtinMonoidHom_of_intermediateField
+    (K Ω : Type) [Field K] [NumberField K]
+    [Field Ω] [Algebra K Ω] [IsAbelianGalois K Ω]
+    (a : IdeleGroup K) (E : IntermediateField K Ω)
+    [FiniteDimensional K E] [IsGalois K E]
+    (hE : NumberField E)
+    (hAbelian : IsAbelianGalois K E) :
+    letI : NumberField E := hE
+    letI : IsAbelianGalois K E := hAbelian
+    AlgEquiv.restrictNormalHom E
+        (infiniteGlobalArtinMonoidHom K Ω a) =
+      globalArtinMonoidHom (K := K) (L := E) a := by
+  let G : FiniteGaloisIntermediateField K Ω :=
+    { toIntermediateField := E
+      finiteDimensional := inferInstance
+      isGalois := inferInstance }
+  let : NumberField E := hE
+  let : IsAbelianGalois K E := hAbelian
+  exact
+    restrictNormalHom_infiniteGlobalArtinMonoidHom_of_structures
+      K Ω a G hE hAbelian
+
+/-- Finite projection for a plain intermediate field when its structures are
+already installed as ambient instances. -/
+theorem restrictNormalHom_infiniteGlobalArtinMonoidHom_intermediateField
+    (K Ω : Type) [Field K] [NumberField K]
+    [Field Ω] [Algebra K Ω] [IsAbelianGalois K Ω]
+    (a : IdeleGroup K) (E : IntermediateField K Ω)
+    [FiniteDimensional K E] [NumberField E] [IsAbelianGalois K E] :
+    AlgEquiv.restrictNormalHom E
+        (infiniteGlobalArtinMonoidHom K Ω a) =
+      globalArtinMonoidHom (K := K) (L := E) a := by
+  exact
+    restrictNormalHom_infiniteGlobalArtinMonoidHom_of_intermediateField
+      K Ω a E (inferInstance : NumberField E)
+        (inferInstance : IsAbelianGalois K E)
+
 /-- Pointwise form of finite projection of the infinite global Artin map.
 This is the stable interface when a concrete finite layer carries algebra
 instances propositionally, but not definitionally, equal to the canonical
@@ -465,6 +521,52 @@ theorem map_restrictNormalHom_infiniteGlobalArtinMonoidHom_of_numberField
   exact congrArg f
     (restrictNormalHom_infiniteGlobalArtinMonoidHom_of_numberField
       K Ω a E hE)
+
+/-- Postcomposition of a finite projection with both finite-layer structures
+supplied explicitly.  This avoids resynthesizing proposition-valued instances
+when the finite field is a concrete dependent intermediate field. -/
+theorem map_restrictNormalHom_infiniteGlobalArtinMonoidHom_of_structures
+    (K Ω : Type) [Field K] [NumberField K]
+    [Field Ω] [Algebra K Ω] [IsAbelianGalois K Ω]
+    (a : IdeleGroup K)
+    (E : FiniteGaloisIntermediateField K Ω)
+    (hE : NumberField E)
+    (hAbelian : IsAbelianGalois K E)
+    {M : Type} (f : (E ≃ₐ[K] E) → M) :
+    letI : NumberField E := hE
+    letI : IsAbelianGalois K E := hAbelian
+    f (AlgEquiv.restrictNormalHom E
+        (infiniteGlobalArtinMonoidHom K Ω a)) =
+      f (globalArtinMonoidHom
+        (K := K) (L := E) a) := by
+  let : NumberField E := hE
+  let : IsAbelianGalois K E := hAbelian
+  exact congrArg f
+    (restrictNormalHom_infiniteGlobalArtinMonoidHom_of_structures
+      K Ω a E hE hAbelian)
+
+/-- Postcomposition of the finite projection for a plain intermediate field.
+The explicit structures keep concrete cyclotomic levels out of instance
+normalization at the consumer. -/
+theorem
+    map_restrictNormalHom_infiniteGlobalArtinMonoidHom_of_intermediateField
+    (K Ω : Type) [Field K] [NumberField K]
+    [Field Ω] [Algebra K Ω] [IsAbelianGalois K Ω]
+    (a : IdeleGroup K) (E : IntermediateField K Ω)
+    [FiniteDimensional K E] [IsGalois K E]
+    (hE : NumberField E)
+    (hAbelian : IsAbelianGalois K E)
+    {M : Type} (f : (E ≃ₐ[K] E) → M) :
+    letI : NumberField E := hE
+    letI : IsAbelianGalois K E := hAbelian
+    f (AlgEquiv.restrictNormalHom E
+        (infiniteGlobalArtinMonoidHom K Ω a)) =
+      f (globalArtinMonoidHom (K := K) (L := E) a) := by
+  let : NumberField E := hE
+  let : IsAbelianGalois K E := hAbelian
+  exact congrArg f
+    (restrictNormalHom_infiniteGlobalArtinMonoidHom_of_intermediateField
+      K Ω a E hE hAbelian)
 
 /-- The finite global Artin homomorphism with its number-field witness fixed
 as an explicit argument.  Concrete intermediate-field towers can share this
@@ -604,6 +706,61 @@ theorem restrictNormalHom_infiniteGlobalArtinMonoidHom
   exact
     restrictNormalHom_infiniteGlobalArtinMonoidHom_of_numberField
       K Ω a E (NumberField.of_module_finite K E)
+
+/-- Restriction of the infinite global Artin map along an abstract finite
+abelian scalar tower.  Unlike the intermediate-field projection theorem, this
+form allows the finite extension to be supplied through any chosen embedding
+into the ambient infinite extension. -/
+theorem restrictNormalHom_infiniteGlobalArtinMonoidHom_of_scalarTower
+    (K E Ω : Type) [Field K] [NumberField K]
+    [Field E] [NumberField E] [Algebra K E]
+    [IsAbelianGalois K E]
+    [Field Ω] [Algebra K Ω] [Algebra E Ω]
+    [IsScalarTower K E Ω] [IsAbelianGalois K Ω]
+    (a : IdeleGroup K) :
+    AlgEquiv.restrictNormalHom E
+        (infiniteGlobalArtinMonoidHom K Ω a) =
+      globalArtinMonoidHom (K := K) (L := E) a := by
+  let j : E →ₐ[K] Ω := IsScalarTower.toAlgHom K E Ω
+  let G : FiniteGaloisIntermediateField K Ω :=
+    { toIntermediateField := j.fieldRange
+      finiteDimensional :=
+        j.equivFieldRange.toLinearEquiv.finiteDimensional
+      isGalois := IsGalois.of_algEquiv j.equivFieldRange }
+  let _ : FiniteDimensional K G := G.finiteDimensional
+  let _ : NumberField G :=
+    NumberField.of_module_finite K G
+  let _ : IsAbelianGalois K G :=
+    IsAbelianGalois.of_algHom G.toIntermediateField.val
+  let _ : Algebra E G :=
+    j.equivFieldRange.toRingHom.toAlgebra
+  let _ : SMul E G := Algebra.toSMul
+  let _ : IsScalarTower K E G :=
+    IsScalarTower.of_algHom j.equivFieldRange.toAlgHom
+  let _ : IsScalarTower K G Ω :=
+    IntermediateField.isScalarTower_mid G.toIntermediateField
+  let _ : IsScalarTower E G Ω :=
+    IsScalarTower.of_algebraMap_eq fun _ => rfl
+  have hProjection :
+      AlgEquiv.restrictNormalHom G
+          (infiniteGlobalArtinMonoidHom K Ω a) =
+        globalArtinMonoidHom (K := K) (L := G) a :=
+    restrictNormalHom_infiniteGlobalArtinMonoidHom K Ω a G
+  calc
+    AlgEquiv.restrictNormalHom E
+          (infiniteGlobalArtinMonoidHom K Ω a) =
+        AlgEquiv.restrictNormalHom E
+          (AlgEquiv.restrictNormalHom G
+            (infiniteGlobalArtinMonoidHom K Ω a)) :=
+      IsScalarTower.AlgEquiv.restrictNormalHom_comp_apply E G
+        (infiniteGlobalArtinMonoidHom K Ω a)
+    _ = AlgEquiv.restrictNormalHom E
+          (globalArtinMonoidHom (K := K) (L := G) a) :=
+      congrArg (AlgEquiv.restrictNormalHom E) hProjection
+    _ = globalArtinMonoidHom (K := K) (L := E) a :=
+      DFunLike.congr_fun
+        (globalArtinMonoidHom_restrict_tower
+          (K := K) (L := G) (E := E)) a
 
 /-- Finite global reciprocity at every coordinate makes the infinite
 global Artin homomorphism dense in the Krull topology. -/

@@ -1,9 +1,27 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.ResidueField
-import ValuedFieldTheory.Valuation.DiscreteValuationField.Complete
-import Mathlib.RingTheory.Valuation.Extension
-import Mathlib.RingTheory.RamificationInertia.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.Algebra.Group.Units.Hom
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.ResidueField
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.Complete
+public import Mathlib.RingTheory.Valuation.Extension
+public import Mathlib.RingTheory.RamificationInertia.Basic
+public import Mathlib.NumberTheory.RamificationInertia.Inertia
+public import Mathlib.NumberTheory.RamificationInertia.Ramification
+public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+public import Mathlib.Algebra.Group.Units.Hom
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -52,9 +70,8 @@ noncomputable def ramificationIndex : ℕ :=
 /-- The canonical residue degree of the target maximal ideal over the base
 maximal ideal. -/
 noncomputable def residueDegree : ℕ :=
-  Ideal.inertiaDeg'
-    (base.maximalIdeal : Ideal base.valuationSubring)
-    (target.maximalIdeal : Ideal target.valuationSubring)
+  (target.maximalIdeal : Ideal target.valuationSubring).inertiaDeg
+    base.valuationSubring
 
 /-- The induced map between valuation subrings. -/
 def integerMap :

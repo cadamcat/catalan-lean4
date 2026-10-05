@@ -1,8 +1,24 @@
-import ValuedFieldTheory.Valuation.AbsoluteValue.Extension
-import ValuedFieldTheory.Valuation.AbsoluteValue.Nonarchimedean
-import Mathlib.Analysis.Normed.Field.Instances
-import Mathlib.Analysis.Normed.Module.Completion
-import Mathlib.Analysis.Normed.Unbundled.RingSeminorm
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Extension
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Nonarchimedean
+public import Mathlib.Analysis.Normed.Field.Instances
+public import Mathlib.Analysis.Normed.Module.Completion
+public import Mathlib.Analysis.Normed.Unbundled.RingSeminorm
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -145,7 +161,9 @@ noncomputable def completionMap
     (vK : AbsoluteValue K ℝ) (wL : AbsoluteValue L ℝ)
     (hw : Extends vK wL) :
     vK.Completion →+* wL.Completion :=
-  (baseToExtensionCompletion_isometry vK wL hw).extensionHom
+  UniformSpace.Completion.extensionHom
+    (baseToExtensionCompletion vK wL)
+    (baseToExtensionCompletion_isometry vK wL hw).continuous
 
 private theorem completionMap_withAbs_coe
     {K : Type u} {L : Type v} [Field K] [Field L] [Algebra K L]
@@ -153,7 +171,9 @@ private theorem completionMap_withAbs_coe
     (hw : Extends vK wL) (x : WithAbs vK) :
     completionMap vK wL hw (x : vK.Completion) =
       baseToExtensionCompletion vK wL x :=
-  (baseToExtensionCompletion_isometry vK wL hw).extensionHom_coe x
+  UniformSpace.Completion.extensionHom_coe
+    (baseToExtensionCompletion vK wL)
+    (baseToExtensionCompletion_isometry vK wL hw).continuous x
 
 /-- On the canonical copy of the base field, the map between completions is
 the original algebra map followed by the canonical completion map. -/
@@ -259,7 +279,8 @@ theorem completionAbsoluteValue_isNonarchimedean
     (((WithAbs.equiv vK).symm (n : K) : WithAbs vK) :
       vK.Completion) ≤ 1
   rw [completionAbsoluteValue_coe]
-  exact hvK.apply_natCast_le_one
+  change vK (n : K) ≤ 1
+  simpa using hvK.apply_natCast_le_one (by simp) (by simp)
 
 /-- A nonarchimedean absolute value and its completion absolute value have the
 same range. -/
@@ -286,7 +307,8 @@ theorem completionAbsoluteValue_range_eq
       have hne : vC y ≠ vC (-(y - algebraMap K vK.Completion x)) := by
         rw [AbsoluteValue.map_neg]
         exact ne_of_gt hclose
-      have hsum := IsNonarchimedean.add_eq_max_of_ne hvC hne
+      have hsum := IsNonarchimedean.add_eq_max_of_ne
+        (fun a => vC.map_neg a) hvC hne
       refine ⟨x, ?_⟩
       calc
         vK x = vC (algebraMap K vK.Completion x) :=
@@ -335,7 +357,9 @@ noncomputable def completionMapToCompleteTarget
     [CompleteSpace (WithAbs vD)]
     (i : K →+* D) (hi : ∀ x : K, vD (i x) = vK x) :
     vK.Completion →+* WithAbs vD :=
-  (toCompleteTargetRingHom_isometry vK vD i hi).extensionHom
+  UniformSpace.Completion.extensionHom
+    (toCompleteTargetRingHom vK vD i)
+    (toCompleteTargetRingHom_isometry vK vD i hi).continuous
 
 private theorem completionMapToCompleteTarget_withAbs_coe
     (vK : AbsoluteValue K ℝ) (vD : AbsoluteValue D ℝ)
@@ -345,7 +369,9 @@ private theorem completionMapToCompleteTarget_withAbs_coe
     completionMapToCompleteTarget vK vD i hi
         (x : vK.Completion) =
       toCompleteTargetRingHom vK vD i x :=
-  (toCompleteTargetRingHom_isometry vK vD i hi).extensionHom_coe x
+  UniformSpace.Completion.extensionHom_coe
+    (toCompleteTargetRingHom vK vD i)
+    (toCompleteTargetRingHom_isometry vK vD i hi).continuous x
 
 /-- The extension map to a complete target agrees with the original map on
 embedded source elements. -/

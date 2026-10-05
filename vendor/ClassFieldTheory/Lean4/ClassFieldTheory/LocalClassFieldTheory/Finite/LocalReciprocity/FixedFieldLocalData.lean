@@ -1,8 +1,24 @@
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.LocalHenselianValuation
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedComparison
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteExtensionTopology
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormalizedIntegerValuation
-import ValuedFieldTheory.Valuation.DiscreteValuationField.ValuationTransport
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.LocalHenselianValuation
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedComparison
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteExtensionTopology
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormalizedIntegerValuation
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.ValuationTransport
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -137,7 +153,23 @@ theorem localHenselianValuation_valuationAt_abstractFixedField
       (IsNonarchimedeanLocalField.valuationMap F (Additive.ofMul x))
   have hdegree :
       (H.residueDegree (localResidueDatum K) : ℕ) = f := by
-    exact localResidueDatum_residueDegree_eq_residueFinrank K H
+    have hdegreeRaw :=
+      localResidueDatum_residueDegree_eq_residueFinrank K H
+    exact hdegreeRaw.trans (by
+        apply Nat.pow_right_injective
+          (Finite.one_lt_card : 2 ≤ Nat.card 𝓀[K])
+        calc
+          _ = Nat.card 𝓀[F] := by
+            symm
+            refine @Module.natCard_eq_pow_finrank 𝓀[K] 𝓀[F] _ _ ?_ ?_
+            refine @Module.Finite.of_finite 𝓀[K] 𝓀[F] _ _ ?_ ?_
+            infer_instance
+          _ = Nat.card 𝓀[F] := rfl
+          _ = _ := by
+            dsimp only [f]
+            refine @Module.natCard_eq_pow_finrank 𝓀[K] 𝓀[F] _ _ ?_ ?_
+            refine @Module.Finite.of_finite 𝓀[K] 𝓀[F] _ _ ?_ ?_
+            infer_instance)
   have hnorm :
       (localHenselianValuation K).normCompositeAt H a =
         f • z := by
@@ -766,6 +798,248 @@ theorem localSeparableValuationSubring_eq_comap_abstractFixedFieldEquiv
   let : (localCompleteDVF F).valuation.HasExtension B.valuation := hBext
   exact localSeparableValuationSubring_eq_of_hasExtension F B
 
+/-- The residue field presented through the ambient separable closure is
+canonically equivalent to the residue intermediate field attached to the
+finite fixing subgroup, compatibly with their embeddings into the selected
+residue field. -/
+private theorem exists_abstractFixedFieldResidueEquiv
+    (K : Type) [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K]
+    (H : FiniteAbstractField (Gal(SeparableClosure K / K)))
+    [FiniteDimensional K (finiteFixedField K H)]
+    [NontriviallyNormedField (finiteFixedField K H)]
+    [ValuativeRel (finiteFixedField K H)]
+    [IsNonarchimedeanLocalField (finiteFixedField K H)]
+    [Valuation.HasExtension (ValuativeRel.valuation K)
+      (ValuativeRel.valuation (finiteFixedField K H))]
+    (e : SeparableClosure (finiteFixedField K H) ≃ₐ[
+      finiteFixedField K H] SeparableClosure K) :
+    ∃ tau :
+        decompositionResidueField (finiteFixedField K H)
+            (localSeparableValuationSubring K) ≃+*
+          localAbstractFixedResidueIntermediateField K H.field,
+      ∀ x : decompositionResidueField (finiteFixedField K H)
+          (localSeparableValuationSubring K),
+        algebraMap
+            (decompositionResidueField (finiteFixedField K H)
+              (localSeparableValuationSubring K))
+            (selectedResidueField (localSeparableValuationSubring K)) x =
+          algebraMap
+            (localAbstractFixedResidueIntermediateField K H.field)
+            (selectedResidueField (localSeparableValuationSubring K))
+            (tau x) := by
+  let F := abstractFixedField K (SeparableClosure K) H.field
+  let A := localSeparableValuationSubring K
+  let C := (ValuativeRel.valuation F).valuationSubring
+  let V := (localCompleteDVF K).valuation.valuationSubring
+  let kK := IsLocalRing.ResidueField V
+  let kF := IsLocalRing.ResidueField C
+  let k₀ := decompositionResidueField K A
+  let kA := decompositionResidueField F A
+  let Omega := selectedResidueField A
+  let R := localAbstractFixedResidueIntermediateField K H.field
+  let j : F →ₐ[K] SeparableClosure K :=
+    (abstractFixedField K (SeparableClosure K) H.field).val
+  let : (localCompleteDVF K).valuation.HasExtension C.valuation := by
+    apply
+      ValuationTheory.DiscreteValuationField.Valuation.hasExtension_valuation_of_valuationSubring_pullback
+    intro x
+    change ValuativeRel.valuation F (algebraMap K F x) ≤ 1 ↔
+      (localCompleteDVF K).valuation x ≤ 1
+    rw [_root_.Valuation.HasExtension.val_map_le_one_iff
+      (ValuativeRel.valuation K) (ValuativeRel.valuation F)]
+    rfl
+  have hVC : V.valuation.HasExtension C.valuation := by
+    apply
+      ValuationTheory.DiscreteValuationField.Valuation.hasExtension_valuation_of_valuationSubring_pullback
+    intro x
+    simpa only [V, ValuationSubring.valuationSubring_valuation] using
+      (ValuationTheory.DiscreteValuationField.Valuation.valuationSubring_pullback_of_hasExtension_valuation
+        (localCompleteDVF K).valuation C x)
+  have hC : A.comap (algebraMap F (SeparableClosure K)) = C := by
+    simpa only [
+      RamificationTheory.ValuationSubring.restrictIntermediateField_eq_comap] using
+      (ValuationSubring.restrictIntermediateField_eq_of_finite_separable
+        (localCompleteDVF K) A
+        (abstractFixedField K (SeparableClosure K) H.field) C)
+  have htop : decompositionGroup F A = ⊤ :=
+    localSeparableDecompositionGroup_eq_top_finiteExtensionEquiv
+      K F j e
+  let eK : kK ≃+* k₀ :=
+    localBaseResidueEquivDecompositionResidue K
+  let eA : kF ≃+* kA :=
+    residueFieldEquivDecompositionResidueOfEqTop A C hC htop
+  let i : V →+* C :=
+    ValuationTheory.Valuations.valuationSubringMapOfHasExtension V C hVC
+  let bar : kF →+* Omega :=
+    (algebraMap kA Omega).comp eA.toRingHom
+  let : Algebra kK kF := by
+    change Algebra 𝓀[K] 𝓀[F]
+    exact IsLocalRing.ResidueField.instAlgebra
+  have hbar_base (x : kK) :
+      bar (algebraMap kK kF x) =
+        algebraMap k₀ Omega (eK x) := by
+    obtain ⟨a, rfl⟩ := IsLocalRing.residue_surjective x
+    have hres :
+        algebraMap kK kF (IsLocalRing.residue V a) =
+          IsLocalRing.residue C (i a) := by
+      change algebraMap 𝓀[K] 𝓀[F]
+          (IsLocalRing.residue 𝒪[K] a) =
+        IsLocalRing.residue 𝒪[F] (algebraMap 𝒪[K] 𝒪[F] a)
+      exact residueField_algebraMap_residue K F a
+    rw [hres]
+    change algebraMap kA Omega
+        (eA (IsLocalRing.residue C (i a))) =
+      algebraMap k₀ Omega
+        (eK (IsLocalRing.residue V a))
+    rw [residueFieldEquivDecompositionResidueOfEqTop_algebraMap]
+    have hbase :=
+      localBaseResidueEquivDecompositionResidue_algebraMap K a
+    change algebraMap k₀ Omega
+      (eK (IsLocalRing.residue V a)) = _ at hbase
+    rw [hbase]
+    congr 1
+  let : Algebra k₀ kF :=
+    ((algebraMap kK kF).comp eK.symm.toRingHom).toAlgebra
+  let barAlg : kF →ₐ[k₀] Omega :=
+    { bar with
+      commutes' := fun z => by
+        change bar (algebraMap kK kF (eK.symm z)) =
+          algebraMap k₀ Omega z
+        simpa using hbar_base (eK.symm z) }
+  have hR : R = barAlg.fieldRange := by
+    change IntermediateField.adjoin k₀
+        (Set.range (algebraMap kA Omega)) = barAlg.fieldRange
+    apply le_antisymm
+    · apply IntermediateField.adjoin_le_iff.mpr
+      rintro y ⟨z, rfl⟩
+      obtain ⟨x, rfl⟩ := eA.surjective z
+      exact ⟨x, rfl⟩
+    · rintro y ⟨x, rfl⟩
+      apply IntermediateField.subset_adjoin
+      exact ⟨eA x, rfl⟩
+  let eRange : kF ≃+* barAlg.fieldRange :=
+    (AlgEquiv.ofInjectiveField barAlg).toRingEquiv
+  let eTop : kF ≃+* R :=
+    eRange.trans
+      (IntermediateField.equivOfEq hR.symm).toRingEquiv
+  have heTop (x : kF) :
+      algebraMap R Omega (eTop x) = bar x := by
+    rfl
+  let tau : kA ≃+* R := eA.symm.trans eTop
+  refine ⟨tau, ?_⟩
+  intro x
+  change algebraMap kA Omega x =
+    algebraMap R Omega (eTop (eA.symm x))
+  rw [heTop]
+  simp [bar]
+
+private theorem residueAbsoluteDegreeIn_eq_normalizedDegree_abstractFixedFieldEquiv
+    (K : Type) [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K]
+    (H : FiniteAbstractField (Gal(SeparableClosure K / K)))
+    [FiniteDimensional K (finiteFixedField K H)]
+    [NontriviallyNormedField (finiteFixedField K H)]
+    [ValuativeRel (finiteFixedField K H)]
+    [IsNonarchimedeanLocalField (finiteFixedField K H)]
+    [Valuation.HasExtension (ValuativeRel.valuation K)
+      (ValuativeRel.valuation (finiteFixedField K H))]
+    [Fintype (decompositionResidueField (finiteFixedField K H)
+      (localSeparableValuationSubring K))]
+    (e : SeparableClosure (finiteFixedField K H) ≃ₐ[
+      finiteFixedField K H] SeparableClosure K)
+    (sigma : Gal(SeparableClosure (finiteFixedField K H) /
+      finiteFixedField K H))
+    (htop : decompositionGroup (finiteFixedField K H)
+      (localSeparableValuationSubring K) = ⊤)
+    (tau : decompositionResidueField (finiteFixedField K H)
+        (localSeparableValuationSubring K) ≃+*
+      localAbstractFixedResidueIntermediateField K H.field)
+    (hTau : ∀ x : decompositionResidueField (finiteFixedField K H)
+        (localSeparableValuationSubring K),
+      algebraMap
+          (decompositionResidueField (finiteFixedField K H)
+            (localSeparableValuationSubring K))
+          (selectedResidueField (localSeparableValuationSubring K)) x =
+        algebraMap
+          (localAbstractFixedResidueIntermediateField K H.field)
+          (selectedResidueField (localSeparableValuationSubring K))
+          (tau x)) :
+    residueAbsoluteDegreeIn
+        (decompositionResidueField (finiteFixedField K H)
+          (localSeparableValuationSubring K))
+        (selectedResidueField (localSeparableValuationSubring K))
+        (residueAlgActionOfEqTop (finiteFixedField K H)
+          (localSeparableValuationSubring K) htop
+          (AlgEquiv.autCongr e sigma)) =
+      (localResidueDatum K).normalizedDegree
+        (H.toFiniteResidueAbstractField (localResidueDatum K))
+        ((abstractSubgroupEquivGaloisGroup
+          K (SeparableClosure K) H.field).symm
+            (AlgEquiv.autCongr e sigma)) := by
+  let F := finiteFixedField K H
+  let A := localSeparableValuationSubring K
+  let k₀ := decompositionResidueField K A
+  let kA := decompositionResidueField F A
+  let Omega := selectedResidueField A
+  let : Algebra.IsAlgebraic kA Omega :=
+    (decompositionResidueExtension_normal (K := F) A).toIsAlgebraic
+  let R := localAbstractFixedResidueIntermediateField K H.field
+  let eOmega : Omega ≃+* Omega := RingEquiv.refl Omega
+  have heOmega (x : kA) :
+      eOmega (algebraMap kA Omega x) =
+        algebraMap R Omega (tau x) := by
+    simpa [F, A, kA, Omega, R, eOmega] using hTau x
+  let sigmaH : H.field.toSubgroup :=
+    (abstractSubgroupEquivGaloisGroup
+      K (SeparableClosure K) H.field).symm
+        (AlgEquiv.autCongr e sigma)
+  let rhoA : Omega ≃ₐ[kA] Omega :=
+    residueAlgActionOfEqTop F A htop
+      (AlgEquiv.autCongr e sigma)
+  let rhoH : Omega ≃ₐ[R] Omega :=
+    localAbstractFixedResidueActionOverIntermediateField
+      K H.field sigmaH
+  let conjugate : Omega ≃ₐ[R] Omega :=
+    { eOmega.symm.trans (rhoA.toRingEquiv.trans eOmega) with
+      commutes' :=
+        semilinearConjugate_commutes
+          tau eOmega heOmega rhoA }
+  have hconjugate : conjugate = rhoH := by
+    apply AlgEquiv.ext
+    intro x
+    change residueAlgActionOfEqTop F A htop
+        (AlgEquiv.autCongr e sigma) x =
+      localSeparableResidueAlgAction K sigmaH.1 x
+    have hsigmaH :
+        abstractSubgroupEquivGaloisGroup
+            K (SeparableClosure K) H.field sigmaH =
+          AlgEquiv.autCongr e sigma :=
+      (abstractSubgroupEquivGaloisGroup
+        K (SeparableClosure K) H.field).apply_symm_apply
+          (AlgEquiv.autCongr e sigma)
+    rw [localAbstractFixedResidueAction_apply K H.field sigmaH]
+    rw [hsigmaH]
+  let : Algebra k₀ R := R.algebra
+  let : Module k₀ R := Algebra.toModule
+  let : FiniteDimensional k₀ R :=
+    localAbstractFixedResidueIntermediateField_finiteDimensional K H.field
+  let : Finite R := Module.finite_of_finite k₀
+  let : Fintype R := Fintype.ofFinite R
+  change residueAbsoluteDegreeIn kA Omega rhoA =
+    (localResidueDatum K).normalizedDegree
+      (H.toFiniteResidueAbstractField (localResidueDatum K)) sigmaH
+  calc
+    residueAbsoluteDegreeIn kA Omega rhoA =
+        residueAbsoluteDegreeIn R Omega rhoH := by
+      exact Eq.trans
+        (residueAbsoluteDegreeIn_semilinear_conjugation
+          kA Omega tau eOmega heOmega rhoA).symm
+        (congrArg (residueAbsoluteDegreeIn R Omega) hconjugate)
+    _ = _ :=
+      (localResidueDatum_normalizedDegree_eq_residueAbsoluteDegreeIn
+        K H sigmaH).symm
+
 /-- Changing from the canonical separable closure of a finite fixed field to
 the original ambient separable closure identifies its intrinsic local
 residue degree with the normalized degree on the corresponding abstract
@@ -815,174 +1089,27 @@ theorem localResidueDegree_eq_normalizedDegree_abstractFixedFieldEquiv
   let : Valuation.HasExtension (ValuativeRel.valuation K)
       (ValuativeRel.valuation F) :=
     finiteExtensionSpectralValuation_hasExtension K F
-
   let A := localSeparableValuationSubring K
-  let C := (ValuativeRel.valuation F).valuationSubring
-  let V := (localCompleteDVF K).valuation.valuationSubring
-  let kK := IsLocalRing.ResidueField V
-  let kF := IsLocalRing.ResidueField C
-  let k₀ := decompositionResidueField K A
   let kA := decompositionResidueField F A
-  let Omega := selectedResidueField A
-  let R := localAbstractFixedResidueIntermediateField K H.field
   let j : F →ₐ[K] SeparableClosure K :=
     (abstractFixedField K (SeparableClosure K) H.field).val
-
-  let standardResidueAlgebra : Algebra kK kF := by
-    change Algebra 𝓀[K] 𝓀[F]
-    infer_instance
-
-  have hExtC : (localCompleteDVF K).valuation.HasExtension C.valuation := by
-    apply
-      ValuationTheory.DiscreteValuationField.Valuation.hasExtension_valuation_of_valuationSubring_pullback
-    intro x
-    change ValuativeRel.valuation F (algebraMap K F x) ≤ 1 ↔
-      (localCompleteDVF K).valuation x ≤ 1
-    rw [_root_.Valuation.HasExtension.val_map_le_one_iff
-      (ValuativeRel.valuation K) (ValuativeRel.valuation F)]
-    rfl
-  have hVC : V.valuation.HasExtension C.valuation := by
-    apply
-      ValuationTheory.DiscreteValuationField.Valuation.hasExtension_valuation_of_valuationSubring_pullback
-    intro x
-    simpa only [V, ValuationSubring.valuationSubring_valuation] using
-      (ValuationTheory.DiscreteValuationField.Valuation.valuationSubring_pullback_of_hasExtension_valuation
-        (localCompleteDVF K).valuation C x)
-  have hC : A.comap (algebraMap F (SeparableClosure K)) = C := by
-    simpa only [
-      RamificationTheory.ValuationSubring.restrictIntermediateField_eq_comap] using
-      (ValuationSubring.restrictIntermediateField_eq_of_finite_separable
-        (localCompleteDVF K) A
-        (abstractFixedField K (SeparableClosure K) H.field) C)
   have htop : decompositionGroup F A = ⊤ :=
     localSeparableDecompositionGroup_eq_top_finiteExtensionEquiv
       K F j e
-
-  let eK : kK ≃+* k₀ :=
-    localBaseResidueEquivDecompositionResidue K
-  let eA : kF ≃+* kA :=
-    residueFieldEquivDecompositionResidueOfEqTop A C hC htop
-  let i : V →+* C :=
-    ValuationTheory.Valuations.valuationSubringMapOfHasExtension V C hVC
-  let bar : kF →+* Omega :=
-    (algebraMap kA Omega).comp eA.toRingHom
-
-  have hbar_base (x : kK) :
-      bar (algebraMap kK kF x) =
-        algebraMap k₀ Omega (eK x) := by
-    obtain ⟨a, rfl⟩ := IsLocalRing.residue_surjective x
-    have hres :
-        algebraMap kK kF
-            (IsLocalRing.residue V a) =
-          IsLocalRing.residue C (i a) := by
-      change algebraMap 𝓀[K] 𝓀[F]
-          (IsLocalRing.residue 𝒪[K] a) =
-        IsLocalRing.residue 𝒪[F] (algebraMap 𝒪[K] 𝒪[F] a)
-      exact residueField_algebraMap_residue K F a
-    rw [hres]
-    change algebraMap kA Omega
-        (eA (IsLocalRing.residue C (i a))) =
-      algebraMap k₀ Omega
-        (eK (IsLocalRing.residue V a))
-    rw [residueFieldEquivDecompositionResidueOfEqTop_algebraMap]
-    have hbase :=
-      localBaseResidueEquivDecompositionResidue_algebraMap K a
-    change algebraMap k₀ Omega
-      (eK (IsLocalRing.residue V a)) = _ at hbase
-    rw [hbase]
-    congr 1
-
-  let : Algebra k₀ kF :=
-    ((algebraMap kK kF).comp eK.symm.toRingHom).toAlgebra
-  let barAlg : kF →ₐ[k₀] Omega :=
-    { bar with
-      commutes' := fun z => by
-        change bar (algebraMap kK kF (eK.symm z)) =
-          algebraMap k₀ Omega z
-        simpa using hbar_base (eK.symm z) }
-
-  have hR : R = barAlg.fieldRange := by
-    change IntermediateField.adjoin k₀
-        (Set.range (algebraMap kA Omega)) = barAlg.fieldRange
-    apply le_antisymm
-    · apply IntermediateField.adjoin_le_iff.mpr
-      rintro y ⟨z, rfl⟩
-      obtain ⟨x, rfl⟩ := eA.surjective z
-      exact ⟨x, rfl⟩
-    · rintro y ⟨x, rfl⟩
-      apply IntermediateField.subset_adjoin
-      exact ⟨eA x, rfl⟩
-
-  let eRange : kF ≃+* barAlg.fieldRange :=
-    (AlgEquiv.ofInjectiveField barAlg).toRingEquiv
-  let eTop : kF ≃+* R :=
-    eRange.trans
-      (IntermediateField.equivOfEq hR.symm).toRingEquiv
-  have heTop (x : kF) :
-      algebraMap R Omega (eTop x) = bar x := by
-    rfl
-
-  let tau : kA ≃+* R := eA.symm.trans eTop
-  let eOmega : Omega ≃+* Omega := RingEquiv.refl Omega
-  have heOmega (x : kA) :
-      eOmega (algebraMap kA Omega x) =
-        algebraMap R Omega (tau x) := by
-    change algebraMap kA Omega x =
-      algebraMap R Omega (eTop (eA.symm x))
-    rw [heTop]
-    simp [bar]
-
-  let sigmaH : H.field.toSubgroup :=
-    (abstractSubgroupEquivGaloisGroup
-      K (SeparableClosure K) H.field).symm
-        (AlgEquiv.autCongr e sigma)
-  let rhoA : Omega ≃ₐ[kA] Omega :=
-    residueAlgActionOfEqTop F A htop
-      (AlgEquiv.autCongr e sigma)
-  let rhoH : Omega ≃ₐ[R] Omega :=
-    localAbstractFixedResidueActionOverIntermediateField
-      K H.field sigmaH
-  let conjugate : Omega ≃ₐ[R] Omega :=
-    { eOmega.symm.trans (rhoA.toRingEquiv.trans eOmega) with
-      commutes' :=
-        semilinearConjugate_commutes
-          tau eOmega heOmega rhoA }
-  have hconjugate : conjugate = rhoH := by
-    apply AlgEquiv.ext
-    intro x
-    change residueAlgActionOfEqTop F A htop
-        (AlgEquiv.autCongr e sigma) x =
-      localSeparableResidueAlgAction K sigmaH.1 x
-    have hsigmaH :
-        abstractSubgroupEquivGaloisGroup
-            K (SeparableClosure K) H.field sigmaH =
-          AlgEquiv.autCongr e sigma :=
-      (abstractSubgroupEquivGaloisGroup
-        K (SeparableClosure K) H.field).apply_symm_apply
-          (AlgEquiv.autCongr e sigma)
-    rw [localAbstractFixedResidueAction_apply K H.field sigmaH]
-    rw [hsigmaH]
-
+  obtain ⟨tau, hTau⟩ := exists_abstractFixedFieldResidueEquiv K H e
   let : Fintype kA :=
     finiteExtensionDecompositionResidueFintype K F j e
-  let : Algebra k₀ R := R.algebra
-  let : FiniteDimensional k₀ R :=
-    localAbstractFixedResidueIntermediateField_finiteDimensional K H.field
-  let : Finite R := Module.finite_of_finite k₀
-  let : Fintype R := Fintype.ofFinite R
   have hlocal :
       localResidueDegree F sigma =
-        residueAbsoluteDegreeIn kA Omega rhoA := by
-    exact
-      localResidueDegree_eq_residueAbsoluteDegreeIn_finiteExtensionEquiv
-        K F j e sigma
-  rw [localResidueDatum_normalizedDegree_eq_residueAbsoluteDegreeIn]
-  change localResidueDegree F sigma =
-    residueAbsoluteDegreeIn R Omega rhoH
-  rw [hlocal, ← hconjugate]
+        residueAbsoluteDegreeIn kA (selectedResidueField A)
+          (residueAlgActionOfEqTop F A htop
+            (AlgEquiv.autCongr e sigma)) :=
+    localResidueDegree_eq_residueAbsoluteDegreeIn_finiteExtensionEquiv
+      K F j e sigma
+  rw [hlocal]
   exact
-    (residueAbsoluteDegreeIn_semilinear_conjugation
-      kA Omega tau eOmega heOmega rhoA).symm
+    residueAbsoluteDegreeIn_eq_normalizedDegree_abstractFixedFieldEquiv
+      K H e sigma htop tau hTau
 
 /-- The intrinsic residue degree of an arbitrary finite separable local
 extension agrees with the normalized degree on the ambient fixing subgroup

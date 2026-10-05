@@ -1,23 +1,39 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianFinite
-import ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianValuationExtension
-import ValuedFieldTheory.Valuation.HenselLemma
-import ValuedFieldTheory.Valuation.Henselian.Factorization.AdicLimits
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Assembly
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Basic
-import ValuedFieldTheory.Valuation.Henselian.Factorization.CoefficientMinimum
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Complete
-import ValuedFieldTheory.Valuation.Henselian.Factorization.DegreeBounds
-import ValuedFieldTheory.Valuation.Henselian.Factorization.DivisionBounds
-import ValuedFieldTheory.Valuation.Henselian.Factorization.ErrorPowers
-import ValuedFieldTheory.Valuation.Henselian.Factorization.FiniteApproximation
-import ValuedFieldTheory.Valuation.Henselian.Factorization.InfiniteApproximation
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Iteration
-import ValuedFieldTheory.Valuation.Henselian.Factorization.PrincipalLimits
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Step
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Truncation
-import ValuedFieldTheory.Valuation.Henselian.Factorization.WeakLimits
-import ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialLifting
-import ValuedFieldTheory.Valuation.Henselian.UniqueExtensionReduction
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianFinite
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianValuationExtension
+public import ValuedFieldTheory.Valuation.HenselLemma
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.AdicLimits
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Assembly
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Basic
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.CoefficientMinimum
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Complete
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.DegreeBounds
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.DivisionBounds
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.ErrorPowers
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.FiniteApproximation
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.InfiniteApproximation
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Iteration
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.PrincipalLimits
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Step
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Truncation
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.WeakLimits
+public import ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialLifting
+public import ValuedFieldTheory.Valuation.Henselian.UniqueExtensionReduction
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

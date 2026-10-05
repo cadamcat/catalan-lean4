@@ -1,6 +1,22 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.Extensions
-import Mathlib.LinearAlgebra.Dimension.Localization
-import Mathlib.RingTheory.RamificationInertia.Basic
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.Extensions
+public import Mathlib.LinearAlgebra.Dimension.Localization
+public import Mathlib.RingTheory.RamificationInertia.Basic
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -47,10 +63,9 @@ theorem isDefectless_of_moduleFinite
   rw [Fintype.sum_subsingleton _ ⟨target.maximalIdeal, hq⟩] at hsum
   change Module.finrank K L =
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal
+      target.maximalIdeal.inertiaDeg base.valuationSubring
   rw [Ideal.ramificationIdx'_eq_ramificationIdx
       base.maximalIdeal target.maximalIdeal base.maximalIdeal_ne_bot,
-    Ideal.inertiaDeg'_eq_inertiaDeg base.maximalIdeal target.maximalIdeal,
     IsFractionRing.finrank_eq base.valuationSubring K target.valuationSubring L]
   exact hsum.symm
 

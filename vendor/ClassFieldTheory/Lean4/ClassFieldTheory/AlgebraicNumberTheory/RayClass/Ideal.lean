@@ -1,10 +1,26 @@
-import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Topology
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.LocallyCompact
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalNorm
-import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.AbsoluteValues
-import Mathlib.NumberTheory.NumberField.Completion.InfinitePlace
-import Mathlib.Topology.Algebra.IsOpenUnits
-import Mathlib.Topology.Algebra.Ring.Compact
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Topology
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.LocallyCompact
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalNorm
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.AbsoluteValues
+public import Mathlib.NumberTheory.NumberField.Completion.InfinitePlace
+public import Mathlib.Topology.Algebra.IsOpenUnits
+public import Mathlib.Topology.Algebra.Ring.Compact
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -174,14 +190,14 @@ theorem valuationVector_valuationVectorSectionPrimeTo
         (if v ∈ m.finitePart.support then 1
           else FiniteIdeleGroup.chosenLocalOrderSection v (e v))).toAdd =
         e v
-    rw [if_pos hv, map_one]
+    rw [ite_eq_left hv, map_one]
     exact (he v hv).symm
   · change
       (FiniteIdeleGroup.localOrder v
         (if v ∈ m.finitePart.support then 1
           else FiniteIdeleGroup.chosenLocalOrderSection v (e v))).toAdd =
         e v
-    rw [if_neg hv,
+    rw [ite_eq_right hv,
       FiniteIdeleGroup.localOrder_chosenLocalOrderSection]
 
 theorem primeToIdealMap_surjective (m : Modulus K) :
@@ -202,7 +218,7 @@ theorem primeToIdealMap_surjective (m : Modulus K) :
         (if v ∈ m.finitePart.support then 1
           else FiniteIdeleGroup.chosenLocalOrderSection v (e v)) ∈
             localHigherUnitGroup v (m.finitePart v)
-      rw [if_pos hv]
+      rw [ite_eq_left hv]
       exact (localHigherUnitGroup v (m.finitePart v)).one_mem
   refine ⟨⟨a, ha⟩, ?_⟩
   apply Subtype.ext
@@ -682,12 +698,12 @@ theorem isOpen_approximationTarget
       by_cases hw : w.IsReal
       · by_cases hmem : (⟨w, hw⟩ : RealPlace K) ∈ m.infinitePart
         · rw [Modulus.localInfiniteCongruenceSubgroup,
-            dif_pos hw, dif_pos hmem]
+            dite_eq_left hw, dite_eq_left hmem]
           exact isOpen_infinitePositiveSubgroup w
         · rw [Modulus.localInfiniteCongruenceSubgroup,
-            dif_pos hw, dif_neg hmem]
+            dite_eq_left hw, dite_eq_right hmem]
           exact isOpen_univ
-      · rw [Modulus.localInfiniteCongruenceSubgroup, dif_neg hw]
+      · rw [Modulus.localInfiniteCongruenceSubgroup, dite_eq_right hw]
         exact isOpen_univ
 
 /-- The given idele itself lies in the product of its approximation

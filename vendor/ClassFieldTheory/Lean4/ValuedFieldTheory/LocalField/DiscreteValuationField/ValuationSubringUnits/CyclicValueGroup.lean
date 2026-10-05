@@ -1,9 +1,25 @@
-import ValuedFieldTheory.LocalField.DiscreteValuationField.Basic
-import Mathlib.Algebra.Order.Group.Cyclic
-import Mathlib.Algebra.Group.Int.TypeTags
-import Mathlib.Data.Int.WithZero
-import Mathlib.RingTheory.Valuation.Archimedean
-import Mathlib.RingTheory.Valuation.RankOne
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.Basic
+public import Mathlib.Algebra.Order.Group.Cyclic
+public import Mathlib.Algebra.Group.Int.TypeTags
+public import Mathlib.Data.Int.WithZero
+public import Mathlib.RingTheory.Valuation.Archimedean
+public import Mathlib.RingTheory.Valuation.RankOne
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -119,11 +135,12 @@ noncomputable def rankOneOfUnitsIsCyclic
     units_isCyclic_mulArchimedean Gamma
   haveI :
       MulArchimedean
-        (MonoidWithZeroHom.ValueGroup₀
-          (MonoidWithZeroHom.ofClass v)) :=
+        v.ValueGroup₀ :=
     MulArchimedean.comap
-      MonoidWithZeroHom.ValueGroup₀.embedding.toMonoidHom
-      MonoidWithZeroHom.ValueGroup₀.embedding_strictMono
+      (MonoidWithZeroHom.ValueGroup₀.embedding
+        (f := (v : R →*₀ Gamma))).toMonoidHom
+      (MonoidWithZeroHom.ValueGroup₀.embedding_strictMono
+        (f := (v : R →*₀ Gamma)))
   exact
     Classical.choice
       ((_root_.Valuation.nonempty_rankOne_iff_mulArchimedean

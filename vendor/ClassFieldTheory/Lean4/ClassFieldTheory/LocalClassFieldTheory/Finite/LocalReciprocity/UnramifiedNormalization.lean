@@ -1,12 +1,29 @@
-import Mathlib.GroupTheory.Abelianization.Defs
-import ClassFieldTheory.AlgebraicNumberTheory.SeparableClosureEmbedding
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.ConcreteReciprocityPrimeNorm
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.IntrinsicAbsoluteData
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.NormResidue
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedComparison
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.TopologicalReciprocity
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedReciprocity
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.GroupTheory.Abelianization.Defs
+public import ClassFieldTheory.AlgebraicNumberTheory.SeparableClosureEmbedding
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.ConcreteReciprocityPrimeNorm
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.IntrinsicAbsoluteData
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.NormResidue
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedComparison
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.TopologicalReciprocity
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedReciprocity
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UnramifiedFrobenius
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -497,3 +514,96 @@ theorem abelianLocalArtinMonoidHom_eq_frobenius_zpow (x : Kˣ) :
 end AbelianUnramifiedPrimeClass
 
 end LocalClassFieldTheory
+
+namespace ClassFieldTheory
+
+open scoped ValuativeRel
+
+/-- The canonical Artin map of an abelian unramified local extension is
+arithmetic Frobenius raised to the normalized valuation. -/
+theorem finiteAbelianLocalArtinMap_eq_frobenius_zpow
+    (K L : Type)
+    [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K]
+    [Field L] [ValuativeRel L] [UniformSpace L] [IsUniformAddGroup L]
+    [IsNonarchimedeanLocalField L]
+    [Algebra K L] [FiniteDimensional K L] [IsAbelianGalois K L]
+    [Valuation.HasExtension (ValuativeRel.valuation K)
+      (ValuativeRel.valuation L)]
+    [LocalFieldTheory.IsNonarchimedeanLocalField.IsUnramifiedValuedExtension K L]
+    (x : Kˣ) :
+    LocalClassFieldTheory.abelianLocalArtinMap K L x =
+      (LocalFieldTheory.arithmeticFrobeniusOfUnramifiedValuation K L) ^
+        LocalFieldTheory.IsNonarchimedeanLocalField.valuationMap K
+          (Additive.ofMul x) := by
+  calc
+    LocalClassFieldTheory.abelianLocalArtinMap K L x =
+        LocalClassFieldTheory.abelianLocalArtinMonoidHom K L x :=
+      DFunLike.congr_fun
+        (LocalClassFieldTheory.abelianLocalArtinMap_toMonoidHom K L) x
+    _ = _ :=
+      LocalClassFieldTheory.abelianLocalArtinMonoidHom_eq_frobenius_zpow K L x
+
+/-- Every element of normalized valuation one maps to arithmetic Frobenius;
+there is no further choice of an Artin map at this finite level. -/
+theorem finiteAbelianLocalArtinMap_uniformizer
+    (K L : Type)
+    [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K]
+    [Field L] [ValuativeRel L] [UniformSpace L] [IsUniformAddGroup L]
+    [IsNonarchimedeanLocalField L]
+    [Algebra K L] [FiniteDimensional K L] [IsAbelianGalois K L]
+    [Valuation.HasExtension (ValuativeRel.valuation K)
+      (ValuativeRel.valuation L)]
+    [LocalFieldTheory.IsNonarchimedeanLocalField.IsUnramifiedValuedExtension K L]
+    (π : Kˣ)
+    (hπ : LocalFieldTheory.IsNonarchimedeanLocalField.valuationMap K
+      (Additive.ofMul π) = 1) :
+    LocalClassFieldTheory.abelianLocalArtinMap K L π =
+      LocalFieldTheory.arithmeticFrobeniusOfUnramifiedValuation K L := by
+  rw [finiteAbelianLocalArtinMap_eq_frobenius_zpow K L π, hπ, zpow_one]
+
+/-- At an inverse uniformizer, the normalized local Artin automorphism acts
+on the residue field by the arithmetic `q`-power Frobenius. This states the
+normalization through the reduction of integral elements, without exposing
+the implementation's chosen residue-field automorphism in the conclusion. -/
+theorem finiteAbelianLocalArtinMap_inverseUniformizer_residue_pow
+    (K L : Type)
+    [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K]
+    [Field L] [ValuativeRel L] [UniformSpace L] [IsUniformAddGroup L]
+    [IsNonarchimedeanLocalField L]
+    [Algebra K L] [FiniteDimensional K L] [IsAbelianGalois K L]
+    [Valuation.HasExtension (ValuativeRel.valuation K)
+      (ValuativeRel.valuation L)]
+    [LocalFieldTheory.IsNonarchimedeanLocalField.IsUnramifiedValuedExtension K L]
+    (π : Kˣ)
+    (hπ : LocalFieldTheory.IsNonarchimedeanLocalField.valuationMap K
+      (Additive.ofMul π) = 1)
+    (x : 𝒪[L]) :
+    ∃ z : 𝒪[L],
+      (z : L) = (LocalClassFieldTheory.abelianLocalArtinMap K L π) (x : L) ∧
+        IsLocalRing.residue 𝒪[L] z =
+          (IsLocalRing.residue 𝒪[L] x) ^ Nat.card 𝓀[K] := by
+  let σ : Gal(L / K) := LocalClassFieldTheory.abelianLocalArtinMap K L π
+  let z : 𝒪[L] :=
+    LocalFieldTheory.galoisGroupIntegerRingEquivOfIsIntegralClosure K L σ x
+  refine ⟨z, ?_, ?_⟩
+  · exact
+      LocalFieldTheory.galoisGroupIntegerRingEquivOfIsIntegralClosure_apply
+        K L σ x
+  · have hres :=
+      (LocalFieldTheory.galoisGroupResidueFieldEquivOfIsIntegralClosure_residue
+        K L σ x).symm
+    change
+      IsLocalRing.residue 𝒪[L] z =
+        LocalFieldTheory.galoisGroupResidueAlgEquivOfIsIntegralClosure K L σ
+          (IsLocalRing.residue 𝒪[L] x) at hres
+    rw [show σ =
+      LocalFieldTheory.arithmeticFrobeniusOfUnramifiedValuation K L from
+        finiteAbelianLocalArtinMap_uniformizer K L π hπ] at hres
+    exact hres.trans
+      (LocalFieldTheory.galoisGroupResidueAlgEquivOfIsIntegralClosure_arithmeticFrobenius_apply
+        K L (IsLocalRing.residue 𝒪[L] x))
+
+end ClassFieldTheory

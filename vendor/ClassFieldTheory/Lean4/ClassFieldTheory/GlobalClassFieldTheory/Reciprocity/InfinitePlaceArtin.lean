@@ -1,10 +1,26 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.InfinitePlaceTensorNorm
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SPlaces.LocalBlocks
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNormComponents
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.SinglePlace
-import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Topology
-import Mathlib.Algebra.BigOperators.Group.Finset.Lemmas
-import Mathlib.Algebra.Group.Hom.Instances
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.InfinitePlaceTensorNorm
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SPlaces.LocalBlocks
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNormComponents
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.SinglePlace
+public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Topology
+public import Mathlib.Algebra.BigOperators.Group.Finset.Lemmas
+public import Mathlib.Algebra.Group.Hom.Instances
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -92,7 +108,7 @@ noncomputable def infinitePlaceArtinMonoidHomOfPlace
           else
             ramifiedInfinitePlaceConjugation
               (K := K) w hRamified
-        map_one' := if_pos rfl
+        map_one' := ite_eq_left rfl
         map_mul' := by
           intro x y
           rcases Int.units_eq_one_or x with rfl | rfl
@@ -177,7 +193,7 @@ theorem chosenInfinitePlaceArtinMonoidHom_neg_one_isConj_of_ramified
     decide
   unfold chosenInfinitePlaceArtinMonoidHom
   unfold infinitePlaceArtinMonoidHomOfPlace
-  simp only [dif_neg hUnramified', MonoidHom.comp_apply]
+  simp only [dite_eq_right hUnramified', MonoidHom.comp_apply]
   change
     NumberField.ComplexEmbedding.IsConj
       (InfinitePlace.embedding w)
@@ -194,7 +210,7 @@ theorem chosenInfinitePlaceArtinMonoidHom_neg_one_isConj_of_ramified
           (K := K)
           (chosenInfinitePlaceAbove (L := L) v)
           hUnramified')
-  rw [if_neg hsignNe]
+  rw [ite_eq_right hsignNe]
   simpa only [w] using hConj
 
 end Galois
@@ -363,7 +379,7 @@ theorem infinitePlaceArtinMonoidHomOfPlace_restrict_tower
       apply MonoidHom.ext
       intro x
       unfold infinitePlaceArtinMonoidHomOfPlace
-      rw [dif_neg hLUnramified, dif_pos hEUnramified']
+      rw [dite_eq_right hLUnramified, dite_eq_left hEUnramified']
       simp only [MonoidHom.comp_apply]
       dsimp
       split_ifs with hsign
@@ -403,14 +419,13 @@ theorem infinitePlaceArtinMonoidHomOfPlace_restrict_tower
       apply MonoidHom.ext
       intro x
       unfold infinitePlaceArtinMonoidHomOfPlace
-      rw [dif_neg hLUnramified, dif_neg hEUnramified']
+      rw [dite_eq_right hLUnramified, dite_eq_right hEUnramified']
       simp only [MonoidHom.comp_apply]
       dsimp
       split_ifs with hsign
       · simp
       · simpa [sigmaR, sigmaL, sigmaE] using hsigmaREq
 
-omit [NumberField K] in
 /-- The norm from a complex archimedean completion to a real completion
 is positive under the canonical real coordinate. -/
 theorem infinitePlace_normUnits_real_complex_pos
@@ -467,7 +482,6 @@ theorem infinitePlace_normUnits_real_complex_pos
   rw [Algebra.norm_complex_apply, Complex.normSq_pos]
   exact (map_ne_zero eComplex).2 (Units.ne_zero x)
 
-omit [NumberField K] in
 /-- The norm between real archimedean completions agrees with the
 transported local unit under their canonical real coordinates. -/
 theorem infinitePlace_normUnits_real_real
@@ -527,7 +541,7 @@ theorem infinitePlace_normUnits_real_real
     LocalClassFieldTheory.normUnits_map_ringEquiv
       eBase eExtension hCompatible x
 
-omit [NumberField K] [NumberField L] in
+omit [NumberField L] in
 /-- The archimedean Artin map attached to specified places carries a
 local norm to the restriction of the upper Artin element. -/
 theorem infinitePlaceArtinMonoidHomOfPlace_norm_restriction
@@ -576,7 +590,7 @@ theorem infinitePlaceArtinMonoidHomOfPlace_norm_restriction
           (w'.comap (algebraMap L L')).IsUnramified K := by
         simpa only [w] using hLowerUnramified
       unfold infinitePlaceArtinMonoidHomOfPlace
-      rw [dif_pos hUpperUnramified, dif_pos hLowerUnramified']
+      rw [dite_eq_left hUpperUnramified, dite_eq_left hLowerUnramified']
       simp
     · have hLowerUnramified' :
           ¬ (w'.comap (algebraMap L L')).IsUnramified K := by
@@ -620,7 +634,7 @@ theorem infinitePlaceArtinMonoidHomOfPlace_norm_restriction
           ((LocalClassFieldTheory.mem_realUnitsSign_ker_iff _).2
             hPositive)
       unfold infinitePlaceArtinMonoidHomOfPlace
-      rw [dif_pos hUpperUnramified, dif_neg hLowerUnramified']
+      rw [dite_eq_left hUpperUnramified, dite_eq_right hLowerUnramified']
       simp only [MonoidHom.comp_apply]
       dsimp
       split_ifs with hsign
@@ -700,7 +714,7 @@ theorem infinitePlaceArtinMonoidHomOfPlace_norm_restriction
       apply MonoidHom.ext
       intro x
       unfold infinitePlaceArtinMonoidHomOfPlace
-      rw [dif_neg hUpperUnramified, dif_pos hLowerUnramified']
+      rw [dite_eq_right hUpperUnramified, dite_eq_left hLowerUnramified']
       simp only [MonoidHom.comp_apply]
       dsimp
       split_ifs with hsign
@@ -751,7 +765,7 @@ theorem infinitePlaceArtinMonoidHomOfPlace_norm_restriction
       apply MonoidHom.ext
       intro x
       unfold infinitePlaceArtinMonoidHomOfPlace
-      rw [dif_neg hUpperUnramified, dif_neg hLowerUnramified']
+      rw [dite_eq_right hUpperUnramified, dite_eq_right hLowerUnramified']
       simp only [MonoidHom.comp_apply]
       dsimp
       split_ifs with hsignUpper hsignLower hsignLower
@@ -807,7 +821,7 @@ theorem chosenInfinitePlaceArtinMonoidHom_restrict_tower
         (chosenInfinitePlaceAbove_comap
           (L := E) v)
 
-omit [NumberField K] [NumberField L] in
+omit [NumberField L] in
 /-- In an actual number-field diamond `K ⊂ K'`, `L ⊂ L'`, the
 archimedean local Artin factor commutes with the ordinary completion
 norm and with the standard restriction composite supplied by mathlib. -/
@@ -897,7 +911,7 @@ theorem chosenInfinitePlaceArtinMonoidHom_continuous
       simpa only [w] using hUnramified
     unfold chosenInfinitePlaceArtinMonoidHom
     unfold infinitePlaceArtinMonoidHomOfPlace
-    rw [dif_pos hUnramified']
+    rw [dite_eq_left hUnramified']
     exact continuous_const
   · have hUnramified' :
         ¬ (chosenInfinitePlaceAbove (L := L) v).IsUnramified K := by
@@ -928,7 +942,7 @@ theorem chosenInfinitePlaceArtinMonoidHom_continuous
       exact e.continuous_toFun
     unfold chosenInfinitePlaceArtinMonoidHom
     unfold infinitePlaceArtinMonoidHomOfPlace
-    rw [dif_neg hUnramified']
+    rw [dite_eq_right hUnramified']
     change
       Continuous fun x : v.Completionˣ =>
         signToGalois
@@ -978,14 +992,14 @@ theorem chosenInfinitePlaceArtinMonoidHom_eq_one_of_real_pos
       simpa only [w] using hUnramified
     unfold chosenInfinitePlaceArtinMonoidHom
     unfold infinitePlaceArtinMonoidHomOfPlace
-    rw [dif_pos hUnramified']
+    rw [dite_eq_left hUnramified']
     rfl
   · have hUnramified' :
         ¬ (chosenInfinitePlaceAbove (L := L) v).IsUnramified K := by
       simpa only [w] using hUnramified
     unfold chosenInfinitePlaceArtinMonoidHom
     unfold infinitePlaceArtinMonoidHomOfPlace
-    rw [dif_neg hUnramified']
+    rw [dite_eq_right hUnramified']
     simp only [MonoidHom.comp_apply]
     change
       (if
@@ -1049,7 +1063,7 @@ theorem chosenInfinitePlaceArtinMonoidHom_ker
       simpa only [w] using hUnramified
     unfold chosenInfinitePlaceArtinMonoidHom
     unfold infinitePlaceArtinMonoidHomOfPlace
-    rw [dif_pos hUnramified']
+    rw [dite_eq_left hUnramified']
   · have hRamified : w.IsRamified K :=
       hUnramified
     have hvReal : v.IsReal := by
@@ -1068,7 +1082,7 @@ theorem chosenInfinitePlaceArtinMonoidHom_ker
     let signToGalois : ℤˣ →* (L ≃ₐ[K] L) :=
       { toFun := fun u =>
           if u = 1 then 1 else σ
-        map_one' := if_pos rfl
+        map_one' := ite_eq_left rfl
         map_mul' := by
           intro x y
           rcases Int.units_eq_one_or x with rfl | rfl

@@ -1,6 +1,22 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.FinitePlaceTensorNorm
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Tensor
-import ClassFieldTheory.AlgebraicNumberTheory.Adele.RestrictedAction
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.FinitePlaceTensorNorm
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Tensor
+public import ClassFieldTheory.AlgebraicNumberTheory.Adele.RestrictedAction
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -49,8 +65,7 @@ theorem finitePlaceLocalTensorAlgEquiv_conjugation
         (A := v.adicCompletion K) σ
         (finitePlaceLocalTensorAlgEquiv
           (K := K) (L := L) v z) := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x => rfl
   | add x y hx hy => simp [hx, hy]
 

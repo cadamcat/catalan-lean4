@@ -1,21 +1,37 @@
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.RangeRestriction
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.CyclicValueGroup
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.IntegerValuation
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.SeriesValuationEstimates
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.IntegerValuationUniformizer
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.CompleteRangeRestriction
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.UniformizerIntegerValuation
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.RangeRestrictedTopology
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.ValuationSubringUnitMap
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.LocalFieldRangeRestriction
-import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.ValuedExtensionUnitMap
-import Mathlib.Analysis.Normed.Module.FiniteDimension
-import Mathlib.FieldTheory.PrimeField
-import Mathlib.LinearAlgebra.Dimension.Basic
-import Mathlib.NumberTheory.Padics.WithVal
-import Mathlib.RingTheory.SimpleRing.Basic
-import Mathlib.Topology.Algebra.Field
-import Mathlib.Topology.Algebra.UniformRing
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.RangeRestriction
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.CyclicValueGroup
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.IntegerValuation
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.SeriesValuationEstimates
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.IntegerValuationUniformizer
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.CompleteRangeRestriction
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.UniformizerIntegerValuation
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.RangeRestrictedTopology
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.ValuationSubringUnitMap
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.LocalFieldRangeRestriction
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.ValuedExtensionUnitMap
+public import Mathlib.Analysis.Normed.Module.FiniteDimension
+public import Mathlib.FieldTheory.PrimeField
+public import Mathlib.LinearAlgebra.Dimension.Basic
+public import Mathlib.NumberTheory.Padics.WithVal
+public import Mathlib.RingTheory.SimpleRing.Basic
+public import Mathlib.Topology.Algebra.Field
+public import Mathlib.Topology.Algebra.UniformRing
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -411,14 +427,12 @@ theorem ratCastWithValToK_isUniformInducing
     obtain ⟨q, hq⟩ :=
       Rat.surjective_padicValuation F.residueCharacteristic
         (MonoidWithZeroHom.ValueGroup₀.embedding
-          (delta :
-            MonoidWithZeroHom.ValueGroup₀ (.ofClass vWith)))
+          (f := vWith.toMonoidWithZeroHom) delta.1)
     have hq_ne : q ≠ 0 := by
       intro hzero
       have hdelta_zero :
           MonoidWithZeroHom.ValueGroup₀.embedding
-              (delta :
-                MonoidWithZeroHom.ValueGroup₀ (.ofClass vWith)) = 0 := by
+              (f := vWith.toMonoidWithZeroHom) delta.1 = 0 := by
         simpa [hzero] using hq.symm
       exact
         (MonoidWithZeroHom.ValueGroup₀.embedding_unit_ne_zero delta)
@@ -461,8 +475,7 @@ theorem ratCastWithValToK_isUniformInducing
     change
       vq (yq - xq) <
         MonoidWithZeroHom.ValueGroup₀.embedding
-          (delta :
-            MonoidWithZeroHom.ValueGroup₀ (.ofClass vWith))
+          (f := vWith.toMonoidWithZeroHom) delta.1
     simpa [hq] using hpadic
 
 /-- The rational embedding from p-adically valued `ℚ` to the closed `Qp`

@@ -1,8 +1,24 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicIdeleClassValuation
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FiniteGaloisRealization
-import ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdeleClassFormation
-import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Main
-import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.MaximalUnramifiedReciprocity
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicIdeleClassValuation
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FiniteGaloisRealization
+public import ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdeleClassFormation
+public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Main
+public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.MaximalUnramifiedReciprocity
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -199,6 +215,26 @@ private theorem globalNormResidueEquiv_transport_apply
       numberFieldTowerAbstractNormResidueGaloisEquiv K L x := by
   simp only [globalNormResidueEquiv, AddEquiv.trans_apply,
     AddEquiv.symm_apply_apply]
+
+/-- The global norm-residue equivalence on a finite abstract norm class,
+after transport to the ordinary idele-class norm quotient. -/
+theorem globalNormResidueEquiv_finiteNormClass
+    (x : FiniteNormQuotient rationalIdeleClassRepresentation
+      (numberFieldTowerBaseSubgroup K L)
+      (numberFieldTowerTopSubgroup L)
+      (numberFieldTowerTopSubgroup_le_baseSubgroup K L)) :
+    globalNormResidueEquiv K L
+        (numberFieldTowerFiniteNormQuotientEquivIdeleClassNormQuotient
+          K L x) =
+      numberFieldTowerAbelianizedExtensionQuotientEquivGaloisGroup K L
+        (rationalCyclotomicDegreeData.normResidueSymbol
+          rationalIdeleClassRepresentation
+          rationalCyclotomicIdeleClassValuationData
+          rationalIdeleClassRepresentation_satisfiesClassFieldAxiom
+          (numberFieldTowerReciprocityFiniteAbstractField K L)
+          (numberFieldTowerFiniteGaloisSubextension K L) x) :=
+  (globalNormResidueEquiv_transport_apply K L x).trans
+    (numberFieldTowerAbstractNormResidueGaloisEquiv_apply K L x)
 
 /-- On the genuine finite-reciprocity class of an abstract extension
 automorphism, the global norm-residue equivalence is the corresponding

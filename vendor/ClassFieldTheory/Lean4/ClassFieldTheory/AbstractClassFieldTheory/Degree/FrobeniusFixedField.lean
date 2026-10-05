@@ -1,6 +1,22 @@
-import ClassFieldTheory.AbstractClassFieldTheory.Degree.FrobeniusLift
-import GaloisCohomology.ProfiniteIntegers.TopologicalGeneration
-import GaloisCohomology.Topology.TotallyDisconnectedQuotients
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AbstractClassFieldTheory.Degree.FrobeniusLift
+public import GaloisCohomology.ProfiniteIntegers.TopologicalGeneration
+public import GaloisCohomology.Topology.TotallyDisconnectedQuotients
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -204,7 +220,7 @@ private theorem injective_of_topologicallyGenerates_zHat_one
     exact Nat.pos_of_dvd_of_pos hdvd hm
   have hzpowersClosed :
       IsClosed ((Subgroup.zpowers (qH x) : Subgroup B) : Set B) :=
-    (finite_zpowers.mpr hqHfiniteOrder).isClosed
+    (Set.finite_coe_iff.mp (finite_zpowers.mpr hqHfiniteOrder)).isClosed
   have hzpowersTopologicalClosure :
       (Subgroup.zpowers (qH x)).topologicalClosure =
         Subgroup.zpowers (qH x) := by
@@ -216,7 +232,7 @@ private theorem injective_of_topologicallyGenerates_zHat_one
       hzpowersTopologicalClosure] at hqHgen
     exact hqHgen
   let : Finite (Subgroup.zpowers (qH x)) :=
-    (finite_zpowers.mpr hqHfiniteOrder).to_subtype
+    finite_zpowers.mpr hqHfiniteOrder
   let : Finite B :=
     Finite.of_injective
       (fun b : B =>
@@ -502,8 +518,8 @@ instance frobeniusClosure_isTopologicalGroup
   let Q := K.field.toSubgroup ⧸ D.extensionInertiaWithin K.field L hLK
   let s : Subgroup Q :=
     Subgroup.closure (Set.range (fun _ : Unit => σ.1))
-  let c : CommGroup ↑s.topologicalClosure :=
-    Subgroup.commGroupTopologicalClosure s (by
+  letI : IsMulCommutative ↑s :=
+    isMulCommutative_iff.mpr (by
       intro a b
       have hrange : Set.range (fun _ : Unit => σ.1) = ({σ.1} : Set Q) := by
         ext y
@@ -517,6 +533,8 @@ instance frobeniusClosure_isTopologicalGroup
       apply Subtype.ext
       change (a : Q) * (b : Q) = (b : Q) * (a : Q)
       rw [← hm, ← hn, ← zpow_add, add_comm, zpow_add])
+  let c : CommGroup ↑s.topologicalClosure :=
+    open scoped IsMulCommutative in inferInstance
   letI : IsMulCommutative (D.frobeniusClosure K L hLK σ) :=
     isMulCommutative_iff.mpr c.mul_comm
   exact open scoped IsMulCommutative in inferInstance

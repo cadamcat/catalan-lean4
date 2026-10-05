@@ -1,6 +1,22 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicIdeleClassValuation
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteGlobalArtin
-import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.MaximalUnramifiedReciprocity
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicIdeleClassValuation
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteGlobalArtin
+public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.MaximalUnramifiedReciprocity
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -2347,13 +2363,18 @@ theorem
       ℚ (SeparableClosure ℚ) hI
   let : IsAbelianGalois F U :=
     abstractFixedFieldCyclotomic_isAbelianGalois H
+  have hcoord :
+      Multiplicative.toAdd
+        (abstractFixedFieldCyclotomicGalEquivZHat H
+          (infiniteGlobalArtinMonoidHom F U
+            (IdeleGroup.principalIdele F x))) = 0 :=
+    (abstractFixedFieldCyclotomicGalEquivZHat_infiniteGlobalArtinMonoidHom
+      H (IdeleGroup.principalIdele F x)).trans
+      (normalizedCyclotomicZHatIdeleValue_principalIdele_eq_zero F x)
   apply (abstractFixedFieldCyclotomicGalEquivZHat H).injective
+  rw [map_one]
   apply Multiplicative.ext
-  rw [
-    map_one,
-    toAdd_one,
-    abstractFixedFieldCyclotomicGalEquivZHat_infiniteGlobalArtinMonoidHom,
-    normalizedCyclotomicZHatIdeleValue_principalIdele_eq_zero]
+  exact hcoord.trans toAdd_one.symm
 
 /-- The genuine cyclotomic maximal-unramified Artin map descended to
 the idele class group of an abstract fixed field. -/
@@ -2558,31 +2579,29 @@ theorem
     Additive.toMul
       ((rationalAbstractFixedFieldIdeleClassEquivFixed H.field
           (hfinite := H.finite)).symm a)
-  have hvaluation :=
-    rationalCyclotomicIdeleClassValuationData_valuationAt_fixed_apply
-      H
-      ((rationalAbstractFixedFieldIdeleClassEquivFixed H.field
-          (hfinite := H.finite)).symm a)
-  rw [(rationalAbstractFixedFieldIdeleClassEquivFixed H.field
-    (hfinite := H.finite)).apply_symm_apply] at hvaluation
-  apply (abstractFixedFieldCyclotomicGalEquivZHat H).injective
-  apply Multiplicative.ext
-  calc
-    Multiplicative.toAdd
+  have hvaluation :
+      ((rationalCyclotomicIdeleClassValuationData.valuationAt H a :
+          rationalCyclotomicIdeleClassValuationData.valueGroup) : ZHat) =
+        normalizedCyclotomicZHatIdeleClassValueContinuous F
+          (Additive.ofMul c) := by
+    simpa only [c, ofMul_toMul,
+      (rationalAbstractFixedFieldIdeleClassEquivFixed H.field
+        (hfinite := H.finite)).apply_symm_apply] using
+      (rationalCyclotomicIdeleClassValuationData_valuationAt_fixed_apply
+        H
+        ((rationalAbstractFixedFieldIdeleClassEquivFixed H.field
+          (hfinite := H.finite)).symm a))
+  have hleft :
+      Multiplicative.toAdd
         (abstractFixedFieldCyclotomicGalEquivZHat H
           (abstractFixedFieldCyclotomicIdeleClassArtinMonoidHom H c)) =
         normalizedCyclotomicZHatIdeleClassValueContinuous F
-          (Additive.ofMul c) := by
-      exact
-        congrArg Multiplicative.toAdd
-          (abstractFixedFieldCyclotomicGalEquivZHat_ideleClassArtinMonoidHom
-            H c)
-    _ =
-        ((rationalCyclotomicIdeleClassValuationData.valuationAt H a :
-            rationalCyclotomicIdeleClassValuationData.valueGroup) :
-          ZHat) :=
-      hvaluation.symm
-    _ =
+          (Additive.ofMul c) :=
+    congrArg Multiplicative.toAdd
+      (abstractFixedFieldCyclotomicGalEquivZHat_ideleClassArtinMonoidHom H c)
+  have hright :
+      ((rationalCyclotomicIdeleClassValuationData.valuationAt H a :
+          rationalCyclotomicIdeleClassValuationData.valueGroup) : ZHat) =
         Multiplicative.toAdd
           (abstractFixedFieldCyclotomicGalEquivZHat H
             (LocalClassFieldTheory.abstractExtensionQuotientEquivGaloisGroup
@@ -2592,10 +2611,13 @@ theorem
               (qInertia.symm
                 (ValuationData.maximalUnramifiedNormResidueSymbol
                   rationalCyclotomicIdeleClassValuationData H a).toMul))) := by
-      rw [abstractFixedFieldCyclotomicGalEquivZHat_quotientClass]
-      exact
-        (ValuationData.maximalUnramifiedNormResidue_degree
-          rationalCyclotomicIdeleClassValuationData H a).symm
+    rw [abstractFixedFieldCyclotomicGalEquivZHat_quotientClass]
+    exact
+      (ValuationData.maximalUnramifiedNormResidue_degree
+        rationalCyclotomicIdeleClassValuationData H a).symm
+  apply (abstractFixedFieldCyclotomicGalEquivZHat H).injective
+  apply Multiplicative.ext
+  exact hleft.trans (hvaluation.symm.trans hright)
 
 /-- A prime idele class has genuine maximal-unramified Artin symbol
 equal to the arithmetic Frobenius of its abstract fixed field. -/

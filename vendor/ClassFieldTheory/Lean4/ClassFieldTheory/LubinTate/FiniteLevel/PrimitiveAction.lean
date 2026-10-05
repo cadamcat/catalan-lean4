@@ -1,7 +1,23 @@
-import ClassFieldTheory.LubinTate.FiniteLevel.CompletedEvaluation
-import ClassFieldTheory.LubinTate.FormalModule.StandardFormalGroup
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits.ResidueQuotient
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits.TeichmullerDecomposition
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.FiniteLevel.CompletedEvaluation
+public import ClassFieldTheory.LubinTate.FormalModule.StandardFormalGroup
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits.ResidueQuotient
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits.TeichmullerDecomposition
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -616,8 +632,7 @@ noncomputable def standardLubinTatePrimitiveLevelAction
     (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ)
     (u : F.valuationSubringˣ) :
     standardLubinTateLevelField hπ n :=
-  (standardLubinTatePrimitivePointIntegerAction hπ n u :
-    standardLubinTateLevelField hπ n)
+  (standardLubinTatePrimitivePointIntegerAction hπ n u).val
 
 /-- The natural embedding of the finite-level integer ring into the fixed
 separable closure. -/
@@ -637,9 +652,9 @@ theorem standardLubinTateLevelIntegerToSeparableClosure_injective
   intro x y hxy
   change
     (standardLubinTateLevelField hπ n).val
-        (x : standardLubinTateLevelField hπ n) =
+        x.val =
       (standardLubinTateLevelField hπ n).val
-        (y : standardLubinTateLevelField hπ n) at hxy
+        y.val at hxy
   apply Subtype.ext
   exact (standardLubinTateLevelField hπ n).val.injective hxy
 
@@ -656,9 +671,8 @@ theorem standardLubinTateLevelIntegerToSeparableClosure_comp_coefficientHom
   simp only [RingHom.comp_apply]
   change
     ((standardLubinTateLevelField hπ n).val
-      (((standardLubinTateLevelCoefficientHom hπ n) a :
-          (standardLubinTateLevelCompleteDVF hπ n).valuationSubring) :
-        standardLubinTateLevelField hπ n)) =
+      ((standardLubinTateLevelCoefficientHom hπ n) a :
+          (standardLubinTateLevelCompleteDVF hπ n).valuationSubring).val) =
       algebraMap K (SeparableClosure K)
         (algebraMap F.valuationSubring K a)
   rw [standardLubinTateLevelCoefficientHom_apply]
@@ -697,8 +711,7 @@ theorem standardLubinTatePrimitiveRootAction_one
       chosenStandardLubinTatePrimitiveRoot hπ n
   rw [standardLubinTatePrimitivePointIntegerAction_one]
   change
-    ((standardLubinTatePrimitivePointInteger hπ n :
-        standardLubinTateLevelField hπ n) : SeparableClosure K) =
+    ((standardLubinTatePrimitivePointInteger hπ n).val : SeparableClosure K) =
       chosenStandardLubinTatePrimitiveRoot hπ n
   rw [standardLubinTatePrimitivePointInteger_coe]
   exact standardLubinTateLevelGenerator_coe hπ n

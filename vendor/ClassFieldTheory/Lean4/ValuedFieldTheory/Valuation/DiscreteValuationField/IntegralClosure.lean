@@ -1,13 +1,29 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.Extensions
-import ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianFinite
-import Mathlib.RingTheory.DedekindDomain.IntegralClosure
-import Mathlib.RingTheory.DiscreteValuationRing.TFAE
-import Mathlib.RingTheory.Ideal.GoingUp
-import Mathlib.RingTheory.QuasiFinite.Basic
-import Mathlib.RingTheory.Spectrum.Prime.Topology
-import Mathlib.RingTheory.TensorProduct.Quotient
-import Mathlib.RingTheory.Valuation.Integral
-import Mathlib.LinearAlgebra.TensorProduct.RightExactness
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.Extensions
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianFinite
+public import Mathlib.RingTheory.DedekindDomain.IntegralClosure
+public import Mathlib.RingTheory.DiscreteValuationRing.TFAE
+public import Mathlib.RingTheory.Ideal.GoingUp
+public import Mathlib.RingTheory.QuasiFinite.Basic
+public import Mathlib.RingTheory.Spectrum.Prime.Topology
+public import Mathlib.RingTheory.TensorProduct.Quotient
+public import Mathlib.RingTheory.Valuation.Integral
+public import Mathlib.LinearAlgebra.TensorProduct.RightExactness
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -1119,7 +1135,9 @@ theorem integralClosure_isLocalRing_of_primesOver_base_maximal_eq_singleton
       IsLocalRing.eq_maximalIdeal
         (Ideal.isMaximal_comap_of_isIntegral_of_isMaximal
           (R := base.toDVF.valuationSubring)
-          (S := (integralClosureIntegers base target)) M.asIdeal)
+          (S := (integralClosureIntegers base target))
+          (algebraMap base.toDVF.valuationSubring (integralClosureIntegers base target))
+          (fun x => Algebra.IsIntegral.isIntegral x) M.asIdeal)
     have hNcomap :
         (N.asIdeal.comap
             (algebraMap base.toDVF.valuationSubring (integralClosureIntegers base target))) =
@@ -1127,7 +1145,9 @@ theorem integralClosure_isLocalRing_of_primesOver_base_maximal_eq_singleton
       IsLocalRing.eq_maximalIdeal
         (Ideal.isMaximal_comap_of_isIntegral_of_isMaximal
           (R := base.toDVF.valuationSubring)
-          (S := (integralClosureIntegers base target)) N.asIdeal)
+          (S := (integralClosureIntegers base target))
+          (algebraMap base.toDVF.valuationSubring (integralClosureIntegers base target))
+          (fun x => Algebra.IsIntegral.isIntegral x) N.asIdeal)
     have hMmem :
         M.asIdeal ∈ Ideal.primesOver base.maximalIdeal
           (integralClosureIntegers base target) :=
@@ -1198,7 +1218,7 @@ theorem integralClosure_valuationRing_of_isLocalRing
     (integralClosure_isDedekindDomain base target)
   exact
     ((tfae_of_isNoetherianRing_of_isLocalRing_of_isDomain
-      (integralClosureIntegers base target)).out 2 1).mp
+      (integralClosureIntegers base target)).out 3 2).mp
       (show IsDedekindDomain (integralClosureIntegers base target) from inferInstance)
 
 omit [base.valuation.HasExtension target.valuation] in
@@ -1673,7 +1693,9 @@ theorem integralClosure_isLocalRing_of_primesOver_base_maximal_eq_singleton
       IsLocalRing.eq_maximalIdeal
         (Ideal.isMaximal_comap_of_isIntegral_of_isMaximal
           (R := base.toDVF.valuationSubring)
-          (S := (integralClosureIntegers base target)) M.asIdeal)
+          (S := (integralClosureIntegers base target))
+          (algebraMap base.toDVF.valuationSubring (integralClosureIntegers base target))
+          (fun x => Algebra.IsIntegral.isIntegral x) M.asIdeal)
     have hNcomap :
         (N.asIdeal.comap
             (algebraMap base.toDVF.valuationSubring (integralClosureIntegers base target))) =
@@ -1681,7 +1703,9 @@ theorem integralClosure_isLocalRing_of_primesOver_base_maximal_eq_singleton
       IsLocalRing.eq_maximalIdeal
         (Ideal.isMaximal_comap_of_isIntegral_of_isMaximal
           (R := base.toDVF.valuationSubring)
-          (S := (integralClosureIntegers base target)) N.asIdeal)
+          (S := (integralClosureIntegers base target))
+          (algebraMap base.toDVF.valuationSubring (integralClosureIntegers base target))
+          (fun x => Algebra.IsIntegral.isIntegral x) N.asIdeal)
     have hMmem :
         M.asIdeal ∈ Ideal.primesOver base.maximalIdeal
           (integralClosureIntegers base target) :=
@@ -1747,7 +1771,7 @@ theorem integralClosure_valuationRing_of_isLocalRing
     (integralClosure_isDedekindDomain base target)
   exact
     ((tfae_of_isNoetherianRing_of_isLocalRing_of_isDomain
-      (integralClosureIntegers base target)).out 2 1).mp
+      (integralClosureIntegers base target)).out 3 2).mp
       (show IsDedekindDomain (integralClosureIntegers base target) from inferInstance)
 
 omit [base.toDVF.valuation.HasExtension target.toDVF.valuation] in

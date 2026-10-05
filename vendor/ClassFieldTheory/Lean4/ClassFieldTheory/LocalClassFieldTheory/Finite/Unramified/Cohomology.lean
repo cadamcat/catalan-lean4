@@ -1,11 +1,27 @@
-import Mathlib.SetTheory.Cardinal.Finite
-import Mathlib.FieldTheory.Galois.Basic
-import GaloisCohomology.Cyclic.Herbrand.PrincipalUnits.QuotientTower
-import GaloisCohomology.Cyclic.Herbrand.HerbrandFiniteness
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.IntegerUnitsHerbrand
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasisCohomology
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UnramifiedFrobenius
-import ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.Norm
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.SetTheory.Cardinal.Finite
+public import Mathlib.FieldTheory.Galois.Basic
+public import GaloisCohomology.Cyclic.Herbrand.PrincipalUnits.QuotientTower
+public import GaloisCohomology.Cyclic.Herbrand.HerbrandFiniteness
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.IntegerUnitsHerbrand
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasisCohomology
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UnramifiedFrobenius
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.Norm
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

@@ -1,10 +1,26 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.LocallyCompact
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalNorm
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalTopology
-import Mathlib.Algebra.Module.ZLattice.Basic
-import Mathlib.Analysis.Normed.Field.ProperSpace
-import Mathlib.NumberTheory.NumberField.ClassNumber
-import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.LocallyCompact
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalNorm
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalTopology
+public import Mathlib.Algebra.Module.ZLattice.Basic
+public import Mathlib.Analysis.Normed.Field.ProperSpace
+public import Mathlib.NumberTheory.NumberField.ClassNumber
+public import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -623,7 +639,7 @@ private theorem idealClass_normOneIdealClassRepresentative
     (h : ∃ a : IdeleGroup K,
       a ∈ normOneSubgroup (K := K) ∧ idealClass a = c) :
     idealClass (normOneIdealClassRepresentative (K := K) c) = c := by
-  rw [normOneIdealClassRepresentative, dif_pos h]
+  rw [normOneIdealClassRepresentative, dite_eq_left h]
   exact (Classical.choose_spec h).2
 
 /-- The finite set of chosen norm-one representatives of ordinary ideal

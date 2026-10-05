@@ -1,4 +1,20 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitExtensionAction
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitExtensionAction
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -414,7 +430,7 @@ theorem
         (_root_.relativeIdeleClassBaseChangeMulEquiv
           (K := ℚ) (L := F) c))
   let cE : RelativeIdeleGroup.ClassGroup ℚ E :=
-    RelativeIdeleGroup.classEmbedding
+    RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := E)
       (IntermediateField.inclusion hFE) c
   let z : Additive (RelativeIdeleGroup.ClassGroup ℚ E) :=
     Additive.ofMul cE
@@ -448,7 +464,7 @@ theorem
                 (E.restrictScalars ℚ)
                 (_root_.relativeIdeleClassBaseChangeMulEquiv
                   (K := ℚ) (L := E.restrictScalars ℚ)
-                  (RelativeIdeleGroup.classEmbedding
+                  (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := E)
                     (IntermediateField.inclusion hFE) c))) =
             Additive.ofMul
               (rationalIntermediateIdeleClassToDirectLimit F
@@ -745,15 +761,29 @@ private theorem rationalRelativeNormClassNorm_eq
         (RelativeIdeleGroup.classInclusion F E
           (_root_.relativeIdeleClassBaseChangeMulEquiv
             (K := ℚ) (L := F) cK)) at hInclusion
-  rw [hMnorm] at hNorm
-  rw [hn, hcK] at hInclusion
+  have hNorm' :=
+    (congrArg (fun t => e t) hMnorm).symm.trans hNorm
+  have hInclusionLeft := congrArg
+    (fun b =>
+      e
+        (eAmbient.symm
+          (fixedFieldInclusion rationalIdeleClassRepresentation
+            K L hLK b)))
+    hn
+  have hInclusionRight := congrArg
+    (fun d : IdeleClassGroup F =>
+      Additive.ofMul
+        (RelativeIdeleGroup.classInclusion F E d))
+    hcK
+  have hInclusion' :=
+    hInclusionLeft.symm.trans (hInclusion.trans hInclusionRight)
   have hq :
       q = Additive.toMul (eK.symm n) := by
     exact eq_of_common_ofMul_image
       (fun d : IdeleClassGroup F =>
         RelativeIdeleGroup.classInclusion F E d)
       (RelativeIdeleGroup.classInclusion_injective F E)
-      hNorm hInclusion
+      hNorm' hInclusion'
   change q = Additive.toMul (eK.symm n)
   exact hq
 

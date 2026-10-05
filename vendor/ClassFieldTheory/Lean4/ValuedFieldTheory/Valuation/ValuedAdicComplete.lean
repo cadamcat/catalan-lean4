@@ -1,6 +1,22 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.Complete
-import Mathlib.RingTheory.AdicCompletion.Topology
-import Mathlib.Topology.Algebra.Valued.ValuedField
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.Complete
+public import Mathlib.RingTheory.AdicCompletion.Topology
+public import Mathlib.Topology.Algebra.Valued.ValuedField
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -90,7 +106,7 @@ theorem rankOneDiscreteValuationSubring_isAdic
       ⟨gamma, _hgamma, hgamma_t⟩
     let gamma' : Gammaˣ :=
       Units.map
-        (MonoidWithZeroHom.ValueGroup₀.embedding (f := (.ofClass val)))
+        (MonoidWithZeroHom.ValueGroup₀.embedding (f := (val : K →*₀ Gamma)))
         gamma
     rcases exists_pow_lt
         (Valuation.IsRankOneDiscrete.generator_lt_one val)
@@ -109,12 +125,12 @@ theorem rankOneDiscreteValuationSubring_isAdic
       val (x : K) ≤ val (((pi ^ n : val.valuationSubring) : K)) := hx_le
       _ = ((Valuation.IsRankOneDiscrete.generator val) ^ n : Gamma) := by
             simp [map_pow, hpi.val]
-      _ < MonoidWithZeroHom.ValueGroup₀.embedding (f := (.ofClass val)) gamma.1 := by
+      _ < MonoidWithZeroHom.ValueGroup₀.embedding (f := (val : K →*₀ Gamma)) gamma.1 := by
         have hn_coe := Units.val_lt_val.mp hn
         change
           ((Valuation.IsRankOneDiscrete.generator val : Gammaˣ) : Gamma) ^ n <
             MonoidWithZeroHom.ValueGroup₀.embedding
-              (f := (.ofClass val)) gamma.1 at hn_coe
+              (f := (val : K →*₀ Gamma)) gamma.1 at hn_coe
         exact hn_coe
 
 /-- Completeness of a rank-one discrete valued field produces adic

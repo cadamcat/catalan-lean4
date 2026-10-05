@@ -1,5 +1,21 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitFixedPointDescent
-import GaloisCohomology.Kummer.Abstract.KummerDelta
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitFixedPointDescent
+public import GaloisCohomology.Kummer.Abstract.KummerDelta
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -29,10 +45,11 @@ theorem
     (z : RelativeAdeleRing ℚ K) :
     RelativeIdeleGroup.conjugation ℚ N
         (AlgEquiv.restrictNormalHom N σ)
-        (RelativeIdeleGroup.adeleEmbedding (IntermediateField.inclusion hKN) z) =
-      RelativeIdeleGroup.adeleEmbedding (IntermediateField.inclusion hKN) z := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+        (RelativeIdeleGroup.adeleEmbedding (K := ℚ) (L := K) (M := N)
+          (IntermediateField.inclusion hKN) z) =
+      RelativeIdeleGroup.adeleEmbedding (K := ℚ) (L := K) (M := N)
+        (IntermediateField.inclusion hKN) z := by
+  induction z using TensorProduct.inductionOn with
   | tmul a x =>
       simp only [RelativeIdeleGroup.adeleEmbedding,
         RelativeIdeleGroup.scalarEmbedding_tmul,
@@ -68,18 +85,22 @@ theorem
     (σ : SeparableClosure ℚ ≃ₐ[ℚ] SeparableClosure ℚ)
     (hσ : σ ∈ K.fixingSubgroup)
     (c : RelativeIdeleGroup.ClassGroup ℚ K) :
-    σ • RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hKN) c =
-      RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hKN) c := by
+    σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
+        (IntermediateField.inclusion hKN) c =
+      RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
+        (IntermediateField.inclusion hKN) c := by
   refine QuotientGroup.induction_on c ?_
   intro a
   change
     QuotientGroup.mk'
         (RelativeIdeleGroup.principalSubgroup ℚ N)
         ((AlgEquiv.restrictNormalHom N σ) •
-          RelativeIdeleGroup.ideleEmbedding (IntermediateField.inclusion hKN) a) =
+          RelativeIdeleGroup.ideleEmbedding (K := ℚ) (L := K) (M := N)
+            (IntermediateField.inclusion hKN) a) =
       QuotientGroup.mk'
         (RelativeIdeleGroup.principalSubgroup ℚ N)
-        (RelativeIdeleGroup.ideleEmbedding (IntermediateField.inclusion hKN) a)
+        (RelativeIdeleGroup.ideleEmbedding (K := ℚ) (L := K) (M := N)
+          (IntermediateField.inclusion hKN) a)
   apply congrArg
     (QuotientGroup.mk'
       (RelativeIdeleGroup.principalSubgroup ℚ N))
@@ -115,9 +136,9 @@ theorem rationalIntermediateIdeleClassToDirectLimit_conjugation
     (rationalAbsoluteGaloisIdeleClassAction
       N).toSMul
   have hconjugation :
-      σ • RelativeIdeleGroup.classEmbedding
+      σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := N)
           (IntermediateField.inclusion hEN) c =
-        RelativeIdeleGroup.classEmbedding
+        RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := N)
           (IntermediateField.inclusion hEN)
           (τ • c) :=
     (rationalRelativeIdeleClassEmbedding_conjugation_of_restrict
@@ -133,18 +154,18 @@ theorem rationalIntermediateIdeleClassToDirectLimit_conjugation
         (_root_.relativeIdeleClassBaseChangeMulEquiv
           (K := ℚ) (L := E) c) =
       σ • rationalRelativeIdeleClassToDirectLimit N
-        (RelativeIdeleGroup.classEmbedding
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := N)
           (IntermediateField.inclusion hEN) c) := by
         convert congrArg (fun z => σ • z)
           (rationalIntermediateIdeleClassToDirectLimit_baseChange E c) using 1
         simp only [N, rationalNormalClosure]
         congr 4
     _ = rationalRelativeIdeleClassToDirectLimit N
-        (σ • RelativeIdeleGroup.classEmbedding
+        (σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := N)
           (IntermediateField.inclusion hEN) c) :=
       hlimit_smul _
     _ = rationalRelativeIdeleClassToDirectLimit N
-        (RelativeIdeleGroup.classEmbedding
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := N)
           (IntermediateField.inclusion hEN)
           (τ • c)) :=
       congrArg
@@ -221,7 +242,8 @@ theorem rationalIntermediateIdeleClassToDirectLimit_ambientAlgEquiv
   have hE :
       rationalIntermediateIdeleClassToDirectLimit E c =
         rationalRelativeIdeleClassToDirectLimit U
-          (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hEU) cE) := by
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
+            (IntermediateField.inclusion hEU) cE) := by
     calc
       rationalIntermediateIdeleClassToDirectLimit E c =
           rationalIntermediateIdeleClassToDirectLimit E
@@ -235,19 +257,23 @@ theorem rationalIntermediateIdeleClassToDirectLimit_ambientAlgEquiv
             (U : IntermediateField ℚ (SeparableClosure ℚ))
             (_root_.relativeIdeleClassBaseChangeMulEquiv
               (K := ℚ) (L := U)
-              (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hEU) cE)) :=
+              (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
+                (IntermediateField.inclusion hEU) cE)) :=
         (rationalIntermediateIdeleClassToDirectLimit_extension
           hEU cE).symm
       _ =
           rationalRelativeIdeleClassToDirectLimit U
-            (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hEU) cE) :=
+            (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
+              (IntermediateField.inclusion hEU) cE) :=
         rationalFiniteGaloisIdeleClassToDirectLimit_baseChange
-          U (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hEU) cE)
+          U (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
+            (IntermediateField.inclusion hEU) cE)
   have hF :
       rationalIntermediateIdeleClassToDirectLimit F
           (ideleClassCongr e c) =
         rationalRelativeIdeleClassToDirectLimit U
-          (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hFU) cF) := by
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := U)
+            (IntermediateField.inclusion hFU) cF) := by
     calc
       rationalIntermediateIdeleClassToDirectLimit F
           (ideleClassCongr e c) =
@@ -260,55 +286,58 @@ theorem rationalIntermediateIdeleClassToDirectLimit_ambientAlgEquiv
             (U : IntermediateField ℚ (SeparableClosure ℚ))
             (_root_.relativeIdeleClassBaseChangeMulEquiv
               (K := ℚ) (L := U)
-              (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hFU) cF)) :=
+              (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := U)
+                (IntermediateField.inclusion hFU) cF)) :=
         (rationalIntermediateIdeleClassToDirectLimit_extension
           hFU cF).symm
       _ =
           rationalRelativeIdeleClassToDirectLimit U
-            (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hFU) cF) :=
+            (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := U)
+              (IntermediateField.inclusion hFU) cF) :=
         rationalFiniteGaloisIdeleClassToDirectLimit_baseChange
-          U (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hFU) cF)
+          U (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := U)
+            (IntermediateField.inclusion hFU) cF)
   have hrestricted :
       (AlgEquiv.restrictNormalHom U σ) •
-          RelativeIdeleGroup.classEmbedding
+          RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
             (IntermediateField.inclusion hEU) cE =
-        RelativeIdeleGroup.classEmbedding
+        RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
           ((AlgEquiv.restrictNormalHom U σ).toAlgHom.comp
             (IntermediateField.inclusion hEU)) cE := by
     exact rationalRelativeIdeleClassEmbedding_smul_eq_classEmbedding hEU σ cE
   have hsmul :
-      σ • RelativeIdeleGroup.classEmbedding
+      σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
           (IntermediateField.inclusion hEU) cE =
-        RelativeIdeleGroup.classEmbedding
+        RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
           ((AlgEquiv.restrictNormalHom U σ).toAlgHom.comp
             (IntermediateField.inclusion hEU)) cE := by
     change (AlgEquiv.restrictNormalHom U σ) •
-        RelativeIdeleGroup.classEmbedding
+        RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
           (IntermediateField.inclusion hEU) cE =
-      RelativeIdeleGroup.classEmbedding
+      RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
         ((AlgEquiv.restrictNormalHom U σ).toAlgHom.comp
           (IntermediateField.inclusion hEU)) cE
     exact hrestricted
   have hclass' :
-      σ • RelativeIdeleGroup.classEmbedding
+      σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
           (IntermediateField.inclusion hEU) cE =
-        RelativeIdeleGroup.classEmbedding
+        RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := U)
           (IntermediateField.inclusion hFU)
           (relativeIdeleClassCongr (K := ℚ) e cE) := by
     calc
-      σ • RelativeIdeleGroup.classEmbedding
+      σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
           (IntermediateField.inclusion hEU) cE =
-        RelativeIdeleGroup.classEmbedding
+        RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
           ((AlgEquiv.restrictNormalHom U σ).toAlgHom.comp
             (IntermediateField.inclusion hEU)) cE :=
         hsmul
-      _ = RelativeIdeleGroup.classEmbedding
+      _ = RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := U)
           (IntermediateField.inclusion hFU)
           (relativeIdeleClassCongr (K := ℚ) e cE) := by
         rw [RelativeIdeleGroup.classEmbedding_relativeIdeleClassCongr]
         apply congrArg
           (fun f : E →ₐ[ℚ] U =>
-            RelativeIdeleGroup.classEmbedding f cE)
+            RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U) f cE)
         apply AlgHom.ext
         intro x
         apply Subtype.ext
@@ -327,28 +356,32 @@ theorem rationalIntermediateIdeleClassToDirectLimit_ambientAlgEquiv
                 e.toAlgHom) x : U) :=
             rfl
   have hclass :
-      σ • RelativeIdeleGroup.classEmbedding
+      σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
           (IntermediateField.inclusion hEU) cE =
-        RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hFU) cF := by
+        RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := U)
+          (IntermediateField.inclusion hFU) cF := by
     simpa only [cF] using hclass'
   have hlimit_smul :
       σ • rationalRelativeIdeleClassToDirectLimit U
-          (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hEU) cE) =
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
+            (IntermediateField.inclusion hEU) cE) =
         rationalRelativeIdeleClassToDirectLimit U
-          (σ • RelativeIdeleGroup.classEmbedding
+          (σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
             (IntermediateField.inclusion hEU) cE) := by
     exact DirectLimit.smul_def _ _ _
   calc
     σ • rationalIntermediateIdeleClassToDirectLimit E c =
       σ • rationalRelativeIdeleClassToDirectLimit U
-        (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hEU) cE) := by
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
+          (IntermediateField.inclusion hEU) cE) := by
       rw [hE]
     _ = rationalRelativeIdeleClassToDirectLimit U
-        (σ • RelativeIdeleGroup.classEmbedding
+        (σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
           (IntermediateField.inclusion hEU) cE) :=
       hlimit_smul
     _ = rationalRelativeIdeleClassToDirectLimit U
-        (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hFU) cF) :=
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := U)
+          (IntermediateField.inclusion hFU) cF) :=
       congrArg (rationalRelativeIdeleClassToDirectLimit U) hclass
     _ = rationalIntermediateIdeleClassToDirectLimit F
         (ideleClassCongr e c) :=
@@ -383,18 +416,18 @@ theorem rationalIntermediateIdeleClassToDirectLimit_fixed
       (_root_.relativeIdeleClassBaseChangeMulEquiv
         (K := ℚ) (L := K)).apply_symm_apply]
   have hfixed :
-      σ • RelativeIdeleGroup.classEmbedding
+      σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
           (IntermediateField.inclusion hKN) d =
-        RelativeIdeleGroup.classEmbedding
+        RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
           (IntermediateField.inclusion hKN) d :=
     rationalRelativeIdeleClassEmbedding_fixed_of_mem_fixingSubgroup
       hKN σ hσ d
   have hlimit_smul :
       σ • rationalRelativeIdeleClassToDirectLimit N
-          (RelativeIdeleGroup.classEmbedding
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
             (IntermediateField.inclusion hKN) d) =
         rationalRelativeIdeleClassToDirectLimit N
-          (σ • RelativeIdeleGroup.classEmbedding
+          (σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
             (IntermediateField.inclusion hKN) d) := by
     exact DirectLimit.smul_def _ _ _
   calc
@@ -404,18 +437,18 @@ theorem rationalIntermediateIdeleClassToDirectLimit_fixed
           (K := ℚ) (L := K) d) := by
         rw [hd]
     _ = σ • rationalRelativeIdeleClassToDirectLimit N
-        (RelativeIdeleGroup.classEmbedding
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
           (IntermediateField.inclusion hKN) d) := by
         convert congrArg (fun z => σ • z)
           (rationalIntermediateIdeleClassToDirectLimit_baseChange K d) using 1
         simp only [N, rationalNormalClosure]
         congr 4
     _ = rationalRelativeIdeleClassToDirectLimit N
-        (σ • RelativeIdeleGroup.classEmbedding
+        (σ • RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
           (IntermediateField.inclusion hKN) d) :=
       hlimit_smul
     _ = rationalRelativeIdeleClassToDirectLimit N
-        (RelativeIdeleGroup.classEmbedding
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
           (IntermediateField.inclusion hKN) d) :=
       congrArg
         (rationalRelativeIdeleClassToDirectLimit N) hfixed

@@ -1,6 +1,22 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.IntegerRingComparison
-import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationIdeal
-import ValuedFieldTheory.Valuation.LocalRingEquiv
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.IntegerRingComparison
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationIdeal
+public import ValuedFieldTheory.Valuation.LocalRingEquiv
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -389,6 +405,7 @@ theorem chosenFinitePlace_maximalIdeal_ramificationIdx'_eq_one_of_centre_ramific
     chosenFinitePlace_maximalIdeal_map_not_le_sq_of_centre_ramificationIdx_eq_one
       (K := K) (L := L) v hglobal
 
+omit [FiniteDimensional K L] in
 /-- Ideal-theoretic unramifiedness gives ramification index one at the actual
 centre of the chosen finite-place extension. -/
 theorem finitePlaceExtensionCentre_ramificationIdx_eq_one_of_isUnramifiedAt

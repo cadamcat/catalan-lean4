@@ -1,5 +1,21 @@
-import ClassFieldTheory.LubinTate.FormalModule.RecursiveCoefficient
-import Mathlib.RingTheory.MvPowerSeries.Trunc
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.FormalModule.RecursiveCoefficient
+public import Mathlib.RingTheory.MvPowerSeries.Trunc
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -460,7 +476,7 @@ private theorem two_le_order_inVariable_sub_linearInVariableStabilization
         MvPowerSeries.coeff d
           (MvPowerSeries.X i :
             MvPowerSeries σ F.valuationSubring) = 0 := by
-      rw [MvPowerSeries.coeff_X, if_neg hsingle]
+      rw [MvPowerSeries.coeff_X, ite_eq_right hsingle]
     simp [inVariable, linearInVariableStabilization,
       PowerSeries.coeff_subst_single, hdi, hX]
 
@@ -531,11 +547,11 @@ private theorem coeff_subst_linearInVariableStabilization_monomial
     MvPowerSeries.coeff_rescale]
   by_cases hqd : q = d
   · subst q
-    rw [MvPowerSeries.coeff_monomial_same, if_pos rfl]
+    rw [MvPowerSeries.coeff_monomial_same, ite_eq_left rfl]
     simp only [Finsupp.prod, Function.const_apply,
       Finset.prod_pow_eq_pow_sum, Finsupp.degree_apply]
   · rw [MvPowerSeries.coeff_monomial_ne hqd, mul_zero,
-      if_neg hqd]
+      ite_eq_right hqd]
 
 private theorem coeff_subst_inVariables_monomial_of_degree_le
     (ebar : LubinTateSeries F π)
@@ -773,7 +789,7 @@ private theorem coeff_defect_add_monomial_eq_of_degree_le_constantCoeff
       ebar H q d hq c]
   by_cases hqd : q = d
   · subst q
-    simp only [if_pos]
+    simp only [ite_eq_left]
     have hdegree : d.degree = (d.degree - 1) + 1 := by
       omega
     have hpow :

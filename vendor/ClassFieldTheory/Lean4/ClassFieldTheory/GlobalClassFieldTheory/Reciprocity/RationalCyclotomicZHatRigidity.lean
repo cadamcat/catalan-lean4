@@ -1,5 +1,21 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicPrincipalIdele
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicCharacterRigidity
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicPrincipalIdele
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicCharacterRigidity
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -45,152 +61,9 @@ theorem
   have hσ : σ ^ 2 = 1 :=
     rationalCyclotomicAutomorphism_sq_eq_one_of_character_reductions
       σ h
-  let
-      (E :
-        FiniteGaloisIntermediateField
-          ℚ rationalCyclotomicZHatField) :
-      NumberField E :=
-    NumberField.of_module_finite ℚ E
-  let
-      (E :
-        FiniteGaloisIntermediateField
-          ℚ rationalCyclotomicZHatField) :
-      IsAbelianGalois ℚ E :=
-    IsAbelianGalois.of_algHom E.toIntermediateField.val
-  have happly :
-      InfiniteGalois.continuousMulEquivToLimit
-          ℚ rationalCyclotomicZHatField
-          (rationalCyclotomicZHatGlobalArtin a) =
-        infiniteGlobalArtinToLimit
-          ℚ rationalCyclotomicZHatField a := by
-    exact
-      (InfiniteGalois.continuousMulEquivToLimit
-        ℚ rationalCyclotomicZHatField).apply_symm_apply _
-  apply
-    (InfiniteGalois.continuousMulEquivToLimit
-      ℚ rationalCyclotomicZHatField).injective
-  rw [map_pow, happly, map_one]
-  apply Subtype.ext
-  funext E
-  change
-    globalArtinMonoidHom
-          (K := ℚ) (L := E.unop) a ^ 2 =
-      1
-  obtain ⟨n, F, e, hF⟩ :=
-    finiteSubfieldOfRationalCyclotomicZHatField_mapsIntoLevel E.unop
-  let : FiniteDimensional ℚ F :=
-    e.toLinearEquiv.finiteDimensional
-  let : NumberField F :=
-    NumberField.of_module_finite ℚ F
-  let : IsAbelianGalois ℚ F :=
-    IsAbelianGalois.of_algHom e.symm.toAlgHom
-  let algEF : Algebra E.unop F :=
-    e.toRingHom.toAlgebra
-  let : SMul E.unop F :=
-    @Algebra.toSMul E.unop F _ _ algEF
-  let : Algebra E.unop F := algEF
-  let : Module E.unop F := Algebra.toModule
-  let : IsScalarTower ℚ E.unop F :=
-    IsScalarTower.of_algebraMap_eq'
-      e.toAlgHom.comp_algebraMap.symm
-  let : FiniteDimensional E.unop F :=
-    FiniteDimensional.right ℚ E.unop F
-  let algFN :
-      Algebra F
-        (KummerTheory.rationalCyclotomicLevel n) :=
-    (IntermediateField.inclusion hF).toRingHom.toAlgebra
-  let :
-      SMul F
-        (KummerTheory.rationalCyclotomicLevel n) :=
-    @Algebra.toSMul F
-      (KummerTheory.rationalCyclotomicLevel n) _ _ algFN
-  let :
-      Algebra F
-        (KummerTheory.rationalCyclotomicLevel n) :=
-    algFN
-  let :
-      IsScalarTower ℚ F
-        (KummerTheory.rationalCyclotomicLevel n) :=
-    IsScalarTower.of_algebraMap_eq'
-      (IntermediateField.inclusion hF).comp_algebraMap.symm
-  let N : FiniteGaloisIntermediateField
-      ℚ KummerTheory.rationalCyclotomicField :=
-    { toIntermediateField :=
-        KummerTheory.rationalCyclotomicLevel n
-      finiteDimensional := inferInstance
-      isGalois := inferInstance }
-  let : NumberField N :=
-    NumberField.of_module_finite ℚ N
-  let : IsAbelianGalois ℚ N :=
-    IsAbelianGalois.of_algHom N.toIntermediateField.val
-  have hlevel :
-      globalArtinMonoidHom
-            (K := ℚ)
-            (L := N)
-            a ^ 2 =
-        1 := by
-    have hrestriction :
-        AlgEquiv.restrictNormalHom N σ =
-          globalArtinMonoidHom (K := ℚ) (L := N) a :=
-      restrictNormalHom_infiniteGlobalArtinMonoidHom
-        ℚ KummerTheory.rationalCyclotomicField a N
-    calc
-      globalArtinMonoidHom (K := ℚ) (L := N) a ^ 2 =
-          (AlgEquiv.restrictNormalHom N σ) ^ 2 :=
-        congrArg (fun τ => τ ^ 2) hrestriction.symm
-      _ = AlgEquiv.restrictNormalHom N (σ ^ 2) :=
-        (map_pow (AlgEquiv.restrictNormalHom N) σ 2).symm
-      _ = AlgEquiv.restrictNormalHom N 1 :=
-        congrArg (AlgEquiv.restrictNormalHom N) hσ
-      _ = 1 := map_one (AlgEquiv.restrictNormalHom N)
-  have hcoordinate :
-      AlgEquiv.restrictNormalHom E.unop
-          (AlgEquiv.restrictNormalHom F
-            (globalArtinMonoidHom
-              (K := ℚ)
-              (L := N)
-              a)) =
-        globalArtinMonoidHom
-          (K := ℚ) (L := E.unop) a := by
-    have hFCoordinate :=
-      DFunLike.congr_fun
-        (globalArtinMonoidHom_restrict_tower
-          (K := ℚ)
-          (L := N)
-          (E := F)) a
-    have hECoordinate :=
-      DFunLike.congr_fun
-        (globalArtinMonoidHom_restrict_tower
-          (K := ℚ) (L := F) (E := E.unop)) a
-    exact
-      (congrArg (AlgEquiv.restrictNormalHom E.unop)
-        hFCoordinate).trans hECoordinate
-  calc
-    globalArtinMonoidHom (K := ℚ) (L := E.unop) a ^ 2 =
-        (AlgEquiv.restrictNormalHom E.unop
-          (AlgEquiv.restrictNormalHom F
-            (globalArtinMonoidHom (K := ℚ) (L := N) a))) ^ 2 :=
-      congrArg (fun τ => τ ^ 2) hcoordinate.symm
-    _ = AlgEquiv.restrictNormalHom E.unop
-        ((AlgEquiv.restrictNormalHom F
-          (globalArtinMonoidHom (K := ℚ) (L := N) a)) ^ 2) :=
-      (map_pow (AlgEquiv.restrictNormalHom E.unop) _ 2).symm
-    _ = AlgEquiv.restrictNormalHom E.unop
-        (AlgEquiv.restrictNormalHom F
-          (globalArtinMonoidHom (K := ℚ) (L := N) a ^ 2)) :=
-      congrArg (AlgEquiv.restrictNormalHom E.unop)
-        ((map_pow (AlgEquiv.restrictNormalHom F)
-          (globalArtinMonoidHom (K := ℚ) (L := N) a) 2).symm)
-    _ = AlgEquiv.restrictNormalHom E.unop
-        (AlgEquiv.restrictNormalHom F 1) :=
-      congrArg
-        (fun τ => AlgEquiv.restrictNormalHom E.unop
-          (AlgEquiv.restrictNormalHom F τ)) hlevel
-    _ = AlgEquiv.restrictNormalHom E.unop 1 :=
-      congrArg (AlgEquiv.restrictNormalHom E.unop)
-        (map_one (AlgEquiv.restrictNormalHom F))
-    _ = 1 := map_one (AlgEquiv.restrictNormalHom E.unop)
-
+  rw [rationalCyclotomicZHatGlobalArtin_eq_fullRestriction]
+  change (rationalCyclotomicFullRestrictionToZHat σ) ^ 2 = 1
+  rw [← map_pow, hσ, map_one]
 /-- Prime-power square-one identities force the rational cyclotomic
 idele value itself to be trivial.  Torsion-freeness of `ZHat` removes
 the residual order-two ambiguity. -/

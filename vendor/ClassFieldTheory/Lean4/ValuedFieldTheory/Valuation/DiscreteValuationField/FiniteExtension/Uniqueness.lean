@@ -1,4 +1,20 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Degree
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Degree
+
+
+@[expose] public section
 
 set_option autoImplicit false
 /-! Provides the public declarations in the `ValuationTheory.DiscreteValuationField.FiniteExtension.Uniqueness` Lean module. -/
@@ -1202,7 +1218,7 @@ theorem ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_finite_separable
     [Algebra.IsSeparable K L]
     [IsScalarTower base.valuationSubring target.valuationSubring L] :
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal = Module.finrank K L := by
+      target.maximalIdeal.inertiaDeg base.valuationSubring = Module.finrank K L := by
   let : IsIntegralClosure target.valuationSubring base.valuationSubring L :=
     (target_valuationSubring_isIntegralClosure_of_finite_separable base target)
   exact ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_isIntegralClosure
@@ -1227,7 +1243,7 @@ theorem isDefectless_of_finite_separable
     ValuedExtension.IsDefectless base.toDVF target.toDVF := by
   change Module.finrank K L =
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal
+      target.maximalIdeal.inertiaDeg base.valuationSubring
   exact ((ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_finite_separable base target)).symm
 
 /-- In a finite separable extension, Chevalley's extension valuation can be

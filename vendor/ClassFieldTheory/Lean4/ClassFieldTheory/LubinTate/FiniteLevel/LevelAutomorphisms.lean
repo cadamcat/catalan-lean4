@@ -1,6 +1,22 @@
-import ClassFieldTheory.LubinTate.FiniteLevel.FiniteParameters
-import Mathlib.FieldTheory.Galois.Basic
-import Mathlib.SetTheory.Cardinal.Finite
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.FiniteLevel.FiniteParameters
+public import Mathlib.FieldTheory.Galois.Basic
+public import Mathlib.SetTheory.Cardinal.Finite
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -283,10 +299,8 @@ private theorem
     (σ : Gal((standardLubinTateLevelField hπ n) / K))
     (x :
       (standardLubinTateLevelCompleteDVF hπ n).valuationSubring) :
-    ((standardLubinTateLevelAutomorphismIntegerRingEquiv hπ n σ x :
-        (standardLubinTateLevelCompleteDVF hπ n).valuationSubring) :
-      standardLubinTateLevelField hπ n) =
-        σ (x : standardLubinTateLevelField hπ n) :=
+    (standardLubinTateLevelAutomorphismIntegerRingEquiv hπ n σ x).val =
+        σ x.val :=
   rfl
 
 private theorem
@@ -300,7 +314,7 @@ private theorem
   let target := standardLubinTateLevelCompleteDVF hπ n
   let r :=
     standardLubinTateLevelAutomorphismIntegerRingEquiv hπ n σ
-  apply continuous_of_continuousAt_zero r
+  apply continuous_of_continuousAt_zero r.toAddMonoidHom
   rw [ContinuousAt, map_zero]
   have hadic : IsAdic target.maximalIdeal := rfl
   apply (hadic.hasBasis_nhds_zero.tendsto_right_iff).2
@@ -471,28 +485,19 @@ theorem standardLubinTateUnitParameterAlgEquiv_apply_levelRoot
       hπ n (w * u) z).2 hdiv
   change
     σ
-      ((standardLubinTatePrimitivePointIntegerAction hπ n w :
-          (standardLubinTateLevelCompleteDVF hπ n).valuationSubring) :
-        standardLubinTateLevelField hπ n) =
-      ((standardLubinTatePrimitivePointIntegerAction hπ n z :
-          (standardLubinTateLevelCompleteDVF hπ n).valuationSubring) :
-        standardLubinTateLevelField hπ n)
+      (standardLubinTatePrimitivePointIntegerAction hπ n w).val =
+      (standardLubinTatePrimitivePointIntegerAction hπ n z).val
   calc
     σ
-        ((standardLubinTatePrimitivePointIntegerAction hπ n w :
-            (standardLubinTateLevelCompleteDVF hπ n).valuationSubring) :
-          standardLubinTateLevelField hπ n) =
-        (r (standardLubinTatePrimitivePointIntegerAction hπ n w) :
-          standardLubinTateLevelField hπ n) := by
+        (standardLubinTatePrimitivePointIntegerAction hπ n w).val =
+        (r (standardLubinTatePrimitivePointIntegerAction hπ n w)).val := by
             rw [
               standardLubinTateLevelAutomorphismIntegerRingEquiv_apply]
     _ =
-        (standardLubinTatePrimitivePointIntegerAction hπ n (w * u) :
-          standardLubinTateLevelField hπ n) :=
+        (standardLubinTatePrimitivePointIntegerAction hπ n (w * u)).val :=
       congrArg Subtype.val hrw
     _ =
-        (standardLubinTatePrimitivePointIntegerAction hπ n z :
-          standardLubinTateLevelField hπ n) :=
+        (standardLubinTatePrimitivePointIntegerAction hπ n z).val :=
       congrArg Subtype.val hwuz
 
 /-- The identity parameter gives the identity level-field automorphism. -/

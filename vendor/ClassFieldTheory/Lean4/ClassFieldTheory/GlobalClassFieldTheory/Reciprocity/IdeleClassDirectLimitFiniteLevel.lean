@@ -1,4 +1,20 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitFiniteLevelCore
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitFiniteLevelCore
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -41,7 +57,8 @@ theorem rationalRelativeAdeleEmbedding_unflatten
     letI : FiniteDimensional K N :=
       FiniteDimensional.right ℚ K N
     towerRelativeAdeleUnflatten ℚ K N
-        (RelativeIdeleGroup.adeleEmbedding (IntermediateField.inclusion hKN) a) =
+        (RelativeIdeleGroup.adeleEmbedding (K := ℚ) (L := K) (M := N)
+          (IntermediateField.inclusion hKN) a) =
       a ⊗ₜ[K] (1 : N) := by
   let : Algebra K N :=
     (IntermediateField.inclusion hKN).toRingHom.toAlgebra
@@ -52,16 +69,20 @@ theorem rationalRelativeAdeleEmbedding_unflatten
   have hflatten :
       towerRelativeAdeleFlatten ℚ K N
           (towerRelativeAdeleUnflatten ℚ K N
-            (RelativeIdeleGroup.adeleEmbedding (IntermediateField.inclusion hKN) a)) =
-        RelativeIdeleGroup.adeleEmbedding (IntermediateField.inclusion hKN) a :=
+            (RelativeIdeleGroup.adeleEmbedding (K := ℚ) (L := K) (M := N)
+              (IntermediateField.inclusion hKN) a)) =
+        RelativeIdeleGroup.adeleEmbedding (K := ℚ) (L := K) (M := N)
+          (IntermediateField.inclusion hKN) a :=
     (towerRelativeAdeleRingEquiv ℚ K N).apply_symm_apply
-      (RelativeIdeleGroup.adeleEmbedding (IntermediateField.inclusion hKN) a)
+      (RelativeIdeleGroup.adeleEmbedding (K := ℚ) (L := K) (M := N)
+        (IntermediateField.inclusion hKN) a)
   apply
     (towerRelativeAdeleRingEquiv ℚ K N).injective
   change
     towerRelativeAdeleFlatten ℚ K N
         (towerRelativeAdeleUnflatten ℚ K N
-          (RelativeIdeleGroup.adeleEmbedding (IntermediateField.inclusion hKN) a)) =
+          (RelativeIdeleGroup.adeleEmbedding (K := ℚ) (L := K) (M := N)
+            (IntermediateField.inclusion hKN) a)) =
       towerRelativeAdeleFlatten ℚ K N
         (a ⊗ₜ[K] (1 : N))
   rw [hflatten]
@@ -85,7 +106,8 @@ theorem rationalRelativeIdeleEmbedding_unflatten
     letI : Algebra K (RelativeAdeleRing ℚ K) :=
       relativeAdeleRingIntermediateAlgebra ℚ K
     (towerRelativeIdeleEquiv ℚ K N).symm
-        (RelativeIdeleGroup.ideleEmbedding (IntermediateField.inclusion hKN) a) =
+        (RelativeIdeleGroup.ideleEmbedding (K := ℚ) (L := K) (M := N)
+          (IntermediateField.inclusion hKN) a) =
       (Units.map
         (@Algebra.TensorProduct.includeLeft
           K K (RelativeAdeleRing ℚ K) N
@@ -126,7 +148,8 @@ theorem
       FiniteDimensional.right ℚ K N
     towerRelativeIdeleClassBaseChangeMulEquiv ℚ K N
         ((TowerRelativeIdeleGroup.classGroupEquiv ℚ K N).symm
-          (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hKN) c)) =
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
+            (IntermediateField.inclusion hKN) c)) =
       RelativeIdeleGroup.classInclusion K N
         (_root_.relativeIdeleClassBaseChangeMulEquiv
           (K := ℚ) (L := K) c) := by
@@ -143,7 +166,8 @@ theorem
         (RelativeIdeleGroup.principalSubgroup K N)
         (towerRelativeIdeleBaseChangeMulEquiv ℚ K N
           ((towerRelativeIdeleEquiv ℚ K N).symm
-            (RelativeIdeleGroup.ideleEmbedding (IntermediateField.inclusion hKN) a))) =
+            (RelativeIdeleGroup.ideleEmbedding (K := ℚ) (L := K) (M := N)
+              (IntermediateField.inclusion hKN) a))) =
       QuotientGroup.mk'
         (RelativeIdeleGroup.principalSubgroup K N)
         (RelativeIdeleGroup.inclusion K N
@@ -164,7 +188,8 @@ theorem rationalRelativeIdeleClassEmbedding_injective
     [FiniteDimensional ℚ K] [FiniteDimensional ℚ N]
     (hKN : K ≤ N) :
     Function.Injective
-      (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hKN)) := by
+      (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := N)
+        (IntermediateField.inclusion hKN)) := by
   let : Algebra K N :=
     (IntermediateField.inclusion hKN).toRingHom.toAlgebra
   let : IsScalarTower ℚ K N :=

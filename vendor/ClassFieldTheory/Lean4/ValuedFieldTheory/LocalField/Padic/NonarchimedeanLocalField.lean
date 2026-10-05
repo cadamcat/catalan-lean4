@@ -1,6 +1,22 @@
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Basic
-import Mathlib.NumberTheory.Padics.ProperSpace
-import Mathlib.NumberTheory.Padics.ValuativeRel
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Basic
+public import Mathlib.NumberTheory.Padics.ProperSpace
+public import Mathlib.NumberTheory.Padics.ValuativeRel
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -30,7 +46,7 @@ theorem mulValuation_le_one_iff_norm_le_one
   · rw [Padic.norm_le_one_iff_val_nonneg]
     change (if x = 0 then 0 else WithZero.exp (-x.valuation)) ≤ 1 ↔
       0 ≤ x.valuation
-    rw [if_neg hx, ← WithZero.exp_zero, WithZero.exp_le_exp, neg_nonpos]
+    rw [ite_eq_right hx, ← WithZero.exp_zero, WithZero.exp_le_exp, neg_nonpos]
 
 /-- The integer ring defined by the canonical valuative relation on `ℚ_p`
 consists exactly of the elements of norm at most one. -/
@@ -61,7 +77,7 @@ theorem normedFieldValuation_compatible_padic :
   change (if x = 0 then 0 else WithZero.exp (-x.valuation)) ≤
       (if y = 0 then 0 else WithZero.exp (-y.valuation)) ↔
     (p : ℝ) ^ (-x.valuation) ≤ (p : ℝ) ^ (-y.valuation)
-  rw [if_neg hx, if_neg hy, WithZero.exp_le_exp]
+  rw [ite_eq_right hx, ite_eq_right hy, WithZero.exp_le_exp]
   have hpone : (1 : ℝ) < (p : ℝ) := by
     exact_mod_cast (Fact.out : Nat.Prime p).one_lt
   exact (zpow_right_strictMono₀ hpone).le_iff_le.symm

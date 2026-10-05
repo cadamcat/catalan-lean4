@@ -1,7 +1,23 @@
-import Mathlib.SetTheory.Cardinal.Finite
-import ValuedFieldTheory.Ramification.GaloisValuation.Ramification
-import Mathlib.Algebra.Order.Floor.Ring
-import Mathlib.Topology.Order.MonotoneContinuity
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.SetTheory.Cardinal.Finite
+public import ValuedFieldTheory.Ramification.GaloisValuation.Ramification
+public import Mathlib.Algebra.Order.Floor.Ring
+public import Mathlib.Topology.Order.MonotoneContinuity
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -163,6 +179,38 @@ omit [Finite G] in
 @[simp] theorem herbrandFunction_nat (n : ℕ) :
     (herbrandFunction F) (n : ℝ) = (herbrandValueNat F) n := by
   simp [herbrandFunction]
+
+/-- The first Herbrand value is the ratio of the first two lower-group orders. -/
+theorem herbrandFunction_one_eq :
+    (herbrandFunction F) 1 =
+      (Nat.card (F.lower 1) : ℝ) / Nat.card (F.lower 0) := by
+  rw [show (1 : ℝ) = ((1 : ℕ) : ℝ) by norm_num,
+    herbrandFunction_nat, show (1 : ℕ) = 0 + 1 by omega,
+    herbrandValueNat_succ]
+  simp [herbrandValueNat_zero, herbrandSlope]
+
+/-- The first Herbrand value lies strictly above zero and at most one. -/
+theorem herbrandFunction_one_pos_le_one :
+    0 < (herbrandFunction F) 1 ∧ (herbrandFunction F) 1 ≤ 1 := by
+  have hden : (0 : ℝ) < Nat.card (F.lower 0) := by
+    exact_mod_cast (show 0 < Nat.card (F.lower 0) from Finite.card_pos)
+  have hnum : (0 : ℝ) < Nat.card (F.lower 1) := by
+    exact_mod_cast (show 0 < Nat.card (F.lower 1) from Finite.card_pos)
+  have hsub : F.lower 1 ≤ F.lower 0 := F.antitone (by omega)
+  let incl : F.lower 1 → F.lower 0 := fun x => ⟨x.1, hsub x.2⟩
+  have hincl : Function.Injective incl := by
+    intro x y h
+    have hval : (x : G) = (y : G) :=
+      congrArg (fun z : F.lower 0 => (z : G)) h
+    exact Subtype.ext hval
+  have hcard : Nat.card (F.lower 1) ≤ Nat.card (F.lower 0) :=
+    Nat.card_le_card_of_injective incl hincl
+  rw [herbrandFunction_one_eq]
+  constructor
+  · exact div_pos hnum hden
+  · apply (div_le_iff₀ hden).2
+    simpa using (Nat.cast_le.mpr hcard :
+      (Nat.card (F.lower 1) : ℝ) ≤ Nat.card (F.lower 0))
 
 omit [Finite G] in
 /-- The defining affine formula on a half-open unit interval. -/

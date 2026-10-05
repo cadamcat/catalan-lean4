@@ -1,11 +1,27 @@
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.TensorNorm
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.FinitePlaces
-import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlace
-import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Approximation
-import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Topology
-import ValuedFieldTheory.Valuation.Completion.FiniteLocalization
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.FieldTheory.IsAlgClosed.Basic
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.TensorNorm
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.FinitePlaces
+public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlace
+public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Approximation
+public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Topology
+public import ValuedFieldTheory.Valuation.Completion.FiniteLocalization
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.FieldTheory.IsAlgClosed.Basic
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -27,8 +43,11 @@ noncomputable section
 
 open LocalClassFieldTheory
 
+universe u v
 
-variable {K : Type} [Field K] [NumberField K]
+section ArchimedeanNorm
+
+variable {K : Type u} [Field K] [NumberField K]
 
 omit [NumberField K] in
 /-- Every element of the archimedean positive subgroup has an `n`-th
@@ -83,7 +102,7 @@ theorem exists_infinitePositiveSubgroup_nthRoot
     apply Units.ext
     exact hz
 
-variable {L : Type} [Field L] [Algebra K L]
+variable {L : Type v} [Field L] [Algebra K L]
     [FiniteDimensional K L]
 
 /-- Determinant norm on the actual tensor factor used by the infinite
@@ -127,6 +146,12 @@ theorem infinitePositiveSubgroup_le_infiniteTensorNormSubgroup
   rw [Algebra.norm_algebraMap,
     Module.finrank_baseChange]
   exact congrArg Units.val hy
+
+end ArchimedeanNorm
+
+variable {K : Type} [Field K] [NumberField K]
+variable {L : Type} [Field L] [Algebra K L]
+    [FiniteDimensional K L]
 
 /-- Complete splitting at a finite place makes the chosen local norm
 subgroup the whole multiplicative group. -/

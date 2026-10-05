@@ -1,7 +1,23 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.NormProperties
-import Mathlib.Algebra.Module.LinearMap.Polynomial
-import Mathlib.LinearAlgebra.Charpoly.BaseChange
-import Mathlib.RingTheory.TensorProduct.MvPolynomial
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.NormProperties
+public import Mathlib.Algebra.Module.LinearMap.Polynomial
+public import Mathlib.LinearAlgebra.Charpoly.BaseChange
+public import Mathlib.RingTheory.TensorProduct.MvPolynomial
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -139,15 +155,13 @@ theorem baseChangedLmul_eq
       (Algebra.lmul A (A ⊗[K] L)).toLinearMap := by
   apply LinearMap.ext
   intro z
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | add z₁ z₂ hz₁ hz₂ =>
       rw [map_add, map_add, hz₁, hz₂]
   | tmul a x =>
       apply LinearMap.ext
       intro y
-      induction y using TensorProduct.induction_on with
-      | zero => simp
+      induction y using TensorProduct.inductionOn with
       | add y₁ y₂ hy₁ hy₂ =>
           rw [map_add, map_add, hy₁, hy₂]
       | tmul b t =>

@@ -1,7 +1,23 @@
-import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
-import Mathlib.Topology.Algebra.Valued.WithZeroMulInt
-import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalProduct
-import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitDecomposition
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
+public import Mathlib.Topology.Algebra.Valued.WithZeroMulInt
+public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalProduct
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitDecomposition
+
+
+@[expose] public section
 
 set_option autoImplicit false
 /-!
@@ -118,7 +134,7 @@ theorem powerSeries_log_coeff_mul_pow_eq_signedLogSeriesTermField
   have hsign : (-1 : ℚ) ^ (n + 1 + 1) = (-1 : ℚ) ^ n := by
     rw [show n + 1 + 1 = n + 2 by omega, pow_add]
     norm_num
-  rw [PowerSeries.coeff_log, if_neg (Nat.succ_ne_zero n), hsign, hcoeff]
+  rw [PowerSeries.coeff_log, ite_eq_right (Nat.succ_ne_zero n), hsign, hcoeff]
   simp [signedLogSeriesTermField, logSeriesTermField, div_eq_mul_inv,
     mul_assoc, mul_left_comm, mul_comm]
 
@@ -760,7 +776,7 @@ theorem tendsto_zero_log_term_ofWithZeroValuation_of_pos
   rcases hs with ⟨γ, hγs⟩
   let γ' : (WithZero (Multiplicative ℤ))ˣ :=
     Units.map (MonoidWithZeroHom.ValueGroup₀.embedding
-      (f := (.ofClass v))) γ
+      (f := (v : K →*₀ WithZero (Multiplicative ℤ)))) γ
   rcases WithZero.exists_exp_neg_natCast_lt γ'.ne_zero with ⟨N, hNγ⟩
   have hterm :=
     eventually_le_ofWithZeroValuation_val_log_term_of_pos
@@ -805,7 +821,7 @@ theorem tendsto_zero_signed_log_term_ofWithZeroValuation_of_pos
   rcases hs with ⟨γ, hγs⟩
   let γ' : (WithZero (Multiplicative ℤ))ˣ :=
     Units.map (MonoidWithZeroHom.ValueGroup₀.embedding
-      (f := (.ofClass v))) γ
+      (f := (v : K →*₀ WithZero (Multiplicative ℤ)))) γ
   rcases WithZero.exists_exp_neg_natCast_lt γ'.ne_zero with ⟨N, hNγ⟩
   have hterm :=
     eventually_le_ofWithZeroValuation_val_log_term_of_pos
@@ -1045,7 +1061,7 @@ theorem tendsto_zero_signed_log_term_ofWithZeroValuation_scaled_of_pos
   rcases hs with ⟨γ, hγs⟩
   let γ' : (WithZero (Multiplicative ℤ))ˣ :=
     Units.map (MonoidWithZeroHom.ValueGroup₀.embedding
-      (f := (.ofClass v))) γ
+      (f := (v : K →*₀ WithZero (Multiplicative ℤ)))) γ
   rcases WithZero.exists_exp_neg_natCast_lt γ'.ne_zero with ⟨N, hNγ⟩
   have hterm :=
     eventually_le_ofWithZeroValuation_val_log_term_scaled_of_pos

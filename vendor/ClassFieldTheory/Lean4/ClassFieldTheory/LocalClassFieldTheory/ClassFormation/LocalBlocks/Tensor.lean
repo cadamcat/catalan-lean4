@@ -1,8 +1,24 @@
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Induced
-import ValuedFieldTheory.Valuation.Completion.TensorProductDecomposition
-import ValuedFieldTheory.Ramification.HilbertRamification.AlgebraicLocalization
-import ValuedFieldTheory.Ramification.HilbertRamification.AbsoluteValueConjugacy
-import Mathlib.Algebra.Group.Pi.Units
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Induced
+public import ValuedFieldTheory.Valuation.Completion.TensorProductDecomposition
+public import ValuedFieldTheory.Ramification.HilbertRamification.AlgebraicLocalization
+public import ValuedFieldTheory.Ramification.HilbertRamification.AbsoluteValueConjugacy
+public import Mathlib.Algebra.Group.Pi.Units
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -75,8 +91,7 @@ theorem localTensorConjugation_one
     (vK : AbsoluteValue K ℝ)
     (z : LocalTensorAlgebra (L := L) vK) :
     localTensorConjugation vK (1 : L ≃ₐ[K] L) z = z := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul b x => simp
   | add x y hx hy => simp [hx, hy]
 
@@ -87,8 +102,7 @@ theorem localTensorConjugation_mul
     localTensorConjugation vK (σ * τ) z =
       localTensorConjugation vK σ
         (localTensorConjugation vK τ z) := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul b x => simp
   | add x y hx hy => simp [hx, hy]
 
@@ -371,9 +385,7 @@ theorem localTensorEvaluation_conjugation_decomposition
   let hK := AbsoluteValue.extensionCompletionAlgebra (K := K) w.1
   let _ : SMul K w.1.Completion := hK.toSMul
   let _ := AbsoluteValue.completionAlgebra vK w.1 w.2
-  induction z using TensorProduct.induction_on with
-  | zero =>
-      simp
+  induction z using TensorProduct.inductionOn with
   | add x y hx hy =>
       simpa only [map_add] using congrArg₂ (· + ·) hx hy
   | tmul b x =>
@@ -492,9 +504,7 @@ theorem conjugateExtensionCompletionRingEquiv_completionTensorDecomposition_left
   let _ : ∀ w' : AbsoluteValueExtension vK L,
       Algebra vK.Completion w'.1.Completion :=
     fun w' ↦ AbsoluteValue.completionAlgebra vK w'.1 w'.2
-  induction z using TensorProduct.induction_on with
-  | zero =>
-      simp only [map_zero, Pi.zero_apply]
+  induction z using TensorProduct.inductionOn with
   | add x y hx hy =>
       simpa only [map_add, Pi.add_apply] using
         congrArg₂ (· + ·) hx hy

@@ -1,6 +1,22 @@
-import ClassFieldTheory.AlgebraicNumberTheory.SUnit.LogLattice
-import GaloisCohomology.Cyclic.Herbrand.Permutation.LatticeHerbrand
-import Mathlib.NumberTheory.NumberField.InfinitePlace.Ramification
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.SUnit.LogLattice
+public import GaloisCohomology.Cyclic.Herbrand.Permutation.LatticeHerbrand
+public import Mathlib.NumberTheory.NumberField.InfinitePlace.Ramification
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -185,7 +201,7 @@ theorem valuation_finitePlaceEquiv
 /-- Absolute ideal norms are invariant under a ring automorphism. -/
 theorem absNorm_map_ringEquiv
     {R : Type*} [CommRing R] [IsDedekindDomain R]
-    [Module.Free ℤ R]
+    [Module.Free ℤ R] [Infinite R]
     (e : R ≃+* R) (I : Ideal R) :
     Ideal.absNorm (I.map e) = Ideal.absNorm I := by
   rw [Ideal.absNorm_apply, Ideal.absNorm_apply,

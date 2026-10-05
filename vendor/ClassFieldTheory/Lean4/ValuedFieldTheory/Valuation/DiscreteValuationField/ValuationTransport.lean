@@ -1,4 +1,20 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.Basic
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.Basic
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -85,7 +101,10 @@ instance isRankOneDiscrete_comap_ringEquiv
     rcases _root_.Valuation.IsRankOneDiscrete.exists_generator_lt_one v with
       ⟨γ, hγ, hlt⟩
     refine ⟨γ, ?_, hlt⟩
-    simpa [valueGroup_comap_ringEquiv (v := v) e] using hγ
+    change Subgroup.zpowers γ =
+      MonoidWithZeroHom.valueGroup (.ofClass (v.comap (e : L →+* K)))
+    rw [valueGroup_comap_ringEquiv (v := v) e]
+    exact hγ
 
 /-- The valuation ring of a comapped valuation is the source valuation ring,
 transported through the field equivalence. -/

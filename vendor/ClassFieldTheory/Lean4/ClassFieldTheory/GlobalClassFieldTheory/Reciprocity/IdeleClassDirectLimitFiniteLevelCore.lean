@@ -1,7 +1,23 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitCore
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseChange
-import ValuedFieldTheory.Ramification.GaloisValuation.ClosedFixingSubgroup
-import Mathlib.GroupTheory.QuotientGroup.Defs
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitCore
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseChange
+public import ValuedFieldTheory.Ramification.GaloisValuation.ClosedFixingSubgroup
+public import Mathlib.GroupTheory.QuotientGroup.Defs
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -156,6 +172,29 @@ theorem
     (IntermediateField.le_normalClosure
       (E : IntermediateField ℚ (SeparableClosure ℚ)))
 
+private theorem rationalRelativeIdeleClassEmbedding_commutativeSquare
+    {F E N₁ N₂ : IntermediateField ℚ (SeparableClosure ℚ)}
+    [NumberField F] [NumberField E] [NumberField N₁] [NumberField N₂]
+    (hFE : F ≤ E) (hFN₁ : F ≤ N₁) (hEN₂ : E ≤ N₂) (hN₁N₂ : N₁ ≤ N₂)
+    (c : RelativeIdeleGroup.ClassGroup ℚ F) :
+    RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := N₂)
+        (IntermediateField.inclusion hEN₂)
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := E)
+          (IntermediateField.inclusion hFE) c) =
+      RelativeIdeleGroup.classEmbedding (K := ℚ) (L := N₁) (M := N₂)
+        (IntermediateField.inclusion hN₁N₂)
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := N₁)
+          (IntermediateField.inclusion hFN₁) c) := by
+  calc
+    _ = RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := N₂)
+        (IntermediateField.inclusion (hFE.trans hEN₂)) c :=
+      rationalRelativeIdeleClassEmbedding_comp hFE hEN₂ c
+    _ = RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := N₂)
+        (IntermediateField.inclusion (hFN₁.trans hN₁N₂)) c := by
+      rfl
+    _ = _ :=
+      (rationalRelativeIdeleClassEmbedding_comp hFN₁ hN₁N₂ c).symm
+
 /-- The canonical maps from nested rational intermediate fields to the
 idele-class direct limit agree after scalar extension. -/
 theorem
@@ -167,13 +206,11 @@ theorem
     rationalIntermediateIdeleClassToDirectLimit E
         (_root_.relativeIdeleClassBaseChangeMulEquiv
           (K := ℚ) (L := E)
-          (RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hFE) c)) =
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := E)
+            (IntermediateField.inclusion hFE) c)) =
       rationalIntermediateIdeleClassToDirectLimit F
         (_root_.relativeIdeleClassBaseChangeMulEquiv
           (K := ℚ) (L := F) c) := by
-  let U :
-      FiniteGaloisIntermediateField ℚ (SeparableClosure ℚ) :=
-    rationalNormalClosure F ⊔ rationalNormalClosure E
   let hFN :
       F ≤ (rationalNormalClosure F :
         IntermediateField ℚ (SeparableClosure ℚ)) :=
@@ -182,91 +219,50 @@ theorem
       E ≤ (rationalNormalClosure E :
         IntermediateField ℚ (SeparableClosure ℚ)) :=
     IntermediateField.le_normalClosure E
-  let hNFU : rationalNormalClosure F ≤ U :=
-    le_sup_left
-  let hNEU : rationalNormalClosure E ≤ U :=
-    le_sup_right
-  let hFU :
-      F ≤ (U : IntermediateField ℚ (SeparableClosure ℚ)) :=
-    hFN.trans hNFU
-  let hEU :
-      E ≤ (U : IntermediateField ℚ (SeparableClosure ℚ)) :=
-    hEN.trans hNEU
-  have hleft :
-      RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hNEU)
-          (RelativeIdeleGroup.classEmbedding
-            (IntermediateField.inclusion hEN)
-            (RelativeIdeleGroup.classEmbedding
-              (IntermediateField.inclusion hFE) c)) =
-        RelativeIdeleGroup.classEmbedding
-          (IntermediateField.inclusion hFU) c := by
-    calc
-      _ =
-          RelativeIdeleGroup.classEmbedding
-            (IntermediateField.inclusion hEU)
-            (RelativeIdeleGroup.classEmbedding
-              (IntermediateField.inclusion hFE) c) := by
-        simpa only [hEU] using
-          rationalRelativeIdeleClassEmbedding_comp
-            hEN hNEU
-            (RelativeIdeleGroup.classEmbedding
-              (IntermediateField.inclusion hFE) c)
-      _ =
-          RelativeIdeleGroup.classEmbedding
-            (IntermediateField.inclusion hFU) c := by
-        simpa only [hFU] using
-          rationalRelativeIdeleClassEmbedding_comp
-            hFE hEU c
-  have hright :
-      RelativeIdeleGroup.classEmbedding (IntermediateField.inclusion hNFU)
-          (RelativeIdeleGroup.classEmbedding
-            (IntermediateField.inclusion hFN) c) =
-        RelativeIdeleGroup.classEmbedding
-          (IntermediateField.inclusion hFU) c := by
-    simpa only [hFU] using
-      rationalRelativeIdeleClassEmbedding_comp
-        hFN hNFU c
-  rw [
-    rationalIntermediateIdeleClassToDirectLimit_baseChange E
-      (RelativeIdeleGroup.classEmbedding
-        (IntermediateField.inclusion hFE) c),
-    rationalIntermediateIdeleClassToDirectLimit_baseChange F c]
+  let hN : rationalNormalClosure F ≤ rationalNormalClosure E :=
+    IntermediateField.normalClosure_mono F E hFE
+  have hcomp :
+      RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E)
+          (M := rationalNormalClosure E) (IntermediateField.inclusion hEN)
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := E)
+            (IntermediateField.inclusion hFE) c) =
+        RelativeIdeleGroup.classEmbedding (K := ℚ)
+          (L := rationalNormalClosure F) (M := rationalNormalClosure E)
+          (IntermediateField.inclusion hN)
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F)
+            (M := rationalNormalClosure F)
+            (IntermediateField.inclusion hFN) c) := by
+    exact rationalRelativeIdeleClassEmbedding_commutativeSquare
+      hFE hFN hEN hN c
   calc
-    rationalRelativeIdeleClassToDirectLimit
-        (rationalNormalClosure E)
-        (RelativeIdeleGroup.classEmbedding
-          (IntermediateField.inclusion hEN)
-          (RelativeIdeleGroup.classEmbedding
-            (IntermediateField.inclusion hFE) c)) =
-        rationalRelativeIdeleClassToDirectLimit U
-          (RelativeIdeleGroup.classEmbedding
-            (IntermediateField.inclusion hNEU)
-            (RelativeIdeleGroup.classEmbedding
-              (IntermediateField.inclusion hEN)
-              (RelativeIdeleGroup.classEmbedding
-                (IntermediateField.inclusion hFE) c))) :=
-      (rationalIdeleClassDirectLimit_mk_apply
-        (RelativeIdeleGroup.classEmbedding
-          (IntermediateField.inclusion hEN)
-          (RelativeIdeleGroup.classEmbedding
-            (IntermediateField.inclusion hFE) c))
-        hNEU).symm
-    _ =
-        rationalRelativeIdeleClassToDirectLimit U
-          (RelativeIdeleGroup.classEmbedding
-            (IntermediateField.inclusion hNFU)
-            (RelativeIdeleGroup.classEmbedding
-              (IntermediateField.inclusion hFN) c)) := by
-      rw [hleft, hright]
-    _ =
-        rationalRelativeIdeleClassToDirectLimit
-          (rationalNormalClosure F)
-          (RelativeIdeleGroup.classEmbedding
-            (IntermediateField.inclusion hFN) c) :=
+    _ = rationalRelativeIdeleClassToDirectLimit (rationalNormalClosure E)
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E)
+          (M := rationalNormalClosure E) (IntermediateField.inclusion hEN)
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := E)
+            (IntermediateField.inclusion hFE) c)) :=
+      rationalIntermediateIdeleClassToDirectLimit_baseChange E
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F) (M := E)
+          (IntermediateField.inclusion hFE) c)
+    _ = rationalRelativeIdeleClassToDirectLimit (rationalNormalClosure E)
+        (RelativeIdeleGroup.classEmbedding (K := ℚ)
+          (L := rationalNormalClosure F) (M := rationalNormalClosure E)
+          (IntermediateField.inclusion hN)
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F)
+            (M := rationalNormalClosure F)
+            (IntermediateField.inclusion hFN) c)) := by
+      exact congrArg
+        (rationalRelativeIdeleClassToDirectLimit (rationalNormalClosure E)) hcomp
+    _ = rationalRelativeIdeleClassToDirectLimit (rationalNormalClosure F)
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F)
+          (M := rationalNormalClosure F)
+          (IntermediateField.inclusion hFN) c) :=
       rationalIdeleClassDirectLimit_mk_apply
-        (RelativeIdeleGroup.classEmbedding
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := F)
+          (M := rationalNormalClosure F)
           (IntermediateField.inclusion hFN) c)
-        hNFU
+        hN
+    _ = _ :=
+      (rationalIntermediateIdeleClassToDirectLimit_baseChange F c).symm
 
 
 end Reciprocity

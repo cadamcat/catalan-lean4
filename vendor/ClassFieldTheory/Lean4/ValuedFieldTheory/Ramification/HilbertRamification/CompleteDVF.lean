@@ -1,9 +1,25 @@
-import Mathlib.Algebra.Exact.Basic
-import Mathlib.FieldTheory.Galois.IsGaloisGroup
-import Mathlib.GroupTheory.GroupAction.Quotient
-import Mathlib.RingTheory.Invariant.Basic
-import ValuedFieldTheory.Ramification.HilbertRamification.ValuationSubring
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Core
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.Algebra.Exact.Basic
+public import Mathlib.FieldTheory.Galois.IsGaloisGroup
+public import Mathlib.GroupTheory.GroupAction.Quotient
+public import Mathlib.RingTheory.Invariant.Basic
+public import ValuedFieldTheory.Ramification.HilbertRamification.ValuationSubring
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Core
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

@@ -1,8 +1,24 @@
-import GaloisCohomology.ProfiniteIntegers.TopologicalGeneration
-import Mathlib.GroupTheory.DoubleCoset
-import Mathlib.GroupTheory.GroupAction.Quotient
-import Mathlib.Topology.Algebra.Group.ClosedSubgroup
-import Mathlib.Topology.Algebra.Group.SubmonoidClosure
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import GaloisCohomology.ProfiniteIntegers.TopologicalGeneration
+public import Mathlib.GroupTheory.DoubleCoset
+public import Mathlib.GroupTheory.GroupAction.Quotient
+public import Mathlib.Topology.Algebra.Group.ClosedSubgroup
+public import Mathlib.Topology.Algebra.Group.SubmonoidClosure
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -36,7 +52,7 @@ noncomputable def orbitQuotientEquivDoubleCoset
       rw [orbitRel_apply, mem_orbit_iff] at hq
       obtain ⟨s, hs⟩ := hq
       symm
-      apply (DoubleCoset.eq S H q₂.out q₁.out).2
+      apply DoubleCoset.eq.mpr
       have hcoset :
           (QuotientGroup.mk q₁.out : Q ⧸ H) =
             QuotientGroup.mk (s.1 * q₂.out) := by
@@ -71,7 +87,7 @@ noncomputable def orbitQuotientEquivDoubleCoset
     intro x
     change DoubleCoset.mk S H (Quotient.out
       (QuotientGroup.mk x : Q ⧸ H)) = DoubleCoset.mk S H x
-    apply (DoubleCoset.eq S H _ _).2
+    apply DoubleCoset.eq.mpr
     have hh : (Quotient.out (QuotientGroup.mk x : Q ⧸ H))⁻¹ * x ∈ H :=
       QuotientGroup.leftRel_apply.mp
         (Quotient.exact' (Quotient.out_eq' (QuotientGroup.mk x : Q ⧸ H)))
@@ -91,7 +107,7 @@ theorem orbitQuotientEquivDoubleCoset_mk
   change DoubleCoset.mk S H
       (Quotient.out (QuotientGroup.mk x : Q ⧸ H)) =
     DoubleCoset.mk S H x
-  apply (DoubleCoset.eq S H _ _).2
+  apply DoubleCoset.eq.mpr
   have hh :
       (Quotient.out (QuotientGroup.mk x : Q ⧸ H))⁻¹ * x ∈ H :=
     QuotientGroup.leftRel_apply.mp
@@ -120,7 +136,7 @@ noncomputable def doubleCosetInversionEquiv
       intro x y hxy
       rw [DoubleCoset.rel_iff] at hxy
       obtain ⟨s, hs, h, hh, rfl⟩ := hxy
-      apply (DoubleCoset.eq H S _ _).2
+      apply DoubleCoset.eq.mpr
       exact ⟨h⁻¹, H.inv_mem hh, s⁻¹, S.inv_mem hs,
         by simp [mul_assoc]⟩)
   invFun z := Quotient.liftOn' z
@@ -128,7 +144,7 @@ noncomputable def doubleCosetInversionEquiv
       intro x y hxy
       rw [DoubleCoset.rel_iff] at hxy
       obtain ⟨h, hh, s, hs, rfl⟩ := hxy
-      apply (DoubleCoset.eq S H _ _).2
+      apply DoubleCoset.eq.mpr
       exact ⟨s⁻¹, S.inv_mem hs, h⁻¹, H.inv_mem hh,
         by simp [mul_assoc]⟩)
   left_inv z := by

@@ -1,6 +1,22 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Adele.RestrictedAction
-import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Tensor
-import Mathlib.NumberTheory.NumberField.Completion.LiesOverInstances
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Adele.RestrictedAction
+public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Tensor
+public import Mathlib.NumberTheory.NumberField.Completion.LiesOverInstances
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -41,8 +57,7 @@ def infinitePlaceCompletionAlgEquiv
   __ := InfinitePlace.Completion.equiv w
   commutes' _ := rfl
 
-omit [FiniteDimensional K L] in
-omit [NumberField K] [NumberField L] in
+omit [NumberField L] in
 /-- The canonical comparisons from concrete infinite-place completions to
 absolute-value completions commute with the completion maps in a tower of
 number fields. -/
@@ -141,8 +156,7 @@ theorem infinitePlaceLocalTensorAlgEquiv_conjugation
         (K := K) (L := L) w.1 σ
         (infinitePlaceLocalTensorAlgEquiv
           (K := K) (L := L) w z) := by
-  induction z using TensorProduct.induction_on with
-  | zero => simp
+  induction z using TensorProduct.inductionOn with
   | tmul a x => rfl
   | add x y hx hy => simp [hx, hy]
 

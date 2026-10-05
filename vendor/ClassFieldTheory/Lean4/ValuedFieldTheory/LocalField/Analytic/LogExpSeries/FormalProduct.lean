@@ -1,5 +1,21 @@
-import Mathlib.SetTheory.Cardinal.Finite
-import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalCore
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.SetTheory.Cardinal.Finite
+public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalCore
+
+
+@[expose] public section
 
 set_option autoImplicit false
 /-!
@@ -165,7 +181,7 @@ theorem formalLogOnePlusProductArgument_pow_coeff_eq_sum_basicFactor
         formalLogOnePlusProductArgumentBasicFactor (l i)
   · rw [formalLogOnePlusProductArgument_pow_term_prod_eq_one_of_basicFactor
       A hbasic]
-    rw [if_pos hbasic]
+    rw [ite_eq_left hbasic]
   · have hprodZero :
         (∏ i ∈ Finset.range q,
           MvPowerSeries.coeff (l i) (formalLogOnePlusProductArgument A)) = 0 := by
@@ -177,7 +193,7 @@ theorem formalLogOnePlusProductArgument_pow_coeff_eq_sum_basicFactor
           intro hzero
           exact hprodNe (Finset.prod_eq_zero hi hzero))
     rw [hprodZero]
-    rw [if_neg hbasic]
+    rw [ite_eq_right hbasic]
 
 /--
 Establishes the identity `(∑ l ∈ Finset.finsuppAntidiag (Finset.range q) e, if ∀ i ∈ Finset.range

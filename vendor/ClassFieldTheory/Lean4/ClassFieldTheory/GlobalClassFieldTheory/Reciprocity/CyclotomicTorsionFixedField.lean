@@ -1,17 +1,33 @@
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.RationalCyclotomicTorsionField
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.RationalCyclotomicCharacterEquiv
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Basic
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Local
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.FiniteFree
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Gather
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Swap
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Decomposition
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.DenseTorsion
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.TorsionQuotientEquiv
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.TorsionQuotientMk
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.CyclotomicQuotient
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.FreeCoordinate
-import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.FiniteOrder
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.RationalCyclotomicTorsionField
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.RationalCyclotomicCharacterEquiv
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Basic
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Local
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.FiniteFree
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Gather
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Swap
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Decomposition
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.DenseTorsion
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.TorsionQuotientEquiv
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.TorsionQuotientMk
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.CyclotomicQuotient
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.FreeCoordinate
+public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.FiniteOrder
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -41,6 +57,28 @@ open scoped IsMulCommutative
 open KummerTheory
 open ClassFormation
 
+private noncomputable def rationalCyclotomicTorsionRestrictionEquiv :
+    (rationalCyclotomicField ≃ₐ[ℚ]
+        rationalCyclotomicField) ⧸
+        rationalCyclotomicTorsionClosure.toSubgroup ≃ₜ*
+      (rationalCyclotomicTorsionFixedField ≃ₐ[ℚ]
+        rationalCyclotomicTorsionFixedField) := by
+  let _ : T2Space
+      (rationalCyclotomicTorsionFixedField ≃ₐ[ℚ]
+        rationalCyclotomicTorsionFixedField) :=
+    krullTopology_t2
+  exact
+    LocalFieldTheory.DiscreteValuationField.CompleteDVF.higherPrincipalUnitGroup.continuousMulEquivOfCompactToT2
+      (InfiniteGalois.normalAutEquivQuotient
+        (k := ℚ) (K := rationalCyclotomicField)
+        rationalCyclotomicTorsionClosure)
+      (by
+        rw [←
+          QuotientGroup.isOpenQuotientMap_mk.continuous_comp_iff]
+        exact
+          InfiniteGalois.restrictNormalHom_continuous
+            rationalCyclotomicTorsionFixedField)
+
 /-- The Galois group of the actual torsion fixed field in
 `ℚ(μ∞)` is the additive group of the profinite integers, written
 multiplicatively. -/
@@ -48,27 +86,7 @@ noncomputable def rationalCyclotomicTorsionFixedFieldGalEquivZHat :
     (rationalCyclotomicTorsionFixedField ≃ₐ[ℚ]
       rationalCyclotomicTorsionFixedField) ≃ₜ*
         Multiplicative ZHat := by
-  letI : T2Space
-      (rationalCyclotomicTorsionFixedField ≃ₐ[ℚ]
-        rationalCyclotomicTorsionFixedField) :=
-    krullTopology_t2
-  let q :
-      (rationalCyclotomicField ≃ₐ[ℚ]
-          rationalCyclotomicField) ⧸
-          rationalCyclotomicTorsionClosure.toSubgroup ≃ₜ*
-        (rationalCyclotomicTorsionFixedField ≃ₐ[ℚ]
-          rationalCyclotomicTorsionFixedField) :=
-    LocalFieldTheory.DiscreteValuationField.CompleteDVF.higherPrincipalUnitGroup.continuousMulEquivOfCompactToT2
-        (InfiniteGalois.normalAutEquivQuotient
-          (k := ℚ) (K := rationalCyclotomicField)
-          rationalCyclotomicTorsionClosure)
-        (by
-          rw [←
-            QuotientGroup.isOpenQuotientMap_mk.continuous_comp_iff]
-          exact
-            InfiniteGalois.restrictNormalHom_continuous
-              rationalCyclotomicTorsionFixedField)
-  exact q.symm.trans <|
+  exact rationalCyclotomicTorsionRestrictionEquiv.symm.trans <|
     torsionQuotientEquivOfZHatMulDecomposition
       (rationalCyclotomicField ≃ₐ[ℚ]
         rationalCyclotomicField)
@@ -76,6 +94,54 @@ noncomputable def rationalCyclotomicTorsionFixedFieldGalEquivZHat :
       (rationalCyclotomicCharacterContinuousMulEquiv.trans
         zHatUnitsDecomposition)
       dense_torsion_cyclotomicFinitePart
+
+private theorem rationalCyclotomicTorsionRestrictionEquiv_apply_mk
+    (σ :
+      rationalCyclotomicField ≃ₐ[ℚ]
+        rationalCyclotomicField) :
+    rationalCyclotomicTorsionRestrictionEquiv
+        (QuotientGroup.mk σ) =
+      AlgEquiv.restrictNormalHom
+        rationalCyclotomicTorsionFixedField σ := by
+  exact
+    InfiniteGalois.normalAutEquivQuotient_apply
+      rationalCyclotomicTorsionClosure σ
+
+private theorem rationalCyclotomicTorsionRestrictionEquiv_symm_restrictNormal
+    (σ :
+      rationalCyclotomicField ≃ₐ[ℚ]
+        rationalCyclotomicField) :
+    rationalCyclotomicTorsionRestrictionEquiv.symm
+        (AlgEquiv.restrictNormalHom
+          rationalCyclotomicTorsionFixedField σ) =
+      QuotientGroup.mk σ := by
+  apply rationalCyclotomicTorsionRestrictionEquiv.symm_apply_eq.mpr
+  exact (rationalCyclotomicTorsionRestrictionEquiv_apply_mk σ).symm
+
+private theorem rationalCyclotomicTorsionCoordinate_restrictNormal
+    (σ :
+      rationalCyclotomicField ≃ₐ[ℚ]
+        rationalCyclotomicField) :
+    torsionQuotientEquivOfZHatMulDecomposition
+        (rationalCyclotomicField ≃ₐ[ℚ]
+          rationalCyclotomicField)
+        CyclotomicFinitePart
+        (rationalCyclotomicCharacterContinuousMulEquiv.trans
+          zHatUnitsDecomposition)
+        dense_torsion_cyclotomicFinitePart
+        (rationalCyclotomicTorsionRestrictionEquiv.symm
+          (AlgEquiv.restrictNormalHom
+            rationalCyclotomicTorsionFixedField σ)) =
+      (zHatUnitsDecomposition
+        (rationalCyclotomicCharacterContinuousMulEquiv σ)).1 := by
+  rw [rationalCyclotomicTorsionRestrictionEquiv_symm_restrictNormal]
+  exact
+    torsionQuotientEquivOfZHatMulDecomposition_mk
+      (rationalCyclotomicField ≃ₐ[ℚ] rationalCyclotomicField)
+      CyclotomicFinitePart
+      (rationalCyclotomicCharacterContinuousMulEquiv.trans
+        zHatUnitsDecomposition)
+      dense_torsion_cyclotomicFinitePart σ
 
 /-- Restriction of an actual automorphism of the full rational
 cyclotomic field to the torsion fixed field is sent to the genuine
@@ -91,22 +157,6 @@ theorem
           rationalCyclotomicTorsionFixedField σ) =
       (zHatUnitsDecomposition
         (rationalCyclotomicCharacterContinuousMulEquiv σ)).1 := by
-  let q :
-      (rationalCyclotomicField ≃ₐ[ℚ]
-          rationalCyclotomicField) ⧸
-          rationalCyclotomicTorsionClosure.toSubgroup ≃ₜ*
-        (rationalCyclotomicTorsionFixedField ≃ₐ[ℚ]
-          rationalCyclotomicTorsionFixedField) :=
-    LocalFieldTheory.DiscreteValuationField.CompleteDVF.higherPrincipalUnitGroup.continuousMulEquivOfCompactToT2
-      (InfiniteGalois.normalAutEquivQuotient
-        (k := ℚ) (K := rationalCyclotomicField)
-        rationalCyclotomicTorsionClosure)
-      (by
-        rw [←
-          QuotientGroup.isOpenQuotientMap_mk.continuous_comp_iff]
-        exact
-          InfiniteGalois.restrictNormalHom_continuous
-            rationalCyclotomicTorsionFixedField)
   change
     torsionQuotientEquivOfZHatMulDecomposition
         (rationalCyclotomicField ≃ₐ[ℚ]
@@ -115,34 +165,12 @@ theorem
         (rationalCyclotomicCharacterContinuousMulEquiv.trans
           zHatUnitsDecomposition)
         dense_torsion_cyclotomicFinitePart
-        (q.symm
+        (rationalCyclotomicTorsionRestrictionEquiv.symm
           (AlgEquiv.restrictNormalHom
             rationalCyclotomicTorsionFixedField σ)) =
       (zHatUnitsDecomposition
         (rationalCyclotomicCharacterContinuousMulEquiv σ)).1
-  have hrestrict :
-      InfiniteGalois.normalAutEquivQuotient
-          rationalCyclotomicTorsionClosure σ =
-        AlgEquiv.restrictNormalHom
-          rationalCyclotomicTorsionFixedField σ := by
-    exact
-      InfiniteGalois.normalAutEquivQuotient_apply
-        rationalCyclotomicTorsionClosure σ
-  have hquotient :
-      q.symm
-          (InfiniteGalois.normalAutEquivQuotient
-            rationalCyclotomicTorsionClosure σ) =
-        QuotientGroup.mk σ := by
-    apply q.symm_apply_eq.mpr
-    rfl
-  rw [← hrestrict, hquotient]
-  exact
-    torsionQuotientEquivOfZHatMulDecomposition_mk
-      (rationalCyclotomicField ≃ₐ[ℚ] rationalCyclotomicField)
-      CyclotomicFinitePart
-      (rationalCyclotomicCharacterContinuousMulEquiv.trans
-        zHatUnitsDecomposition)
-      dense_torsion_cyclotomicFinitePart σ
+  exact rationalCyclotomicTorsionCoordinate_restrictNormal σ
 
 end Reciprocity
 end GlobalClassFieldTheory

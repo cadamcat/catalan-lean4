@@ -1,9 +1,25 @@
-import Mathlib.FieldTheory.SeparableClosure
-import Mathlib.RingTheory.Ideal.Norm.RelNorm
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteUnramified
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuationExactSequence
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotients
-import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.GaloisIntegerRing
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.FieldTheory.SeparableClosure
+public import Mathlib.RingTheory.Ideal.Norm.RelNorm
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteUnramified
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuationExactSequence
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotients
+public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.GaloisIntegerRing
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -34,7 +50,8 @@ variable (R : Type u) (S : Type v)
   [IsIntegrallyClosed R] [IsIntegrallyClosed S]
   [Algebra R S] [Module.Finite R S] [Module.IsTorsionFree R S]
 
-attribute [local instance] FractionRing.liftAlgebra
+local instance : Algebra (FractionRing R) (FractionRing S) :=
+  FractionRing.liftAlgebra R (FractionRing S)
 
 /-- A normal closure inside a separable ambient field is separable over the
 base whenever the extension being closed is separable.  Keeping this
@@ -95,9 +112,13 @@ private theorem ringNormalClosure_isFractionRing :
   let L := FractionRing S
   let A := AlgebraicClosure L
   let E := IntermediateField.normalClosure K L A
+  let : Algebra L E := normalClosure.algebra K L A
   let T := Ring.NormalClosure R S
   let : Algebra S E := ((algebraMap L E).comp (algebraMap S L)).toAlgebra
-  let : IsScalarTower S L E := IsScalarTower.of_algebraMap_eq' rfl
+  let : IsScalarTower S L E := by
+    apply IsScalarTower.of_algebraMap_eq
+    intro x
+    rfl
   let : Algebra T E := by
     change Algebra (integralClosure S E) E
     infer_instance
@@ -124,9 +145,13 @@ private theorem ringNormalClosure_isGalois_transport :
   let L := FractionRing S
   let A := AlgebraicClosure L
   let E := IntermediateField.normalClosure K L A
+  let : Algebra L E := normalClosure.algebra K L A
   let T := Ring.NormalClosure R S
   let : Algebra S E := ((algebraMap L E).comp (algebraMap S L)).toAlgebra
-  let : IsScalarTower S L E := IsScalarTower.of_algebraMap_eq' rfl
+  let : IsScalarTower S L E := by
+    apply IsScalarTower.of_algebraMap_eq
+    intro x
+    rfl
   let : Algebra T E := by
     change Algebra (integralClosure S E) E
     infer_instance
@@ -156,9 +181,13 @@ private theorem ringNormalClosure_moduleFinite_of_isSeparable
   let L := FractionRing S
   let A := AlgebraicClosure L
   let E := IntermediateField.normalClosure K L A
+  let : Algebra L E := normalClosure.algebra K L A
   let T := Ring.NormalClosure R S
   let : Algebra S E := ((algebraMap L E).comp (algebraMap S L)).toAlgebra
-  let : IsScalarTower S L E := IsScalarTower.of_algebraMap_eq' rfl
+  let : IsScalarTower S L E := by
+    apply IsScalarTower.of_algebraMap_eq
+    intro x
+    rfl
   let : Algebra T E := by
     change Algebra (integralClosure S E) E
     infer_instance
@@ -182,7 +211,8 @@ variable (R : Type u) (S : Type v)
   [CommRing R] [IsDomain R] [CommRing S] [IsDedekindDomain S]
   [Algebra R S] [Module.Finite R S] [Module.IsTorsionFree R S]
 
-attribute [local instance] FractionRing.liftAlgebra
+local instance : Algebra (FractionRing R) (FractionRing S) :=
+  FractionRing.liftAlgebra R (FractionRing S)
 
 /-- The same separable normal-closure construction is Dedekind when the
 original rings are Dedekind. -/
@@ -193,9 +223,13 @@ private theorem ringNormalClosure_isDedekindDomain_of_isSeparable
   let L := FractionRing S
   let A := AlgebraicClosure L
   let E := IntermediateField.normalClosure K L A
+  let : Algebra L E := normalClosure.algebra K L A
   let T := Ring.NormalClosure R S
   let : Algebra S E := ((algebraMap L E).comp (algebraMap S L)).toAlgebra
-  let : IsScalarTower S L E := IsScalarTower.of_algebraMap_eq' rfl
+  let : IsScalarTower S L E := by
+    apply IsScalarTower.of_algebraMap_eq
+    intro x
+    rfl
   let : Algebra T E := by
     change Algebra (integralClosure S E) E
     infer_instance
@@ -219,7 +253,8 @@ variable (R : Type u) (S : Type v)
   [CommRing R] [IsDomain R] [CommRing S] [IsDomain S]
   [Algebra R S] [Module.Finite R S] [Module.IsTorsionFree R S]
 
-attribute [local instance] FractionRing.liftAlgebra
+local instance : Algebra (FractionRing R) (FractionRing S) :=
+  FractionRing.liftAlgebra R (FractionRing S)
 
 /-- The normal closure of a finite separable extension of fraction fields is
 Galois without assuming that the base fraction field is perfect.  Mathlib's
@@ -380,9 +415,8 @@ theorem relNorm_maximalIdeal_eq_pow_residue_finrank
     fractionRing_integerRing_isSeparable K L
   have h := relNorm_eq_pow_inertiaDeg_of_isSeparable
     𝒪[K] 𝒪[L] (𝓂[L] : Ideal 𝒪[L]) (𝓂[K] : Ideal 𝒪[K])
-  rw [← Ideal.inertiaDeg'_eq_inertiaDeg
-      (𝓂[K] : Ideal 𝒪[K]) (𝓂[L] : Ideal 𝒪[L]),
-    Ideal.inertiaDeg'_algebraMap] at h
+  rw [Ideal.inertiaDeg_eq_of_isMaximal
+    (𝓂[K] : Ideal 𝒪[K]) (𝓂[L] : Ideal 𝒪[L])] at h
   exact h
 
 /-- The norm of the chosen upstairs prime element has base normalized value
@@ -406,13 +440,13 @@ theorem v_normUnits_integerRingUniformizerFieldUnit_of_isSeparable
   let f : Nat := Module.finrank 𝓀[K] 𝓀[L]
   have hspan :
       Ideal.span
-          ({Algebra.intNorm 𝒪[K] 𝒪[L]
-            (chosenIntegerRingUniformizer L)} : Set 𝒪[K]) =
-        Ideal.span ({chosenIntegerRingUniformizer K ^ f} : Set 𝒪[K]) := by
+          (Set.singleton (Algebra.intNorm 𝒪[K] 𝒪[L]
+            (chosenIntegerRingUniformizer L))) =
+        Ideal.span (Set.singleton (chosenIntegerRingUniformizer K ^ f)) := by
     calc
       Ideal.span
-          ({Algebra.intNorm 𝒪[K] 𝒪[L]
-            (chosenIntegerRingUniformizer L)} : Set 𝒪[K]) =
+          (Set.singleton (Algebra.intNorm 𝒪[K] 𝒪[L]
+            (chosenIntegerRingUniformizer L))) =
           Ideal.relNorm 𝒪[K]
             (Ideal.span ({chosenIntegerRingUniformizer L} : Set 𝒪[L])) := by
         exact (Ideal.spanNorm_singleton (R := 𝒪[K])
@@ -421,7 +455,7 @@ theorem v_normUnits_integerRingUniformizerFieldUnit_of_isSeparable
         rw [chosenIntegerRingUniformizer_maximalIdeal_eq L]
       _ = (𝓂[K] : Ideal 𝒪[K]) ^ f := by
         simpa [f] using relNorm_maximalIdeal_eq_pow_residue_finrank K L
-      _ = Ideal.span ({chosenIntegerRingUniformizer K ^ f} : Set 𝒪[K]) :=
+      _ = Ideal.span (Set.singleton (chosenIntegerRingUniformizer K ^ f)) :=
         maximalIdeal_pow_eq_span_uniformizer_pow K f
   obtain ⟨u, hu⟩ := Ideal.span_singleton_eq_span_singleton.mp hspan
   have hfieldUnits :
@@ -531,13 +565,13 @@ theorem v_mapBaseUnitsToExtensionUnits_integerRingUniformizerFieldUnit
   let e := (𝓂[L] : Ideal 𝒪[L]).ramificationIdx 𝒪[K]
   have hspan :
       Ideal.span
-          ({integerRingMapOfValuationExtension K L
-            (chosenIntegerRingUniformizer K)} : Set 𝒪[L]) =
-        Ideal.span ({chosenIntegerRingUniformizer L ^ e} : Set 𝒪[L]) := by
+          (Set.singleton (integerRingMapOfValuationExtension K L
+            (chosenIntegerRingUniformizer K))) =
+        Ideal.span (Set.singleton (chosenIntegerRingUniformizer L ^ e)) := by
     calc
       Ideal.span
-          ({integerRingMapOfValuationExtension K L
-            (chosenIntegerRingUniformizer K)} : Set 𝒪[L]) =
+          (Set.singleton (integerRingMapOfValuationExtension K L
+            (chosenIntegerRingUniformizer K))) =
           Ideal.map (algebraMap 𝒪[K] 𝒪[L])
             (𝓂[K] : Ideal 𝒪[K]) := by
         rw [chosenIntegerRingUniformizer_maximalIdeal_eq K,
@@ -545,7 +579,7 @@ theorem v_mapBaseUnitsToExtensionUnits_integerRingUniformizerFieldUnit
         rfl
       _ = (𝓂[L] : Ideal 𝒪[L]) ^ e := by
         exact maximalIdeal_map_eq_maximalIdeal_pow_ramificationIdx K L
-      _ = Ideal.span ({chosenIntegerRingUniformizer L ^ e} : Set 𝒪[L]) :=
+      _ = Ideal.span (Set.singleton (chosenIntegerRingUniformizer L ^ e)) :=
         maximalIdeal_pow_eq_span_uniformizer_pow L e
   obtain ⟨u, hu⟩ := Ideal.span_singleton_eq_span_singleton.mp hspan
   have hfieldUnits :

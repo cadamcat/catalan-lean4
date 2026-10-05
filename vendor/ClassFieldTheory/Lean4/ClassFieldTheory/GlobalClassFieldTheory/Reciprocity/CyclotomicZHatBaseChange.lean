@@ -1,14 +1,30 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicTorsionFixedField
-import GaloisCohomology.ProfiniteIntegers.ProfiniteInteger
-import ClassFieldTheory.AlgebraicNumberTheory.Galois.InfiniteBaseChange
-import ClassFieldTheory.AlgebraicNumberTheory.SeparableClosureEmbedding
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteAbstractFixedField
-import Mathlib.FieldTheory.Galois.Abelian
-import Mathlib.FieldTheory.IntermediateField.Algebraic
-import Mathlib.FieldTheory.Normal.Closure
-import Mathlib.FieldTheory.IsSepClosed
-import Mathlib.FieldTheory.SeparableClosure
-import Mathlib.GroupTheory.Index
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicTorsionFixedField
+public import GaloisCohomology.ProfiniteIntegers.ProfiniteInteger
+public import ClassFieldTheory.AlgebraicNumberTheory.Galois.InfiniteBaseChange
+public import ClassFieldTheory.AlgebraicNumberTheory.SeparableClosureEmbedding
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteAbstractFixedField
+public import Mathlib.FieldTheory.Galois.Abelian
+public import Mathlib.FieldTheory.IntermediateField.Algebraic
+public import Mathlib.FieldTheory.Normal.Closure
+public import Mathlib.FieldTheory.IsSepClosed
+public import Mathlib.FieldTheory.SeparableClosure
+public import Mathlib.GroupTheory.Index
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -94,7 +110,7 @@ noncomputable def rationalCyclotomicZHatFieldGalEquivZHat :
     (rationalCyclotomicZHatField ≃ₐ[ℚ]
       rationalCyclotomicZHatField) ≃ₜ*
         Multiplicative ZHat := by
-  letI : T2Space
+  let _ : T2Space
       (rationalCyclotomicZHatField ≃ₐ[ℚ]
         rationalCyclotomicZHatField) :=
     krullTopology_t2
@@ -140,6 +156,10 @@ theorem rationalCyclotomicZHatFieldGalEquivZHat_fullRestriction
       (KummerTheory.zHatUnitsDecomposition
         (KummerTheory.rationalCyclotomicCharacterContinuousMulEquiv
           σ)).1 := by
+  let _ : T2Space
+      (rationalCyclotomicZHatField ≃ₐ[ℚ]
+        rationalCyclotomicZHatField) :=
+    krullTopology_t2
   let e :=
     IntermediateField.liftAlgEquiv
       KummerTheory.rationalCyclotomicTorsionFixedField
@@ -335,13 +355,17 @@ theorem
         rationalAbsoluteGaloisRestrictionToCyclotomicZHat.toMonoidHom =
       (((LocalClassFieldTheory.abstractFixedField
             ℚ (SeparableClosure ℚ) H) ⊓
-          rationalCyclotomicZHatField).restrict
+        rationalCyclotomicZHatField).restrict
         (show
           LocalClassFieldTheory.abstractFixedField
                 ℚ (SeparableClosure ℚ) H ⊓
               rationalCyclotomicZHatField ≤
             rationalCyclotomicZHatField from
           inf_le_right)).fixingSubgroup := by
+  let _ : T2Space
+      (rationalCyclotomicZHatField ≃ₐ[ℚ]
+        rationalCyclotomicZHatField) :=
+    krullTopology_t2
   let r := rationalAbsoluteGaloisRestrictionToCyclotomicZHat
   let R : ClosedSubgroup
       (rationalCyclotomicZHatField ≃ₐ[ℚ]

@@ -1,10 +1,26 @@
-import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Ideal
-import Mathlib.Data.Nat.Factorization.Basic
-import Mathlib.Data.Nat.GCD.BigOperators
-import Mathlib.Data.ZMod.Units
-import Mathlib.NumberTheory.NumberField.Units.Basic
-import Mathlib.NumberTheory.Padics.HeightOneSpectrum
-import Mathlib.NumberTheory.Padics.RingHoms
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Ideal
+public import Mathlib.Data.Nat.Factorization.Basic
+public import Mathlib.Data.Nat.GCD.BigOperators
+public import Mathlib.Data.ZMod.Units
+public import Mathlib.NumberTheory.NumberField.Units.Basic
+public import Mathlib.NumberTheory.Padics.HeightOneSpectrum
+public import Mathlib.NumberTheory.Padics.RingHoms
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -100,8 +116,10 @@ theorem mem_rationalFiniteModulus_support_iff
     v ∈ (rationalFiniteModulus m).support ↔
       Rat.HeightOneSpectrum.natGenerator v ∣ m := by
   rw [Finsupp.mem_support_iff, rationalFiniteModulus_apply]
-  simp [Nat.factorization_eq_zero_iff,
-    Rat.HeightOneSpectrum.prime_natGenerator, hm]
+  constructor
+  · exact Nat.dvd_of_factorization_pos
+  · intro hdiv
+    exact (Rat.HeightOneSpectrum.prime_natGenerator v).factorization_pos_of_dvd hm hdiv |>.ne'
 
 /-- The fractional ideal underlying a rational fractional-ideal unit. -/
 abbrev rationalFractionalIdeal (I : FractionalIdealGroup ℚ) :

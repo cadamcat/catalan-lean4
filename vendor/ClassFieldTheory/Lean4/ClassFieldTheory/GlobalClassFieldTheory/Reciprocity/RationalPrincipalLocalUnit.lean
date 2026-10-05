@@ -1,16 +1,32 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalPrimeFactorization
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.BaseChange
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Core
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormalClosureNorm
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerAlgEquivNaturality
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseChange
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicField
-import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitDecomposition
-import ClassFieldTheory.LubinTate.FiniteLevel.ChangedUniformizer
-import ClassFieldTheory.LubinTate.Padic.MultiplicativeSeries
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalPrimeFactorization
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.BaseChange
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Core
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormalClosureNorm
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerAlgEquivNaturality
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseChange
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicField
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitDecomposition
+public import ClassFieldTheory.LubinTate.FiniteLevel.ChangedUniformizer
+public import ClassFieldTheory.LubinTate.Padic.MultiplicativeSeries
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -58,7 +74,7 @@ theorem rationalPrimeUnit_heightOneValuation_eq_one
       else WithZero.exp
         (-padicValRat p.1 (rationalPrimeUnit x p : ℚ))) =
       1
-  rw [if_neg (Units.ne_zero _), padicValRat_rationalPrimeUnit]
+  rw [ite_eq_right (Units.ne_zero _), padicValRat_rationalPrimeUnit]
   rfl
 
 /-- The rational `p`-unit, expressed as a unit of the valuation subring of

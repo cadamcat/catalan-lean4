@@ -1,4 +1,20 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitFixedPointDescentCore
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitFixedPointDescentCore
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -33,7 +49,7 @@ theorem rationalRelativeIdeleClass_descent_square
         (x : SeparableClosure ℚ))
     (q : IdeleClassGroup K) :
     rationalRelativeIdeleClassTowerBaseChangeEquiv K U
-        (RelativeIdeleGroup.classEmbedding
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := U)
           (IntermediateField.inclusion hKU)
           ((_root_.relativeIdeleClassBaseChangeMulEquiv
             (K := ℚ) (L := K)).symm q)) =
@@ -52,7 +68,7 @@ theorem rationalRelativeIdeleClass_descent_square
     IsGalois.tower_top_of_isGalois ℚ K U
   calc
     rationalRelativeIdeleClassTowerBaseChangeEquiv K U
-          (RelativeIdeleGroup.classEmbedding
+          (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := U)
             (IntermediateField.inclusion hKU)
             ((_root_.relativeIdeleClassBaseChangeMulEquiv
               (K := ℚ) (L := K)).symm q)) =
@@ -64,7 +80,7 @@ theorem rationalRelativeIdeleClass_descent_square
       change
         towerRelativeIdeleClassBaseChangeMulEquiv ℚ K U
             ((TowerRelativeIdeleGroup.classGroupEquiv ℚ K U).symm
-              (RelativeIdeleGroup.classEmbedding
+              (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := U)
                 (IntermediateField.inclusion hKU)
                 ((_root_.relativeIdeleClassBaseChangeMulEquiv
                   (K := ℚ) (L := K)).symm q))) =
@@ -108,7 +124,7 @@ theorem rationalRelativeIdeleClass_exists_descent_of_tower_fixed
               ℚ K U).symm d) ∈
         RelativeIdeleGroup.galoisFixedClassSubgroup K U) :
     ∃ q : IdeleClassGroup K,
-      RelativeIdeleGroup.classEmbedding
+      RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := U)
           (IntermediateField.inclusion hKU)
           ((_root_.relativeIdeleClassBaseChangeMulEquiv
             (K := ℚ) (L := K)).symm q) =
@@ -145,7 +161,7 @@ theorem rationalRelativeIdeleClass_exists_descent_of_tower_fixed
   refine ⟨q, e.injective ?_⟩
   calc
     e
-        (RelativeIdeleGroup.classEmbedding
+        (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := U)
           (IntermediateField.inclusion hKU)
           ((_root_.relativeIdeleClassBaseChangeMulEquiv
             (K := ℚ) (L := K)).symm q)) =
@@ -182,7 +198,7 @@ theorem rationalDirectLimit_fixed_exists_ideleClass
       K ≤ (U : IntermediateField ℚ (SeparableClosure ℚ)) :=
     (IntermediateField.le_normalClosure K).trans hNU
   let d : RelativeIdeleGroup.ClassGroup ℚ U :=
-    RelativeIdeleGroup.classEmbedding
+    RelativeIdeleGroup.classEmbedding (K := ℚ) (L := E) (M := U)
       (IntermediateField.inclusion hEU) c
   have hzU :
       z = (⟦⟨U, d⟩⟧ : rationalIdeleClassDirectLimit) := by
@@ -210,7 +226,8 @@ theorem rationalDirectLimit_fixed_exists_ideleClass
   calc
     rationalIntermediateIdeleClassToDirectLimit K q =
         (⟦⟨U,
-          RelativeIdeleGroup.classEmbedding
+          RelativeIdeleGroup.classEmbedding (K := ℚ)
+            (L := rationalNormalClosure K) (M := U)
             (IntermediateField.inclusion hNU)
             (rationalIntermediateIdeleClassToNormalClosure K q)⟩⟧ :
           rationalIdeleClassDirectLimit) :=
@@ -219,7 +236,7 @@ theorem rationalDirectLimit_fixed_exists_ideleClass
         hNU).symm
     _ =
         (⟦⟨U,
-          RelativeIdeleGroup.classEmbedding
+          RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := U)
             (IntermediateField.inclusion hKU)
             ((_root_.relativeIdeleClassBaseChangeMulEquiv
               (K := ℚ) (L := K)).symm q)⟩⟧ :
@@ -228,14 +245,16 @@ theorem rationalDirectLimit_fixed_exists_ideleClass
         (fun a : RelativeIdeleGroup.ClassGroup ℚ U =>
           (⟦⟨U, a⟩⟧ : rationalIdeleClassDirectLimit))
       change
-        RelativeIdeleGroup.classEmbedding
+        RelativeIdeleGroup.classEmbedding (K := ℚ)
+            (L := rationalNormalClosure K) (M := U)
             (IntermediateField.inclusion hNU)
-            (RelativeIdeleGroup.classEmbedding
+            (RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K)
+              (M := rationalNormalClosure K)
               (IntermediateField.inclusion
                 (IntermediateField.le_normalClosure K))
               ((_root_.relativeIdeleClassBaseChangeMulEquiv
                 (K := ℚ) (L := K)).symm q)) =
-          RelativeIdeleGroup.classEmbedding
+          RelativeIdeleGroup.classEmbedding (K := ℚ) (L := K) (M := U)
             (IntermediateField.inclusion
               ((IntermediateField.le_normalClosure K).trans hNU))
             ((_root_.relativeIdeleClassBaseChangeMulEquiv

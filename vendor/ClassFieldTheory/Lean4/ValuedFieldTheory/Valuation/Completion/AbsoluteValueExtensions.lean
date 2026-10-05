@@ -1,28 +1,44 @@
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicLocalization
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.Core
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.FiniteNormExtension
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormula
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaAbsoluteValue
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaCoefficients
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaExtension
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaIntegralClosure
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.RamificationInvariants
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueExtensionCoefficients
-import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueValuationSubring
-import ValuedFieldTheory.Valuation.AbsoluteValue.Completeness
-import ValuedFieldTheory.Valuation.AbsoluteValue.Completion
-import ValuedFieldTheory.Valuation.AbsoluteValue.ExponentialValuation
-import ValuedFieldTheory.Valuation.AbsoluteValue.Extension
-import ValuedFieldTheory.Valuation.AbsoluteValue.Nonarchimedean
-import ValuedFieldTheory.Valuation.AbsoluteValue.Ostrowski
-import ValuedFieldTheory.Valuation.AbsoluteValue.PrincipalAdicCompleteness
-import ValuedFieldTheory.Valuation.AbsoluteValue.SpectralExtension
-import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.Core
-import ValuedFieldTheory.Valuation.AbsoluteValue.ValuationSubring
-import Mathlib.Analysis.Normed.Field.Instances
-import Mathlib.Analysis.Normed.Module.Completion
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-import Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicLocalization
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.Core
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.FiniteNormExtension
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormula
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaAbsoluteValue
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaCoefficients
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaExtension
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaIntegralClosure
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.RamificationInvariants
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueExtensionCoefficients
+public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueValuationSubring
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Completeness
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Completion
+public import ValuedFieldTheory.Valuation.AbsoluteValue.ExponentialValuation
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Extension
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Nonarchimedean
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Ostrowski
+public import ValuedFieldTheory.Valuation.AbsoluteValue.PrincipalAdicCompleteness
+public import ValuedFieldTheory.Valuation.AbsoluteValue.SpectralExtension
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.Core
+public import ValuedFieldTheory.Valuation.AbsoluteValue.ValuationSubring
+public import Mathlib.Analysis.Normed.Field.Instances
+public import Mathlib.Analysis.Normed.Module.Completion
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+public import Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -472,8 +488,11 @@ noncomputable def absoluteValueExtension_embeddingCompletionMap
     (htau : w.1 = absoluteValueExtension_pullback vK hvK tau) :
     w.1.Completion →+*
       (absoluteValueExtension_algebraicClosureAbsoluteValue vK hvK).Completion :=
-  (absoluteValueExtension_embeddingToAlgebraicClosureCompletion_isometry
-    vK hvK w tau htau).extensionHom
+  UniformSpace.Completion.extensionHom
+    (absoluteValueExtension_embeddingToAlgebraicClosureCompletionRingHom
+      vK hvK w tau)
+    (absoluteValueExtension_embeddingToAlgebraicClosureCompletion_isometry
+      vK hvK w tau htau).continuous
 
 @[simp]
 theorem absoluteValueExtension_embeddingCompletionMap_coe
@@ -487,8 +506,11 @@ theorem absoluteValueExtension_embeddingCompletionMap_coe
         (x : w.1.Completion) =
       absoluteValueExtension_embeddingToAlgebraicClosureCompletionRingHom
         vK hvK w tau x :=
-  (absoluteValueExtension_embeddingToAlgebraicClosureCompletion_isometry
-    vK hvK w tau htau).extensionHom_coe x
+  UniformSpace.Completion.extensionHom_coe
+    (absoluteValueExtension_embeddingToAlgebraicClosureCompletionRingHom
+      vK hvK w tau)
+    (absoluteValueExtension_embeddingToAlgebraicClosureCompletion_isometry
+      vK hvK w tau htau).continuous x
 
 /-- The extended completion map is still an isometry. -/
 theorem absoluteValueExtension_embeddingCompletionMap_isometry

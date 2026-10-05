@@ -1,7 +1,23 @@
-import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.Core
-import Mathlib.Algebra.Polynomial.Lifts
-import Mathlib.RingTheory.LocalRing.ResidueField.Basic
-import Mathlib.RingTheory.Valuation.LocalSubring
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.Core
+public import Mathlib.Algebra.Polynomial.Lifts
+public import Mathlib.RingTheory.LocalRing.ResidueField.Basic
+public import Mathlib.RingTheory.Valuation.LocalSubring
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -39,7 +55,7 @@ def absoluteValueUnitBallSubring
     intro x y hx hy
     change v (x * y) ≤ 1
     rw [v.map_mul]
-    exact mul_le_one₀ hx (v.nonneg y) hy
+    exact (mul_le_of_le_one_left (v.nonneg y) hx).trans hy
 
 /-- Membership in the absolute-value valuation subring is the closed-unit-ball
 condition. -/

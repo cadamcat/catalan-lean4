@@ -1,6 +1,22 @@
-import ClassFieldTheory.LubinTate.Padic.CompletedChangedUniformizerPrimitive
-import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationAddVal
-import ValuedFieldTheory.Valuation.DiscreteValuationField.AddVal
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.Padic.CompletedChangedUniformizerPrimitive
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationAddVal
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.AddVal
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -149,7 +165,7 @@ private theorem
         rwa [hQnatDegree]
       change (Q - Polynomial.X ^ d).coeff i ∈ 𝔭
       rw [Polynomial.coeff_sub, Polynomial.coeff_X_pow,
-        if_neg (ne_of_lt hi), sub_zero]
+        ite_eq_right (ne_of_lt hi), sub_zero]
       exact hQi
     · subst i
       have hQd : Q.coeff d = 1 := by
@@ -157,14 +173,14 @@ private theorem
         exact hQmonic.coeff_natDegree
       change (Q - Polynomial.X ^ d).coeff d ∈ 𝔭
       rw [Polynomial.coeff_sub, hQd, Polynomial.coeff_X_pow,
-        if_pos rfl, sub_self]
+        ite_eq_left rfl, sub_self]
       exact 𝔭.zero_mem
     · have hQi : Q.coeff i = 0 := by
         apply Polynomial.coeff_eq_zero_of_natDegree_lt
         rwa [hQnatDegree]
       change (Q - Polynomial.X ^ d).coeff i ∈ 𝔭
       rw [Polynomial.coeff_sub, hQi, Polynomial.coeff_X_pow,
-        if_neg (ne_of_gt hi), sub_zero]
+        ite_eq_right (ne_of_gt hi), sub_zero]
       exact 𝔭.zero_mem
   have hR_eval_mem_map :
       R.eval₂ j root ∈ Ideal.map j 𝔭 :=
@@ -216,7 +232,7 @@ private theorem
       (padicCompletedPrimitivePolynomialInteger p n -
         Polynomial.X ^ d).coeff 0 = πA
     rw [Polynomial.coeff_sub, Polynomial.coeff_X_pow,
-      if_neg hdne.symm, sub_zero,
+      ite_eq_right hdne.symm, sub_zero,
       padicCompletedPrimitivePolynomialInteger, Polynomial.coeff_map]
     exact congrArg (padicCompletedUnramifiedIntegerMap p)
       (standardLubinTatePrimitivePolynomial_coeff_zero (padicLocalField p) π n)
@@ -468,7 +484,7 @@ private theorem
         rwa [hQnatDegree]
       change (Q - Polynomial.X ^ d).coeff i ∈ 𝔭
       rw [Polynomial.coeff_sub, Polynomial.coeff_X_pow,
-        if_neg (ne_of_lt hi), sub_zero]
+        ite_eq_right (ne_of_lt hi), sub_zero]
       exact hQi
     · subst i
       have hQd : Q.coeff d = 1 := by
@@ -476,14 +492,14 @@ private theorem
         exact hQmonic.coeff_natDegree
       change (Q - Polynomial.X ^ d).coeff d ∈ 𝔭
       rw [Polynomial.coeff_sub, hQd, Polynomial.coeff_X_pow,
-        if_pos rfl, sub_self]
+        ite_eq_left rfl, sub_self]
       exact 𝔭.zero_mem
     · have hQi : Q.coeff i = 0 := by
         apply Polynomial.coeff_eq_zero_of_natDegree_lt
         rwa [hQnatDegree]
       change (Q - Polynomial.X ^ d).coeff i ∈ 𝔭
       rw [Polynomial.coeff_sub, hQi, Polynomial.coeff_X_pow,
-        if_neg (ne_of_gt hi), sub_zero]
+        ite_eq_right (ne_of_gt hi), sub_zero]
       exact 𝔭.zero_mem
   have hmap :
       Ideal.map j 𝔭 = 𝔓 ^ e := by
@@ -555,7 +571,7 @@ private theorem
       (padicChangedCompletedPrimitivePolynomialInteger p u n -
         Polynomial.X ^ d).coeff 0 = πuA
     rw [Polynomial.coeff_sub, Polynomial.coeff_X_pow,
-      if_neg hdne.symm, sub_zero,
+      ite_eq_right hdne.symm, sub_zero,
       padicChangedCompletedPrimitivePolynomialInteger, Polynomial.coeff_map]
     exact congrArg (padicCompletedUnramifiedIntegerMap p)
       (standardLubinTatePrimitivePolynomial_coeff_zero

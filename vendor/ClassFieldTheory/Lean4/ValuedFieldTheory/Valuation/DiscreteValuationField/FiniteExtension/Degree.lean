@@ -1,8 +1,24 @@
-import ValuedFieldTheory.Valuation.DiscreteValuationField.IntegralClosure
-import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
-import ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianValuationExtension
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Defectless
-import Mathlib.RingTheory.RamificationInertia.Basic
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.IntegralClosure
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianValuationExtension
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Defectless
+public import Mathlib.RingTheory.RamificationInertia.Basic
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -49,7 +65,7 @@ theorem idealOfLE_eq_maximalIdeal_of_isIntegral
     {M : Type u} [Field M] (R S : ValuationSubring M) (hRS : R ≤ S)
     (hIntegral : (R.inclusion S hRS).IsIntegral) :
     ValuationSubring.idealOfLE R S hRS = IsLocalRing.maximalIdeal R := by
-  exact ((IsLocalRing.local_hom_TFAE (R.inclusion S hRS)).out 0 4).mp
+  exact ((IsLocalRing.local_hom_TFAE (R.inclusion S hRS)).out 1 5).mp
     (hIntegral.isLocalHom (by
       intro x y hxy
       apply Subtype.ext
@@ -288,7 +304,7 @@ theorem ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_hasExtension
     [Module.Finite base.valuationSubring target.valuationSubring]
     [IsScalarTower base.valuationSubring target.valuationSubring L] :
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal = Module.finrank K L := by
+      target.maximalIdeal.inertiaDeg base.valuationSubring = Module.finrank K L := by
   exact (isDefectless_of_moduleFinite base.toDVF target.toDVF).symm
 
 /-- If the target valuation ring is the integral closure of the base valuation
@@ -301,7 +317,7 @@ theorem ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_isIntegralClosure
     [IsScalarTower base.valuationSubring target.valuationSubring L]
     [IsIntegralClosure target.valuationSubring base.valuationSubring L] :
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal = Module.finrank K L := by
+      target.maximalIdeal.inertiaDeg base.valuationSubring = Module.finrank K L := by
   let : Module.Finite base.valuationSubring target.valuationSubring :=
     moduleFinite_target_valuationSubring_of_isIntegralClosure
       (K := K) (L := L) base target
@@ -596,7 +612,7 @@ ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_integralClosure_mem_or_inv_of
           (integralClosureValuationSubringOfMemOrInv_le_valuationSubring_of_hasExtension
             (L := L) base.valuation target.valuation hval))) :
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal = Module.finrank K L := by
+      target.maximalIdeal.inertiaDeg base.valuationSubring = Module.finrank K L := by
   let : IsIntegralClosure target.valuationSubring base.valuationSubring L :=
     target_valuationSubring_isIntegralClosure_of_integralClosure_mem_or_inv_of_local_inclusion
       (K := K) (L := L) base target hval htargetLocal
@@ -624,7 +640,7 @@ theorem IntegralClosureMemOrInv.ideal_degree_eq_finrank_of_center_eq_maximalIdea
             (integralClosureValuationSubringOfMemOrInv
               (L := L) base.valuation hval)) :
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal = Module.finrank K L := by
+      target.maximalIdeal.inertiaDeg base.valuationSubring = Module.finrank K L := by
   let : IsIntegralClosure target.valuationSubring base.valuationSubring L := (
 target_valuationSubring_isIntegralClosure_of_integralClosure_mem_or_inv_of_center_eq_maximalIdeal
     (K := K) (L := L) base target hval htargetCenter)
@@ -651,7 +667,7 @@ ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_integralClosure_mem_or_inv_of
           (L := L) base.valuation target.valuation hval
       (B.inclusion target.valuation.valuationSubring htarget_le).IsIntegral) :
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal = Module.finrank K L := by
+      target.maximalIdeal.inertiaDeg base.valuationSubring = Module.finrank K L := by
   let : IsIntegralClosure target.valuationSubring base.valuationSubring L :=
     target_valuationSubring_isIntegralClosure_of_integralClosure_mem_or_inv_of_integral_inclusion
       (K := K) (L := L) base target hval htargetIntegral
@@ -681,7 +697,7 @@ ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_integralClosure_mem_or_inv_of
             IsLocalRing.maximalIdeal target.valuation.valuationSubring ↔
           x ∈ IsLocalRing.maximalIdeal B) :
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal = Module.finrank K L := by
+      target.maximalIdeal.inertiaDeg base.valuationSubring = Module.finrank K L := by
   let : IsIntegralClosure target.valuationSubring base.valuationSubring L :=
     target_valuationSubring_isIntegralClosure_of_integralClosure_mem_or_inv_of_center_mem_iff
       (K := K) (L := L) base target hval htargetCenterMem
@@ -698,7 +714,7 @@ theorem isDefectless_of_isIntegralClosure
     ValuedExtension.IsDefectless base.toDVF target.toDVF := by
   change Module.finrank K L =
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal
+      target.maximalIdeal.inertiaDeg base.valuationSubring
   exact (ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_isIntegralClosure
     (K := K) (L := L) base target).symm
 
@@ -719,7 +735,7 @@ theorem residueDegree_eq_finrank_quotient
       Module.finrank
         (base.valuationSubring ⧸ base.maximalIdeal)
         (target.valuationSubring ⧸ target.maximalIdeal) := by
-  exact Ideal.inertiaDeg'_algebraMap base.maximalIdeal target.maximalIdeal
+  exact Ideal.inertiaDeg_eq_of_isMaximal base.maximalIdeal target.maximalIdeal
 
 omit [FiniteDimensional K L] in
 /-- The residue degree of a finite extension is strictly positive. -/
@@ -729,7 +745,7 @@ theorem residueDegree_pos
   let : target.maximalIdeal.LiesOver base.maximalIdeal :=
     (maximalIdeal_liesOver base target)
   simpa [residueDegree, residueDegree] using
-    (Ideal.inertiaDeg'_pos base.maximalIdeal target.maximalIdeal)
+    (target.maximalIdeal.inertiaDeg_pos base.valuationSubring)
 
 omit [FiniteDimensional K L] in
 /-- A finite extension of valuation rings induces a finite-dimensional residue
@@ -903,7 +919,7 @@ theorem ideal_ramificationIdx_mul_inertiaDeg_eq_finrank
     [Module.Finite base.valuationSubring target.valuationSubring]
     [IsScalarTower base.valuationSubring target.valuationSubring L] :
     Ideal.ramificationIdx' base.maximalIdeal target.maximalIdeal *
-      base.maximalIdeal.inertiaDeg' target.maximalIdeal = Module.finrank K L :=
+      target.maximalIdeal.inertiaDeg base.valuationSubring = Module.finrank K L :=
   ideal_ramificationIdx_mul_inertiaDeg_eq_finrank_of_hasExtension
     (K := K) (L := L) base target
 end ValuedExtension

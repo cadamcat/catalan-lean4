@@ -1,4 +1,20 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.NormalClosure
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.NormalClosure
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -190,6 +206,7 @@ variable {L : Type}
     [FiniteDimensional K L] [IsGalois K L]
     [IsGalois M L]
 
+omit [NumberField L] [FiniteDimensional K L] in
 /-- Complete splitting ascends from a base finite place to every
 finite place of an intermediate field lying above it.
 

@@ -1,10 +1,26 @@
-import ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveTorsion
-import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationAddVal
-import ValuedFieldTheory.Valuation.DiscreteValuationField.AddVal
-import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure
-import Mathlib.RingTheory.Finiteness.Cardinality
-import Mathlib.RingTheory.Discriminant
-import Mathlib.RingTheory.Polynomial.Eisenstein.IsIntegral
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveTorsion
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationAddVal
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.AddVal
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure
+public import Mathlib.RingTheory.Finiteness.Cardinality
+public import Mathlib.RingTheory.Discriminant
+public import Mathlib.RingTheory.Polynomial.Eisenstein.IsIntegral
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -386,8 +402,7 @@ underlying field element. -/
 theorem standardLubinTatePrimitivePointInteger_coe
     {F : LocalField.{u, v} K} {π : F.valuationSubring}
     (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ) :
-    (standardLubinTatePrimitivePointInteger hπ n :
-      standardLubinTateLevelField hπ n) =
+    (standardLubinTatePrimitivePointInteger hπ n).val =
         standardLubinTateLevelGenerator hπ n :=
   rfl
 
@@ -445,9 +460,9 @@ private theorem
   intro a b hab
   change
     (standardLubinTateLevelField hπ n).val
-        (a : standardLubinTateLevelField hπ n) =
+        a.val =
       (standardLubinTateLevelField hπ n).val
-        (b : standardLubinTateLevelField hπ n) at hab
+        b.val at hab
   apply Subtype.ext
   exact (standardLubinTateLevelField hπ n).val.injective hab
 
@@ -464,10 +479,9 @@ private theorem
   intro a
   change
     ((standardLubinTateLevelField hπ n).val
-      (((integerMap F.toCompleteDVF.toDVF
+      ((integerMap F.toCompleteDVF.toDVF
         (standardLubinTateLevelCompleteDVF hπ n).toDVF) a :
-          (standardLubinTateLevelCompleteDVF hπ n).valuationSubring) :
-        standardLubinTateLevelField hπ n)) =
+          (standardLubinTateLevelCompleteDVF hπ n).valuationSubring).val) =
       algebraMap K (SeparableClosure K)
         (algebraMap F.valuationSubring K a)
   rw [integerMap_apply]
@@ -639,7 +653,7 @@ private theorem
         Polynomial.X ^ d).coeff 0 = π
     rw [Polynomial.coeff_sub,
       standardLubinTatePrimitivePolynomial_coeff_zero]
-    simp only [Polynomial.coeff_X_pow, if_neg hdne.symm, sub_zero]
+    simp only [Polynomial.coeff_X_pow, ite_eq_right hdne.symm, sub_zero]
   have hpiIrreducible : Irreducible π := by
     exact
       (IsDiscreteValuationRing.irreducible_iff_uniformizer π).2
@@ -846,8 +860,7 @@ theorem standardLubinTatePrimitivePoint_isUniformizer
     {F : LocalField.{u, v} K} {π : F.valuationSubring}
     (hπ : F.toCompleteDVF.valuation.IsUniformizer (π : K)) (n : ℕ) :
     (standardLubinTateLevelCompleteDVF hπ n).valuation.IsUniformizer
-      (standardLubinTatePrimitivePointInteger hπ n :
-        standardLubinTateLevelField hπ n) := by
+      (standardLubinTatePrimitivePointInteger hπ n).val := by
   exact Valuation.isUniformizer_of_maximalIdeal_eq_span
     (v := (standardLubinTateLevelCompleteDVF hπ n).valuation)
     (standardLubinTatePrimitivePointInteger_irreducible hπ n).maximalIdeal_eq

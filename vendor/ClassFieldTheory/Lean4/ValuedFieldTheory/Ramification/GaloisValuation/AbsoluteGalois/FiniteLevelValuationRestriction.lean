@@ -1,41 +1,57 @@
-import ValuedFieldTheory.Valuation.Henselian.Complete
-import ValuedFieldTheory.Valuation.Henselian.Core
-import ValuedFieldTheory.Valuation.Henselian.Factorization.AdicLimits
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Assembly
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Basic
-import ValuedFieldTheory.Valuation.Henselian.Factorization.CoefficientMinimum
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Complete
-import ValuedFieldTheory.Valuation.Henselian.Factorization.DegreeBounds
-import ValuedFieldTheory.Valuation.Henselian.Factorization.DivisionBounds
-import ValuedFieldTheory.Valuation.Henselian.Factorization.ErrorPowers
-import ValuedFieldTheory.Valuation.Henselian.Factorization.FiniteApproximation
-import ValuedFieldTheory.Valuation.Henselian.Factorization.InfiniteApproximation
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Iteration
-import ValuedFieldTheory.Valuation.Henselian.Factorization.PrincipalLimits
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Step
-import ValuedFieldTheory.Valuation.Henselian.Factorization.Truncation
-import ValuedFieldTheory.Valuation.Henselian.Factorization.WeakLimits
-import ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialBounds
-import ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialLifting
-import ValuedFieldTheory.Valuation.Henselian.MonicFactorization
-import ValuedFieldTheory.Valuation.Henselian.NonmonicReduction
-import ValuedFieldTheory.Valuation.Henselian.PrimitiveFactorization
-import ValuedFieldTheory.Valuation.Henselian.PrimitiveReduction
-import ValuedFieldTheory.Valuation.Henselian.UniqueAlgebraicExtensions
-import ValuedFieldTheory.Valuation.Henselian.UniqueExtensionPrimitive
-import ValuedFieldTheory.Valuation.Henselian.UniqueExtensionReduction
-import ValuedFieldTheory.Valuation.Henselian.ValuationExtensionCriterion
-import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
-import ValuedFieldTheory.Ramification.GaloisValuation.Ramification
-import Mathlib.Algebra.Exact.Basic
-import Mathlib.FieldTheory.AbsoluteGaloisGroup
-import Mathlib.FieldTheory.Galois.Infinite
-import Mathlib.FieldTheory.Galois.Profinite
-import Mathlib.FieldTheory.PurelyInseparable.Basic
-import Mathlib.RingTheory.Valuation.RamificationGroup
-import Mathlib.Topology.Algebra.ContinuousMonoidHom
-import Mathlib.Topology.Maps.Basic
-import Mathlib.Topology.Sets.Opens
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.Henselian.Complete
+public import ValuedFieldTheory.Valuation.Henselian.Core
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.AdicLimits
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Assembly
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Basic
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.CoefficientMinimum
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Complete
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.DegreeBounds
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.DivisionBounds
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.ErrorPowers
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.FiniteApproximation
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.InfiniteApproximation
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Iteration
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.PrincipalLimits
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Step
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.Truncation
+public import ValuedFieldTheory.Valuation.Henselian.Factorization.WeakLimits
+public import ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialBounds
+public import ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialLifting
+public import ValuedFieldTheory.Valuation.Henselian.MonicFactorization
+public import ValuedFieldTheory.Valuation.Henselian.NonmonicReduction
+public import ValuedFieldTheory.Valuation.Henselian.PrimitiveFactorization
+public import ValuedFieldTheory.Valuation.Henselian.PrimitiveReduction
+public import ValuedFieldTheory.Valuation.Henselian.UniqueAlgebraicExtensions
+public import ValuedFieldTheory.Valuation.Henselian.UniqueExtensionPrimitive
+public import ValuedFieldTheory.Valuation.Henselian.UniqueExtensionReduction
+public import ValuedFieldTheory.Valuation.Henselian.ValuationExtensionCriterion
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
+public import ValuedFieldTheory.Ramification.GaloisValuation.Ramification
+public import Mathlib.Algebra.Exact.Basic
+public import Mathlib.FieldTheory.AbsoluteGaloisGroup
+public import Mathlib.FieldTheory.Galois.Infinite
+public import Mathlib.FieldTheory.Galois.Profinite
+public import Mathlib.FieldTheory.PurelyInseparable.Basic
+public import Mathlib.RingTheory.Valuation.RamificationGroup
+public import Mathlib.Topology.Algebra.ContinuousMonoidHom
+public import Mathlib.Topology.Maps.Basic
+public import Mathlib.Topology.Sets.Opens
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

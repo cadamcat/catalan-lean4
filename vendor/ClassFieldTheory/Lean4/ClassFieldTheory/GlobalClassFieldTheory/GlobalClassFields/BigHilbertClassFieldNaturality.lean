@@ -1,5 +1,21 @@
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.BigHilbertClassField
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.BigHilbertClassField
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -206,9 +222,7 @@ private theorem adeleCongr_infiniteComponent
     congrArg componentM
       (relativeAdeleBaseChangeRingEquiv_relativeAdeleCongr e z)
   rw [← ha, ← htransport]
-  induction z using TensorProduct.induction_on with
-  | zero =>
-      exact (map_zero (infinitePlaceCompletionCongrHom e W)).symm
+  induction z using TensorProduct.inductionOn with
   | add x y hx hy =>
       simpa only [map_add, Prod.fst_add, Pi.add_apply] using
         congrArg₂ (· + ·) hx hy

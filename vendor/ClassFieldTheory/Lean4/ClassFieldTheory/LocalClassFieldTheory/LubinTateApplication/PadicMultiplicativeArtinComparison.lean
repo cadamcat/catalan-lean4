@@ -1,11 +1,27 @@
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.NormResidue
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldIntrinsicReciprocity.NormRestriction
-import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedNormalization
-import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitDecomposition
-import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicField
-import ClassFieldTheory.LubinTate.FiniteLevel.HigherUnitLevelEquiv
-import ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardFrobenius
-import ClassFieldTheory.LubinTate.Padic.MultiplicativeEvaluation.Core
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.NormResidue
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldIntrinsicReciprocity.NormRestriction
+public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedNormalization
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitDecomposition
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicField
+public import ClassFieldTheory.LubinTate.FiniteLevel.HigherUnitLevelEquiv
+public import ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardFrobenius
+public import ClassFieldTheory.LubinTate.Padic.MultiplicativeEvaluation.Core
+
+
+@[expose] public section
 
 set_option autoImplicit false
 

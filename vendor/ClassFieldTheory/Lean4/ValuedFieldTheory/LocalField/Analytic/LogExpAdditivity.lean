@@ -1,5 +1,21 @@
-import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
-import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.Homomorphisms
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
+public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.Homomorphisms
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -453,7 +469,7 @@ theorem summable_formalLogOnePlusProductArgument_logDegree_monomialValue_pair_of
         intro hd
         apply hnotE
         exact Finset.mem_sigma.mpr ⟨Finset.mem_range.mpr hqsmall, hd⟩
-      have hpoly : MvPolynomial.coeff qd.2 (P ^ qd.1) = 0 := by
+      have hpoly : (P ^ qd.1).coeff qd.2 = 0 := by
         by_contra hp
         exact hdnot (MvPolynomial.mem_support_iff.mpr hp)
       have hcoeff :

@@ -1,11 +1,27 @@
-import ValuedFieldTheory.Valuation.Henselian.UniqueAlgebraicExtensions
-import Mathlib.LinearAlgebra.Dimension.Finrank
-import Mathlib.LinearAlgebra.Dimension.Free
-import Mathlib.Algebra.Order.WithTop.Untop0
-import Mathlib.GroupTheory.Index
-import Mathlib.Data.ZMod.QuotientGroup
-import Mathlib.Algebra.Algebra.Tower
-import ValuedFieldTheory.Valuation.LocalRingEquiv
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ValuedFieldTheory.Valuation.Henselian.UniqueAlgebraicExtensions
+public import Mathlib.LinearAlgebra.Dimension.Finrank
+public import Mathlib.LinearAlgebra.Dimension.Free
+public import Mathlib.Algebra.Order.WithTop.Untop0
+public import Mathlib.GroupTheory.Index
+public import Mathlib.Data.ZMod.QuotientGroup
+public import Mathlib.Algebra.Algebra.Tower
+public import ValuedFieldTheory.Valuation.LocalRingEquiv
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -414,8 +430,8 @@ private theorem maximalIdeal_eq_span_discretePrimeElement
       v x = ((((m : ℝ) * s : ℝ)) : WithTop ℝ))
     {pi : K} (hpival : v pi = (s : WithTop ℝ)) :
     IsLocalRing.maximalIdeal (LubinTate.Valuations.exponentialValuationSubring v) =
-      Ideal.span ({LubinTate.Valuations.discretePrimeElementInValuationSubring
-        v hs.le hpival} : Set (LubinTate.Valuations.exponentialValuationSubring v)) := by
+      Ideal.span (Set.singleton (LubinTate.Valuations.discretePrimeElementInValuationSubring
+        v hs.le hpival) : Set (LubinTate.Valuations.exponentialValuationSubring v)) := by
   let piV := LubinTate.Valuations.discretePrimeElementInValuationSubring v hs.le hpival
   apply le_antisymm
   · intro x hx
@@ -442,10 +458,13 @@ private theorem maximalIdeal_eq_span_discretePrimeElement
       have hxpow : x ∈ LubinTate.Valuations.uniformizerPowerIdeal piV 1 :=
         (LubinTate.Valuations.discrete_uniformizerPowerIdeal_mem_iff_value_ge
           v hs hpival 1 x).2 (by simpa using hsle)
-      simpa [piV, LubinTate.Valuations.uniformizerPowerIdeal] using hxpow
+      change x ∈ Ideal.span ({piV} : Set _)
+      simpa only [LubinTate.Valuations.uniformizerPowerIdeal, pow_one] using hxpow
   · rw [Ideal.span_le]
     intro x hx
-    have hxpi : x = piV := by simpa [piV] using hx
+    have hxpi : x = piV := by
+      change x = piV at hx
+      exact hx
     subst x
     rw [← LubinTate.Valuations.exponentialMaxIdeal_eq_maximalIdeal v]
     change (0 : WithTop ℝ) < v pi
@@ -679,8 +698,7 @@ theorem exponentialResidueDegree_eq_ideal_inertiaDeg
       exponentialValuationRingMap_isLocalHom v w hExt
     letI : Algebra V W := i.toAlgebra
     exponentialResidueDegree v w hExt =
-      (IsLocalRing.maximalIdeal V).inertiaDeg'
-        (IsLocalRing.maximalIdeal W) := by
+      (IsLocalRing.maximalIdeal W).inertiaDeg V := by
   let V := LubinTate.Valuations.exponentialValuationSubring v
   let W := LubinTate.Valuations.exponentialValuationSubring w
   let i := exponentialValuationRingMap v w hExt
@@ -697,8 +715,7 @@ theorem exponentialResidueDegree_eq_ideal_inertiaDeg
     ⟨(ValuationTheory.DiscreteValuationField.ResidueField.comap_maximalIdeal_eq i).symm⟩
   change Module.finrank (IsLocalRing.ResidueField V)
       (IsLocalRing.ResidueField W) =
-    (IsLocalRing.maximalIdeal V).inertiaDeg'
-      (IsLocalRing.maximalIdeal W)
+    (IsLocalRing.maximalIdeal W).inertiaDeg V
   let Astd : Algebra (IsLocalRing.ResidueField V)
       (IsLocalRing.ResidueField W) :=
     Ideal.Quotient.algebraOfLiesOver
@@ -723,7 +740,7 @@ theorem exponentialResidueDegree_eq_ideal_inertiaDeg
           (IsLocalRing.ResidueField W) _ _
           (@Algebra.toModule _ _ _ _ Astd) := by
     rw [hAlg]
-  have h := (Ideal.inertiaDeg'_algebraMap
+  have h := (Ideal.inertiaDeg_eq_of_isMaximal
     (IsLocalRing.maximalIdeal V) (IsLocalRing.maximalIdeal W)).symm
   exact h
 
@@ -758,7 +775,7 @@ noncomputable def exponentialAssociatedAbsoluteValue
         WithTop.coe_untop₀_of_ne_top
           (LubinTate.Valuations.exponentialValuation_ne_top_of_ne_zero v hy)]
       exact v.map_mul x y
-    simp only [hx, hy, hxy, if_false]
+    simp only [hx, hy, hxy, ite_false]
     rw [hreal, neg_add, Real.exp_add]
   · intro x
     by_cases hx : x = 0
@@ -776,7 +793,7 @@ noncomputable def exponentialAssociatedAbsoluteValue
     · subst y
       simp
     by_cases hxy : x + y = 0
-    · simp only [hx, hy, hxy, if_false, if_true]
+    · simp only [hx, hy, hxy, ite_false, ite_true]
       positivity
     let r := (v x).untop₀
     let s := (v y).untop₀
@@ -801,7 +818,7 @@ noncomputable def exponentialAssociatedAbsoluteValue
         exact le_add_of_nonneg_right (Real.exp_nonneg _)
       · rw [min_eq_right (le_of_not_ge hrs)]
         exact le_add_of_nonneg_left (Real.exp_nonneg _)
-    simpa only [hx, hy, hxy, if_false, r, s, t] using hmain
+    simpa only [hx, hy, hxy, ite_false, r, s, t] using hmain
 
 /-- The canonical multiplicative presentation is associated to `v`, with
 the fixed base `e = exp 1`. -/
@@ -1534,13 +1551,12 @@ theorem ramificationInvariants_fundamental_identity_of_discrete_of_separable
     exact (ne_of_gt hs) hs0
   let : IsNoetherianRing W := inferInstance
   let : IsDiscreteValuationRing W :=
-    ((IsDiscreteValuationRing.TFAE W hWnotField).out 2 0).mp
+    ((IsDiscreteValuationRing.TFAE W hWnotField).out 3 1).mp
       (show IsDedekindDomain W from inferInstance)
   have hideal :
       Ideal.ramificationIdx'
           (IsLocalRing.maximalIdeal V) (IsLocalRing.maximalIdeal W) *
-        (IsLocalRing.maximalIdeal V).inertiaDeg'
-          (IsLocalRing.maximalIdeal W) = Module.finrank K L := by
+        (IsLocalRing.maximalIdeal W).inertiaDeg V = Module.finrank K L := by
     classical
     have := FaithfulSMul.of_field_isFractionRing V W K L
     have hp := IsDiscreteValuationRing.not_a_field V
@@ -1554,7 +1570,6 @@ theorem ramificationInvariants_fundamental_identity_of_discrete_of_separable
         uniq := fun q =>
           Subtype.ext (Set.mem_singleton_iff.mp (hprimes ▸ q.property)) }
     rw [Ideal.ramificationIdx'_eq_ramificationIdx _ _ hp,
-      Ideal.inertiaDeg'_eq_inertiaDeg,
       IsFractionRing.finrank_eq V K W L]
     simpa only [show algebraMap V W = i from rfl, Fintype.sum_unique, hq] using
       (Ideal.sum_ramification_inertia_eq_finrank

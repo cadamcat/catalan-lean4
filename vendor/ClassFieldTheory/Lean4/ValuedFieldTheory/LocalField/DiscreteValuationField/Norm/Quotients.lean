@@ -1,5 +1,18 @@
-import Mathlib.SetTheory.Cardinal.Finite
-import ValuedFieldTheory.LocalField.DiscreteValuationField.Norm.Basic
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import Mathlib.SetTheory.Cardinal.Finite
+public import ValuedFieldTheory.LocalField.DiscreteValuationField.Norm.Basic
 
 /-!
 Develops quotient groups attached to an abstract valued norm, including kernel, image, and
@@ -10,6 +23,9 @@ representative criteria.
 Identifies norm-quotient classes with valuation classes modulo the residue degree and constructs
 the resulting cyclic equivalences.
 -/
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -1047,8 +1063,8 @@ target uniformizer. -/
 theorem zeroQuotientModuloResidueDegreeClass_closure_uniformizerClass_eq_top
     {ϖG : G} (hϖG : vG.IsUniformizer ϖG) :
     Subgroup.closure
-        ({QuotientGroup.mk' N.residueDegreeClassSubgroup
-          (QuotientGroup.mk' vG.zeroSubgroup ϖG)} :
+        (Set.singleton (QuotientGroup.mk' N.residueDegreeClassSubgroup
+          (QuotientGroup.mk' vG.zeroSubgroup ϖG)) :
           Set ((G ⧸ vG.zeroSubgroup) ⧸ N.residueDegreeClassSubgroup)) =
       ⊤ := by
   apply le_antisymm
@@ -1059,10 +1075,10 @@ theorem zeroQuotientModuloResidueDegreeClass_closure_uniformizerClass_eq_top
     rw [hqpow]
     exact Subgroup.zpow_mem
       (Subgroup.closure
-        ({QuotientGroup.mk' N.residueDegreeClassSubgroup
-          (QuotientGroup.mk' vG.zeroSubgroup ϖG)} :
+        (Set.singleton (QuotientGroup.mk' N.residueDegreeClassSubgroup
+          (QuotientGroup.mk' vG.zeroSubgroup ϖG)) :
           Set ((G ⧸ vG.zeroSubgroup) ⧸ N.residueDegreeClassSubgroup)))
-      (Subgroup.subset_closure (by simp)) n
+      (Subgroup.subset_closure (by rfl)) n
 
 /--
 `zeroQuotientModuloResidueDegreeClassEquivValueModResidueDegree_uniformizerClass` satisfies the

@@ -1,7 +1,23 @@
-import ClassFieldTheory.LubinTate.Padic.ChangedUniformizerCoefficient
-import ValuedFieldTheory.Valuation.DiscreteValuationField.Complete
-import ValuedFieldTheory.Valuation.DiscreteValuationField.ValuationExtension
-import ValuedFieldTheory.Valuation.LocalRingEquiv
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.LubinTate.Padic.ChangedUniformizerCoefficient
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.Complete
+public import ValuedFieldTheory.Valuation.DiscreteValuationField.ValuationExtension
+public import ValuedFieldTheory.Valuation.LocalRingEquiv
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -362,7 +378,7 @@ theorem padicCompletedUnramifiedValuation_hasExtension
       (padicCompletedUnramifiedCompleteDVF p).valuation := by
   let f := padicCompletedUnramifiedIntegerMap p
   let : IsLocalHom f := by
-    apply ((IsLocalRing.local_hom_TFAE f).out 2 0).mp
+    apply ((IsLocalRing.local_hom_TFAE f).out 3 1).mp
     rw [padicCompletedUnramifiedIntegerMap_map_maximalIdeal]
   exact
     ValuationTheory.DiscreteValuationField.ValuedExtension.valuation_hasExtension_of_local_valuationSubring_map

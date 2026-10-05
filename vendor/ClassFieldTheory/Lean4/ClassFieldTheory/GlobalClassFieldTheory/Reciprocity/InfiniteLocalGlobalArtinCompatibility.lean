@@ -1,12 +1,28 @@
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidue
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalArtin
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.OnePlaceNormKernel
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.RationalComplexification
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.InfinitePlaceOverfield
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.NumberFieldComplexification
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.RamifiedOverextension
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.OverextensionArtin
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.InfinitePlaceCompatibility
+/-
+MODIFIED FROM UPSTREAM:
+n-yamaguchi-0729/ClassFieldTheory commit 7713795234690681b4406ae198b07aa95e82716a.
+Added Lean module-system visibility declarations and ported this file to Mathlib/Lean v4.35.0-rc3.
+-/
+module
+
+/-
+Copyright (c) 2026 Naganori Yamaguchi (https://github.com/n-yamaguchi-0729). All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
+-/
+
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidue
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalArtin
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.OnePlaceNormKernel
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.RationalComplexification
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.InfinitePlaceOverfield
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.NumberFieldComplexification
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.RamifiedOverextension
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.OverextensionArtin
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.InfinitePlaceCompatibility
+
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -175,7 +191,7 @@ theorem globalNormResidueMonoidHom_comp_infinitePlaceIdeleClass_of_unramified
           (K := K) (L := L) v x = 1 := by
     unfold chosenInfinitePlaceArtinMonoidHom
     unfold infinitePlaceArtinMonoidHomOfPlace
-    rw [dif_pos hUnramified]
+    rw [dite_eq_left hUnramified]
     rfl
   have hglobal :
       globalNormResidueMonoidHom K L
