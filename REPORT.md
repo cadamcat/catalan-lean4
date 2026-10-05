@@ -18,12 +18,15 @@ Run date: 2026-10-05. Branch: `palomar`. Implementation HEAD checked: `e0e69f2`.
 
 Mathlib and its dependencies were obtained with `lake exe cache get`; the measured project build used that cache and compiled the project, Catalan, and vendored sources from source.
 
+Upgrade commands were `lake update` and `lake exe cache get`; both completed successfully, and the new `lake-manifest.json` is committed.
+
 ## Upgrade, port, and module system
 
 - The root `lean-toolchain` is `leanprover/lean4:v4.35.0-rc3`. The Mathlib manifest revision is `c55e6e786f49471c72fbddbec5415808896aec1e`, and the installed Mathlib `lean-toolchain` is the same `v4.35.0-rc3`.
 - The original 871-file vendor subset is retained (540 ClassFieldTheory, 257 ValuedFieldTheory, 74 GaloisCohomology). The files were ported from the upstream rc2 branch to Mathlib rc3 and the Lean module/visibility system. Each changed file has a pre-`module` notice identifying the upstream port and change type. `THIRD_PARTY.md` records the Apache-2.0 notices and modifications.
 - The upstream port adds and splits support modules that are outside this fixed subset. Required fractional-ideal norm/factorization declarations, finite-place unramified normalization, and two principal-unit quotient helpers were merged into retained files. The induced-function model from the separate `ProCGroups` subtree was inlined into the retained Herbrand module. These changes and reconstruction patches are recorded in `vendor/ClassFieldTheory/SOURCES.json`.
 - `scripts/check_vendor.py` reconstructs all 871 retained files from the recorded original source and patch. The named disposable mutation control changes one byte of `AdeleBaseChange.lean` and fails naming `Lean4/ClassFieldTheory/AlgebraicNumberTheory/AdeleBaseChange.lean`.
+- Commands and output: `python3 scripts/check_vendor.py` → `Reconstructed and verified 871 vendored ClassFieldTheory sources and the license.` `python3 -m unittest -v scripts/tests/test_vendor.py` → `test_one_byte_mutation_fails_for_named_vendored_file ... ok`.
 - All 1,402 tracked `.lean` files have a module header and later module documentation; the largest is 3,024 physical lines. `Challenge.lean` is 48 lines/1,753 bytes, below the brief's stricter 300-line/32-KiB limit. `lakefile.toml` remains TOML.
 - The five protected Catalan declaration types match the starting source: the axiom-result file is byte-for-byte unchanged from `c08bf72`, and the source diffs for the declarations and `Verification/Statements.lean` add the module/import/documentation/visibility prefix without changing their statements or proofs. The three statement restatements elaborate successfully.
 
