@@ -6,7 +6,7 @@ moreLeanArgs = ["--trust=0"]
 [[require]]
 name = "mathlib"
 scope = "leanprover-community"
-rev = "v4.33.1"
+rev = "v4.35.0-rc3"
 
 [[lean_lib]]
 name = "Catalan"
