@@ -47,11 +47,12 @@ lake exe cache get
 
 ## 固定依赖
 
-- Lean `4.33.1`，由 [lean-toolchain](lean-toolchain) 选定。
-- Mathlib `v4.33.1`，提交为 `0df444a360eaa60ab8c11dca51a86af692955474`，由 [lake-manifest.json](lake-manifest.json) 固定。
-- ClassFieldTheory 中的 871 个未修改模块，提交为 `2930b56f4b5c33ddab9ef91a45a4811d6f7a683f`，收录于 [vendor/ClassFieldTheory](vendor/ClassFieldTheory/README.md)。其路径和哈希值记录在 `SOURCES.json` 中。
+- Lean `v4.35.0-rc3`，由 [lean-toolchain](lean-toolchain) 选定。
+- Mathlib `v4.35.0-rc3`，提交为 `c55e6e786f49471c72fbddbec5415808896aec1e`，由 [lake-manifest.json](lake-manifest.json) 固定；项目与 Mathlib 使用完全相同的 Lean 工具链版本。
+- 所有常规 Lean 源文件（包括保留的 871 个 ClassFieldTheory 文件）都已迁移到 Lean 模块系统。
+- 这组 ClassFieldTheory 文件基于上游提交 `2930b56f4b5c33ddab9ef91a45a4811d6f7a683f`，并包含已记录的 Lean 4.35 与 Mathlib 兼容性修改。详情见[第三方声明](THIRD_PARTY.md)和[供应代码说明](vendor/ClassFieldTheory/README.md)。
 
-[lakefile.toml](lakefile.toml) 为固定版本的 ClassFieldTheory 库设置了有限的 heartbeat 资源预算。项目不会自动更新这些源文件。
+[lakefile.toml](lakefile.toml) 为固定版本的 ClassFieldTheory 库设置了有限的 heartbeat 资源预算。项目不会自动更新这些源文件。论文引用的原始版本仍是 `v1.0.0`（`4bf1f74`）；此分支单独准备 Palomar 版本。
 
 ## 数学参考文献
 

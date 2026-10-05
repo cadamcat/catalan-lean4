@@ -47,11 +47,12 @@ Recorded source fingerprints and verification outputs are available in the [veri
 
 ## Fixed dependencies
 
-- Lean `4.33.1`, selected by [lean-toolchain](lean-toolchain).
-- Mathlib `v4.33.1`, commit `0df444a360eaa60ab8c11dca51a86af692955474`, fixed by [lake-manifest.json](lake-manifest.json).
-- 871 unmodified modules from ClassFieldTheory, commit `2930b56f4b5c33ddab9ef91a45a4811d6f7a683f`, included under [vendor/ClassFieldTheory](vendor/ClassFieldTheory/README.md). Their paths and hashes are recorded in `SOURCES.json`.
+- Lean `v4.35.0-rc3`, selected by [lean-toolchain](lean-toolchain).
+- Mathlib `v4.35.0-rc3`, commit `c55e6e786f49471c72fbddbec5415808896aec1e`, fixed by [lake-manifest.json](lake-manifest.json). The project toolchain matches Mathlib's toolchain exactly.
+- All regular Lean source files use Lean's module system, including the 871 retained ClassFieldTheory files.
+- The ClassFieldTheory subset is based on upstream commit `2930b56f4b5c33ddab9ef91a45a4811d6f7a683f` and carries recorded Lean 4.35 and Mathlib compatibility edits. See [third-party notices](THIRD_PARTY.md) and the [vendor README](vendor/ClassFieldTheory/README.md).
 
-The fixed ClassFieldTheory library uses a bounded heartbeat setting in [lakefile.toml](lakefile.toml). The project does not update these sources automatically.
+The fixed ClassFieldTheory library uses a bounded heartbeat setting in [lakefile.toml](lakefile.toml). The project does not update these sources automatically. Release `v1.0.0` (`4bf1f74`) remains the original release cited by the paper; this branch prepares the separate Palomar port.
 
 ## Mathematical references
 

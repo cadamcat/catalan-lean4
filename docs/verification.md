@@ -1,6 +1,6 @@
 # Reproducing the verification
 
-Run commands from the repository root with the toolchain in `lean-toolchain`. Dependency revisions are locked in `lake-manifest.json`; do not run `lake update` when checking a fixed source version.
+Run commands from the repository root with Lean `v4.35.0-rc3`, selected by `lean-toolchain`. Mathlib is also at `v4.35.0-rc3` (commit `c55e6e786f49471c72fbddbec5415808896aec1e`); dependency revisions are locked in `lake-manifest.json`. Do not run `lake update` when checking a fixed source version.
 
 ## Source build and axiom checks
 
@@ -9,9 +9,21 @@ lake exe cache get
 ./scripts/verify.sh
 ```
 
-The script verifies the fixed vendor file inventory and hashes, builds `Catalan.Audit`, checks the public theorem statements, and runs the axiom-log parser against the expected declarations in the audit source files. A missing report, an unparsed report, a Lean error, or an axiom outside `propext`, `Classical.choice`, and `Quot.sound` causes failure. Names containing apostrophes and lists wrapping across lines are supported.
+The script verifies the fixed vendor file inventory by reconstructing the retained files from their recorded upstream sources and patch, builds `Catalan.Audit`, checks the public theorem statements, and runs the axiom-log parser against the expected declarations in the audit source files. A missing report, an unparsed report, a Lean error, or an axiom outside `propext`, `Classical.choice`, and `Quot.sound` causes failure. Names containing apostrophes and lists wrapping across lines are supported.
 
 Building `Catalan.Audit` explicitly includes its audit-only vendor imports. A plain `lake build` need not build that module. The script therefore does not rely on pre-existing class-field-theory build artifacts.
+
+## Palomar port targets
+
+The Palomar `Challenge.lean` imports Mathlib only. `Solution.lean` imports the project and restates the four challenge declarations without importing `Challenge`. The Lake targets are `Challenge` and `Solution`. Build the complete project target set with:
+
+```sh
+lake build Catalan ClassFieldTheory ValuedFieldTheory GaloisCohomology Verification Challenge Solution
+```
+
+The current toolchain, Mathlib revision, source build measurements, four challenge comparisons, and kernel replay result are recorded in [Verification/RESULTS.md](../Verification/RESULTS.md). That record distinguishes the 2026-10-05 port checks from the historical Lean 4.33.1 snapshot and its supplemental evidence.
+
+A local build and Comparator run are not Palomar's full mechanical preflight; that check uses the registry's prescribed workflow on the exact repository revision and selected paths. The accepted `enable_nanoda` field is non-authoritative for submissions: Palomar supplies its own protected NanoDa configuration.
 
 Outputs are written to `verification-results/`, which is not tracked. The command exits nonzero if any build, source check, or axiom check fails. The parser's regression tests can be run separately:
 

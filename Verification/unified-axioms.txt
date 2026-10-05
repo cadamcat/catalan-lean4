@@ -1453,7 +1453,7 @@ Catalan.reduce_to_primes : (∀ (p q : ℕ),
 'Catalan.expm1_seven_fifths' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Catalan.even_degree_power_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Catalan.small_ratio_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Catalan.five_pow_hundred' depends on axioms: [propext, Quot.sound]
+'Catalan.five_pow_hundred' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Catalan.reduce_to_primes' depends on axioms: [propext, Classical.choice, Quot.sound]
 Catalan.mihRadius : ℕ → ℕ → ℝ → ℝ
 Catalan.mihThreshold : ℕ → ℝ → ℝ
@@ -2047,12 +2047,12 @@ Catalan.CaseTwo.not_modEq_one_of_five_weak_bound : ∀ (q : ℕ),
   Nat.Prime q → q < 144 → q ^ 4 ≡ 1 [MOD 25] → 5 ^ (q - 1) ≡ 1 [MOD q ^ 2] → ¬q ≡ 1 [MOD 5]
 Catalan.wieferich_lift_congruence : ∀ (p q : ℕ),
   Nat.Prime p → q ≡ 1 [MOD p] → q ^ (p - 1) ≡ 1 [MOD p ^ 2] → q ≡ 1 [MOD p ^ 2]
-'Catalan.small_five_wieferich_candidates' depends on axioms: [propext, Quot.sound]
-'Catalan.five_no_double_wieferich_small' depends on axioms: [propext, Quot.sound]
+'Catalan.small_five_wieferich_candidates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Catalan.five_no_double_wieferich_small' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Catalan.mignotte_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Catalan.CaseTwo.not_modEq_one_of_large_weak_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Catalan.CaseTwo.not_modEq_one_of_seven_weak_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Catalan.CaseTwo.not_modEq_one_of_five_weak_bound' depends on axioms: [propext, Quot.sound]
+'Catalan.CaseTwo.not_modEq_one_of_five_weak_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Catalan.wieferich_lift_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
 Catalan.θminus : (p : ℕ) →
   [Fact (Nat.Prime p)] →
@@ -4250,7 +4250,7 @@ GlobalClassFieldTheory.GlobalClassFields.smallHilbertClassField_isEverywhereUnra
  Classical.choice,
  Quot.sound]
 @GlobalClassFieldTheory.Cohomology.cyclic_prime_power_infinite_fullDecompositionPlaces : ∀ {K L : Type} [inst : Field K]
-  [inst_1 : NumberField K] [inst_2 : Field L] [NumberField L] [inst_4 : Algebra K L] [inst_5 : FiniteDimensional K L]
+  [inst_1 : NumberField K] [inst_2 : Field L] [NumberField L] [inst_4 : Algebra K L] [FiniteDimensional K L]
   [inst_6 : IsGalois K L] [IsCyclic Gal(L/K)] {p exponent : ℕ},
   Nat.Prime p → 0 < exponent → Nat.card Gal(L/K) = p ^ exponent → {v | finitePlaceDecompositionGroup v = ⊤}.Infinite
 'GlobalClassFieldTheory.Cohomology.cyclic_prime_power_infinite_fullDecompositionPlaces' depends on axioms: [propext,
@@ -4473,7 +4473,7 @@ Catalan.A3.fixedField_fullDecomposition_infinite : ∀ (L : Type) [inst : Field 
           {v | finitePlaceDecompositionGroup v = ⊤}.Infinite
 'Catalan.A3.fixedField_fullDecomposition_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
 Catalan.A3.preservesPrime_of_mem_finitePlaceDecompositionGroup : ∀ (K L : Type) [inst : Field K]
-  [inst_1 : NumberField K] [inst_2 : Field L] [inst_3 : NumberField L] [inst_4 : Algebra K L] [inst_5 : IsGalois K L]
+  [inst_1 : NumberField K] [inst_2 : Field L] [NumberField L] [inst_4 : Algebra K L] [inst_5 : IsGalois K L]
   (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers K)),
   ∀ τ ∈ finitePlaceDecompositionGroup v,
     Catalan.A3.PreservesPrime τ (finitePlaceExtensionCentre v (chosenFinitePlaceExtension v)).asIdeal
@@ -5230,7 +5230,7 @@ Catalan.A3.chosenFinitePlace_unramified_of_finitePlaces : ∀ (K L : Type) [inst
     ∀ (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers K)), ChosenFinitePlaceIsUnramified v
 'Catalan.A3.chosenFinitePlace_unramified_of_finitePlaces' depends on axioms: [propext, Classical.choice, Quot.sound]
 Catalan.A3.primeArtin_zpowers_of_unramified : ∀ (K L : Type) [inst : Field K] [inst_1 : NumberField K]
-  [inst_2 : Field L] [inst_3 : NumberField L] [inst_4 : Algebra K L] [inst_5 : FiniteDimensional K L]
+  [inst_2 : Field L] [inst_3 : NumberField L] [inst_4 : Algebra K L] [FiniteDimensional K L]
   [inst_6 : IsAbelianGalois K L],
   IsUnramifiedAtFinitePlaces K L →
     ∀ (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers K)),
@@ -5714,7 +5714,7 @@ Catalan.UnitModule.powerClass_integralUnitPow : ∀ (p : ℕ) (K : Type u_1) [in
 'Catalan.Residue.inverseOrbitMap_canonical_action' depends on axioms: [propext, Classical.choice, Quot.sound]
 Catalan.Thaine.real_model_transport : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (K : Type u_1) [inst_1 : Field K]
   [inst_2 : NumberField K] [inst_3 : IsCyclotomicExtension {p} ℚ K],
-  have R := ℚ⟮Catalan.ζ p K + (Catalan.ζ p K)⁻¹⟯;
+  let R := ℚ⟮Catalan.ζ p K + (Catalan.ζ p K)⁻¹⟯;
   ∃ j e,
     j (Catalan.ζ p K) = Catalan.A3.primitiveRoot p ∧
       ∀ (x : ↥R), (algebraMap (Catalan.A3.F p) Catalan.A3.Omega) (e x) = j ↑x
