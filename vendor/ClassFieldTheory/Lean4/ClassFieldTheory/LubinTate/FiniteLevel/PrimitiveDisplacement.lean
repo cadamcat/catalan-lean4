@@ -18,6 +18,12 @@ public import Mathlib.RingTheory.MvPowerSeries.Inverse
 public import Mathlib.RingTheory.PowerSeries.Inverse
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveDisplacement`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

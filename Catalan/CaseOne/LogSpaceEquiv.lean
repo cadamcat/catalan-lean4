@@ -1,4 +1,14 @@
-import Catalan.CaseOne.FullLog
+module
+
+public import Catalan.CaseOne.FullLog
+
+/-!
+# `Catalan.CaseOne.LogSpaceEquiv`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

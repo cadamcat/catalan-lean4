@@ -16,6 +16,12 @@ public import GaloisCohomology.ProfiniteIntegers.TopologicalGeneration
 public import GaloisCohomology.Topology.TotallyDisconnectedQuotients
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Degree.FrobeniusFixedField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

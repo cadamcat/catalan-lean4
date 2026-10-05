@@ -17,6 +17,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.Valuation
 public import Mathlib.GroupTheory.GroupAction.Quotient
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasisGaloisAction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

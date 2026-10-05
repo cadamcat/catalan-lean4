@@ -1,4 +1,14 @@
-import Mathlib
+module
+
+public import Mathlib
+
+/-!
+# `Catalan.Classical.Euler.Arithmetic`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan.Euler

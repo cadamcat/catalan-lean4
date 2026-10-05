@@ -1,4 +1,14 @@
-import Catalan.CaseOne.GroupEvaluation
+module
+
+public import Catalan.CaseOne.GroupEvaluation
+
+/-!
+# `Catalan.CaseOne.RepresentationAnnihilator`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

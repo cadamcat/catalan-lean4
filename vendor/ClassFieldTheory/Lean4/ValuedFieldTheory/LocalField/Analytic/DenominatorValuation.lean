@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.Basic
 public import Mathlib.NumberTheory.Padics.PadicVal.Basic
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.DenominatorValuation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

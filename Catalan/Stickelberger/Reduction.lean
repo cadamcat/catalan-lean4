@@ -1,8 +1,18 @@
-import Catalan.IdealHelpers
-import Catalan.Stickelberger.ClassReduction
+module
+
+public import Catalan.IdealHelpers
+public import Catalan.Stickelberger.ClassReduction
 
 /-! Algebraic reduction of Stickelberger annihilation to generator witnesses.
 The required witnesses remain explicit premises; this is not the final theorem. -/
+/-!
+# `Catalan.Stickelberger.Reduction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open scoped BigOperators nonZeroDivisors Pointwise
 open NumberField
 noncomputable section

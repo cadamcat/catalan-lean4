@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ClassFie
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidue
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.AbstractFixedFieldGlobalNormResidue`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

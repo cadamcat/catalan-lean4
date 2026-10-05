@@ -19,6 +19,12 @@ public import GaloisCohomology.Cyclic.IntegralRepUniverse
 public import ValuedFieldTheory.Valuation.Topology.Models
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.NormTopology`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

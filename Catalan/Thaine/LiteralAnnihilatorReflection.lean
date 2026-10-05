@@ -1,8 +1,18 @@
-import Catalan.Thaine.LiteralFullAnnihilator
-import Catalan.Thaine.LiteralPowerInjection
-import Catalan.Thaine.CircularImageComparison
-import Catalan.Thaine.LiteralRestrictionAction
-import Catalan.Thaine.RealUnitAnnihilator
+module
+
+public import Catalan.Thaine.LiteralFullAnnihilator
+public import Catalan.Thaine.LiteralPowerInjection
+public import Catalan.Thaine.CircularImageComparison
+public import Catalan.Thaine.LiteralRestrictionAction
+public import Catalan.Thaine.RealUnitAnnihilator
+
+/-!
+# `Catalan.Thaine.LiteralAnnihilatorReflection`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

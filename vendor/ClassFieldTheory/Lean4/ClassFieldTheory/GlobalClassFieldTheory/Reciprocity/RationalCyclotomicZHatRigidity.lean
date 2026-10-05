@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicPrin
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicCharacterRigidity
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicZHatRigidity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

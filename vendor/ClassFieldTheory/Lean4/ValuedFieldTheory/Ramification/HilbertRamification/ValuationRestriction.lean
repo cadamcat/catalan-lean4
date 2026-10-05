@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.RamificationDep
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.Extensions
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.ValuationRestriction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

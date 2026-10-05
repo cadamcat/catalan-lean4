@@ -1,4 +1,14 @@
-import Catalan.Density.BaseFields
+module
+
+public import Catalan.Density.BaseFields
+
+/-!
+# `Catalan.Density.RealF`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

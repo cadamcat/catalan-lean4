@@ -15,6 +15,12 @@ public import GaloisCohomology.Cyclic.Herbrand.NormalBasisLattice
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.PrincipalUnitQuotients
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.PrincipalUnitGraded`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

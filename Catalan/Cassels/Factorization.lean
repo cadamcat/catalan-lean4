@@ -1,4 +1,14 @@
-import Catalan.Cassels.Divisibility
+module
+
+public import Catalan.Cassels.Divisibility
+
+/-!
+# `Catalan.Cassels.Factorization`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

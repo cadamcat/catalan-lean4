@@ -15,6 +15,12 @@ public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Index
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.Herbrand
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.HerbrandExactSequence`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

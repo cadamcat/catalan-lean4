@@ -1,9 +1,19 @@
-import Catalan.Thaine.RealUnramified
-import Catalan.Thaine.PrimeUniformizer
-import Catalan.Thaine.CyclotomicAway
-import Catalan.Thaine.TotalRamification
-import Catalan.Thaine.TotalInertia
-import Catalan.Thaine.AuxiliaryUniformizer
+module
+
+public import Catalan.Thaine.RealUnramified
+public import Catalan.Thaine.PrimeUniformizer
+public import Catalan.Thaine.CyclotomicAway
+public import Catalan.Thaine.TotalRamification
+public import Catalan.Thaine.TotalInertia
+public import Catalan.Thaine.AuxiliaryUniformizer
+
+/-!
+# `Catalan.Thaine.AuxiliaryRamification`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

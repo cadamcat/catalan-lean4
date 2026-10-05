@@ -16,6 +16,12 @@ public import Mathlib.Data.ZMod.QuotientRing
 public import Mathlib.NumberTheory.Padics.RingHoms
 
 
+/-!
+# `GaloisCohomology.ProfiniteIntegers.ProfiniteIntegerPrimeProduct`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

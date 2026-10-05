@@ -1,4 +1,14 @@
+module
+
 /- Independent core-only specifications; placeholders occur only in this challenge. -/
+/-!
+# `Verification.Supplemental.common.audit.StrictChallenge`
+
+Verification support module.
+-/
+
+@[expose] public section
+
 set_option autoImplicit false
 namespace StrictCatalan
 

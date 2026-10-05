@@ -27,6 +27,12 @@ public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposi
 public import GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.FiniteOrder
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicTorsionFixedField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

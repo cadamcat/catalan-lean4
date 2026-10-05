@@ -1,7 +1,17 @@
-import Catalan.Thaine.LiteralMaps
-import Catalan.Thaine.IntegralUnitDescent
-import Catalan.Cyclotomic.UnitPowers
-import Catalan.Density.NormalM
+module
+
+public import Catalan.Thaine.LiteralMaps
+public import Catalan.Thaine.IntegralUnitDescent
+public import Catalan.Cyclotomic.UnitPowers
+public import Catalan.Density.NormalM
+
+/-!
+# `Catalan.Thaine.LiteralPowerInjection`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

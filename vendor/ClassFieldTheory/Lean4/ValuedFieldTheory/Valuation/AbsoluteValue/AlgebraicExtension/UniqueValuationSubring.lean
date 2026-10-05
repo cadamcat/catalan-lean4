@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtension
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueValuationSubring`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

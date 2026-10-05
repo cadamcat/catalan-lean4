@@ -1,6 +1,16 @@
-import Catalan.Counting.QuotientBall
-import Catalan.CaseTwo.HyyroThreshold
-import Catalan.Mihailescu.KernelCardinality
+module
+
+public import Catalan.Counting.QuotientBall
+public import Catalan.CaseTwo.HyyroThreshold
+public import Catalan.Mihailescu.KernelCardinality
+
+/-!
+# `Catalan.CaseTwo.WeakBounds`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 namespace Catalan

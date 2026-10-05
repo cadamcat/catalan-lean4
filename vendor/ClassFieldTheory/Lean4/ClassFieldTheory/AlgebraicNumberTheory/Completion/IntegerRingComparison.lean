@@ -21,6 +21,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.AlgebraicLocali
 public import Mathlib.NumberTheory.Padics.HeightOneSpectrum
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Completion.IntegerRingComparison`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -17,6 +17,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction
 public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.PrimeChoice
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.ReciprocityDefinition`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Completion.ExtensionIndex
 public import Mathlib.NumberTheory.RamificationInertia.Unramified
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.NumberField.FiniteUnramifiedTower`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

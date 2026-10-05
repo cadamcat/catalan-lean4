@@ -15,6 +15,12 @@ public import Mathlib.Topology.Algebra.ClopenNhdofOne
 public import Mathlib.Topology.Algebra.Group.Quotient
 
 
+/-!
+# `GaloisCohomology.Topology.TotallyDisconnectedQuotients`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,4 +1,14 @@
-import Mathlib
+module
+
+public import Mathlib
+
+/-!
+# `Catalan.Counting.Defs`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

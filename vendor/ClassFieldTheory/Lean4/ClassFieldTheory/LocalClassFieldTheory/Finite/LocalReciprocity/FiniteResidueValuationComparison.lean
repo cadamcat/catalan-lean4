@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralC
 public import ValuedFieldTheory.Ramification.GaloisValuation.AbsoluteGalois.FiniteExtensionCorrespondence
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteResidueValuationComparison`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

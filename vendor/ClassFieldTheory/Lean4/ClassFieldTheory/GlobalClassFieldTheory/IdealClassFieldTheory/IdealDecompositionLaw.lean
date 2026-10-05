@@ -18,6 +18,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalArtinCom
 public import ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.Basic
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.IdealClassFieldTheory.IdealDecompositionLaw`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

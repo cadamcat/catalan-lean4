@@ -1,4 +1,14 @@
-import Catalan.Density.RootCharacter
+module
+
+public import Catalan.Density.RootCharacter
+
+/-!
+# `Catalan.Density.ScalarFixed`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

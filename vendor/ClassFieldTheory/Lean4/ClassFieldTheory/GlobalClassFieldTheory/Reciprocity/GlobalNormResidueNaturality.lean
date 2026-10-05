@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.AbstractFixedF
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerAlgEquivNaturality
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidueNaturality`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

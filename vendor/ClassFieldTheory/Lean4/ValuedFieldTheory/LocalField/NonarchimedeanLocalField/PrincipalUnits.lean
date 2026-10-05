@@ -20,6 +20,12 @@ constructs the quotient of valuation-ring units by the first filtration step.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.PrincipalUnits`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

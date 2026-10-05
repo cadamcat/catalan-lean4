@@ -22,6 +22,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdeleClass
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormTopology.Continuity
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.KummerNormDescent`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

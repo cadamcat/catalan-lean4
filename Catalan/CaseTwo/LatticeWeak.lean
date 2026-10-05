@@ -1,4 +1,14 @@
-import Catalan.Counting
+module
+
+public import Catalan.Counting
+
+/-!
+# `Catalan.CaseTwo.LatticeWeak`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan

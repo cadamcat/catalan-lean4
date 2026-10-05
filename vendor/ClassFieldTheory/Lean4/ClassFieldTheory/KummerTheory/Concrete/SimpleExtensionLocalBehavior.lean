@@ -43,6 +43,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedCompar
 public import GaloisCohomology.Kummer.Concrete.LocalUnitKummerUnramified
 
 
+/-!
+# `ClassFieldTheory.KummerTheory.Concrete.SimpleExtensionLocalBehavior`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

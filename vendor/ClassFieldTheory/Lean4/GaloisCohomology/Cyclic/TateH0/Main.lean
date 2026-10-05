@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import GaloisCohomology.Cyclic.TateH0.NormImage
 
 
+/-!
+# `GaloisCohomology.Cyclic.TateH0.Main`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

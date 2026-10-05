@@ -1,7 +1,17 @@
-import Catalan.Wieferich.Core
-import Catalan.Wieferich.Defs
-import Catalan.Wieferich.Basis
-import Catalan.Wieferich.Frobenius
+module
+
+public import Catalan.Wieferich.Core
+public import Catalan.Wieferich.Defs
+public import Catalan.Wieferich.Basis
+public import Catalan.Wieferich.Frobenius
+
+/-!
+# `Catalan.Wieferich.Obstruction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

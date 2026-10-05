@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.SUnitKumme
 public import ClassFieldTheory.KummerTheory.Concrete.FinitePlaceDecomposition
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.SUnitKummerPrimeSelection.Conclusion`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

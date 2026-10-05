@@ -1,5 +1,15 @@
-import Catalan.Thaine.AuxiliaryResidue
-import Catalan.Thaine.RealCircularUnit
+module
+
+public import Catalan.Thaine.AuxiliaryResidue
+public import Catalan.Thaine.RealCircularUnit
+
+/-!
+# `Catalan.Thaine.CircularClosure`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

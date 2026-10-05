@@ -21,6 +21,12 @@ public import Mathlib.Algebra.Algebra.Tower
 public import ValuedFieldTheory.Valuation.LocalRingEquiv
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.RamificationInvariants`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

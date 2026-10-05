@@ -1,4 +1,14 @@
-import Catalan.Density.RootCoordinateAction
+module
+
+public import Catalan.Density.RootCoordinateAction
+
+/-!
+# `Catalan.Density.RootCharacter`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

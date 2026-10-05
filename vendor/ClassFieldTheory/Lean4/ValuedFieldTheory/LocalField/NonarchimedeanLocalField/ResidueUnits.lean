@@ -23,6 +23,12 @@ identifies it, multiplicatively and additively, with the residue-field units.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueUnits`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

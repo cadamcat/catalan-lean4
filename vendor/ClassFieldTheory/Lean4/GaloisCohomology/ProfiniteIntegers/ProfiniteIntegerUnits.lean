@@ -15,6 +15,12 @@ public import GaloisCohomology.ProfiniteIntegers.ProfiniteIntegerPrimeProduct
 public import Mathlib.Topology.Algebra.Group.Units
 
 
+/-!
+# `GaloisCohomology.ProfiniteIntegers.ProfiniteIntegerUnits`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

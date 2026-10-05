@@ -17,6 +17,12 @@ public import ValuedFieldTheory.Ramification.GaloisValuation.ClosedFixingSubgrou
 public import Mathlib.GroupTheory.QuotientGroup.Defs
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDirectLimitFiniteLevelCore`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

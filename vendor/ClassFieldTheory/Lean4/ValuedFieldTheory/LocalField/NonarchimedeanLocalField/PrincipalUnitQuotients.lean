@@ -22,6 +22,12 @@ Develops `U^n/U^(n+1)` and identifies it with the additive ideal quotient
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.PrincipalUnitQuotients`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

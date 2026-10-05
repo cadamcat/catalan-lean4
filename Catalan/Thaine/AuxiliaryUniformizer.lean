@@ -1,4 +1,14 @@
-import Catalan.Thaine.AuxiliaryIntegerData
+module
+
+public import Catalan.Thaine.AuxiliaryIntegerData
+
+/-!
+# `Catalan.Thaine.AuxiliaryUniformizer`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

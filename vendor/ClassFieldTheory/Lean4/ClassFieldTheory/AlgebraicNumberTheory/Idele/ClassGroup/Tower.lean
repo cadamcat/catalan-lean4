@@ -16,6 +16,12 @@ public import Mathlib.LinearAlgebra.TensorProduct.Basis
 public import Mathlib.RingTheory.TensorProduct.Maps
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

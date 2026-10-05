@@ -1,7 +1,17 @@
-import Catalan.Thaine.LiteralRungeContradiction
-import Catalan.Thaine.PrimeAssemblyReduction
-import Catalan.Thaine.NaturalClassificationReduction
-import Catalan.Classical.Reduction
+module
+
+public import Catalan.Thaine.LiteralRungeContradiction
+public import Catalan.Thaine.PrimeAssemblyReduction
+public import Catalan.Thaine.NaturalClassificationReduction
+public import Catalan.Classical.Reduction
+
+/-!
+# `Catalan.Final.Assembly`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan

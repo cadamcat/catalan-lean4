@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.BigHilbe
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertClassFieldComparison
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertClassFieldReciprocity.BigActual`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

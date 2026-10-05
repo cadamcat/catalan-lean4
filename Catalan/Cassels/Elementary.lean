@@ -1,5 +1,15 @@
-import Catalan.Cassels.Valuation
-import Catalan.Cassels.PowerFactors
+module
+
+public import Catalan.Cassels.Valuation
+public import Catalan.Cassels.PowerFactors
+
+/-!
+# `Catalan.Cassels.Elementary`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 

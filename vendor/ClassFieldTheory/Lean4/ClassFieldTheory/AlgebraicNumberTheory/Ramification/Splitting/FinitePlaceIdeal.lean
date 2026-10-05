@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Completion.ExtensionIndex
 public import ClassFieldTheory.AlgebraicNumberTheory.Galois.CyclicPrimeSubextension
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlaceIdeal`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -18,6 +18,12 @@ public import GaloisCohomology.Cyclic.TateH0.NormImage
 public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Basic
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.CohomologyBridge`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

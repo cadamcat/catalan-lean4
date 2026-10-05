@@ -1,5 +1,15 @@
-import Catalan.Cassels.Denominator
-import Catalan.Cassels.RemainderArithmetic
+module
+
+public import Catalan.Cassels.Denominator
+public import Catalan.Cassels.RemainderArithmetic
+
+/-!
+# `Catalan.Cassels.ErrorIntegral`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 

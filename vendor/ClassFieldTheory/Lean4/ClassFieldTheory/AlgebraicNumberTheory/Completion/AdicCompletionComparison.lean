@@ -22,6 +22,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Adele.IntegralTensorSupport
 public import Mathlib.NumberTheory.RamificationInertia.Valuation
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Completion.AdicCompletionComparison`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

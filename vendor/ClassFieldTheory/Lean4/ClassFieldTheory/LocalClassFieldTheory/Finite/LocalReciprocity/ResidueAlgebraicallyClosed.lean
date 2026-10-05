@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.Valuation.Integral
 public import Mathlib.RingTheory.Valuation.ValuationSubring
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.ResidueAlgebraicallyClosed`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

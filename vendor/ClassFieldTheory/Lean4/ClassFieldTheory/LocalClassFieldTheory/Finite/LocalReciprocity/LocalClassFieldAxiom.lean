@@ -17,6 +17,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Fin
 public import GaloisCohomology.Cyclic.TateComparison
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.LocalClassFieldAxiom`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

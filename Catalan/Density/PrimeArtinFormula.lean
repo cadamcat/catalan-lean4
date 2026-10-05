@@ -1,5 +1,15 @@
-import Catalan.Density.ArtinIdele
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ArithmeticUnramifiedPrimeArtin
+module
+
+public import Catalan.Density.ArtinIdele
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ArithmeticUnramifiedPrimeArtin
+
+/-!
+# `Catalan.Density.PrimeArtinFormula`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

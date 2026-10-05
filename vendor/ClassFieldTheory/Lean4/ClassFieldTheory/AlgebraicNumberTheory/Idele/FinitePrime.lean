@@ -22,6 +22,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseC
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.SinglePlace
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.FinitePrime`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

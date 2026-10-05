@@ -1,6 +1,16 @@
-import Catalan.Wieferich.DoubleWieferich
-import Catalan.Wieferich.Action
-import Catalan.IdealAction
+module
+
+public import Catalan.Wieferich.DoubleWieferich
+public import Catalan.Wieferich.Action
+public import Catalan.IdealAction
+
+/-!
+# `Catalan.Thaine.SymmetrizedCongruence`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

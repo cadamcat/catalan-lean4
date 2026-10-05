@@ -15,6 +15,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.
 public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Product
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Family.Instances`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

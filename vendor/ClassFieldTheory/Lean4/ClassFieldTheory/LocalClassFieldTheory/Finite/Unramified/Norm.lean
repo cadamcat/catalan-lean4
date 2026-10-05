@@ -15,6 +15,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.ResidueNo
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.Existence.UnramifiedNormSubgroup
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.Norm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

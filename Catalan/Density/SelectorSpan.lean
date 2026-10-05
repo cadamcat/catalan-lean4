@@ -1,8 +1,18 @@
-import Catalan.Density.GaloisModules
-import Catalan.Density.SelectorLift
-import Catalan.Density.TConjugate
-import Catalan.Density.KummerConjugateSpan
-import Catalan.Density.CyclicKummerCentralizer
+module
+
+public import Catalan.Density.GaloisModules
+public import Catalan.Density.SelectorLift
+public import Catalan.Density.TConjugate
+public import Catalan.Density.KummerConjugateSpan
+public import Catalan.Density.CyclicKummerCentralizer
+
+/-!
+# `Catalan.Density.SelectorSpan`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

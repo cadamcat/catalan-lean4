@@ -1,7 +1,17 @@
-import Catalan.Density.FiniteH
-import Catalan.Density.HRelative
-import Catalan.CaseOne.PowerQuotient
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ArithmeticNormalization
+module
+
+public import Catalan.Density.FiniteH
+public import Catalan.Density.HRelative
+public import Catalan.CaseOne.PowerQuotient
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ArithmeticNormalization
+
+/-!
+# `Catalan.Density.ClassGroupArtin`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

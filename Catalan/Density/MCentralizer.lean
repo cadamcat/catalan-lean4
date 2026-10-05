@@ -1,4 +1,14 @@
-import Catalan.Density.BaseFixing
+module
+
+public import Catalan.Density.BaseFixing
+
+/-!
+# `Catalan.Density.MCentralizer`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

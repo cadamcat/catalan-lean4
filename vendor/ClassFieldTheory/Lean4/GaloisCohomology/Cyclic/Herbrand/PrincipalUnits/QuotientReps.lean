@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.PrincipalUnitQuotients
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.PrincipalUnits.QuotientReps`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

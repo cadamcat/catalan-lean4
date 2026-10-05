@@ -17,6 +17,12 @@ public import Mathlib.Algebra.CharP.Lemmas
 public import Mathlib.Algebra.Group.Units.Hom
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits.Filtration`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

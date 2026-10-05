@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.Nonarchimedean
 public import Mathlib.Analysis.Normed.Unbundled.SpectralNorm
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.SpectralExtension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

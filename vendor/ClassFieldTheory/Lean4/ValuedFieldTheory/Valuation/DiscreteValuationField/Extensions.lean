@@ -21,6 +21,12 @@ public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
 public import Mathlib.Algebra.Group.Units.Hom
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.Extensions`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

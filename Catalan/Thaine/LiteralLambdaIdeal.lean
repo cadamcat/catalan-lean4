@@ -1,6 +1,16 @@
-import Catalan.Thaine.LiteralNorms
-import Catalan.Cassels.LambdaIdeal
-import Catalan.FactorBridge
+module
+
+public import Catalan.Thaine.LiteralNorms
+public import Catalan.Cassels.LambdaIdeal
+public import Catalan.FactorBridge
+
+/-!
+# `Catalan.Thaine.LiteralLambdaIdeal`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

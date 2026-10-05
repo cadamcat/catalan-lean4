@@ -15,6 +15,12 @@ public import Mathlib.Topology.Algebra.ClopenNhdofOne
 public import Mathlib.Topology.Algebra.ContinuousMonoidHom
 
 
+/-!
+# `GaloisCohomology.ProfiniteIntegers.TopologicalGeneration`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

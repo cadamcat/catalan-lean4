@@ -1,5 +1,15 @@
-import Catalan.CaseOne.UnitRepresentation
-import Catalan.Runge.Reduction
+module
+
+public import Catalan.CaseOne.UnitRepresentation
+public import Catalan.Runge.Reduction
+
+/-!
+# `Catalan.Thaine.IntegralUnitPow`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

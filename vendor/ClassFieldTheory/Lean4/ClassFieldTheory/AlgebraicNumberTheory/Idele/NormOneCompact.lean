@@ -20,6 +20,12 @@ public import Mathlib.NumberTheory.NumberField.ClassNumber
 public import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.NormOneCompact`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

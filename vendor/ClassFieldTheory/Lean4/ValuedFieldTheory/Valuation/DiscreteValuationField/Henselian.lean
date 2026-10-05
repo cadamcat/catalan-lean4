@@ -16,6 +16,12 @@ public import Mathlib.RingTheory.Henselian
 public import Mathlib.RingTheory.Ideal.Quotient.Operations
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.Henselian`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

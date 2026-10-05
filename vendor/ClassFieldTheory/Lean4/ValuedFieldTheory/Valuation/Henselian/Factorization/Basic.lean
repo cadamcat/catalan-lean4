@@ -16,6 +16,12 @@ public import Mathlib.Algebra.Polynomial.Lifts
 public import Mathlib.RingTheory.LocalRing.ResidueField.Basic
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Factorization.Basic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

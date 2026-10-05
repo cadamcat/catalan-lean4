@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitPower
 public import Mathlib.NumberTheory.NumberField.ProductFormula
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdeleClassPowerLocalUnitQuotient.FinitePlacePowerIndex`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.Henselian.Factorization.WeakLimits
 public import ValuedFieldTheory.Valuation.Henselian.Factorization.PrincipalLimits
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Factorization.Assembly`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

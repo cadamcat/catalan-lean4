@@ -1,6 +1,8 @@
-import Catalan.Stickelberger.GaussFamily
-import Catalan.IdealAction.Composition
-import Mathlib
+module
+
+public import Catalan.Stickelberger.GaussFamily
+public import Catalan.IdealAction.Composition
+public import Mathlib
 
 /-!
 # Ideal identities from prime-by-prime multiplicities
@@ -13,6 +15,14 @@ identity of fractional-ideal units of the shape `ipow`/`principalIdeal` used by
 
 Nothing here computes a Gauss-sum valuation; that input stays explicit.
 -/
+
+/-!
+# `Catalan.Stickelberger.Factor`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 

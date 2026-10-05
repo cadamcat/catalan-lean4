@@ -1,5 +1,15 @@
-import Catalan.Wieferich.Coefficient
-import Catalan.Cyclotomic.GroupRingMul
+module
+
+public import Catalan.Wieferich.Coefficient
+public import Catalan.Cyclotomic.GroupRingMul
+
+/-!
+# `Catalan.Stickelberger.MinusDefs`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

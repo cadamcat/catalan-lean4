@@ -21,6 +21,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertC
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteLocalGlobalArtinCompatibility
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertClassFieldUnramifiedMaximality`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

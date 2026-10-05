@@ -1,4 +1,14 @@
-import Catalan.Height.Basic
+module
+
+public import Catalan.Height.Basic
+
+/-!
+# `Catalan.Height.Liouville`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 open NumberField

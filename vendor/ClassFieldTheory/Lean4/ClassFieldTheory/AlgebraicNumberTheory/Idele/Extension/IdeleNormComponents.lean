@@ -17,6 +17,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.ArchimedeanN
 public import ClassFieldTheory.AlgebraicNumberTheory.Completion.AdicCompletionComparison
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNormComponents`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArt
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.OnePlaceNormKernel
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.Factorization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

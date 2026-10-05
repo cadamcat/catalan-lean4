@@ -1,9 +1,19 @@
-import Catalan.Density.ResidueRoot
-import Catalan.Density.ResiduePowerMap
-import Catalan.Density.IntegralUnitRoot
-import Catalan.Density.FixedResidue
-import Catalan.Density.GaloisModules
-import Catalan.Density.FiniteT
+module
+
+public import Catalan.Density.ResidueRoot
+public import Catalan.Density.ResiduePowerMap
+public import Catalan.Density.IntegralUnitRoot
+public import Catalan.Density.FixedResidue
+public import Catalan.Density.GaloisModules
+public import Catalan.Density.FiniteT
+
+/-!
+# `Catalan.Density.KummerResidue`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

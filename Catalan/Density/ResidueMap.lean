@@ -1,4 +1,14 @@
-import Mathlib
+module
+
+public import Mathlib
+
+/-!
+# `Catalan.Density.ResidueMap`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

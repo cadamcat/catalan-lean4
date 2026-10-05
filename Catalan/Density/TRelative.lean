@@ -1,5 +1,15 @@
-import Catalan.Density.TTower
-import Catalan.Density.SupExt
+module
+
+public import Catalan.Density.TTower
+public import Catalan.Density.SupExt
+
+/-!
+# `Catalan.Density.TRelative`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

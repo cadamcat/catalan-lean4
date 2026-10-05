@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.Ramif
 public import Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Unramified.Definitions`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

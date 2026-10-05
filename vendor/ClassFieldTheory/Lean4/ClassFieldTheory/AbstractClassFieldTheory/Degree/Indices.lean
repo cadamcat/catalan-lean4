@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import GaloisCohomology.GroupTheory.QuotientTower
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Degree.Indices`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

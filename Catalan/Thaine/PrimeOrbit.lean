@@ -1,4 +1,14 @@
-import Catalan.Thaine.RealUnramified
+module
+
+public import Catalan.Thaine.RealUnramified
+
+/-!
+# `Catalan.Thaine.PrimeOrbit`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

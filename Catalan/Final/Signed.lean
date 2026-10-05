@@ -1,4 +1,14 @@
-import Catalan.Final.Assembly
+module
+
+public import Catalan.Final.Assembly
+
+/-!
+# `Catalan.Final.Signed`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan

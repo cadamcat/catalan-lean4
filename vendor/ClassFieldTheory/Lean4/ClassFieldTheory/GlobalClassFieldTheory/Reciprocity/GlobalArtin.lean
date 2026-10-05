@@ -17,6 +17,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Cohomology.CofinitelySplit
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Norm
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalArtin`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

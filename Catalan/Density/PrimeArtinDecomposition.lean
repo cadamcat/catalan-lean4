@@ -1,8 +1,18 @@
-import Catalan.Density.FinitePlacePreservation
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ArithmeticUnramifiedPrimeArtin
-import ClassFieldTheory.AlgebraicNumberTheory.NumberField.FiniteUnramifiedTower
-import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.IdealToCompletion
-import ClassFieldTheory.AlgebraicNumberTheory.Galois.CyclicPrimeSubextension
+module
+
+public import Catalan.Density.FinitePlacePreservation
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ArithmeticUnramifiedPrimeArtin
+public import ClassFieldTheory.AlgebraicNumberTheory.NumberField.FiniteUnramifiedTower
+public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.IdealToCompletion
+public import ClassFieldTheory.AlgebraicNumberTheory.Galois.CyclicPrimeSubextension
+
+/-!
+# `Catalan.Density.PrimeArtinDecomposition`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

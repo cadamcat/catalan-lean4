@@ -1,5 +1,15 @@
-import Catalan.Thaine.UnitPowerReflection
-import Catalan.CaseOne.PrimaryUnits
+module
+
+public import Catalan.Thaine.UnitPowerReflection
+public import Catalan.CaseOne.PrimaryUnits
+
+/-!
+# `Catalan.Thaine.LocalizedPrimaryCriterion`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

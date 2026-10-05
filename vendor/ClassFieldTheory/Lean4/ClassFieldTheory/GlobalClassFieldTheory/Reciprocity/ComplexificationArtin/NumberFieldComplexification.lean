@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.SeparableClosureEmbedding
 public import Mathlib.FieldTheory.Galois.Abelian
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.NumberFieldComplexification`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

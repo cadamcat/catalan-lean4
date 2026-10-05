@@ -1,4 +1,14 @@
-import Mathlib.RingTheory.Ideal.Maps
+module
+
+public import Mathlib.RingTheory.Ideal.Maps
+
+/-!
+# `Catalan.Thaine.IdealNonzero`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan.Thaine

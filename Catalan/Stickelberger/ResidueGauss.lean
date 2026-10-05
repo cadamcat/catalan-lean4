@@ -1,5 +1,15 @@
-import Catalan.Cyclotomic.Ramification
-import Catalan.Stickelberger.GaussCharacters
+module
+
+public import Catalan.Cyclotomic.Ramification
+public import Catalan.Stickelberger.GaussCharacters
+
+/-!
+# `Catalan.Stickelberger.ResidueGauss`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open NumberField
 noncomputable section

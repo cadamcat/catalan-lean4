@@ -17,6 +17,12 @@ public import Mathlib.Algebra.Module.ZLattice.Basic
 public import Mathlib.NumberTheory.NumberField.ProductFormula
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.SUnit.LogLattice`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

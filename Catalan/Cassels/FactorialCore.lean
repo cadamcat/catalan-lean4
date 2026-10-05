@@ -1,4 +1,14 @@
-import Catalan.Cassels.DenominatorDefs
+module
+
+public import Catalan.Cassels.DenominatorDefs
+
+/-!
+# `Catalan.Cassels.FactorialCore`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 

@@ -19,6 +19,12 @@ public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalCoreBase.
 public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalCoreBase.ExplicitChoiceCounts
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalCore`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction
 public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.FrobeniusField
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.FrobeniusDescent`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

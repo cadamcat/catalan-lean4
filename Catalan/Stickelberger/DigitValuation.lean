@@ -1,6 +1,8 @@
-import Mathlib.Data.Nat.Digits.Lemmas
-import Mathlib.Data.ENat.Basic
-import Mathlib.Tactic
+module
+
+public import Mathlib.Data.Nat.Digits.Lemmas
+public import Mathlib.Data.ENat.Basic
+public import Mathlib.Tactic
 
 /-!
 Arithmetic prerequisites for the Gauss valuation formula. The valuation hypotheses
@@ -8,6 +10,14 @@ were identified by reading xroblot/SKW, `SKW/Stickelberger/valGauss.lean`, revis
 4db8676808a63d892a8f36ead11308ca8dd58520. The proofs here were independently written:
 the exact-value step uses digit complementation. No SKW module is imported.
 -/
+
+/-!
+# `Catalan.Stickelberger.DigitValuation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.Stickelberger
 

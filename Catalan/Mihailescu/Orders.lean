@@ -1,6 +1,16 @@
-import Catalan.Cyclotomic.GroupRing
+module
+
+public import Catalan.Cyclotomic.GroupRing
 
 /-! Integer-valued multiplicative orders of a group-ring power. -/
+/-!
+# `Catalan.Mihailescu.Orders`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open scoped BigOperators
 noncomputable section
 namespace Catalan

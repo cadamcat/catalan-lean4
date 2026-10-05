@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.IwasawaPrincip
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.MixedCharacteristicStructure.Core
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitStructure`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

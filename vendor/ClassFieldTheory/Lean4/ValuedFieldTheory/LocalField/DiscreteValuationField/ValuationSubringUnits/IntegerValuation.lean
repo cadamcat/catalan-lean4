@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValueGroup
 public import Mathlib.Data.Int.WithZero
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.IntegerValuation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

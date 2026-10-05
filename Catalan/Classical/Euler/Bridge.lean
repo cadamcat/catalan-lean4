@@ -1,5 +1,15 @@
-import Catalan.Classical.Euler.Sequence
-import Catalan.Classical.Euler.Arithmetic
+module
+
+public import Catalan.Classical.Euler.Sequence
+public import Catalan.Classical.Euler.Arithmetic
+
+/-!
+# `Catalan.Classical.Euler.Bridge`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan.Euler

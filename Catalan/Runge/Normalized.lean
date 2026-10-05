@@ -1,8 +1,18 @@
-import Catalan.Runge.IntegralApproximation
-import Catalan.Runge.ReducedQuotient
-import Catalan.Runge.CoefficientBasis
-import Catalan.Runge.CoeffResidue
-import Catalan.Runge.Reduction
+module
+
+public import Catalan.Runge.IntegralApproximation
+public import Catalan.Runge.ReducedQuotient
+public import Catalan.Runge.CoefficientBasis
+public import Catalan.Runge.CoeffResidue
+public import Catalan.Runge.Reduction
+
+/-!
+# `Catalan.Runge.Normalized`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

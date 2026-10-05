@@ -16,6 +16,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction
 public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.TransferOrbitClosure
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.MainMultiplicativity.FrobeniusActionRemainder`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.Complexificati
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidueNaturality
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.InfinitePlaceCompatibility`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

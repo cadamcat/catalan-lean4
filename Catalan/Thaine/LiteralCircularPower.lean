@@ -1,5 +1,15 @@
-import Catalan.Thaine.CircularizePowers
-import Catalan.Thaine.LiteralLambdaPower
+module
+
+public import Catalan.Thaine.CircularizePowers
+public import Catalan.Thaine.LiteralLambdaPower
+
+/-!
+# `Catalan.Thaine.LiteralCircularPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

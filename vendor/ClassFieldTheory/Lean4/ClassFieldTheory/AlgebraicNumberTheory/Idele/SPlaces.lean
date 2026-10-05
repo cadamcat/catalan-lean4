@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Topology
 public import Mathlib.RingTheory.DedekindDomain.SInteger
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.SPlaces`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

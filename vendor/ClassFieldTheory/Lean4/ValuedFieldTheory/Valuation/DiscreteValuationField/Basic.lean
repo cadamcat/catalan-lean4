@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.Valuation.Discrete.Basic
 public import Mathlib.RingTheory.Valuation.LocalSubring
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.Basic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

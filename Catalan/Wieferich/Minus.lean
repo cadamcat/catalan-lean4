@@ -1,7 +1,17 @@
-import Catalan.Wieferich.Core
-import Catalan.Wieferich.Action
-import Catalan.Wieferich.Conjugation
-import Catalan.Wieferich.IdealGenerator
+module
+
+public import Catalan.Wieferich.Core
+public import Catalan.Wieferich.Action
+public import Catalan.Wieferich.Conjugation
+public import Catalan.Wieferich.IdealGenerator
+
+/-!
+# `Catalan.Wieferich.Minus`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Degree.FrobeniusLift
 public import ClassFieldTheory.AbstractClassFieldTheory.Degree.Norm
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Degree.Valuation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

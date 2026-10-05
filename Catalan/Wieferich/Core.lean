@@ -1,4 +1,14 @@
-import Mathlib
+module
+
+public import Mathlib
+
+/-!
+# `Catalan.Wieferich.Core`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators ComplexConjugate
 open NumberField

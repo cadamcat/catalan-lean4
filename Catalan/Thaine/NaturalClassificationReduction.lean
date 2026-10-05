@@ -1,4 +1,14 @@
-import Catalan.Classical.Reduction
+module
+
+public import Catalan.Classical.Reduction
+
+/-!
+# `Catalan.Thaine.NaturalClassificationReduction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan.Thaine

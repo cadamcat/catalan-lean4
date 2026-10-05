@@ -1,6 +1,16 @@
-import Catalan.CaseOne.PlaceCycle
-import Catalan.CaseOne.CyclicZeroSum
-import Catalan.CaseOne.UnitCharpoly
+module
+
+public import Catalan.CaseOne.PlaceCycle
+public import Catalan.CaseOne.CyclicZeroSum
+public import Catalan.CaseOne.UnitCharpoly
+
+/-!
+# `Catalan.CaseOne.PlaceCharpoly`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

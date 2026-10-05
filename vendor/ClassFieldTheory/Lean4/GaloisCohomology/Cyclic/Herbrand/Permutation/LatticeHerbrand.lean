@@ -15,6 +15,12 @@ public import GaloisCohomology.Cyclic.Herbrand.Permutation.Lattice
 public import GaloisCohomology.Cyclic.Herbrand.Permutation.Module
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.Permutation.LatticeHerbrand`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

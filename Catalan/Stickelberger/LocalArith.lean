@@ -1,6 +1,16 @@
-import Mathlib.NumberTheory.NumberField.Cyclotomic.Ideal
-import Mathlib.RingTheory.Ideal.Norm.AbsNorm
-import Mathlib.Data.ZMod.Basic
+module
+
+public import Mathlib.NumberTheory.NumberField.Cyclotomic.Ideal
+public import Mathlib.RingTheory.Ideal.Norm.AbsNorm
+public import Mathlib.Data.ZMod.Basic
+
+/-!
+# `Catalan.Stickelberger.LocalArith`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.Stickelberger
 

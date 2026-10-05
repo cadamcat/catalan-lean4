@@ -20,6 +20,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormTopology.IdeleCla
 public import ClassFieldTheory.AbstractClassFieldTheory.Degree.Valuation
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicIdeleClassValuation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

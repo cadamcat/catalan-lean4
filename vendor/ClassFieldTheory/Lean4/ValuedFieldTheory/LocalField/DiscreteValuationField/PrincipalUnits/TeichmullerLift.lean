@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits
 public import Mathlib.Algebra.CharP.Lemmas
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits.TeichmullerLift`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

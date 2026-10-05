@@ -1,6 +1,16 @@
-import Catalan.CaseOne.UnitNorm
-import Catalan.CaseOne.AnnihilatorDuality
-import Catalan.CaseOne.Involution
+module
+
+public import Catalan.CaseOne.UnitNorm
+public import Catalan.CaseOne.AnnihilatorDuality
+public import Catalan.CaseOne.Involution
+
+/-!
+# `Catalan.CaseOne.PlusAugmentation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

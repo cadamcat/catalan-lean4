@@ -1,6 +1,16 @@
-import Catalan.Thaine.OrdinaryClassAction
-import Catalan.Thaine.ConjugateResidue
-import Catalan.CaseOne.PowerQuotient
+module
+
+public import Catalan.Thaine.OrdinaryClassAction
+public import Catalan.Thaine.ConjugateResidue
+public import Catalan.CaseOne.PowerQuotient
+
+/-!
+# `Catalan.Thaine.ClassRepresentation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

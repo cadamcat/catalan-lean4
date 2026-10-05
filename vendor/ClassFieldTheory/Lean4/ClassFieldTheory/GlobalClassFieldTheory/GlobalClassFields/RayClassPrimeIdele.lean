@@ -17,6 +17,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertC
 public import ClassFieldTheory.GlobalClassFieldTheory.IdealClassFieldTheory.IdealFrobenius
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.RayClassPrimeIdele`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

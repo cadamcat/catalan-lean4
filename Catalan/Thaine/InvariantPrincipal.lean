@@ -1,5 +1,15 @@
-import Catalan.Thaine.AuxiliaryIntegerData
-import Catalan.Stickelberger.Equivariance
+module
+
+public import Catalan.Thaine.AuxiliaryIntegerData
+public import Catalan.Stickelberger.Equivariance
+
+/-!
+# `Catalan.Thaine.InvariantPrincipal`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

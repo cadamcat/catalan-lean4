@@ -16,6 +16,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Hen
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.SeparableFixedFieldNorm
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.AbstractFixedFieldNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

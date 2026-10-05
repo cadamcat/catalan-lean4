@@ -1,5 +1,15 @@
-import Catalan.Density.HPrimeFrobenius
-import Catalan.Density.DensityTheorem
+module
+
+public import Catalan.Density.HPrimeFrobenius
+public import Catalan.Density.DensityTheorem
+
+/-!
+# `Catalan.Density.SelectorPrimes`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

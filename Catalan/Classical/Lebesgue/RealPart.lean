@@ -1,5 +1,15 @@
-import Catalan.Classical.Lebesgue.Binomial
-import Catalan.Classical.Lebesgue.Orders
+module
+
+public import Catalan.Classical.Lebesgue.Binomial
+public import Catalan.Classical.Lebesgue.Orders
+
+/-!
+# `Catalan.Classical.Lebesgue.RealPart`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan.Lebesgue

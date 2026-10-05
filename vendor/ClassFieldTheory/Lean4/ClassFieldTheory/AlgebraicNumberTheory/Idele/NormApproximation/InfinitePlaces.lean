@@ -21,6 +21,12 @@ public import Mathlib.Analysis.SpecialFunctions.Pow.Real
 public import Mathlib.FieldTheory.IsAlgClosed.Basic
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.InfinitePlaces`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

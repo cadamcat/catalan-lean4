@@ -1,5 +1,15 @@
-import Catalan.Runge.Definitions
-import Catalan.Wieferich.Conjugation
+module
+
+public import Catalan.Runge.Definitions
+public import Catalan.Wieferich.Conjugation
+
+/-!
+# `Catalan.Runge.RootReality`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators ComplexConjugate

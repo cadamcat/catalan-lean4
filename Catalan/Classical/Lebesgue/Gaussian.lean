@@ -1,4 +1,14 @@
-import Mathlib
+module
+
+public import Mathlib
+
+/-!
+# `Catalan.Classical.Lebesgue.Gaussian`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.Lebesgue
 

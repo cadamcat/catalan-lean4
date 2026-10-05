@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.FiniteLevel.DivisionPolynomial
 public import Mathlib.RingTheory.Polynomial.Eisenstein.Basic
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveEisenstein`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

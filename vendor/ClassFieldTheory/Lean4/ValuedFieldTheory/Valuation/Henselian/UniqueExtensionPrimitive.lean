@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.Henselian.MonicFactorization
 public import Mathlib.GroupTheory.OrderOfElement
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.UniqueExtensionPrimitive`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

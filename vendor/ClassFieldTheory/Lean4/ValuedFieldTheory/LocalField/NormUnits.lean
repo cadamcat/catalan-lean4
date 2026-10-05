@@ -22,6 +22,12 @@ discrete-valuation APIs can share the same definition.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NormUnits`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

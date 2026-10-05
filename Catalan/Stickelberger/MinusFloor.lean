@@ -1,4 +1,14 @@
-import Mathlib
+module
+
+public import Mathlib
+
+/-!
+# `Catalan.Stickelberger.MinusFloor`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.MinusGenerators
 

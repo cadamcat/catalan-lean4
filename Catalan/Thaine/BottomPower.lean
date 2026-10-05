@@ -1,4 +1,14 @@
-import Catalan.Thaine.CircularizePowers
+module
+
+public import Catalan.Thaine.CircularizePowers
+
+/-!
+# `Catalan.Thaine.BottomPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

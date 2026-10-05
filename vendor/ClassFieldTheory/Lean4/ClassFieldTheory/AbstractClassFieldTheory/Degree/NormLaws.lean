@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Degree.Valuation
 public import GaloisCohomology.GroupTheory.QuotientTower
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Degree.NormLaws`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

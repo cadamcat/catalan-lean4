@@ -1,6 +1,16 @@
-import Catalan.Thaine.CircularClosure
-import Catalan.Thaine.IntegralUnitPow
-import Catalan.CaseOne.PowerImage
+module
+
+public import Catalan.Thaine.CircularClosure
+public import Catalan.Thaine.IntegralUnitPow
+public import Catalan.CaseOne.PowerImage
+
+/-!
+# `Catalan.Thaine.RealUnitAnnihilator`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

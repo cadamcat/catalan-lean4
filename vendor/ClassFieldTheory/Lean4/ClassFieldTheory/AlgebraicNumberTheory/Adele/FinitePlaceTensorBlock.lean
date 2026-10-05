@@ -16,6 +16,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.
 public import ClassFieldTheory.AlgebraicNumberTheory.Adele.RestrictedAction
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Adele.FinitePlaceTensorBlock`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

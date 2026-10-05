@@ -1,5 +1,15 @@
-import Catalan.CaseOne.PowerQuotient
-import Catalan.CaseOne.CircularUnits
+module
+
+public import Catalan.CaseOne.PowerQuotient
+public import Catalan.CaseOne.CircularUnits
+
+/-!
+# `Catalan.CaseOne.UnitRepresentation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

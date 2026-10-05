@@ -1,6 +1,16 @@
-import Catalan.Cyclotomic.Basic
+module
+
+public import Catalan.Cyclotomic.Basic
 
 /-! Integral group-ring weight, size and exponentiation on field units. -/
+
+/-!
+# `Catalan.Cyclotomic.GroupRing`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 open NumberField

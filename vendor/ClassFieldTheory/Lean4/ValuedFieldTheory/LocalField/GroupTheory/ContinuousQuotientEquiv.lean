@@ -15,6 +15,12 @@ public import Mathlib.Topology.Algebra.Group.Quotient
 public import Mathlib.Topology.Algebra.ContinuousMonoidHom
 
 
+/-!
+# `ValuedFieldTheory.LocalField.GroupTheory.ContinuousQuotientEquiv`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

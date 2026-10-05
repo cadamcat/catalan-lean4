@@ -18,6 +18,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.AbsoluteValueCo
 public import Mathlib.Algebra.Group.Pi.Units
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Tensor`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

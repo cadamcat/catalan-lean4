@@ -1,5 +1,15 @@
-import Catalan.Mihailescu.Ideal
-import Catalan.Mihailescu.LogBounds
+module
+
+public import Catalan.Mihailescu.Ideal
+public import Catalan.Mihailescu.LogBounds
+
+/-!
+# `Catalan.Mihailescu.LinearLog`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

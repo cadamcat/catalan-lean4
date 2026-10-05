@@ -15,6 +15,12 @@ public import Mathlib.GroupTheory.Transfer
 public import Mathlib.GroupTheory.Abelianization.Defs
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.TransferNaturality`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

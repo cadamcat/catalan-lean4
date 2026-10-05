@@ -16,6 +16,12 @@ public import GaloisCohomology.Kummer.Abstract.KummerDelta
 public import Mathlib.RepresentationTheory.Rep.Basic
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.AbsoluteUnitsFixedField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,4 +1,14 @@
-import Catalan.Counting.Defs
+module
+
+public import Catalan.Counting.Defs
+
+/-!
+# `Catalan.Counting.SmallDimensions`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

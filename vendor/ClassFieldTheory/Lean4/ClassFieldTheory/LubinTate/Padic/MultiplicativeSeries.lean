@@ -16,6 +16,12 @@ public import ClassFieldTheory.LubinTate.FormalModule.Series
 public import Mathlib.RingTheory.PowerSeries.Binomial
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.MultiplicativeSeries`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

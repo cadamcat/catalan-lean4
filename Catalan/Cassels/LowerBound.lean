@@ -1,4 +1,14 @@
-import Catalan.Cassels.Modular
+module
+
+public import Catalan.Cassels.Modular
+
+/-!
+# `Catalan.Cassels.LowerBound`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

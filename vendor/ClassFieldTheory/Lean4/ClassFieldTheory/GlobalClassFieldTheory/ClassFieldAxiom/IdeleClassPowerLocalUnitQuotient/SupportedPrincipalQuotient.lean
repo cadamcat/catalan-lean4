@@ -18,6 +18,12 @@ public import Mathlib.Algebra.Group.Equiv.Basic
 public import Mathlib.Algebra.Group.Subgroup.Ker
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdeleClassPowerLocalUnitQuotient.SupportedPrincipalQuotient`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import Mathlib.FieldTheory.Galois.Basic
 public import Mathlib.SetTheory.Cardinal.Finite
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.LevelAutomorphisms`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

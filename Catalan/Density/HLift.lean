@@ -1,6 +1,16 @@
-import Catalan.Density.HDisjoint
-import Catalan.Density.FiniteT
-import Catalan.Density.TRelative
+module
+
+public import Catalan.Density.HDisjoint
+public import Catalan.Density.FiniteT
+public import Catalan.Density.TRelative
+
+/-!
+# `Catalan.Density.HLift`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

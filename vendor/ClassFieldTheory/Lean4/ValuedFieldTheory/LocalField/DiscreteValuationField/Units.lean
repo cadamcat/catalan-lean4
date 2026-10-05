@@ -16,6 +16,12 @@ public import Mathlib.GroupTheory.Index
 public import Mathlib.GroupTheory.QuotientGroup.Basic
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.Units`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

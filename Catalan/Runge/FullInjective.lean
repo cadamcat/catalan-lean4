@@ -1,7 +1,17 @@
-import Catalan.Runge.BoundedLift
-import Catalan.Runge.PowerTransport
-import Catalan.Runge.Growth
-import Catalan.Runge.Normalized
+module
+
+public import Catalan.Runge.BoundedLift
+public import Catalan.Runge.PowerTransport
+public import Catalan.Runge.Growth
+public import Catalan.Runge.Normalized
+
+/-!
+# `Catalan.Runge.FullInjective`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

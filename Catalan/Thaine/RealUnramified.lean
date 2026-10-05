@@ -1,5 +1,15 @@
-import Catalan.Thaine.AuxiliaryGenerator
-import Catalan.Density.FStructure
+module
+
+public import Catalan.Thaine.AuxiliaryGenerator
+public import Catalan.Density.FStructure
+
+/-!
+# `Catalan.Thaine.RealUnramified`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

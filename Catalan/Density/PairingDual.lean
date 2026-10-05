@@ -1,5 +1,15 @@
-import Catalan.Density.PairingValues
-import Catalan.CaseOne.UnitCharpoly
+module
+
+public import Catalan.Density.PairingValues
+public import Catalan.CaseOne.UnitCharpoly
+
+/-!
+# `Catalan.Density.PairingDual`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

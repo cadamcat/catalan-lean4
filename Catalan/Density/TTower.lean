@@ -1,5 +1,15 @@
-import Catalan.Density.HRelative
-import Catalan.Density.MCentralizer
+module
+
+public import Catalan.Density.HRelative
+public import Catalan.Density.MCentralizer
+
+/-!
+# `Catalan.Density.TTower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

@@ -19,6 +19,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FinitePlaceArt
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FinitePlaceArtin.NormRestriction
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FinitePlaceArtin.Core`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

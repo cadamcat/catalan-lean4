@@ -1,8 +1,18 @@
-import Catalan.Density.PerfectKummer
-import Catalan.Density.AbsoluteB
-import Catalan.Density.AbsoluteM
-import Catalan.Density.FUnits
-import Catalan.Density.ConjugateOver
+module
+
+public import Catalan.Density.PerfectKummer
+public import Catalan.Density.AbsoluteB
+public import Catalan.Density.AbsoluteM
+public import Catalan.Density.FUnits
+public import Catalan.Density.ConjugateOver
+
+/-!
+# `Catalan.Density.AbsoluteAction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

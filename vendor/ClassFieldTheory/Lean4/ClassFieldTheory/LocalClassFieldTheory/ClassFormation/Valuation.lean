@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotien
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.GaloisIntegerRing
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.Valuation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

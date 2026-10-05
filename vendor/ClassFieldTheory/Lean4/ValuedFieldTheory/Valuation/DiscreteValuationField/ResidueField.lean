@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import Mathlib.RingTheory.LocalRing.ResidueField.Basic
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.ResidueField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

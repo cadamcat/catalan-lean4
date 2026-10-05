@@ -35,6 +35,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.ValuationSubring
 public import ValuedFieldTheory.Valuation.Completion.AbsoluteValueExtensions
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.AbsoluteValueConjugacy`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

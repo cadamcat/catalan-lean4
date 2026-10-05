@@ -17,6 +17,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FinitePlaceCyc
 public import ClassFieldTheory.AbstractClassFieldTheory.Degree.PadicCyclicClosure
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.SeparableClosurePadicLift`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

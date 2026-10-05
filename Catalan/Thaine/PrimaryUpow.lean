@@ -1,5 +1,15 @@
-import Catalan.Thaine.PrimaryLocalizedPowers
-import Catalan.Thaine.LocalizedPrimaryCriterion
+module
+
+public import Catalan.Thaine.PrimaryLocalizedPowers
+public import Catalan.Thaine.LocalizedPrimaryCriterion
+
+/-!
+# `Catalan.Thaine.PrimaryUpow`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

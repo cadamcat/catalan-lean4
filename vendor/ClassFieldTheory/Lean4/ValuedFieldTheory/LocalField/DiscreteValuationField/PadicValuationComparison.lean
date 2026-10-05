@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.Padic.NonarchimedeanLocalField
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.ValuationExtension
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PadicValuationComparison`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

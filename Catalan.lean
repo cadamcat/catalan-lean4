@@ -1,19 +1,28 @@
-import Catalan.Smoke
-import Catalan.Cassels.PowerFactors
-import Catalan.Cassels.Valuation
-import Catalan.Cassels.Denominator
-import Catalan.Cassels.Remainder
-import Catalan.Cassels.Factorization
-import Catalan.IdealAction
-import Catalan.Interface
-import Catalan.Stickelberger.Teichmuller
-import Catalan.Stickelberger.SectionBridge
-import Catalan.Stickelberger.WittTower
-import Catalan.Stickelberger.TowerArith
-import Catalan.Stickelberger.GaussFamily
-import Catalan.Stickelberger.GaussIdentities
-import Catalan.Stickelberger.WittTower
-import Catalan.Stickelberger.Tower
-import Catalan.Stickelberger.Local
-import Catalan.Stickelberger.Uniformizer
-import Catalan.JSP
+module
+
+public import Catalan.Smoke
+public import Catalan.Cassels.PowerFactors
+public import Catalan.Cassels.Valuation
+public import Catalan.Cassels.Denominator
+public import Catalan.Cassels.Remainder
+public import Catalan.Cassels.Factorization
+public import Catalan.IdealAction
+public import Catalan.Interface
+public import Catalan.Stickelberger.Teichmuller
+public import Catalan.Stickelberger.SectionBridge
+public import Catalan.Stickelberger.WittTower
+public import Catalan.Stickelberger.TowerArith
+public import Catalan.Stickelberger.GaussFamily
+public import Catalan.Stickelberger.GaussIdentities
+public import Catalan.Stickelberger.WittTower
+public import Catalan.Stickelberger.Tower
+public import Catalan.Stickelberger.Local
+public import Catalan.Stickelberger.Uniformizer
+public import Catalan.JSP
+/-!
+# `Catalan`
+
+Entry module for the Catalan formalization.
+-/
+
+@[expose] public section

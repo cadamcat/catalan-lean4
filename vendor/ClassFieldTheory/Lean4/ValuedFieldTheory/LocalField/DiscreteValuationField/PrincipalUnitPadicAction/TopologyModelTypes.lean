@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitP
 public import ValuedFieldTheory.Valuation.Topology.Models
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.TopologyModelTypes`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

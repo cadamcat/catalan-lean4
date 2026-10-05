@@ -16,6 +16,12 @@ public import ClassFieldTheory.LubinTate.FiniteLevel.LevelValuation
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationAddVal
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.ChangedLevelCompositum`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

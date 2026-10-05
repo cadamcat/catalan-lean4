@@ -1,5 +1,15 @@
-import Catalan.Density.NormalM
-import Catalan.Density.FiniteM
+module
+
+public import Catalan.Density.NormalM
+public import Catalan.Density.FiniteM
+
+/-!
+# `Catalan.Density.UnitRoots`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

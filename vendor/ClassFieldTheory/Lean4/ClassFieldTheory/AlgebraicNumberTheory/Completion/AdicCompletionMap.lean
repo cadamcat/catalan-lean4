@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Completion.ExtensionIndex
 public import Mathlib.NumberTheory.RamificationInertia.Valuation
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Completion.AdicCompletionMap`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

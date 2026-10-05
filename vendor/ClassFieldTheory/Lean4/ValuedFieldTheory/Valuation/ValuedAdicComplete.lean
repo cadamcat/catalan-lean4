@@ -16,6 +16,12 @@ public import Mathlib.RingTheory.AdicCompletion.Topology
 public import Mathlib.Topology.Algebra.Valued.ValuedField
 
 
+/-!
+# `ValuedFieldTheory.Valuation.ValuedAdicComplete`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

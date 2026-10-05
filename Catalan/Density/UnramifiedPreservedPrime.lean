@@ -1,7 +1,17 @@
-import Catalan.Density.FixedFieldPlaces
-import Catalan.Density.FinitePlacePreservation
-import Catalan.Density.RationalPlaces
-import Catalan.Density.InertiaBridge
+module
+
+public import Catalan.Density.FixedFieldPlaces
+public import Catalan.Density.FinitePlacePreservation
+public import Catalan.Density.RationalPlaces
+public import Catalan.Density.InertiaBridge
+
+/-!
+# `Catalan.Density.UnramifiedPreservedPrime`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

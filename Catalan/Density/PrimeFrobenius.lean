@@ -1,6 +1,16 @@
-import Catalan.Density.PrimeArtinDecomposition
-import Catalan.Density.RelativeFrobenius
-import Catalan.Density.InertiaBridge
+module
+
+public import Catalan.Density.PrimeArtinDecomposition
+public import Catalan.Density.RelativeFrobenius
+public import Catalan.Density.InertiaBridge
+
+/-!
+# `Catalan.Density.PrimeFrobenius`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

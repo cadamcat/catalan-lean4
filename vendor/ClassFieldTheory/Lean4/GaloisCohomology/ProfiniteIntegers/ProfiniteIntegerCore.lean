@@ -18,6 +18,12 @@ public import Mathlib.Topology.Algebra.Category.ProfiniteGrp.Basic
 public import GaloisCohomology.ProfiniteIntegers.TopologicalGeneration
 
 
+/-!
+# `GaloisCohomology.ProfiniteIntegers.ProfiniteIntegerCore`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

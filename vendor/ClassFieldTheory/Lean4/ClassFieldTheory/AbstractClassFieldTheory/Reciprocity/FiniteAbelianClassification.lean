@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.ClassFieldCa
 public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Main
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.FiniteAbelianClassification`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

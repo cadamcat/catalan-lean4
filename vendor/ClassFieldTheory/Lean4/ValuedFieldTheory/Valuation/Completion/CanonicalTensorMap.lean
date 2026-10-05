@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.Completion.FiniteLocalization
 public import Mathlib.Algebra.Algebra.Pi
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.CanonicalTensorMap`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

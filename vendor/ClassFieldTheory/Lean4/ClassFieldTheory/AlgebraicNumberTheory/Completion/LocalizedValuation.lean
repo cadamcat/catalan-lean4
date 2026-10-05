@@ -17,6 +17,12 @@ public import ValuedFieldTheory.Valuation.Completion.FiniteLocalization
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuativeExtension
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Completion.LocalizedValuation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

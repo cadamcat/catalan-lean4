@@ -1,4 +1,14 @@
-import Catalan.Density.ClassGroupArtin
+module
+
+public import Catalan.Density.ClassGroupArtin
+
+/-!
+# `Catalan.Density.ArtinIdele`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

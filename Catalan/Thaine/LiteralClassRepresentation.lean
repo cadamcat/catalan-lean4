@@ -1,6 +1,16 @@
-import Catalan.Thaine.LiteralMaps
-import Catalan.Thaine.ClassRepresentation
-import Catalan.Runge.Reduction
+module
+
+public import Catalan.Thaine.LiteralMaps
+public import Catalan.Thaine.ClassRepresentation
+public import Catalan.Runge.Reduction
+
+/-!
+# `Catalan.Thaine.LiteralClassRepresentation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

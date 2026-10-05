@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.Units
 public import ValuedFieldTheory.LocalField.GroupTheory.IntegerMultipleSubgroup
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.Norm.Basic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

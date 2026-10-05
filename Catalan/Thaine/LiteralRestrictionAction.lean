@@ -1,5 +1,15 @@
-import Catalan.Thaine.LiteralMaps
-import Catalan.Thaine.IntegralUnitPow
+module
+
+public import Catalan.Thaine.LiteralMaps
+public import Catalan.Thaine.IntegralUnitPow
+
+/-!
+# `Catalan.Thaine.LiteralRestrictionAction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

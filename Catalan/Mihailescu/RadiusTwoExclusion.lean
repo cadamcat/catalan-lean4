@@ -1,6 +1,16 @@
-import Catalan.Mihailescu.RadiusTwoHeight
-import Catalan.Mihailescu.ReconstructHeight
-import Catalan.Mihailescu.RadiusTwoArithmetic
+module
+
+public import Catalan.Mihailescu.RadiusTwoHeight
+public import Catalan.Mihailescu.ReconstructHeight
+public import Catalan.Mihailescu.RadiusTwoArithmetic
+
+/-!
+# `Catalan.Mihailescu.RadiusTwoExclusion`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

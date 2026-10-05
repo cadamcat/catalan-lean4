@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.UniqueRing
 public import Mathlib.RingTheory.Polynomial.GaussLemma
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.UniqueExtensionReduction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.FiniteIn
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.OrdinaryNormClassField
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ClosedFiniteIndexClassFieldConstruction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

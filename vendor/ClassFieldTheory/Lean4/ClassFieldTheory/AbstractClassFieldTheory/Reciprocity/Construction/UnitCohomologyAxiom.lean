@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Degree.PrimeElements
 public import GaloisCohomology.Cyclic.TateComparison
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.UnitCohomologyAxiom`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

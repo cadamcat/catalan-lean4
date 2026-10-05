@@ -1,5 +1,15 @@
-import Catalan.Thaine.DedekindLocalExponent
-import Catalan.Thaine.AuxiliaryResidueHom
+module
+
+public import Catalan.Thaine.DedekindLocalExponent
+public import Catalan.Thaine.AuxiliaryResidueHom
+
+/-!
+# `Catalan.Thaine.AuxiliaryLocalExponent`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

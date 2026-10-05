@@ -16,6 +16,12 @@ public import Mathlib.Topology.Homeomorph.Lemmas
 public import Mathlib.Basic.Denumerable
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.IwasawaIndexing`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

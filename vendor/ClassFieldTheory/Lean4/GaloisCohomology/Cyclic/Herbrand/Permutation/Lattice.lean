@@ -16,6 +16,12 @@ public import Mathlib.LinearAlgebra.FreeModule.Finite.Quotient
 public import Mathlib.LinearAlgebra.Matrix.Gershgorin
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.Permutation.Lattice`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

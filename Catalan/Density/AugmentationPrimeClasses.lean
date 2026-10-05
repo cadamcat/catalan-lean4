@@ -1,5 +1,15 @@
-import Catalan.Density.UnitResidueCoordinates
-import Catalan.Density.RealPrimeCongruence
+module
+
+public import Catalan.Density.UnitResidueCoordinates
+public import Catalan.Density.RealPrimeCongruence
+
+/-!
+# `Catalan.Density.AugmentationPrimeClasses`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

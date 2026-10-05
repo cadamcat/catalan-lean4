@@ -1,7 +1,17 @@
-import Catalan.Thaine.LiteralMaps
-import Catalan.Thaine.CircularClosure
-import Catalan.CaseOne.PowerImage
-import Catalan.CaseOne.TorsionReduction
+module
+
+public import Catalan.Thaine.LiteralMaps
+public import Catalan.Thaine.CircularClosure
+public import Catalan.CaseOne.PowerImage
+public import Catalan.CaseOne.TorsionReduction
+
+/-!
+# `Catalan.Thaine.CircularImageComparison`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

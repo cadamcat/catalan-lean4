@@ -19,6 +19,12 @@ public import Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient
 public import Mathlib.RingTheory.Valuation.ValuationSubring
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.Theory.ExponentialValuations`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

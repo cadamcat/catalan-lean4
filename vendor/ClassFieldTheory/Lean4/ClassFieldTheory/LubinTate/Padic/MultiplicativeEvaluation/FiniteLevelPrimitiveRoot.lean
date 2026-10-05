@@ -17,6 +17,12 @@ public import ValuedFieldTheory.Valuation.LocalRingEquiv
 public import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.MultiplicativeEvaluation.FiniteLevelPrimitiveRoot`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

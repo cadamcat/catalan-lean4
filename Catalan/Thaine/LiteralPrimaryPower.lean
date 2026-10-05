@@ -1,6 +1,16 @@
-import Catalan.Thaine.PrimaryUpow
-import Catalan.Thaine.LiteralRootCircularPower
-import Catalan.Thaine.SymmetrizedCongruence
+module
+
+public import Catalan.Thaine.PrimaryUpow
+public import Catalan.Thaine.LiteralRootCircularPower
+public import Catalan.Thaine.SymmetrizedCongruence
+
+/-!
+# `Catalan.Thaine.LiteralPrimaryPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

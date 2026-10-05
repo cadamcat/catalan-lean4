@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.FiniteLevel.NormUniformizer
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormQuotient
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.NormSubgroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

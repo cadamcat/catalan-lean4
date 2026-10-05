@@ -18,6 +18,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Main
 public import Mathlib.FieldTheory.Galois.Notation
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldNormResidueNaturality`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,5 +1,15 @@
-import Catalan.Thaine.ThainePrimeAnnihilator
-import Catalan.Density.AugmentationPrimeClasses
+module
+
+public import Catalan.Thaine.ThainePrimeAnnihilator
+public import Catalan.Density.AugmentationPrimeClasses
+
+/-!
+# `Catalan.Thaine.ThaineClassQuotient`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

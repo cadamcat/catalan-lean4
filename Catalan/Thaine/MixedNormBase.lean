@@ -1,4 +1,14 @@
-import Catalan.Thaine.MixedDescent
+module
+
+public import Catalan.Thaine.MixedDescent
+
+/-!
+# `Catalan.Thaine.MixedNormBase`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

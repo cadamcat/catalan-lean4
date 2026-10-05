@@ -1,6 +1,16 @@
-import Catalan.Stickelberger.CharacterEvaluation
-import Catalan.Stickelberger.CharacterHalfBasis
-import Catalan.Stickelberger.CharacterSpanTransfer
+module
+
+public import Catalan.Stickelberger.CharacterEvaluation
+public import Catalan.Stickelberger.CharacterHalfBasis
+public import Catalan.Stickelberger.CharacterSpanTransfer
+
+/-!
+# `Catalan.Stickelberger.MinusIndependent`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

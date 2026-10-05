@@ -20,6 +20,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteLocalG
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.TopologicalGlobalNormResidue
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalArtinCompatibility`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

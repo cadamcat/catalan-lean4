@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.NormPropert
 public import Mathlib.LinearAlgebra.Basis.VectorSpace
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.ClassGroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

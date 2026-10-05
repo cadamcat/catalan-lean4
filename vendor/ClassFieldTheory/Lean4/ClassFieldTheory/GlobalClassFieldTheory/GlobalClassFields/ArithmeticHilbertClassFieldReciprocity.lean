@@ -19,6 +19,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertC
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ArithmeticNormalization
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ArithmeticHilbertClassFieldReciprocity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

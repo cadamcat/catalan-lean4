@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Principal
 public import ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.SUnitPowerQuotient
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdelePowerLocalUnitSubgroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

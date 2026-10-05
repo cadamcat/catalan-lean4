@@ -16,6 +16,12 @@ public import Mathlib.FieldTheory.Galois.Abelian
 public import GaloisCohomology.Kummer.Concrete.FiniteGeneration
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.RadicalExtension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

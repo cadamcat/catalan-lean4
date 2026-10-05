@@ -1,6 +1,16 @@
-import Catalan.Density.AbsoluteT
-import ClassFieldTheory.GlobalClassFieldTheory.Cohomology.CyclicPrimePowerFullDecomposition
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SupportedBridge
+module
+
+public import Catalan.Density.AbsoluteT
+public import ClassFieldTheory.GlobalClassFieldTheory.Cohomology.CyclicPrimePowerFullDecomposition
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SupportedBridge
+
+/-!
+# `Catalan.Density.FixedFieldPlaces`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

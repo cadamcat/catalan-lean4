@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Degree.PrimeElements
 public import GaloisCohomology.Cyclic.IntegralRepUniverse
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.NormSubgroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

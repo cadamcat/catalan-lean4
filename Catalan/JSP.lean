@@ -1,4 +1,14 @@
-import Catalan.Final.Assembly
+module
+
+public import Catalan.Final.Assembly
+
+/-!
+# `Catalan.JSP`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

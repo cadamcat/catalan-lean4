@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-!
 Prime selection for the mod-q Thaine argument.
@@ -9,6 +11,14 @@ reciprocity, and the class-group interpretation remain separate obligations.
 This file states the prime-selection input; it does not prove all of Thaine's
 theorem.
 -/
+
+/-!
+# `Catalan.Density.Definitions`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open NumberField
 open Filter Topology

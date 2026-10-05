@@ -1,4 +1,6 @@
-import Catalan.Stickelberger.NormalizedCharacter
+module
+
+public import Catalan.Stickelberger.NormalizedCharacter
 
 /-!
 # Teichmüller characters: the prime-free generalization
@@ -12,6 +14,14 @@ The auxiliary declarations `Catalan.restrictRootsOfUnity_bijective_of_primitive`
 and `Catalan.residuePowerHom` of that file already assume only `[NeZero n]`, so
 they are reused unchanged.
 -/
+
+/-!
+# `Catalan.Stickelberger.Teichmuller`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 

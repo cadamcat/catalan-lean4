@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.AdeleBaseChange
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.BaseChange
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

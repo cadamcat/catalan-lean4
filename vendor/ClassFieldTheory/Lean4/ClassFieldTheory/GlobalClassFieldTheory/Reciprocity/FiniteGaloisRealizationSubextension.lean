@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.FiniteAbelia
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FiniteGaloisRealizationCore
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FiniteGaloisRealizationSubextension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

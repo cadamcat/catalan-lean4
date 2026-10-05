@@ -1,8 +1,18 @@
-import Catalan.Mihailescu.FiniteLogSum
-import Catalan.Mihailescu.FiniteValues
-import Catalan.Mihailescu.PowerDifference
-import Catalan.Cyclotomic.Augmentation
-import Catalan.Mihailescu.FiniteLower
+module
+
+public import Catalan.Mihailescu.FiniteLogSum
+public import Catalan.Mihailescu.FiniteValues
+public import Catalan.Mihailescu.PowerDifference
+public import Catalan.Cyclotomic.Augmentation
+public import Catalan.Mihailescu.FiniteLower
+
+/-!
+# `Catalan.Mihailescu.FiniteSum`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

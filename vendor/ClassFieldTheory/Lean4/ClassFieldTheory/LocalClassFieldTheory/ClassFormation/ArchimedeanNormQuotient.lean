@@ -18,6 +18,12 @@ public import Mathlib.NumberTheory.NumberField.Completion.Ramification
 public import Mathlib.RingTheory.Complex
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.ArchimedeanNormQuotient`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

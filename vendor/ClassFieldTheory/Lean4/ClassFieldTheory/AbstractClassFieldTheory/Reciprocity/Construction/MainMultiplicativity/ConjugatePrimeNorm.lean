@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction
 public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.RelativeNormDoubleCoset
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.MainMultiplicativity.ConjugatePrimeNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

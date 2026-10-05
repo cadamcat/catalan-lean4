@@ -17,6 +17,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasisG
 public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Basic
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasisGradedLifting`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -18,6 +18,12 @@ public import Mathlib.RingTheory.PowerSeries.Evaluation
 public import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.CompletedEvaluation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

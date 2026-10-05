@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.AdjoinRoot
 public import Mathlib.RingTheory.TensorProduct.Free
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.BaseChangeAdjoinRoot`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

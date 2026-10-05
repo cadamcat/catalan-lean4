@@ -1,5 +1,15 @@
-import Catalan.Density.FieldTransport
-import Catalan.Density.ConjugateField
+module
+
+public import Catalan.Density.FieldTransport
+public import Catalan.Density.ConjugateField
+
+/-!
+# `Catalan.Density.ConjugateWitness`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

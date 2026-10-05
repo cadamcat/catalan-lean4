@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.Topology.AdicCompletionInverseLimit
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits.Core
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnitPadicAction.InverseLimitCore`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

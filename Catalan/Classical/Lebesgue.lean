@@ -1,6 +1,16 @@
-import Catalan.Classical.Lebesgue.Gaussian
-import Catalan.Classical.Lebesgue.Normalize
-import Catalan.Classical.Lebesgue.RealPart
+module
+
+public import Catalan.Classical.Lebesgue.Gaussian
+public import Catalan.Classical.Lebesgue.Normalize
+public import Catalan.Classical.Lebesgue.RealPart
+
+/-!
+# `Catalan.Classical.Lebesgue`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan.Lebesgue

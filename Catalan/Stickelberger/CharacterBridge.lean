@@ -1,7 +1,17 @@
-import Catalan.Stickelberger.NormalizedCharacter
-import Catalan.Stickelberger.GaussFamily
-import Catalan.Stickelberger.TowerArith
-import Catalan.Stickelberger.RootDescent
+module
+
+public import Catalan.Stickelberger.NormalizedCharacter
+public import Catalan.Stickelberger.GaussFamily
+public import Catalan.Stickelberger.TowerArith
+public import Catalan.Stickelberger.RootDescent
+
+/-!
+# `Catalan.Stickelberger.CharacterBridge`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

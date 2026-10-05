@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.NormCond
 public import ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.CyclicIdeleClassNormIndex
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertNormCharacterization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

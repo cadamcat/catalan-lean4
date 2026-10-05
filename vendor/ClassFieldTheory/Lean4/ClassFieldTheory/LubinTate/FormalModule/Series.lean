@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.Basic
 public import Mathlib.RingTheory.PowerSeries.Basic
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FormalModule.Series`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

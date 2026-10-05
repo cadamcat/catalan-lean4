@@ -19,6 +19,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.ValuationSubrin
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Core
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.CompleteDVF`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

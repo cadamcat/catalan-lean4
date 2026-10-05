@@ -1,4 +1,14 @@
-import Catalan.Stickelberger.CharacterBoundary
+module
+
+public import Catalan.Stickelberger.CharacterBoundary
+
+/-!
+# `Catalan.Stickelberger.CharacterContinuity`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open Filter
 open scoped BigOperators Topology

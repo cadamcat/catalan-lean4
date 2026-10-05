@@ -20,6 +20,12 @@ public import Mathlib.LinearAlgebra.Finsupp.VectorSpace
 public import Mathlib.NumberTheory.Padics.ProperSpace
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.IwasawaPrincipalUnits`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

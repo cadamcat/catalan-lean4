@@ -1,6 +1,16 @@
-import Catalan.Thaine.NormalizedPair
-import Catalan.Thaine.CyclotomicNorm
-import Catalan.Thaine.NormFactor
+module
+
+public import Catalan.Thaine.NormalizedPair
+public import Catalan.Thaine.CyclotomicNorm
+public import Catalan.Thaine.NormFactor
+
+/-!
+# `Catalan.Thaine.NormalizedNorm`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.FormalModule.RecursiveCoefficient
 public import Mathlib.RingTheory.MvPowerSeries.Trunc
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FormalModule.DegreeStabilization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

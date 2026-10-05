@@ -16,6 +16,12 @@ public import GaloisCohomology.Cyclic.Herbrand.HerbrandFiniteness
 public import Mathlib.SetTheory.Cardinal.Finite
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.EquivariantEquiv`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

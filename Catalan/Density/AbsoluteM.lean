@@ -1,6 +1,16 @@
-import Catalan.Density.NormalM
-import Catalan.Density.FiniteM
-import Catalan.Density.FStructure
+module
+
+public import Catalan.Density.NormalM
+public import Catalan.Density.FiniteM
+public import Catalan.Density.FStructure
+
+/-!
+# `Catalan.Density.AbsoluteM`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

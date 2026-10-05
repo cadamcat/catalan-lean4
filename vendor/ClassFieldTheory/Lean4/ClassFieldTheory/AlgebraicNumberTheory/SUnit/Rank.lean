@@ -20,6 +20,12 @@ public import Mathlib.NumberTheory.NumberField.Units.Regulator
 public import Mathlib.RingTheory.DedekindDomain.Factorization
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.SUnit.Rank`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,5 +1,7 @@
-import Catalan.Stickelberger.GaussGalois
-import Mathlib
+module
+
+public import Catalan.Stickelberger.GaussGalois
+public import Mathlib
 
 /-! # Galois and multiplicity equivariance
 
@@ -9,6 +11,14 @@ import Mathlib
   the prime and the ideal along a ring automorphism.  This is what relates the multiplicity at a
   conjugate prime `σ_b⁻¹ P` to the multiplicity at `P` of the conjugated element.
 -/
+
+/-!
+# `Catalan.Stickelberger.Equivariance`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

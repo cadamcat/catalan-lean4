@@ -24,6 +24,12 @@ public import Mathlib.FieldTheory.SeparableClosure
 public import Mathlib.GroupTheory.Index
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicZHatBaseChange`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

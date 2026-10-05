@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclot
 public import Mathlib.Algebra.BigOperators.Finprod
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicPrincipalAwayProduct`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

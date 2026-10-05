@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.NumberField.FiniteUnramifie
 public import Mathlib.NumberTheory.NumberField.InfinitePlace.Ramification
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.NumberField.EverywhereUnramifiedTower`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

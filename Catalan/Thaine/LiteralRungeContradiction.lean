@@ -1,6 +1,16 @@
-import Catalan.Thaine.LiteralPurePower
-import Catalan.Thaine.IdealNonzero
-import Catalan.Runge.PlusIdeal
+module
+
+public import Catalan.Thaine.LiteralPurePower
+public import Catalan.Thaine.IdealNonzero
+public import Catalan.Runge.PlusIdeal
+
+/-!
+# `Catalan.Thaine.LiteralRungeContradiction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -16,6 +16,12 @@ public import Mathlib.RingTheory.Valuation.RamificationGroup
 public import Mathlib.FieldTheory.Normal.Basic
 
 
+/-!
+# `ValuedFieldTheory.Valuation.UniqueRing`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

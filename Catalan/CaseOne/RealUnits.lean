@@ -1,8 +1,18 @@
-import Catalan.CaseOne.RealTorsion
-import Catalan.CaseOne.PlaceCharpoly
-import Catalan.CaseOne.GeometricSquarefree
-import Catalan.CaseOne.CyclicVector
-import Catalan.CaseOne.MinpolyCyclic
+module
+
+public import Catalan.CaseOne.RealTorsion
+public import Catalan.CaseOne.PlaceCharpoly
+public import Catalan.CaseOne.GeometricSquarefree
+public import Catalan.CaseOne.CyclicVector
+public import Catalan.CaseOne.MinpolyCyclic
+
+/-!
+# `Catalan.CaseOne.RealUnits`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

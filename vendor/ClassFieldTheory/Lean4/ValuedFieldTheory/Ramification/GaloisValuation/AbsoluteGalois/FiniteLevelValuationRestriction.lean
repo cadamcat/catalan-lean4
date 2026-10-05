@@ -51,6 +51,12 @@ public import Mathlib.Topology.Maps.Basic
 public import Mathlib.Topology.Sets.Opens
 
 
+/-!
+# `ValuedFieldTheory.Ramification.GaloisValuation.AbsoluteGalois.FiniteLevelValuationRestriction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -15,6 +15,12 @@ public import Mathlib.RingTheory.Valuation.ValuationRing
 public import ValuedFieldTheory.Valuation.Henselian.Factorization.ErrorPowers
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Factorization.CoefficientMinimum`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

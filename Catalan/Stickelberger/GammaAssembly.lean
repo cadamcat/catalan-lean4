@@ -1,8 +1,18 @@
-import Catalan.Stickelberger.ThetaIdentity
-import Catalan.Stickelberger.Away
-import Catalan.IdealAction.Composition
+module
+
+public import Catalan.Stickelberger.ThetaIdentity
+public import Catalan.Stickelberger.Away
+public import Catalan.IdealAction.Composition
 
 /-! From a Gauss-power ideal factorization and a descended quotient to Θ_k principality. -/
+/-!
+# `Catalan.Stickelberger.GammaAssembly`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open NumberField
 noncomputable section
 namespace Catalan

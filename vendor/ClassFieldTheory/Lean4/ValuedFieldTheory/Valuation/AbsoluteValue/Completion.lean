@@ -18,6 +18,12 @@ public import Mathlib.Analysis.Normed.Module.Completion
 public import Mathlib.Analysis.Normed.Unbundled.RingSeminorm
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.Completion`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

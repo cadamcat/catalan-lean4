@@ -16,6 +16,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Fin
 public import Mathlib.FieldTheory.Galois.Abelian
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ClassFieldRealization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

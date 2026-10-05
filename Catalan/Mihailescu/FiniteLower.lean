@@ -1,7 +1,17 @@
-import Catalan.Mihailescu.FiniteValues
-import Catalan.Mihailescu.PowerDifference
-import Catalan.Mihailescu.NearOne
-import Catalan.Cyclotomic.Augmentation
+module
+
+public import Catalan.Mihailescu.FiniteValues
+public import Catalan.Mihailescu.PowerDifference
+public import Catalan.Mihailescu.NearOne
+public import Catalan.Cyclotomic.Augmentation
+
+/-!
+# `Catalan.Mihailescu.FiniteLower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

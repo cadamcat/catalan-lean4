@@ -1,7 +1,17 @@
-import Catalan.Thaine.CircularClassRelation
-import Catalan.Thaine.PrimeOrbit
-import Catalan.Thaine.ClassRepresentation
-import Catalan.Thaine.OrbitReindex
+module
+
+public import Catalan.Thaine.CircularClassRelation
+public import Catalan.Thaine.PrimeOrbit
+public import Catalan.Thaine.ClassRepresentation
+public import Catalan.Thaine.OrbitReindex
+
+/-!
+# `Catalan.Thaine.CircularOrbitRelation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

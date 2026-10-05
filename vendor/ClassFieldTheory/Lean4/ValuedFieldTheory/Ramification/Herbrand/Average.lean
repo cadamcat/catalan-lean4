@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Ramification.Herbrand.Function
 public import ValuedFieldTheory.Ramification.Herbrand.Tower
 
 
+/-!
+# `ValuedFieldTheory.Ramification.Herbrand.Average`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

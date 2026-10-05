@@ -19,6 +19,12 @@ public import Mathlib.GroupTheory.QuotientGroup.Basic
 public import Mathlib.RingTheory.Valuation.RamificationGroup
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.ValuationSubring`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,5 +1,15 @@
-import Catalan.Stickelberger.MinusSpan
-import Catalan.Stickelberger.CharacterSpecialValue
+module
+
+public import Catalan.Stickelberger.MinusSpan
+public import Catalan.Stickelberger.CharacterSpecialValue
+
+/-!
+# `Catalan.Stickelberger.CharacterDefs`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

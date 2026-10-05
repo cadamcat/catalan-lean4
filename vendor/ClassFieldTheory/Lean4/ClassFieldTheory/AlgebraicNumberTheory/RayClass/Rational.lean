@@ -20,6 +20,12 @@ public import Mathlib.NumberTheory.Padics.HeightOneSpectrum
 public import Mathlib.NumberTheory.Padics.RingHoms
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.RayClass.Rational`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

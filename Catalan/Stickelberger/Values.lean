@@ -1,8 +1,18 @@
-import Catalan.Stickelberger.ValuesBridge
-import Catalan.Stickelberger.DigitValuation
-import Catalan.Stickelberger.Local
+module
+
+public import Catalan.Stickelberger.ValuesBridge
+public import Catalan.Stickelberger.DigitValuation
+public import Catalan.Stickelberger.Local
 
 /-! # The Gauss-family ideal valuation is the base-`ell` digit sum -/
+
+/-!
+# `Catalan.Stickelberger.Values`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

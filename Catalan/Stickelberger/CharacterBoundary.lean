@@ -1,5 +1,15 @@
-import Mathlib.NumberTheory.LSeries.HurwitzZetaValues
-import Mathlib.Analysis.Complex.AbelLimit
+module
+
+public import Mathlib.NumberTheory.LSeries.HurwitzZetaValues
+public import Mathlib.Analysis.Complex.AbelLimit
+
+/-!
+# `Catalan.Stickelberger.CharacterBoundary`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators Topology
 open Filter

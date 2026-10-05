@@ -1,7 +1,17 @@
-import Catalan.CaseOne.UnitNorm
-import Catalan.CaseOne.ThreeStep
-import Catalan.CaseOne.CircularModule
-import Catalan.CaseOne.UnitCyclic
+module
+
+public import Catalan.CaseOne.UnitNorm
+public import Catalan.CaseOne.ThreeStep
+public import Catalan.CaseOne.CircularModule
+public import Catalan.CaseOne.UnitCyclic
+
+/-!
+# `Catalan.CaseOne.UnitFiltration`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

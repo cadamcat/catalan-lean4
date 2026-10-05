@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits
 public import Mathlib.Data.Rat.Lemmas
 
 
+/-!
+# `ValuedFieldTheory.Ramification.GaloisValuation.Ramification`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

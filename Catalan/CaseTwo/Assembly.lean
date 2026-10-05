@@ -1,7 +1,17 @@
-import Catalan.CaseTwo.WeakBounds
-import Catalan.Classical.SmallConductors
-import Catalan.CaseTwo.WeakBoundExclusion
-import Catalan.Wieferich.DoubleWieferich
+module
+
+public import Catalan.CaseTwo.WeakBounds
+public import Catalan.Classical.SmallConductors
+public import Catalan.CaseTwo.WeakBoundExclusion
+public import Catalan.Wieferich.DoubleWieferich
+
+/-!
+# `Catalan.CaseTwo.Assembly`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan

@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.Fin
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.LocalComponent
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.FinitePlaceTensorNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

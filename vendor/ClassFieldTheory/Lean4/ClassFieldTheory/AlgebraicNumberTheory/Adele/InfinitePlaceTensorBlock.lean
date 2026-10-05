@@ -16,6 +16,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.
 public import Mathlib.NumberTheory.NumberField.Completion.LiesOverInstances
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Adele.InfinitePlaceTensorBlock`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

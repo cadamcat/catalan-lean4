@@ -1,7 +1,17 @@
-import Catalan.Thaine.Normalization
-import Catalan.Thaine.EpsilonInversion
-import Catalan.Thaine.MixedDescent
-import Catalan.Thaine.IntegralUnitDescent
+module
+
+public import Catalan.Thaine.Normalization
+public import Catalan.Thaine.EpsilonInversion
+public import Catalan.Thaine.MixedDescent
+public import Catalan.Thaine.IntegralUnitDescent
+
+/-!
+# `Catalan.Thaine.NormalizedPair`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

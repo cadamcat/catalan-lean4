@@ -17,6 +17,12 @@ public import ValuedFieldTheory.Ramification.Herbrand.Average
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.AddVal
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.RamificationDepth`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -17,6 +17,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormalClosureNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Degree.Fields
 public import ValuedFieldTheory.Ramification.GaloisValuation.ClosedFixingSubgroup
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.ResidueDatum`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -18,6 +18,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicPowerInde
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitStructure
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitPowerIndexFormulas`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

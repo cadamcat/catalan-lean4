@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.FormalModule.StandardSeries
 public import Mathlib.Algebra.Polynomial.Monic
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.DivisionPolynomial`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

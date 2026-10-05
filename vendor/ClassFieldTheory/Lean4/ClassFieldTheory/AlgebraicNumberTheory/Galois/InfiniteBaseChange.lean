@@ -16,6 +16,12 @@ public import Mathlib.FieldTheory.Normal.Basic
 public import Mathlib.FieldTheory.SeparableClosure
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Galois.InfiniteBaseChange`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.NormalClosure
 public import ClassFieldTheory.AlgebraicNumberTheory.Adele.InfinitePlaceTensorBlock
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.BaseChange`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

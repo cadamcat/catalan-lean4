@@ -17,6 +17,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Mai
 public import ValuedFieldTheory.Ramification.GaloisValuation.IntermediateFieldRestriction
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.IntermediateFieldNormResidueNaturality`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -19,6 +19,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.Decomposit
 public import ClassFieldTheory.AlgebraicNumberTheory.Completion.ChosenLocalization
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SPlaces.OutsideIntegralInduced.ChosenPlaceAction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Core
 public import GaloisCohomology.Cyclic.IntegralRepUniverse
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Reduction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

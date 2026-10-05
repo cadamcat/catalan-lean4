@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalNorm
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdealClass
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.NormTopology.IdeleClassNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

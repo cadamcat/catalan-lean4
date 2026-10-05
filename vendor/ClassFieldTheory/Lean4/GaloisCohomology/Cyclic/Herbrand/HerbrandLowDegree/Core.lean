@@ -15,6 +15,12 @@ public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Basic
 public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Cardinality
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Core`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

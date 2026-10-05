@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension
 public import Mathlib.RingTheory.Valuation.Discrete.IsDiscreteValuationRing
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

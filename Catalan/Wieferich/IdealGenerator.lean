@@ -1,7 +1,17 @@
-import Catalan.Wieferich.Defs
-import Catalan.FactorBridge
-import Catalan.Cassels.LambdaIdeal
-import Catalan.Stickelberger.Annihilation
+module
+
+public import Catalan.Wieferich.Defs
+public import Catalan.FactorBridge
+public import Catalan.Cassels.LambdaIdeal
+public import Catalan.Stickelberger.Annihilation
+
+/-!
+# `Catalan.Wieferich.IdealGenerator`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

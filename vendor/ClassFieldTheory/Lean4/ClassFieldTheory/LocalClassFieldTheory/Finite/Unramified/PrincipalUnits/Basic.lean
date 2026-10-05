@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteUnrami
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.PrincipalUnits.NormSide
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.PrincipalUnits.Basic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

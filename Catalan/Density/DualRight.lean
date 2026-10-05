@@ -1,5 +1,15 @@
-import Catalan.Density.PairingDual
-import Catalan.Density.FixedRoot
+module
+
+public import Catalan.Density.PairingDual
+public import Catalan.Density.FixedRoot
+
+/-!
+# `Catalan.Density.DualRight`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

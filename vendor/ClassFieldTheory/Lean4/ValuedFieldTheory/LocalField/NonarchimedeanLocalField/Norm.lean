@@ -25,6 +25,12 @@ rings and their unit groups under the appropriate integral hypotheses.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Norm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

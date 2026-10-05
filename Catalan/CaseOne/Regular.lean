@@ -1,5 +1,15 @@
-import Catalan.CaseOne.Places
-import Catalan.CaseOne.LogSpaceEquiv
+module
+
+public import Catalan.CaseOne.Places
+public import Catalan.CaseOne.LogSpaceEquiv
+
+/-!
+# `Catalan.CaseOne.Regular`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteGlobal
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicIdeleValue`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

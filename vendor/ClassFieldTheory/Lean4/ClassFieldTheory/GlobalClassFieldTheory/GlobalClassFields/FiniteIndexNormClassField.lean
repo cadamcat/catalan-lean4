@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.PowerCon
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.CyclotomicKummerNormDescent
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.FiniteIndexNormClassField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

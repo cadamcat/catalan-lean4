@@ -1,4 +1,14 @@
-import Catalan.Cassels.Defs
+module
+
+public import Catalan.Cassels.Defs
+
+/-!
+# `Catalan.Cassels.CoefficientBounds`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 

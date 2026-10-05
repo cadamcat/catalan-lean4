@@ -1,4 +1,14 @@
-import Catalan.Cassels.BetweenPowers
+module
+
+public import Catalan.Cassels.BetweenPowers
+
+/-!
+# `Catalan.Cassels.EasyDivisibility`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

@@ -1,4 +1,14 @@
-import Catalan.Thaine.MixedRootUnits
+module
+
+public import Catalan.Thaine.MixedRootUnits
+
+/-!
+# `Catalan.Thaine.MixedEpsilonUnit`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,4 +1,14 @@
-import Catalan.Stickelberger.MinusDefs
+module
+
+public import Catalan.Stickelberger.MinusDefs
+
+/-!
+# `Catalan.Stickelberger.MinusSmall`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 open NumberField

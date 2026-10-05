@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardResidue
 public import ClassFieldTheory.LubinTate.Padic.CompletedResidueFrobenius
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardFrobenius`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

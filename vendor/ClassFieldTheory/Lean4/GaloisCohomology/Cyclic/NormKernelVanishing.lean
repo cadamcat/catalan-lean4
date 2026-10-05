@@ -17,6 +17,12 @@ public import Mathlib.Topology.Algebra.Group.ClosedSubgroup
 public import GaloisCohomology.Cyclic.TateComparison
 
 
+/-!
+# `GaloisCohomology.Cyclic.NormKernelVanishing`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -18,6 +18,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.Number
 public import ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.OrbitCardinality
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.CompositumUnramified`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

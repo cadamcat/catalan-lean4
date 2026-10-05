@@ -1,4 +1,14 @@
-import Catalan.Wieferich.Core
+module
+
+public import Catalan.Wieferich.Core
+
+/-!
+# `Catalan.CaseOne.NormDescent`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

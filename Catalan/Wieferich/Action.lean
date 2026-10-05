@@ -1,5 +1,15 @@
-import Catalan.Wieferich.Defs
-import Mathlib
+module
+
+public import Catalan.Wieferich.Defs
+public import Mathlib
+
+/-!
+# `Catalan.Wieferich.Action`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

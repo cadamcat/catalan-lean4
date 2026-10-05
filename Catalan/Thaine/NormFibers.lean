@@ -1,5 +1,15 @@
-import Catalan.Thaine.NormMultiplicity
-import Catalan.Thaine.InvariantFiber
+module
+
+public import Catalan.Thaine.NormMultiplicity
+public import Catalan.Thaine.InvariantFiber
+
+/-!
+# `Catalan.Thaine.NormFibers`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

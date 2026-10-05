@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits
 public import Mathlib.Algebra.Group.Units.Equiv
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits.AutomorphismTransport`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

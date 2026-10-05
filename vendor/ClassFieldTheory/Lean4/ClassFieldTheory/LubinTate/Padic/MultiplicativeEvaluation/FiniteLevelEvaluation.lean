@@ -16,6 +16,12 @@ public import ClassFieldTheory.LubinTate.Padic.MultiplicativeIntertwiner
 public import Mathlib.RingTheory.AdicCompletion.Topology
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.MultiplicativeEvaluation.FiniteLevelEvaluation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

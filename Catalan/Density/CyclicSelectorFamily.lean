@@ -1,4 +1,14 @@
-import Catalan.Density.SelectorSpan
+module
+
+public import Catalan.Density.SelectorSpan
+
+/-!
+# `Catalan.Density.CyclicSelectorFamily`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

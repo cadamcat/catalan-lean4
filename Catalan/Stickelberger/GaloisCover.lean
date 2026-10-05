@@ -1,6 +1,16 @@
-import Catalan.IdealAction
-import Catalan.Stickelberger.Factor
-import Mathlib
+module
+
+public import Catalan.IdealAction
+public import Catalan.Stickelberger.Factor
+public import Mathlib
+
+/-!
+# `Catalan.Stickelberger.GaloisCover`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

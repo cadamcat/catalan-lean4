@@ -1,7 +1,17 @@
-import Catalan.Thaine.PrimeNormProduct
-import Catalan.Thaine.PrimeClassSpan
-import Catalan.Thaine.ClassRepresentation
-import Catalan.CaseOne.NormSum
+module
+
+public import Catalan.Thaine.PrimeNormProduct
+public import Catalan.Thaine.PrimeClassSpan
+public import Catalan.Thaine.ClassRepresentation
+public import Catalan.CaseOne.NormSum
+
+/-!
+# `Catalan.Thaine.ClassNorm`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

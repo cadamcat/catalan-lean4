@@ -1,5 +1,15 @@
-import Catalan.Thaine.MixedNormBase
-import Catalan.Thaine.NormalizedNorm
+module
+
+public import Catalan.Thaine.MixedNormBase
+public import Catalan.Thaine.NormalizedNorm
+
+/-!
+# `Catalan.Thaine.AuxiliaryNormOne`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

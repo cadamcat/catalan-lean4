@@ -16,6 +16,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Sep
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.SeparableNormValuation
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.HenselianValuationBase`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

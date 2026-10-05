@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitStruc
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.PadicPowerIndex
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.PowerClassFiniteness`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

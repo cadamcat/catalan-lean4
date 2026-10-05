@@ -17,6 +17,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.CyclicIdel
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.AbstractFixedFieldUnits
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdeleClassFormation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

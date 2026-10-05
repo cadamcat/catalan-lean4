@@ -1,6 +1,16 @@
-import Catalan.Thaine.LiteralAnnihilatorReflection
-import Catalan.Thaine.LiteralClassRepresentation
-import Catalan.Thaine.ThaineClassQuotient
+module
+
+public import Catalan.Thaine.LiteralAnnihilatorReflection
+public import Catalan.Thaine.LiteralClassRepresentation
+public import Catalan.Thaine.ThaineClassQuotient
+
+/-!
+# `Catalan.Thaine.LiteralFullThaine`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationId
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.AddVal
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationAddVal`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

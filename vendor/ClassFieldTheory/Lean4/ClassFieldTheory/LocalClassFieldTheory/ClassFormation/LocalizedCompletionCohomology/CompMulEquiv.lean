@@ -20,6 +20,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.DecompositionFi
 public import Mathlib.FieldTheory.Galois.Infinite
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCompletionCohomology.CompMulEquiv`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -9604,5 +9604,5 @@
   "baselineProjectCommit": "c08bf727e7e0f773edd2f4777fd0d12152f44ed6",
   "portCommit": "7713795234690681b4406ae198b07aa95e82716a",
   "portPatch": "patches/Mathlib-v4.35.0-rc3-module-system.patch.gz",
-  "portPatchSha256": "a4aa9ae713ecb8c116d39155a4994ee987d43d264cbb071463279e3fd71051b4"
+  "portPatchSha256": "a76bf20551496e4d45fa1a4406c6d9bd2efd3bb56b41e75b78d8e4fec9b4d9e0"
 }

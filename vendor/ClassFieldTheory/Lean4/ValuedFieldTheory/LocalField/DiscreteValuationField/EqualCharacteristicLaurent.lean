@@ -34,6 +34,12 @@ public import Mathlib.Topology.Algebra.Valued.WithZeroMulInt
 public import Mathlib.LinearAlgebra.Dimension.Basic
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.EqualCharacteristicLaurent`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

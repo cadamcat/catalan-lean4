@@ -23,6 +23,12 @@ public import Mathlib.LinearAlgebra.Dimension.Torsion.Finite
 public import Mathlib.Topology.Algebra.Module.Compact
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.MixedCharacteristicStructure.IntegralLattice`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

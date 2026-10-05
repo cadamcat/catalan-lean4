@@ -17,6 +17,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.EmbeddingNo
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNorm
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import GaloisCohomology.Kummer.Concrete.FiniteGeneration
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.FiniteDualSeparation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

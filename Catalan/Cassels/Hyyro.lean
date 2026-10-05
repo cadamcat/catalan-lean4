@@ -1,4 +1,14 @@
-import Catalan.Cassels.Factorization
+module
+
+public import Catalan.Cassels.Factorization
+
+/-!
+# `Catalan.Cassels.Hyyro`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

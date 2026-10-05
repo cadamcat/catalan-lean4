@@ -1,6 +1,16 @@
-import Catalan.IdealAction.Composition
-import Catalan.Cyclotomic.Basic
-import Mathlib
+module
+
+public import Catalan.IdealAction.Composition
+public import Catalan.Cyclotomic.Basic
+public import Mathlib
+
+/-!
+# `Catalan.FactorBridge`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

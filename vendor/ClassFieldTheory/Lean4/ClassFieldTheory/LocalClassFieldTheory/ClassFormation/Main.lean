@@ -17,6 +17,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.IntegerUnits
 public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasisCohomology
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.Main`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

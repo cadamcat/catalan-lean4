@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.StandardOpen
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuationExactSequence
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UniformizerPrincipalQuotient`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

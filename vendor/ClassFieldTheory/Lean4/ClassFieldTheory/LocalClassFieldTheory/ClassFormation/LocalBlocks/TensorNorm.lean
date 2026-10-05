@@ -25,6 +25,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.LocalNorm
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormQuotient
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.TensorNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

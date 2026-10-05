@@ -15,6 +15,12 @@ public import Mathlib.RingTheory.PowerSeries.Log
 public import Mathlib.RingTheory.PowerSeries.WellKnown
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalCoreBase.PowerSeriesComposition`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,5 +1,15 @@
-import Catalan.Density.AbsoluteH
-import Catalan.Density.AbsoluteM
+module
+
+public import Catalan.Density.AbsoluteH
+public import Catalan.Density.AbsoluteM
+
+/-!
+# `Catalan.Density.AbsoluteT`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

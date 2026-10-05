@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.TensorProduct
 public import Mathlib.NumberTheory.Cyclotomic.PrimitiveRoots
 
 
+/-!
+# `ClassFieldTheory.KummerTheory.Concrete.CyclotomicPrimeBaseChange`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

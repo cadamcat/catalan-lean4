@@ -1,7 +1,9 @@
-import Catalan.Stickelberger.GaussFamily
-import Catalan.Stickelberger.TowerArith
-import Catalan.Stickelberger.WittTower
-import Mathlib.RingTheory.Henselian
+module
+
+public import Catalan.Stickelberger.GaussFamily
+public import Catalan.Stickelberger.TowerArith
+public import Catalan.Stickelberger.WittTower
+public import Mathlib.RingTheory.Henselian
 
 /-! # Lifting roots of unity by Hensel's lemma
 
@@ -11,6 +13,14 @@ the fact that it stays primitive after reduction.  Both are produced here for an
 henselian local ring with finite residue field, which avoids computing residue
 degrees in a cyclotomic tower.
 -/
+
+/-!
+# `Catalan.Stickelberger.Tower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

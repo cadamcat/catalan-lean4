@@ -17,6 +17,12 @@ public import GaloisCohomology.Kummer.Concrete.Cyclotomic.RationalCyclotomicFiel
 public import Mathlib.NumberTheory.NumberField.Cyclotomic.Ideal
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicFinitePlace`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

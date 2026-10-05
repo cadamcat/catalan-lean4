@@ -1,5 +1,15 @@
-import Catalan.Counting.Recurrence
-import Catalan.Counting.PolynomialRecurrence
+module
+
+public import Catalan.Counting.Recurrence
+public import Catalan.Counting.PolynomialRecurrence
+
+/-!
+# `Catalan.Counting.Formula`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

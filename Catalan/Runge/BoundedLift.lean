@@ -1,5 +1,15 @@
-import Catalan.Runge.Reduction
-import Catalan.CaseOne.GaloisRing
+module
+
+public import Catalan.Runge.Reduction
+public import Catalan.CaseOne.GaloisRing
+
+/-!
+# `Catalan.Runge.BoundedLift`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

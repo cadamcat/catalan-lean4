@@ -15,6 +15,12 @@ public import Mathlib.RingTheory.Polynomial.Eisenstein.Basic
 public import ClassFieldTheory.LubinTate.Padic.CompletedPrimitiveAction
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedChangedUniformizerPrimitive`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

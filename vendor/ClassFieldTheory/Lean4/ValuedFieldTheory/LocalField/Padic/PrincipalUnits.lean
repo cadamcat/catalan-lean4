@@ -22,6 +22,12 @@ public import Mathlib.NumberTheory.Padics.ValuativeRel
 public import Mathlib.NumberTheory.Padics.ProperSpace
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Padic.PrincipalUnits`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

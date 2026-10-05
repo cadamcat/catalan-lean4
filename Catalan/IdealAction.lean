@@ -1,8 +1,18 @@
-import Catalan.Cyclotomic.Basic
+module
+
+public import Catalan.Cyclotomic.Basic
 
 /-! Fractional-ideal action and group-ring exponentiation.
 This module proves the algebraic bridge; Stickelberger's annihilation theorem
 is proved separately in `Stickelberger/Annihilation.lean` and is not assumed here. -/
+
+/-!
+# `Catalan.IdealAction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators nonZeroDivisors Pointwise
 open NumberField

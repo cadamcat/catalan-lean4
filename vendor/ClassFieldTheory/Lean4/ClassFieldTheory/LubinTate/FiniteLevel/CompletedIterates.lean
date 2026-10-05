@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ClassFieldTheory.LubinTate.FiniteLevel.CompletedEvaluation
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.CompletedIterates`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

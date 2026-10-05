@@ -1,4 +1,14 @@
-import Mathlib.NumberTheory.PellMatiyasevic
+module
+
+public import Mathlib.NumberTheory.PellMatiyasevic
+
+/-!
+# `Catalan.Classical.Euler.Defs`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.Euler
 

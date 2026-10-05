@@ -16,6 +16,12 @@ public import Mathlib.GroupTheory.Transfer
 public import Mathlib.Topology.Algebra.Group.ClosedSubgroup
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.TransferOrbitClosure`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

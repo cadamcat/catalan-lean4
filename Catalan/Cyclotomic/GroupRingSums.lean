@@ -1,4 +1,14 @@
-import Catalan.Cyclotomic.GroupRingMul
+module
+
+public import Catalan.Cyclotomic.GroupRingMul
+
+/-!
+# `Catalan.Cyclotomic.GroupRingSums`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

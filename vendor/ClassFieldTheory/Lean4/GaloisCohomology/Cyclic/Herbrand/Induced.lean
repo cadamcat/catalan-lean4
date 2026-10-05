@@ -16,6 +16,12 @@ public import ProCGroups.InducedFunctions
 public import Mathlib.Logic.Equiv.Fin.Rotate
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.Induced`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

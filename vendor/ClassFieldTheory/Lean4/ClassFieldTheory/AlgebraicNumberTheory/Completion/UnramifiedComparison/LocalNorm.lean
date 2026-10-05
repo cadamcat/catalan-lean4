@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Completion.ChosenLocalizati
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.Norm
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedComparison.LocalNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

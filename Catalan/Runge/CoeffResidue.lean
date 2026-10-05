@@ -1,5 +1,15 @@
-import Catalan.Runge.Definitions
-import Catalan.Runge.ProductCoefficients
+module
+
+public import Catalan.Runge.Definitions
+public import Catalan.Runge.ProductCoefficients
+
+/-!
+# `Catalan.Runge.CoeffResidue`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

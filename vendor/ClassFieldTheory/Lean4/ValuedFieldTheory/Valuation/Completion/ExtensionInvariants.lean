@@ -36,6 +36,12 @@ public import ValuedFieldTheory.Valuation.Completion.DegreeNormTrace
 public import ValuedFieldTheory.Valuation.Henselian.Complete
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.ExtensionInvariants`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

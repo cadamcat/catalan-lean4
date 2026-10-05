@@ -1,4 +1,14 @@
-import Catalan.Mihailescu.Ideal
+module
+
+public import Catalan.Mihailescu.Ideal
+
+/-!
+# `Catalan.Counting.SmallBall`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 namespace Catalan

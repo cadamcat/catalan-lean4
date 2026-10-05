@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.AlgEquiv
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.BigHilbertClassField
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.BigHilbertClassFieldNaturality`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

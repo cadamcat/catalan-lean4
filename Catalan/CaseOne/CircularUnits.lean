@@ -1,6 +1,16 @@
-import Catalan.CaseOne.RatioUnits
-import Catalan.CaseOne.PrimaryUnits
-import Catalan.CaseOne.PrimaryObstruction
+module
+
+public import Catalan.CaseOne.RatioUnits
+public import Catalan.CaseOne.PrimaryUnits
+public import Catalan.CaseOne.PrimaryObstruction
+
+/-!
+# `Catalan.CaseOne.CircularUnits`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,5 +1,15 @@
-import Catalan.Stickelberger.CharacterDefs
-import Catalan.Stickelberger.CharacterRecovery
+module
+
+public import Catalan.Stickelberger.CharacterDefs
+public import Catalan.Stickelberger.CharacterRecovery
+
+/-!
+# `Catalan.Stickelberger.CharacterEvaluation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 open NumberField

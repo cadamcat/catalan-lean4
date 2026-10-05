@@ -1,6 +1,16 @@
-import Catalan.Wieferich.Core
-import Catalan.Wieferich.Action
-import Catalan.Wieferich.Coefficient
+module
+
+public import Catalan.Wieferich.Core
+public import Catalan.Wieferich.Action
+public import Catalan.Wieferich.Coefficient
+
+/-!
+# `Catalan.Wieferich.LiftProduct`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

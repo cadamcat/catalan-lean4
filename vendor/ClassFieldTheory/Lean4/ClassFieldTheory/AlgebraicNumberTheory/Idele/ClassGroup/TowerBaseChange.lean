@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.Tower
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormComparison
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.TowerBaseChange`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

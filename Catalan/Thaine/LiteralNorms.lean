@@ -1,5 +1,15 @@
-import Catalan.Thaine.LiteralMaps
-import Catalan.Wieferich.Defs
+module
+
+public import Catalan.Thaine.LiteralMaps
+public import Catalan.Wieferich.Defs
+
+/-!
+# `Catalan.Thaine.LiteralNorms`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

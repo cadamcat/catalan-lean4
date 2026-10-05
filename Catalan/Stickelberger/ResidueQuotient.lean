@@ -1,8 +1,18 @@
-import Catalan.Stickelberger.ResidueGauss
-import Catalan.Stickelberger.CyclotomicLift
-import Catalan.Stickelberger.GammaAssembly
+module
+
+public import Catalan.Stickelberger.ResidueGauss
+public import Catalan.Stickelberger.CyclotomicLift
+public import Catalan.Stickelberger.GammaAssembly
 
 /-! Actual prime-residue Gauss sums have all the descended quotients required by Θ_k. -/
+/-!
+# `Catalan.Stickelberger.ResidueQuotient`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open NumberField
 noncomputable section
 namespace Catalan

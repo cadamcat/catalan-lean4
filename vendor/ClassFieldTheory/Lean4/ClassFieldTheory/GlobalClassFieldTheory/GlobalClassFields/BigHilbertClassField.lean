@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Narrow
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ConductorLattice
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.BigHilbertClassField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

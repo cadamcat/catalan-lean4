@@ -18,6 +18,12 @@ public import ClassFieldTheory.LubinTate.FormalModule.StandardFormalGroup
 public import ClassFieldTheory.LubinTate.Padic.ChangedUniformizerIntertwiner.IntertwinerConstruction
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.ChangedUniformizerIntertwiner.ScalarEndomorphisms`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

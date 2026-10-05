@@ -22,6 +22,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtens
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Uniqueness
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardUnramified`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

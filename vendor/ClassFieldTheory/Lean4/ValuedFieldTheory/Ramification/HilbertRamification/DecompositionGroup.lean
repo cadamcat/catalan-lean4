@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.AbsoluteValueCo
 public import ValuedFieldTheory.Ramification.HilbertRamification.ValuationSubring
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.DecompositionGroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

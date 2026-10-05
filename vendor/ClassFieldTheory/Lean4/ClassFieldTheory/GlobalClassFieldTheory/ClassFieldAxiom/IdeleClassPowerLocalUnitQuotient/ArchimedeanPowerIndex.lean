@@ -18,6 +18,12 @@ public import Mathlib.Basic.Sign.Basic
 public import Mathlib.NumberTheory.NumberField.ProductFormula
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdeleClassPowerLocalUnitQuotient.ArchimedeanPowerIndex`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

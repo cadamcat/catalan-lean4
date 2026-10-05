@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.MixedCharacter
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.MixedCharacteristicStructure.IntegralLattice
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.MixedCharacteristicStructure.Core`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

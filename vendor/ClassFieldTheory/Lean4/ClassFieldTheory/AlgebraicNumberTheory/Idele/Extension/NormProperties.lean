@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.BaseChange
 public import Mathlib.RingTheory.Norm.Transitivity
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.NormProperties`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

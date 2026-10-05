@@ -1,6 +1,16 @@
-import Catalan.Height.Basic
-import Catalan.Mihailescu.PowerDifference
-import Catalan.Cyclotomic.Augmentation
+module
+
+public import Catalan.Height.Basic
+public import Catalan.Mihailescu.PowerDifference
+public import Catalan.Cyclotomic.Augmentation
+
+/-!
+# `Catalan.Mihailescu.ReconstructHeight`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 namespace Catalan

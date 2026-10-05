@@ -1,7 +1,17 @@
-import Mathlib.Data.Nat.Digits.Lemmas
-import Mathlib.Tactic
+module
+
+public import Mathlib.Data.Nat.Digits.Lemmas
+public import Mathlib.Tactic
 
 /-! Conversion of a base-b digit sum into a cyclic sum of residues. -/
+
+/-!
+# `Catalan.Stickelberger.DigitResidue`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 

@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardCompositum
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardFixedField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

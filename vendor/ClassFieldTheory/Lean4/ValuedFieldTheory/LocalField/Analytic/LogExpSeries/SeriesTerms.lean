@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalProduct
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitDecomposition
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.LogExpSeries.SeriesTerms`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

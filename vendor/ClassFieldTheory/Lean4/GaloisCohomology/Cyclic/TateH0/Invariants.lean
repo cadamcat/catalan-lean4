@@ -15,6 +15,12 @@ public import Mathlib.RepresentationTheory.Invariants
 public import Mathlib.FieldTheory.Galois.Basic
 
 
+/-!
+# `GaloisCohomology.Cyclic.TateH0.Invariants`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

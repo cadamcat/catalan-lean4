@@ -21,6 +21,12 @@ the associated surjective multiplicative valuation with a uniformizer.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.Valuation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

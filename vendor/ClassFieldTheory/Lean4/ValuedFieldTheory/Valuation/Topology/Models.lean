@@ -16,6 +16,12 @@ public import Mathlib.Topology.Order
 public import Mathlib.Topology.WithTopology
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Topology.Models`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,4 +1,14 @@
-import Catalan.Mihailescu.Ideal
+module
+
+public import Catalan.Mihailescu.Ideal
+
+/-!
+# `Catalan.Wieferich.Defs`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators ComplexConjugate
 open NumberField

@@ -16,6 +16,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Main
 public import GaloisCohomology.Cyclic.IntegralRepUniverse
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.MaximalUnramifiedReciprocity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

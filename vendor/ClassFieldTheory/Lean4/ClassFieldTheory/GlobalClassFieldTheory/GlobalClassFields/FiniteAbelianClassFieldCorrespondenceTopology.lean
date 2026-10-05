@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.NormCond
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidue
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.FiniteAbelianClassFieldCorrespondenceTopology`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

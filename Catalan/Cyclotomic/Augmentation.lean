@@ -1,4 +1,14 @@
-import Catalan.Cyclotomic.GroupRing
+module
+
+public import Catalan.Cyclotomic.GroupRing
+
+/-!
+# `Catalan.Cyclotomic.Augmentation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 open NumberField

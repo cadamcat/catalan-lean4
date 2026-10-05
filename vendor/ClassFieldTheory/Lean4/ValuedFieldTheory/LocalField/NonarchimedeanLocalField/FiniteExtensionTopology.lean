@@ -17,6 +17,12 @@ public import Mathlib.Analysis.Normed.Unbundled.SpectralNorm
 public import Mathlib.RingTheory.Valuation.Extension
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteExtensionTopology`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

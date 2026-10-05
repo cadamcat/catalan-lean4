@@ -1,4 +1,14 @@
-import Catalan.Density.ConjugateWitness
+module
+
+public import Catalan.Density.ConjugateWitness
+
+/-!
+# `Catalan.Density.AbsoluteH`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

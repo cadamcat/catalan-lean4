@@ -1,5 +1,15 @@
-import Catalan.Runge.FullInjective
-import Catalan.Runge.PlusInputs
+module
+
+public import Catalan.Runge.FullInjective
+public import Catalan.Runge.PlusInputs
+
+/-!
+# `Catalan.Runge.PlusIdeal`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

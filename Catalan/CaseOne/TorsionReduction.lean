@@ -1,5 +1,15 @@
-import Catalan.CaseOne.PowerQuotient
-import Catalan.Cyclotomic.UnitPowers
+module
+
+public import Catalan.CaseOne.PowerQuotient
+public import Catalan.Cyclotomic.UnitPowers
+
+/-!
+# `Catalan.CaseOne.TorsionReduction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

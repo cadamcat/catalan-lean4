@@ -1,6 +1,16 @@
-import Catalan.IdealAction
-import Catalan.CaseOne.PowerQuotient
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.IdealMap
+module
+
+public import Catalan.IdealAction
+public import Catalan.CaseOne.PowerQuotient
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.IdealMap
+
+/-!
+# `Catalan.Thaine.ClassFactorization`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

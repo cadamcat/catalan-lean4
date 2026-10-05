@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.Completion.TensorProductDecomposition
 public import ValuedFieldTheory.Valuation.Completion.TensorProductProductFormulas
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.DegreeNormTrace`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

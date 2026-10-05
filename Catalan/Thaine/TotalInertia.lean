@@ -1,4 +1,14 @@
-import Catalan.Density.Definitions
+module
+
+public import Catalan.Density.Definitions
+
+/-!
+# `Catalan.Thaine.TotalInertia`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

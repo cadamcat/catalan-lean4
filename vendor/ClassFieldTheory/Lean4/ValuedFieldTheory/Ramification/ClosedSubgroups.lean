@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.RamificationGro
 public import Mathlib.FieldTheory.Galois.Infinite
 
 
+/-!
+# `ValuedFieldTheory.Ramification.ClosedSubgroups`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

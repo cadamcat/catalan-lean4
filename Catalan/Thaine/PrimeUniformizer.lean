@@ -1,4 +1,14 @@
-import Catalan.Stickelberger.Uniformizer
+module
+
+public import Catalan.Stickelberger.Uniformizer
+
+/-!
+# `Catalan.Thaine.PrimeUniformizer`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

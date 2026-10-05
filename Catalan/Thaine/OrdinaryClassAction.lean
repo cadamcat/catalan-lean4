@@ -1,4 +1,14 @@
-import Catalan.IdealAction.Composition
+module
+
+public import Catalan.IdealAction.Composition
+
+/-!
+# `Catalan.Thaine.OrdinaryClassAction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

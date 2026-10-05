@@ -1,6 +1,16 @@
-import Catalan.Thaine.PrincipalClassRelation
-import Catalan.Thaine.AuxiliaryNormMultiplicities
-import Catalan.Thaine.CircularPrincipalData
+module
+
+public import Catalan.Thaine.PrincipalClassRelation
+public import Catalan.Thaine.AuxiliaryNormMultiplicities
+public import Catalan.Thaine.CircularPrincipalData
+
+/-!
+# `Catalan.Thaine.CircularClassRelation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

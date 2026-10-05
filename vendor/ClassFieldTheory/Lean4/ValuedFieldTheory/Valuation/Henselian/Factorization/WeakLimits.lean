@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.Henselian.Factorization.InfiniteApprox
 public import ValuedFieldTheory.Valuation.Henselian.Factorization.AdicLimits
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Factorization.WeakLimits`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

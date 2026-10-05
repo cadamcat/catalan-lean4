@@ -15,6 +15,12 @@ public import GaloisCohomology.Kummer.Concrete.InfiniteGeneration
 public import GaloisCohomology.Kummer.Concrete.RadicalExtension
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.ExtensionRoundTrip`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

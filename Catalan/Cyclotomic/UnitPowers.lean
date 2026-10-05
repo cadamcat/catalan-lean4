@@ -1,6 +1,16 @@
-import Catalan.Cyclotomic.GroupRing
+module
+
+public import Catalan.Cyclotomic.GroupRing
 
 /-! Prime-power injectivity for units in a prime cyclotomic field. -/
+/-!
+# `Catalan.Cyclotomic.UnitPowers`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open NumberField
 noncomputable section
 namespace Catalan

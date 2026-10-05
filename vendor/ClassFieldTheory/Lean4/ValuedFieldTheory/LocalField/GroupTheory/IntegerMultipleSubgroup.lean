@@ -30,6 +30,12 @@ hypotheses.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.GroupTheory.IntegerMultipleSubgroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

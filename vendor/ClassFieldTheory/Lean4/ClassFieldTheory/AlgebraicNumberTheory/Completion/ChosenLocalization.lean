@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Completion.LocalizedValuati
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.FinitePlaces
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Completion.ChosenLocalization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

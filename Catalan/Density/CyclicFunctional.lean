@@ -1,4 +1,14 @@
-import Catalan.Density.KummerConjugateSpan
+module
+
+public import Catalan.Density.KummerConjugateSpan
+
+/-!
+# `Catalan.Density.CyclicFunctional`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

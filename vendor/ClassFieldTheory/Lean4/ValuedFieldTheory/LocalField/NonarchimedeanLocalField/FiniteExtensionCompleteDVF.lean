@@ -18,6 +18,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralC
 public import ValuedFieldTheory.Valuation.ValuedAdicComplete
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteExtensionCompleteDVF`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

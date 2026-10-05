@@ -1,4 +1,14 @@
-import Catalan.Cassels.Elementary
+module
+
+public import Catalan.Cassels.Elementary
+
+/-!
+# `Catalan.Classical.KoChao.Factors`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.KoChao
 

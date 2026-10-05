@@ -1,6 +1,16 @@
-import Catalan.Density.DegreeBound
-import Catalan.Density.UnramifiedSup
-import Catalan.Density.BoundedSup
+module
+
+public import Catalan.Density.DegreeBound
+public import Catalan.Density.UnramifiedSup
+public import Catalan.Density.BoundedSup
+
+/-!
+# `Catalan.Density.FiniteH`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

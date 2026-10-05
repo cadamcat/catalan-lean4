@@ -1,4 +1,14 @@
-import Catalan.Classical.Reduction
+module
+
+public import Catalan.Classical.Reduction
+
+/-!
+# `Catalan.CaseTwo.FiniteFive`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

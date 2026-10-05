@@ -21,6 +21,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.Conducto
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ConductorRayClassMaximality
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.NormConductor`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

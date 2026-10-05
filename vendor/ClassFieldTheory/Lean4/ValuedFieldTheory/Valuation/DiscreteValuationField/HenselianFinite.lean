@@ -19,6 +19,12 @@ public import Mathlib.RingTheory.AdicCompletion.Noetherian
 public import Mathlib.RingTheory.Nakayama
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianFinite`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

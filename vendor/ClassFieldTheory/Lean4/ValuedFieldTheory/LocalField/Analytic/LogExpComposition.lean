@@ -15,6 +15,12 @@ public import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
 public import ValuedFieldTheory.LocalField.Analytic.LogExpAdditivity
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.LogExpComposition`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

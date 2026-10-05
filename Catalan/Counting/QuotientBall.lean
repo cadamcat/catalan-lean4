@@ -1,6 +1,16 @@
-import Catalan.Counting.CoefficientBall
-import Catalan.CaseTwo.RadiusArithmetic
-import Catalan.CaseTwo.LatticeWeak
+module
+
+public import Catalan.Counting.CoefficientBall
+public import Catalan.CaseTwo.RadiusArithmetic
+public import Catalan.CaseTwo.LatticeWeak
+
+/-!
+# `Catalan.Counting.QuotientBall`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 namespace Catalan

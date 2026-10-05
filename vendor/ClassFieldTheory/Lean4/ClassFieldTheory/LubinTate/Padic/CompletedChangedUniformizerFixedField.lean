@@ -17,6 +17,12 @@ public import ClassFieldTheory.LubinTate.Padic.CompletedChangedUniformizerThetaF
 public import ClassFieldTheory.LubinTate.Padic.CompletedUnramifiedFrobeniusFixed
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedChangedUniformizerFixedField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

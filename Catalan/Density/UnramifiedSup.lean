@@ -1,6 +1,16 @@
-import Catalan.Density.BaseFields
-import Catalan.Density.InertiaRestrictions
-import Catalan.Density.SupExt
+module
+
+public import Catalan.Density.BaseFields
+public import Catalan.Density.InertiaRestrictions
+public import Catalan.Density.SupExt
+
+/-!
+# `Catalan.Density.UnramifiedSup`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

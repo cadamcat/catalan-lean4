@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.Conducto
 public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.LocalConductor
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ConductorLocalComparison`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

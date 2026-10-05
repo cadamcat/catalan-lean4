@@ -1,10 +1,20 @@
-import Mathlib.NumberTheory.GaussSum
-import Mathlib.NumberTheory.MulChar.Lemmas
-import Mathlib.FieldTheory.Galois.Basic
+module
+
+public import Mathlib.NumberTheory.GaussSum
+public import Mathlib.NumberTheory.MulChar.Lemmas
+public import Mathlib.FieldTheory.Galois.Basic
 
 /-! Concrete finite-field trace Gauss sums, relative Galois action, and descent.
 The construction uses Mathlib character and Gauss-sum APIs only. No SKW source
 or project-specific Gauss-eigenvector assumption is used. -/
+
+/-!
+# `Catalan.Stickelberger.GaussCharacters`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 open scoped BigOperators

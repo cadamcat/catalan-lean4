@@ -17,6 +17,12 @@ public import Mathlib.LinearAlgebra.Charpoly.BaseChange
 public import Mathlib.RingTheory.TensorProduct.MvPolynomial
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.GaloisNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

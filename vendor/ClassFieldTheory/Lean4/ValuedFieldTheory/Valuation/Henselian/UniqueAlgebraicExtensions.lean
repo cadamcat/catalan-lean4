@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.Uniqu
 public import ValuedFieldTheory.Valuation.Henselian.UniqueExtensionPrimitive
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.UniqueAlgebraicExtensions`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

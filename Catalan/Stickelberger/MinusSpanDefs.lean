@@ -1,5 +1,15 @@
-import Catalan.Stickelberger.MinusStability
-import Catalan.Stickelberger.MinusFloor
+module
+
+public import Catalan.Stickelberger.MinusStability
+public import Catalan.Stickelberger.MinusFloor
+
+/-!
+# `Catalan.Stickelberger.MinusSpanDefs`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

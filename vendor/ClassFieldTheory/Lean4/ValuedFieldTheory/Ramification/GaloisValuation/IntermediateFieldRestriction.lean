@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import Mathlib.FieldTheory.Galois.Basic
 
 
+/-!
+# `ValuedFieldTheory.Ramification.GaloisValuation.IntermediateFieldRestriction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

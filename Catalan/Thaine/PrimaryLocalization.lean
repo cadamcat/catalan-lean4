@@ -1,6 +1,16 @@
-import Catalan.CaseOne.PrimaryUnits
-import Mathlib.RingTheory.Localization.AsSubring
-import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
+module
+
+public import Catalan.CaseOne.PrimaryUnits
+public import Mathlib.RingTheory.Localization.AsSubring
+public import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
+
+/-!
+# `Catalan.Thaine.PrimaryLocalization`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

@@ -1,4 +1,14 @@
-import Catalan.CaseOne.PowerQuotient
+module
+
+public import Catalan.CaseOne.PowerQuotient
+
+/-!
+# `Catalan.Density.PowerFixedField`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

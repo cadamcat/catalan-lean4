@@ -1,8 +1,18 @@
-import Catalan.Density.CyclicPrimeClasses
-import Catalan.Density.UnitResidueInjective
-import Catalan.Density.ResidueMap
-import Catalan.Density.ResidueKernel
-import Catalan.Density.QPrimeCongruence
+module
+
+public import Catalan.Density.CyclicPrimeClasses
+public import Catalan.Density.UnitResidueInjective
+public import Catalan.Density.ResidueMap
+public import Catalan.Density.ResidueKernel
+public import Catalan.Density.QPrimeCongruence
+
+/-!
+# `Catalan.Density.SeparatingPrimeClasses`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

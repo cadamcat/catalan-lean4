@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.Henselian
 public import Mathlib.RingTheory.Valuation.Extension
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.HenselianValuationExtension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

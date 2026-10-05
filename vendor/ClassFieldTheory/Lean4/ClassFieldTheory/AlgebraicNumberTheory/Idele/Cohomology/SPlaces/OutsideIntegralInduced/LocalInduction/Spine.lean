@@ -16,6 +16,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.
 public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.Valuation
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SPlaces.OutsideIntegralInduced.LocalInduction.Spine`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

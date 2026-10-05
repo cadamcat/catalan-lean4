@@ -1,5 +1,15 @@
-import Catalan.Thaine.ClassRepresentation
-import Catalan.Runge.Reduction
+module
+
+public import Catalan.Thaine.ClassRepresentation
+public import Catalan.Runge.Reduction
+
+/-!
+# `Catalan.Thaine.IntegralClassAction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,6 +1,16 @@
-import Catalan.Thaine.RealUnramified
-import Catalan.CaseOne.CircularUnits
-import Catalan.CaseOne.PowerQuotient
+module
+
+public import Catalan.Thaine.RealUnramified
+public import Catalan.CaseOne.CircularUnits
+public import Catalan.CaseOne.PowerQuotient
+
+/-!
+# `Catalan.Thaine.LiteralMaps`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

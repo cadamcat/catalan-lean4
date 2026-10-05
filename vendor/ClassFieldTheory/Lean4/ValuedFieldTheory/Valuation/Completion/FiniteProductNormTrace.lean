@@ -16,6 +16,12 @@ public import Mathlib.RingTheory.Trace.Basic
 public import Mathlib.LinearAlgebra.Dimension.Constructions
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.FiniteProductNormTrace`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

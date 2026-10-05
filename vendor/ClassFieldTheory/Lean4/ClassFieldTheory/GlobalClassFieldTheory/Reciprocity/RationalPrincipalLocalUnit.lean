@@ -26,6 +26,12 @@ public import ClassFieldTheory.LubinTate.FiniteLevel.ChangedUniformizer
 public import ClassFieldTheory.LubinTate.Padic.MultiplicativeSeries
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalPrincipalLocalUnit`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

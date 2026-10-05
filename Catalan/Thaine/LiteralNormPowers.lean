@@ -1,5 +1,15 @@
-import Catalan.Thaine.LiteralFieldPowers
-import Catalan.Thaine.LiteralQuadraticNorm
+module
+
+public import Catalan.Thaine.LiteralFieldPowers
+public import Catalan.Thaine.LiteralQuadraticNorm
+
+/-!
+# `Catalan.Thaine.LiteralNormPowers`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,5 +1,15 @@
-import Catalan.Thaine.CircularOrbitRelation
-import Catalan.Thaine.ResidueCoordinateSquare
+module
+
+public import Catalan.Thaine.CircularOrbitRelation
+public import Catalan.Thaine.ResidueCoordinateSquare
+
+/-!
+# `Catalan.Thaine.CircularCoordinateAnnihilator`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

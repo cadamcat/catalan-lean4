@@ -1,5 +1,15 @@
-import Catalan.Density.FiniteH
-import Catalan.Density.TTower
+module
+
+public import Catalan.Density.FiniteH
+public import Catalan.Density.TTower
+
+/-!
+# `Catalan.Density.FiniteT`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

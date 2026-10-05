@@ -1,6 +1,8 @@
-import Catalan.Stickelberger.Tower
-import Catalan.Stickelberger.Uniformizer
-import Catalan.Stickelberger.LocalArith
+module
+
+public import Catalan.Stickelberger.Tower
+public import Catalan.Stickelberger.Uniformizer
+public import Catalan.Stickelberger.LocalArith
 
 /-! # Gauss valuations for arbitrary ideals in Dedekind domains
 
@@ -15,6 +17,14 @@ domain, with the root of unity supplied as data.  The premise reductions of
 `Tower.lean` (`ell ∈ I ^ 2` and `ζ - 1 ∈ I` from the root-of-unity condition) are
 reused verbatim; they never used locality.
 -/
+
+/-!
+# `Catalan.Stickelberger.Local`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

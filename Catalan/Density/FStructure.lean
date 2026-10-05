@@ -1,4 +1,14 @@
-import Catalan.Density.RealF
+module
+
+public import Catalan.Density.RealF
+
+/-!
+# `Catalan.Density.FStructure`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

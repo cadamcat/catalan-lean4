@@ -1,5 +1,15 @@
-import Catalan.Mihailescu.BoundsDefs
-import Catalan.Mihailescu.Numerical
+module
+
+public import Catalan.Mihailescu.BoundsDefs
+public import Catalan.Mihailescu.Numerical
+
+/-!
+# `Catalan.Mihailescu.RadiusTwoArithmetic`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

@@ -1,8 +1,18 @@
-import Catalan.Stickelberger.GaussFamily
-import Catalan.Stickelberger.GaussIdentities
-import Mathlib.NumberTheory.JacobiSum.Basic
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.GroupTheory.OrderOfElement
+module
+
+public import Catalan.Stickelberger.GaussFamily
+public import Catalan.Stickelberger.GaussIdentities
+public import Mathlib.NumberTheory.JacobiSum.Basic
+public import Mathlib.FieldTheory.Finite.Basic
+public import Mathlib.GroupTheory.OrderOfElement
+
+/-!
+# `Catalan.Stickelberger.ValuesBridge`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

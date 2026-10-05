@@ -1,7 +1,17 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! Shared cyclotomic definitions used in the Catalan proof.
 The explicit `p` parameter in `G` and `R` is retained in their signatures. -/
+
+/-!
+# `Catalan.Cyclotomic.Basic`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators nonZeroDivisors Pointwise
 open NumberField

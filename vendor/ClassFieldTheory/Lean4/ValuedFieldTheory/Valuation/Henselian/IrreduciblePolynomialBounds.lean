@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.ValuationSubring
 public import Mathlib.Algebra.Polynomial.Div
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialBounds`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

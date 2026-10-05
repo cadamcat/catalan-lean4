@@ -1,5 +1,15 @@
-import Catalan.Classical.Euler.Defs
-import Mathlib
+module
+
+public import Catalan.Classical.Euler.Defs
+public import Mathlib
+
+/-!
+# `Catalan.Classical.Euler.Sequence`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.Euler
 

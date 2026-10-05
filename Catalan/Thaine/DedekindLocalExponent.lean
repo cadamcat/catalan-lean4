@@ -1,7 +1,17 @@
-import Catalan.Thaine.LocalAction
-import Catalan.Thaine.LocalMultiplicity
-import Catalan.Thaine.DvrDecomposition
-import Catalan.Thaine.LocalExponent
+module
+
+public import Catalan.Thaine.LocalAction
+public import Catalan.Thaine.LocalMultiplicity
+public import Catalan.Thaine.DvrDecomposition
+public import Catalan.Thaine.LocalExponent
+
+/-!
+# `Catalan.Thaine.DedekindLocalExponent`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open IsDedekindDomain

@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.NormalClosure
 public import Mathlib.FieldTheory.Normal.Closure
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.NormalClosure`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

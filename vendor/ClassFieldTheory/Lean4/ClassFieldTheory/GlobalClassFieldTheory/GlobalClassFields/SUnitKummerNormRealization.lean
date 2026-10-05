@@ -17,6 +17,12 @@ public import ClassFieldTheory.KummerTheory.Concrete.SUnitKummerUnramified
 public import ClassFieldTheory.LocalClassFieldTheory.LubinTateApplication.StandardSubgroupIndex
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.SUnitKummerNormRealization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

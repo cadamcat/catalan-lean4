@@ -15,6 +15,12 @@ public import GaloisCohomology.Kummer.Concrete.RestrictedFinite
 public import ValuedFieldTheory.LocalField.GroupTheory.PowerIndex
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.MaximalKummerSubgroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

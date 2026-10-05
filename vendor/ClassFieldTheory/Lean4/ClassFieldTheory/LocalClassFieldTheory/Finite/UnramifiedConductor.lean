@@ -18,6 +18,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.Conductor
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedNormComparison
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.UnramifiedConductor`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

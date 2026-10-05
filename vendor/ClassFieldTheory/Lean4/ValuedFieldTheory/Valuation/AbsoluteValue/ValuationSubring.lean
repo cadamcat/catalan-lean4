@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.LocalRing.ResidueField.Basic
 public import Mathlib.RingTheory.Valuation.LocalSubring
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.ValuationSubring`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

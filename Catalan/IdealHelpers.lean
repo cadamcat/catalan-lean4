@@ -1,4 +1,14 @@
-import Catalan.IdealAction
+module
+
+public import Catalan.IdealAction
+
+/-!
+# `Catalan.IdealHelpers`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators nonZeroDivisors Pointwise
 open NumberField

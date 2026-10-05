@@ -23,6 +23,12 @@ public import Mathlib.RingTheory.Valuation.Integral
 public import Mathlib.LinearAlgebra.TensorProduct.RightExactness
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.IntegralClosure`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

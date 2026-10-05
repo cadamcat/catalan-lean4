@@ -1,3 +1,5 @@
+module
+
 /-
 Witt vector tower over a finite residue field.
 
@@ -7,11 +9,19 @@ vectors `WittVector ell F`.
 
 Self-contained: imports only Mathlib.
 -/
-import Mathlib.RingTheory.WittVector.DiscreteValuationRing
-import Mathlib.RingTheory.WittVector.Complete
-import Mathlib.RingTheory.Henselian
-import Mathlib.RingTheory.DedekindDomain.Basic
-import Mathlib.FieldTheory.Perfect
+public import Mathlib.RingTheory.WittVector.DiscreteValuationRing
+public import Mathlib.RingTheory.WittVector.Complete
+public import Mathlib.RingTheory.Henselian
+public import Mathlib.RingTheory.DedekindDomain.Basic
+public import Mathlib.FieldTheory.Perfect
+
+/-!
+# `Catalan.Stickelberger.WittTower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 

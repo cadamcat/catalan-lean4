@@ -1,5 +1,15 @@
-import Catalan.Density.NormalM
-import Catalan.Stickelberger.TowerLift
+module
+
+public import Catalan.Density.NormalM
+public import Catalan.Stickelberger.TowerLift
+
+/-!
+# `Catalan.Thaine.AuxiliaryGenerator`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

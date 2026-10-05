@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.FormalModule.StandardFormalGroup
 public import ClassFieldTheory.LubinTate.Padic.MultiplicativeSeries
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.MultiplicativeIntertwiner`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

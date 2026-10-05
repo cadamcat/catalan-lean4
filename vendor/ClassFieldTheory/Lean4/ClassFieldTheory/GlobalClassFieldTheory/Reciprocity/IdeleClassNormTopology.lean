@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassDire
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.NormConductor
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassNormTopology`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

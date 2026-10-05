@@ -1,5 +1,15 @@
-import Catalan.Thaine.IdealClassPower
-import Catalan.Thaine.LiteralPrimaryLift
+module
+
+public import Catalan.Thaine.IdealClassPower
+public import Catalan.Thaine.LiteralPrimaryLift
+
+/-!
+# `Catalan.Thaine.LiteralClassUnitPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

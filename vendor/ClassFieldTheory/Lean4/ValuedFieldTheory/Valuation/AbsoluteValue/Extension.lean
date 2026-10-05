@@ -16,6 +16,12 @@ public import Mathlib.Basic.Real.Basic
 public import Mathlib.Topology.UniformSpace.AbsoluteValue
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.Extension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

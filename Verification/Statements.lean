@@ -1,4 +1,14 @@
-import Catalan
+module
+
+public import Catalan
+
+/-!
+# `Verification.Statements`
+
+Restates the principal Catalan results for statement verification.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace CatalanVerification

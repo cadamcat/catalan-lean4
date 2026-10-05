@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.Polynomial.Cyclotomic.Roots
 public import Mathlib.RingTheory.Valuation.Discrete.IsDiscreteValuationRing
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PadicField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

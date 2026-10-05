@@ -1,4 +1,14 @@
-import Catalan.Density.FStructure
+module
+
+public import Catalan.Density.FStructure
+
+/-!
+# `Catalan.Density.RealPrimeCongruence`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

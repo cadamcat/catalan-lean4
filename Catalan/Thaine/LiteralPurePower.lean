@@ -1,5 +1,15 @@
-import Catalan.Thaine.LiteralPrimaryPower
-import Catalan.Thaine.BottomPower
+module
+
+public import Catalan.Thaine.LiteralPrimaryPower
+public import Catalan.Thaine.BottomPower
+
+/-!
+# `Catalan.Thaine.LiteralPurePower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

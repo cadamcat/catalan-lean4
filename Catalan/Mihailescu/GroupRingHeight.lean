@@ -1,5 +1,15 @@
-import Catalan.Height.Projective
-import Catalan.Mihailescu.PositiveProducts
+module
+
+public import Catalan.Height.Projective
+public import Catalan.Mihailescu.PositiveProducts
+
+/-!
+# `Catalan.Mihailescu.GroupRingHeight`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

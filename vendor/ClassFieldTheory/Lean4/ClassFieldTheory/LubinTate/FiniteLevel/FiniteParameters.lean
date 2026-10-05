@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.PrincipalUnits
 public import Mathlib.GroupTheory.Coset.Card
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.FiniteParameters`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

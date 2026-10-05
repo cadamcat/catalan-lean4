@@ -18,6 +18,12 @@ public import Mathlib.FieldTheory.Finite.Basic
 public import Mathlib.RingTheory.MvPowerSeries.Expand
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FormalModule.Reduction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

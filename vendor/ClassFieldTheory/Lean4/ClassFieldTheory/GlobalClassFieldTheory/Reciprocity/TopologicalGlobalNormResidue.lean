@@ -17,6 +17,12 @@ public import Mathlib.FieldTheory.KrullTopology
 public import Mathlib.Topology.Algebra.Group.Quotient
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.TopologicalGlobalNormResidue`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

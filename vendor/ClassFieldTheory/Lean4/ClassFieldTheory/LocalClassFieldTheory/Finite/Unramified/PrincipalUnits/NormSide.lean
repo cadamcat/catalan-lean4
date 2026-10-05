@@ -15,6 +15,12 @@ public import Mathlib.FieldTheory.Galois.Basic
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueGalois
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.PrincipalUnits.NormSide`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

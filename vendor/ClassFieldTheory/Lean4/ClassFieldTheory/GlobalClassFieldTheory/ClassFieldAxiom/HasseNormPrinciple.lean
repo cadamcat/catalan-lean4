@@ -22,6 +22,12 @@ public import GaloisCohomology.Cyclic.TateH0.Main
 public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.CohomologyBridge
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.HasseNormPrinciple`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

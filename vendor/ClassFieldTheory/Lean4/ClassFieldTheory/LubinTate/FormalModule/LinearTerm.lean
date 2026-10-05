@@ -15,6 +15,12 @@ public import Mathlib.RingTheory.MvPowerSeries.Order
 public import Mathlib.RingTheory.PowerSeries.Substitution
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FormalModule.LinearTerm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

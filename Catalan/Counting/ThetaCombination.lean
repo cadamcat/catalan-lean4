@@ -1,6 +1,16 @@
-import Catalan.Cyclotomic.GroupRingSums
-import Catalan.Stickelberger.MinusIndependent
-import Catalan.Stickelberger.MinusNorm
+module
+
+public import Catalan.Cyclotomic.GroupRingSums
+public import Catalan.Stickelberger.MinusIndependent
+public import Catalan.Stickelberger.MinusNorm
+
+/-!
+# `Catalan.Counting.ThetaCombination`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

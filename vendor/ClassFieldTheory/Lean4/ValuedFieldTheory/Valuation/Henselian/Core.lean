@@ -33,6 +33,12 @@ public import ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialLifting
 public import ValuedFieldTheory.Valuation.Henselian.UniqueExtensionReduction
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Core`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

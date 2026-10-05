@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ValuedFieldTheory.Ramification.HilbertRamification.RamificationDepth
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.ValuationKrasner`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

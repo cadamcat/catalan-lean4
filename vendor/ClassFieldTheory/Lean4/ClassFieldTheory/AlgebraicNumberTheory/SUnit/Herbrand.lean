@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.Ideal.Quotient.HasFiniteQuotients.Basic
 public import Mathlib.RingTheory.Ideal.Quotient.HasFiniteQuotients.Norm
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.SUnit.Herbrand`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

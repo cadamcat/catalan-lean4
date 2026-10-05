@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.CompleteDVF
 public import ValuedFieldTheory.Ramification.HilbertRamification.RealLowerGroups
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.LevelValuation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

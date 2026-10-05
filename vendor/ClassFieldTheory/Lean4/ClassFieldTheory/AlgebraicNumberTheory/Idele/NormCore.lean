@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Principal
 public import Mathlib.NumberTheory.NumberField.ProductFormula
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.NormCore`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

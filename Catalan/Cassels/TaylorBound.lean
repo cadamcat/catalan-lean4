@@ -1,4 +1,14 @@
-import Catalan.Cassels.Defs
+module
+
+public import Catalan.Cassels.Defs
+
+/-!
+# `Catalan.Cassels.TaylorBound`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators Topology
 open Set

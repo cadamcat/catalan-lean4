@@ -1,6 +1,16 @@
-import Catalan.Thaine.PrimaryLocalization
-import Catalan.IdealAction
-import Catalan.Cyclotomic.GroupRing
+module
+
+public import Catalan.Thaine.PrimaryLocalization
+public import Catalan.IdealAction
+public import Catalan.Cyclotomic.GroupRing
+
+/-!
+# `Catalan.Thaine.PrimaryLocalizedPowers`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

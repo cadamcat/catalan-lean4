@@ -1,6 +1,16 @@
-import Catalan.Counting.ThetaCombination
-import Catalan.Counting.Defs
-import Catalan.Stickelberger.MinusMihailescu
+module
+
+public import Catalan.Counting.ThetaCombination
+public import Catalan.Counting.Defs
+public import Catalan.Stickelberger.MinusMihailescu
+
+/-!
+# `Catalan.Counting.CoefficientBall`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 open NumberField

@@ -1,7 +1,17 @@
-import Catalan.Classical.KoChao.Factors
-import Catalan.Classical.KoChao.PellDivisibility
-import Catalan.Classical.KoChao.SecondCongruence
-import Catalan.Classical.Euler
+module
+
+public import Catalan.Classical.KoChao.Factors
+public import Catalan.Classical.KoChao.PellDivisibility
+public import Catalan.Classical.KoChao.SecondCongruence
+public import Catalan.Classical.Euler
+
+/-!
+# `Catalan.Classical.KoChao`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan

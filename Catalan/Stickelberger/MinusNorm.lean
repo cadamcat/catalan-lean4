@@ -1,5 +1,15 @@
-import Catalan.Stickelberger.MinusDefs
-import Catalan.Stickelberger.MinusFloor
+module
+
+public import Catalan.Stickelberger.MinusDefs
+public import Catalan.Stickelberger.MinusFloor
+
+/-!
+# `Catalan.Stickelberger.MinusNorm`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

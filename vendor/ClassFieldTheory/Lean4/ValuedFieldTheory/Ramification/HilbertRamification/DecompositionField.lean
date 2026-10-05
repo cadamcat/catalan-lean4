@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.DecompositionGr
 public import Mathlib.FieldTheory.Galois.Infinite
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.DecompositionField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

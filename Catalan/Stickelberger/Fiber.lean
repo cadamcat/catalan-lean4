@@ -1,5 +1,15 @@
-import Catalan.FactorDescent
-import Mathlib.NumberTheory.NumberField.Cyclotomic.Galois
+module
+
+public import Catalan.FactorDescent
+public import Mathlib.NumberTheory.NumberField.Cyclotomic.Galois
+
+/-!
+# `Catalan.Stickelberger.Fiber`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

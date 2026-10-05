@@ -1,6 +1,16 @@
-import Catalan.Stickelberger.RootDescent
-import Catalan.Stickelberger.GaussIdentities
-import Catalan.Stickelberger.GaloisCover
+module
+
+public import Catalan.Stickelberger.RootDescent
+public import Catalan.Stickelberger.GaussIdentities
+public import Catalan.Stickelberger.GaloisCover
+
+/-!
+# `Catalan.Stickelberger.Hout`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

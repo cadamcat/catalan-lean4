@@ -21,6 +21,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Adele.IntegralLocalFactor
 public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Product
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.SPlaces`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -20,6 +20,12 @@ public import Mathlib.NumberTheory.NumberField.Completion.Ramification
 public import Mathlib.RingTheory.Ideal.Norm.RelNorm
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.NormTopology.FiniteNormArithmetic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

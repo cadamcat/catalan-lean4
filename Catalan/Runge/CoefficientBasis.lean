@@ -1,6 +1,16 @@
-import Catalan.Runge.Definitions
-import Catalan.CaseOne.PowerBasisDivisibility
-import Catalan.Cyclotomic.Ramification
+module
+
+public import Catalan.Runge.Definitions
+public import Catalan.CaseOne.PowerBasisDivisibility
+public import Catalan.Cyclotomic.Ramification
+
+/-!
+# `Catalan.Runge.CoefficientBasis`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

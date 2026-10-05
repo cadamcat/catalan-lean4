@@ -1,5 +1,15 @@
-import Mathlib.FieldTheory.Perfect
-import Mathlib.Dynamics.PeriodicPts.Lemmas
+module
+
+public import Mathlib.FieldTheory.Perfect
+public import Mathlib.Dynamics.PeriodicPts.Lemmas
+
+/-!
+# `Catalan.Thaine.FrobeniusPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

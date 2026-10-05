@@ -20,6 +20,12 @@ public import Mathlib.RingTheory.Norm.Basic
 public import Mathlib.RingTheory.TensorProduct.Maps
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.BaseChange`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

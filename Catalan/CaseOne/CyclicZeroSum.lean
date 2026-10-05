@@ -1,4 +1,14 @@
-import Catalan.CaseOne.CyclicShift
+module
+
+public import Catalan.CaseOne.CyclicShift
+
+/-!
+# `Catalan.CaseOne.CyclicZeroSum`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

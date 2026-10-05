@@ -1,6 +1,16 @@
-import Catalan.Cassels.FactorialCore
-import Catalan.Cassels.FactorialTransfer
-import Catalan.Cassels.CoefficientReconstruction
+module
+
+public import Catalan.Cassels.FactorialCore
+public import Catalan.Cassels.FactorialTransfer
+public import Catalan.Cassels.CoefficientReconstruction
+
+/-!
+# `Catalan.Cassels.Denominator`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

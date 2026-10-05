@@ -1,4 +1,14 @@
-import Catalan.Cassels.Remainder
+module
+
+public import Catalan.Cassels.Remainder
+
+/-!
+# `Catalan.Cassels.ErrorBound`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 

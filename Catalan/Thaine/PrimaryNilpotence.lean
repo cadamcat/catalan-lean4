@@ -1,5 +1,15 @@
-import Mathlib.Algebra.Module.LinearMap.End
-import Mathlib.Data.Fintype.Lattice
+module
+
+public import Mathlib.Algebra.Module.LinearMap.End
+public import Mathlib.Data.Fintype.Lattice
+
+/-!
+# `Catalan.Thaine.PrimaryNilpotence`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

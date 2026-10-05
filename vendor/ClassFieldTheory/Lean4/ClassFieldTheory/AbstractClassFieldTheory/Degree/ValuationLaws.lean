@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Degree.Valuation
 public import ClassFieldTheory.AbstractClassFieldTheory.Degree.NormLaws
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Degree.ValuationLaws`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

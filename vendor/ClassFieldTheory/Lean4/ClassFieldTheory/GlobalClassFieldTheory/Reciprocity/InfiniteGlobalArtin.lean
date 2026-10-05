@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalArtin
 public import Mathlib.FieldTheory.Galois.Profinite
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteGlobalArtin`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

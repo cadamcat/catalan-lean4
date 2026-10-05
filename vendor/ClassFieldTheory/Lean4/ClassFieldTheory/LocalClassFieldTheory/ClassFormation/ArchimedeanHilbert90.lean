@@ -23,6 +23,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCom
 public import GaloisCohomology.Cyclic.GaloisCohomology
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.ArchimedeanHilbert90`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

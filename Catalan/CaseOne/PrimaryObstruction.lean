@@ -1,6 +1,16 @@
-import Catalan.CaseOne.PrimaryPolynomial
-import Catalan.CaseOne.PrimaryCongruence
-import Catalan.CaseOne.PowerBasisDivisibility
+module
+
+public import Catalan.CaseOne.PrimaryPolynomial
+public import Catalan.CaseOne.PrimaryCongruence
+public import Catalan.CaseOne.PowerBasisDivisibility
+
+/-!
+# `Catalan.CaseOne.PrimaryObstruction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open Polynomial NumberField

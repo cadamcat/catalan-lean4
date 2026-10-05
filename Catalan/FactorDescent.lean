@@ -1,7 +1,17 @@
-import Catalan.Stickelberger.Factor
-import Catalan.FactorBridge
+module
+
+public import Catalan.Stickelberger.Factor
+public import Catalan.FactorBridge
 
 /-! # Descent from prime-by-prime valuations to `J ^ (pθ) = (Γ)` -/
+
+/-!
+# `Catalan.FactorDescent`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

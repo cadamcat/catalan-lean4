@@ -15,6 +15,12 @@ public import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
 public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.ExpConvergence
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.LogExpSeries.LogConvergence`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

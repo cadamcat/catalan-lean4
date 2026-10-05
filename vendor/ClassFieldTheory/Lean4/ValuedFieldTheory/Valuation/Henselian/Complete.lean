@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.Henselian.Factorization.Complete
 public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaExtension
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Complete`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

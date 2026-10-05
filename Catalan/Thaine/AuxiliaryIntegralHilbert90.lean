@@ -1,5 +1,15 @@
-import Catalan.Thaine.AuxiliaryGenerator
-import Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90
+module
+
+public import Catalan.Thaine.AuxiliaryGenerator
+public import Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90
+
+/-!
+# `Catalan.Thaine.AuxiliaryIntegralHilbert90`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

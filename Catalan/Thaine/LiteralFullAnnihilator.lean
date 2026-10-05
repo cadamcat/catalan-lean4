@@ -1,6 +1,16 @@
-import Catalan.Thaine.LiteralMaps
-import Catalan.Thaine.IntegralUnitPow
-import Catalan.CaseOne.CircularModule
+module
+
+public import Catalan.Thaine.LiteralMaps
+public import Catalan.Thaine.IntegralUnitPow
+public import Catalan.CaseOne.CircularModule
+
+/-!
+# `Catalan.Thaine.LiteralFullAnnihilator`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

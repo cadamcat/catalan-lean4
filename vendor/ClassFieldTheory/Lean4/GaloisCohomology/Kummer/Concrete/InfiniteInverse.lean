@@ -15,6 +15,12 @@ public import GaloisCohomology.Kummer.Concrete.FiniteSupport
 public import GaloisCohomology.Kummer.Concrete.RestrictedFinite
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.InfiniteInverse`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

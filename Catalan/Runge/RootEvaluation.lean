@@ -1,5 +1,15 @@
-import Catalan.Runge.RootReality
-import Catalan.Runge.ProductReality
+module
+
+public import Catalan.Runge.RootReality
+public import Catalan.Runge.ProductReality
+
+/-!
+# `Catalan.Runge.RootEvaluation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators ComplexConjugate

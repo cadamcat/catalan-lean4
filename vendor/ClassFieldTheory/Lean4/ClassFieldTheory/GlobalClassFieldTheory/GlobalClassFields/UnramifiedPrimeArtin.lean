@@ -18,6 +18,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.FinitePrime
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalArtin
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.UnramifiedPrimeArtin`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

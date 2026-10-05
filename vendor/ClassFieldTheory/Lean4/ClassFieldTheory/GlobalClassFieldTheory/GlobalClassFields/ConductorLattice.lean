@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Topology
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ConductorLocalComparison
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ConductorLattice`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

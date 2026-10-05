@@ -16,6 +16,12 @@ public import Mathlib.RingTheory.Polynomial.GaussLemma
 public import Mathlib.RingTheory.Polynomial.ContentIdeal
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.PrimitiveReduction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

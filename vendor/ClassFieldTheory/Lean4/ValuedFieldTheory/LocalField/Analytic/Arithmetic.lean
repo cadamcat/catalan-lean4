@@ -21,6 +21,12 @@ public import Mathlib.Topology.Algebra.Order.Field
 public import Mathlib.Tactic
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.Arithmetic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

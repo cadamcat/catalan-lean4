@@ -21,6 +21,12 @@ public import ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardFrobenius
 public import ClassFieldTheory.LubinTate.Padic.MultiplicativeEvaluation.Core
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.LubinTateApplication.PadicMultiplicativeArtinComparison`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

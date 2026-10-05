@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.RealLowerGroups
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.AddVal
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.RamificationNumber`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

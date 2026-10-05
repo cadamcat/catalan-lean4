@@ -1,5 +1,15 @@
-import Catalan.Thaine.AuxiliaryRamification
-import Catalan.Thaine.ResidueExtension
+module
+
+public import Catalan.Thaine.AuxiliaryRamification
+public import Catalan.Thaine.ResidueExtension
+
+/-!
+# `Catalan.Thaine.AuxiliaryResidueHom`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

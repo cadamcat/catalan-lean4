@@ -1,6 +1,16 @@
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.RingTheory.Ideal.Maps
-import Mathlib.Algebra.CharP.Frobenius
+module
+
+public import Mathlib.FieldTheory.Finite.Basic
+public import Mathlib.RingTheory.Ideal.Maps
+public import Mathlib.Algebra.CharP.Frobenius
+
+/-!
+# `Catalan.Stickelberger.SquareZeroSection`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 namespace Catalan.Stickelberger

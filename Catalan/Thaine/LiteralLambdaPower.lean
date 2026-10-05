@@ -1,6 +1,16 @@
-import Catalan.Thaine.LiteralClassUnitPower
-import Catalan.Thaine.LiteralLambdaIdeal
-import Catalan.Thaine.LiteralNormPowers
+module
+
+public import Catalan.Thaine.LiteralClassUnitPower
+public import Catalan.Thaine.LiteralLambdaIdeal
+public import Catalan.Thaine.LiteralNormPowers
+
+/-!
+# `Catalan.Thaine.LiteralLambdaPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

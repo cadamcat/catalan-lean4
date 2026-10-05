@@ -1,4 +1,14 @@
-import Catalan.Classical.Lebesgue.Coordinates
+module
+
+public import Catalan.Classical.Lebesgue.Coordinates
+
+/-!
+# `Catalan.Classical.Lebesgue.Normalize`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.Lebesgue
 

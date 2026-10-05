@@ -1,8 +1,18 @@
-import Catalan.Mihailescu.Ideal
-import Catalan.Cyclotomic.OtherPrime
-import Catalan.Mihailescu.Orders
+module
+
+public import Catalan.Mihailescu.Ideal
+public import Catalan.Cyclotomic.OtherPrime
+public import Catalan.Mihailescu.Orders
 
 /-! Positive integer orders on field units at a nonzero prime ideal. -/
+/-!
+# `Catalan.Mihailescu.PrimeOrder`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open NumberField IsDedekindDomain
 open scoped nonZeroDivisors
 noncomputable section

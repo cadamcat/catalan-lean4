@@ -15,6 +15,12 @@ public import GaloisCohomology.Kummer.Concrete.Cyclotomic.RationalCyclotomicChar
 public import Mathlib.FieldTheory.Galois.Profinite
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.Cyclotomic.RationalCyclotomicCharacterEquiv`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

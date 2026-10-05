@@ -1,10 +1,20 @@
-import Catalan.Thaine.PrimaryGoodLift
-import Catalan.Thaine.GroupRingStructure
-import Catalan.Thaine.LiteralIntegerClassAction
-import Catalan.Thaine.LiteralFullThaine
-import Catalan.CaseOne.GaloisRing
-import Catalan.Runge.PowerTransport
-import Mathlib.NumberTheory.NumberField.ClassNumber
+module
+
+public import Catalan.Thaine.PrimaryGoodLift
+public import Catalan.Thaine.GroupRingStructure
+public import Catalan.Thaine.LiteralIntegerClassAction
+public import Catalan.Thaine.LiteralFullThaine
+public import Catalan.CaseOne.GaloisRing
+public import Catalan.Runge.PowerTransport
+public import Mathlib.NumberTheory.NumberField.ClassNumber
+
+/-!
+# `Catalan.Thaine.LiteralPrimaryLift`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

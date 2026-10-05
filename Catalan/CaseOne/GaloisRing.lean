@@ -1,5 +1,15 @@
-import Catalan.CaseOne.CyclotomicPlaces
-import Catalan.CaseTwo.Assembly
+module
+
+public import Catalan.CaseOne.CyclotomicPlaces
+public import Catalan.CaseTwo.Assembly
+
+/-!
+# `Catalan.CaseOne.GaloisRing`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

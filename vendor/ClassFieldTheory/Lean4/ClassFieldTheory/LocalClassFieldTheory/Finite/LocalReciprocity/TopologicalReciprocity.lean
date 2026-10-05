@@ -22,6 +22,12 @@ public import Mathlib.Topology.Algebra.Group.Units
 public import Mathlib.Topology.Algebra.OpenSubgroup
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.TopologicalReciprocity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

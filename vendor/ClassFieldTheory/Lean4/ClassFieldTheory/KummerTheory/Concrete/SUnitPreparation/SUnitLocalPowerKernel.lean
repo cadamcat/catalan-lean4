@@ -15,6 +15,12 @@ public import ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.SUnitPower
 public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Approximation
 
 
+/-!
+# `ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.SUnitLocalPowerKernel`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

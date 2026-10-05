@@ -1,11 +1,21 @@
-import Catalan.CaseOne.RepresentationAnnihilator
-import Catalan.CaseOne.MinpolyCyclic
-import Catalan.CaseOne.GeneratorConjugation
-import Catalan.CaseOne.NormSum
-import Catalan.CaseOne.NormIdeal
-import Catalan.CaseOne.GaloisRing
-import Catalan.CaseOne.GeometricUnits
-import Catalan.CaseOne.CyclicVector
+module
+
+public import Catalan.CaseOne.RepresentationAnnihilator
+public import Catalan.CaseOne.MinpolyCyclic
+public import Catalan.CaseOne.GeneratorConjugation
+public import Catalan.CaseOne.NormSum
+public import Catalan.CaseOne.NormIdeal
+public import Catalan.CaseOne.GaloisRing
+public import Catalan.CaseOne.GeometricUnits
+public import Catalan.CaseOne.CyclicVector
+
+/-!
+# `Catalan.CaseOne.UnitNorm`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

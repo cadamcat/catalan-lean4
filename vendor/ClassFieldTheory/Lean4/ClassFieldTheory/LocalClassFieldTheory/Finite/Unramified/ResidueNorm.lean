@@ -18,6 +18,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.Principal
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.PrincipalUnits.Lift
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.ResidueNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

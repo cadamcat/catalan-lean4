@@ -1,4 +1,14 @@
-import Catalan.CaseOne.PrimaryUnits
+module
+
+public import Catalan.CaseOne.PrimaryUnits
+
+/-!
+# `Catalan.CaseOne.PrimaryNaturality`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

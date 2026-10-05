@@ -1,7 +1,17 @@
-import Catalan.Density.CyclicSelectorFamily
-import Catalan.Density.SelectorPrimes
-import Catalan.Density.ClassGroupLinear
-import Catalan.Density.HRestriction
+module
+
+public import Catalan.Density.CyclicSelectorFamily
+public import Catalan.Density.SelectorPrimes
+public import Catalan.Density.ClassGroupLinear
+public import Catalan.Density.HRestriction
+
+/-!
+# `Catalan.Density.CyclicPrimeClasses`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

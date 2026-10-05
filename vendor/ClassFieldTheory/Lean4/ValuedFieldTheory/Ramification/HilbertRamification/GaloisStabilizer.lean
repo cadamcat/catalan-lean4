@@ -15,6 +15,12 @@ public import Mathlib.FieldTheory.Galois.Basic
 public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.GaloisStabilizer`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

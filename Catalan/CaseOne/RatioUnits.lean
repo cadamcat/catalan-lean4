@@ -1,4 +1,14 @@
-import Catalan.Cyclotomic.Elements
+module
+
+public import Catalan.Cyclotomic.Elements
+
+/-!
+# `Catalan.CaseOne.RatioUnits`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

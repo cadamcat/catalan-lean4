@@ -1,4 +1,14 @@
-import Catalan.Density.TRelative
+module
+
+public import Catalan.Density.TRelative
+
+/-!
+# `Catalan.Density.GaloisModules`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

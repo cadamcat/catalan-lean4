@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.Henselian.Factorization.ErrorPowers
 public import ValuedFieldTheory.Valuation.Henselian.Factorization.DegreeBounds
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Factorization.Step`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

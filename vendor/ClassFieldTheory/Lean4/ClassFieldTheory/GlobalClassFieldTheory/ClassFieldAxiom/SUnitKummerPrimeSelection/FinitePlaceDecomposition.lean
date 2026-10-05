@@ -17,6 +17,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Galois.CyclicPrimeSubextens
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UnramifiedFrobenius
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.SUnitKummerPrimeSelection.FinitePlaceDecomposition`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

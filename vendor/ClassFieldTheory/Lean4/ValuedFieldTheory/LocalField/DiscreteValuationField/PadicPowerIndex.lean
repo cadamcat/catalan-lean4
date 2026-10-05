@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.PowerIndex
 public import Mathlib.NumberTheory.Padics.RingHoms
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PadicPowerIndex`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

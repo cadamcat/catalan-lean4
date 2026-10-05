@@ -1,7 +1,17 @@
-import Catalan.CaseOne.RealUnits
-import Catalan.CaseOne.DualCharpoly
-import Catalan.CaseOne.ProjectiveRigidity
-import Catalan.Density.FStructure
+module
+
+public import Catalan.CaseOne.RealUnits
+public import Catalan.CaseOne.DualCharpoly
+public import Catalan.CaseOne.ProjectiveRigidity
+public import Catalan.Density.FStructure
+
+/-!
+# `Catalan.Density.FUnits`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,7 +1,9 @@
-import Catalan.Stickelberger.Equivariance
-import Catalan.Stickelberger.Transfer
-import Catalan.Stickelberger.DigitResidue
-import Mathlib
+module
+
+public import Catalan.Stickelberger.Equivariance
+public import Catalan.Stickelberger.Transfer
+public import Catalan.Stickelberger.DigitResidue
+public import Mathlib
 
 /-! # Galois action on an order-dividing-`p` character
 
@@ -12,6 +14,14 @@ hence acts on a character whose values are `p`-th roots of unity by `χ ↦ χ ^
 Also: the ℕ∞ cancellation that turns the ramification-scaled valuation equation into the value
 of the multiplicity downstairs.
 -/
+
+/-!
+# `Catalan.Stickelberger.Identify`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

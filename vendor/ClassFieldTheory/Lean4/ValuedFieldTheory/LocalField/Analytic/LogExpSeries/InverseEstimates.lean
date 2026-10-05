@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.LogConvergence
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.LogExpSeries.InverseEstimates`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

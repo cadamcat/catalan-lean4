@@ -15,6 +15,12 @@ public import ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.SUnitPower
 public import GaloisCohomology.Kummer.Concrete.SUnitPreparation.PrimePowerKernelCoordinates
 
 
+/-!
+# `ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.FullSUnitKummerExtension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

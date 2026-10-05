@@ -1,5 +1,15 @@
-import Catalan.CaseOne.PlusAugmentation
-import Catalan.Runge.Reduction
+module
+
+public import Catalan.CaseOne.PlusAugmentation
+public import Catalan.Runge.Reduction
+
+/-!
+# `Catalan.Runge.PlusInputs`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

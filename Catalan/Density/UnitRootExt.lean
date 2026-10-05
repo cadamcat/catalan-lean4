@@ -1,4 +1,14 @@
-import Catalan.Density.UnitRoots
+module
+
+public import Catalan.Density.UnitRoots
+
+/-!
+# `Catalan.Density.UnitRootExt`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

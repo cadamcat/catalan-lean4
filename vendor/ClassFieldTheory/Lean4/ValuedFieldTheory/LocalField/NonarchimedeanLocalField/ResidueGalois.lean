@@ -17,6 +17,12 @@ public import Mathlib.NumberTheory.RamificationInertia.Galois
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.GaloisIntegerRing
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueGalois`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

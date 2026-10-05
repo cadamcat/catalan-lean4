@@ -18,6 +18,12 @@ public import Mathlib.NumberTheory.RamificationInertia.Inertia
 public import Mathlib.NumberTheory.RamificationInertia.Ramification
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.Monogeneity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

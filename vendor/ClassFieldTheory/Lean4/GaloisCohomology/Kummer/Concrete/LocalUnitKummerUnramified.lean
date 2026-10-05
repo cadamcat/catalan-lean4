@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteUnrami
 public import ValuedFieldTheory.Ramification.Different
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.LocalUnitKummerUnramified`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

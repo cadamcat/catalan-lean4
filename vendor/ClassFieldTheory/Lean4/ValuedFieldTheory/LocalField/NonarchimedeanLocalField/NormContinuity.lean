@@ -17,6 +17,12 @@ public import Mathlib.Analysis.Normed.Module.FiniteDimension
 public import Mathlib.Topology.Instances.Matrix
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormContinuity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

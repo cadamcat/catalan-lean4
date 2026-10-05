@@ -1,4 +1,14 @@
-import Catalan.Counting.Defs
+module
+
+public import Catalan.Counting.Defs
+
+/-!
+# `Catalan.Counting.Bounds`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.LatticeCount
 

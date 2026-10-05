@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResi
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfinitePlaceArtin
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.IdealClassFieldTheory.IdealArtinMap`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,5 +1,15 @@
-import Catalan.Density.FrobeniusStabilizer
-import Catalan.Density.CyclicCentralizer
+module
+
+public import Catalan.Density.FrobeniusStabilizer
+public import Catalan.Density.CyclicCentralizer
+
+/-!
+# `Catalan.Density.FrobeniusPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

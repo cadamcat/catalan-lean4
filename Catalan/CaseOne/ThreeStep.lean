@@ -1,4 +1,14 @@
-import Catalan.CaseOne.Filtration
+module
+
+public import Catalan.CaseOne.Filtration
+
+/-!
+# `Catalan.CaseOne.ThreeStep`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

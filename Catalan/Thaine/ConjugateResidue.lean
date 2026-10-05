@@ -1,6 +1,16 @@
-import Catalan.Density.Definitions
-import Catalan.IdealAction.Composition
-import ClassFieldTheory.AlgebraicNumberTheory.Idele.IdealMap
+module
+
+public import Catalan.Density.Definitions
+public import Catalan.IdealAction.Composition
+public import ClassFieldTheory.AlgebraicNumberTheory.Idele.IdealMap
+
+/-!
+# `Catalan.Thaine.ConjugateResidue`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

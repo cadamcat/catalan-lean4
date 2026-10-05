@@ -1,5 +1,15 @@
-import Mathlib.NumberTheory.Height.NumberField
-import Mathlib
+module
+
+public import Mathlib.NumberTheory.Height.NumberField
+public import Mathlib
+
+/-!
+# `Catalan.Height.Basic`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 open NumberField

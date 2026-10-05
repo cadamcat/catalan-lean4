@@ -20,6 +20,12 @@ public import Mathlib.NumberTheory.Padics.ProperSpace
 public import Mathlib.GroupTheory.Torsion
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Padic.UnitDecomposition`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -22,6 +22,12 @@ public import Mathlib.GroupTheory.QuotientGroup.Basic
 public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Basic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,4 +1,14 @@
-import Catalan.Runge.Reduction
+module
+
+public import Catalan.Runge.Reduction
+
+/-!
+# `Catalan.Runge.PowerTransport`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

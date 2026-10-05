@@ -20,6 +20,12 @@ units, and their successive quotients, together with the resulting actions.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.PrincipalUnitActions`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

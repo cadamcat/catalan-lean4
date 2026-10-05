@@ -1,8 +1,18 @@
-import Catalan.Mihailescu.KernelCardinality
-import Catalan.Height.LocalBounds
-import Catalan.Mihailescu.FiniteSum
-import Catalan.Mihailescu.RootPhase
-import Catalan.Mihailescu.RadiusTwoArithmetic
+module
+
+public import Catalan.Mihailescu.KernelCardinality
+public import Catalan.Height.LocalBounds
+public import Catalan.Mihailescu.FiniteSum
+public import Catalan.Mihailescu.RootPhase
+public import Catalan.Mihailescu.RadiusTwoArithmetic
+
+/-!
+# `Catalan.Mihailescu.RadiusTwoHeight`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

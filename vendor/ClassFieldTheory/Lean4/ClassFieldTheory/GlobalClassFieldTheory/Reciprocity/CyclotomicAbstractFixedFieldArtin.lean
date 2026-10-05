@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteGlobal
 public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.MaximalUnramifiedReciprocity
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicAbstractFixedFieldArtin`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

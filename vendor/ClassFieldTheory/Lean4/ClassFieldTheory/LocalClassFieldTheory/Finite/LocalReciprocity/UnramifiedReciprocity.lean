@@ -15,6 +15,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Unr
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotients
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedReciprocity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

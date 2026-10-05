@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.RamificationId
 public import Mathlib.RingTheory.AdicCompletion.Topology
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.CompleteRangeRestriction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

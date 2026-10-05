@@ -1,8 +1,18 @@
-import Catalan.Density.UnramifiedPreservedPrime
-import Catalan.Density.NativeFrobenius
-import Catalan.Density.FrobeniusPower
-import Catalan.Density.FiniteT
-import Catalan.Density.AbsoluteT
+module
+
+public import Catalan.Density.UnramifiedPreservedPrime
+public import Catalan.Density.NativeFrobenius
+public import Catalan.Density.FrobeniusPower
+public import Catalan.Density.FiniteT
+public import Catalan.Density.AbsoluteT
+
+/-!
+# `Catalan.Density.DensityTheorem`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

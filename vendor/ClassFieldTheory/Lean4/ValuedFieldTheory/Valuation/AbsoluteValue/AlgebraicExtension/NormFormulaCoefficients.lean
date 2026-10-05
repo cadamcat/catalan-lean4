@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialLifting
 public import ValuedFieldTheory.Valuation.Henselian.Core
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormulaCoefficients`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

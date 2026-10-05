@@ -15,6 +15,12 @@ public import GaloisCohomology.Cyclic.Herbrand.Induced
 public import ValuedFieldTheory.Ramification.HilbertRamification.AlgebraicLocalization
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.Induced`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

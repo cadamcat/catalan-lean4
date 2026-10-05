@@ -16,6 +16,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalBlocks.
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.GeneralTowerNaturality
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FinitePlaceArtin.Conjugation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

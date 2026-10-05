@@ -31,6 +31,12 @@ public import Mathlib.Topology.Algebra.Field
 public import Mathlib.Topology.Algebra.UniformRing
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.MixedCharacteristicQp`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

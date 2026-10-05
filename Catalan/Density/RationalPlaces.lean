@@ -1,6 +1,16 @@
-import Catalan.Density.Definitions
-import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlaceIdeal
-import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Rational
+module
+
+public import Catalan.Density.Definitions
+public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlaceIdeal
+public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Rational
+
+/-!
+# `Catalan.Density.RationalPlaces`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

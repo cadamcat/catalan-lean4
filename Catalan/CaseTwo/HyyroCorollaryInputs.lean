@@ -1,4 +1,14 @@
-import Catalan.Cassels.Hyyro
+module
+
+public import Catalan.Cassels.Hyyro
+
+/-!
+# `Catalan.CaseTwo.HyyroCorollaryInputs`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

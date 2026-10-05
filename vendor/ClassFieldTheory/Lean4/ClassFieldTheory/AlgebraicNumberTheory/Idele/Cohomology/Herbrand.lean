@@ -17,6 +17,12 @@ public import GaloisCohomology.Cyclic.Herbrand.Permutation.Module
 public import GaloisCohomology.Cyclic.Herbrand.HerbrandFiniteness
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.Herbrand`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

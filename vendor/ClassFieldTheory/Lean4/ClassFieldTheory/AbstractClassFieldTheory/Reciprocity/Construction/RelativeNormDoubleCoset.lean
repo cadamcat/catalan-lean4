@@ -16,6 +16,12 @@ public import GaloisCohomology.Cyclic.IntegralRepUniverse
 public import Mathlib.GroupTheory.GroupAction.Quotient
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.RelativeNormDoubleCoset`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

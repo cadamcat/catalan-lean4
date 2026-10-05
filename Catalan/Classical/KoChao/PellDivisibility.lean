@@ -1,6 +1,16 @@
-import Catalan.Cassels.Elementary
-import Catalan.Classical.Euler.Arithmetic
-import Mathlib.NumberTheory.PellMatiyasevic
+module
+
+public import Catalan.Cassels.Elementary
+public import Catalan.Classical.Euler.Arithmetic
+public import Mathlib.NumberTheory.PellMatiyasevic
+
+/-!
+# `Catalan.Classical.KoChao.PellDivisibility`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.KoChao
 

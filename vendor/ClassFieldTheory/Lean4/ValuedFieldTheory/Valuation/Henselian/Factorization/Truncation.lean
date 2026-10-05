@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ValuedFieldTheory.Valuation.Henselian.Factorization.Basic
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Factorization.Truncation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

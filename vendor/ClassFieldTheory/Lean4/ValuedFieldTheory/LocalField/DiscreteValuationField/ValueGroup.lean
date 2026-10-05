@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.Norm.Quotients
 public import Mathlib.Data.Int.ModEq
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.ValueGroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

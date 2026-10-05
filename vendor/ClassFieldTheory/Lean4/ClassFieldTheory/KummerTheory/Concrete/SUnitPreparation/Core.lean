@@ -19,6 +19,12 @@ public import ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.SUnitLocal
 public import ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.FiniteRadicalSupport
 
 
+/-!
+# `ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.Core`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

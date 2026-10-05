@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.BaseChange
 public import ClassFieldTheory.AlgebraicNumberTheory.Completion.AdicCompletionComparison
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.AdeleBaseChange`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -19,6 +19,12 @@ public import Mathlib.Algebra.Ring.TransferInstance
 public import Mathlib.Topology.Homeomorph.TransferInstance
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Topology.AdicCompletionInverseLimitRing`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -18,6 +18,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.ValuationHer
 public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.ValueGroupCohomology
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.FieldUnitsHerbrand`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

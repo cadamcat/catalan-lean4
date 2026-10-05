@@ -26,6 +26,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension
 public import Mathlib.Algebra.BigOperators.Finprod
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FiniteIdeleArtin`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

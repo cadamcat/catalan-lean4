@@ -1,6 +1,16 @@
-import Catalan.Classical.Euler.Bridge
-import Catalan.Classical.Euler.QuarticThree
-import Catalan.Classical.Euler.SquareIndex
+module
+
+public import Catalan.Classical.Euler.Bridge
+public import Catalan.Classical.Euler.QuarticThree
+public import Catalan.Classical.Euler.SquareIndex
+
+/-!
+# `Catalan.Classical.Euler`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan.Euler

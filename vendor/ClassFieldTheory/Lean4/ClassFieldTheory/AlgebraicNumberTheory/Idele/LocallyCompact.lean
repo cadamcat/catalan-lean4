@@ -16,6 +16,12 @@ public import Mathlib.LinearAlgebra.FreeModule.IdealQuotient
 public import Mathlib.Topology.Algebra.Valued.LocallyCompact
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.LocallyCompact`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

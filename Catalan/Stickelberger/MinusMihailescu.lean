@@ -1,7 +1,17 @@
-import Catalan.Stickelberger.MinusSmall
-import Catalan.Stickelberger.MinusElement
-import Catalan.Wieferich.Minus
-import Catalan.Cassels.Elementary
+module
+
+public import Catalan.Stickelberger.MinusSmall
+public import Catalan.Stickelberger.MinusElement
+public import Catalan.Wieferich.Minus
+public import Catalan.Cassels.Elementary
+
+/-!
+# `Catalan.Stickelberger.MinusMihailescu`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

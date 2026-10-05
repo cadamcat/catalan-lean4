@@ -1,8 +1,18 @@
-import Catalan.Stickelberger.CharacterCircle
-import Catalan.Stickelberger.DirichletTail
-import Catalan.Stickelberger.CharacterContinuity
-import Catalan.Stickelberger.CharacterArgument
-import Catalan.Stickelberger.CharacterZeroBridge
+module
+
+public import Catalan.Stickelberger.CharacterCircle
+public import Catalan.Stickelberger.DirichletTail
+public import Catalan.Stickelberger.CharacterContinuity
+public import Catalan.Stickelberger.CharacterArgument
+public import Catalan.Stickelberger.CharacterZeroBridge
+
+/-!
+# `Catalan.Stickelberger.CharacterSpecialValue`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open Filter

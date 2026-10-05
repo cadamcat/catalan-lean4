@@ -1,6 +1,8 @@
-import Catalan.Stickelberger.LocalGauss
-import Catalan.Stickelberger.Teichmuller
-import Catalan.Stickelberger.SectionBridge
+module
+
+public import Catalan.Stickelberger.LocalGauss
+public import Catalan.Stickelberger.Teichmuller
+public import Catalan.Stickelberger.SectionBridge
 
 /-! # The integral Gauss family of the inverse Teichmüller character
 
@@ -23,6 +25,14 @@ Three things are proved here.
   itself: the equal characteristic of `A ⧸ I ^ 2`, a primitive `(#F - 1)`-th root
   of unity in `A`, and the uniformizer conditions `ζ - 1 ∈ I`, `ζ - 1 ∉ I ^ 2`.
 -/
+
+/-!
+# `Catalan.Stickelberger.GaussFamily`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

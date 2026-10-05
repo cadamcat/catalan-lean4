@@ -1,5 +1,15 @@
-import Catalan.Cyclotomic.Basic
-import Catalan.Stickelberger.GaussCharacters
+module
+
+public import Catalan.Cyclotomic.Basic
+public import Catalan.Stickelberger.GaussCharacters
+
+/-!
+# `Catalan.Stickelberger.CyclotomicLift`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 namespace Catalan

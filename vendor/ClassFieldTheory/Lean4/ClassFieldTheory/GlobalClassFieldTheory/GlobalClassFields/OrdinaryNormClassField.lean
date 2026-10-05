@@ -19,6 +19,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FiniteGaloisRe
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.IdeleClassNormTopology
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.OrdinaryNormClassField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

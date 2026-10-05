@@ -1,6 +1,8 @@
-import Catalan.Stickelberger.Factor
-import Catalan.Stickelberger.Uniformizer
-import Mathlib
+module
+
+public import Catalan.Stickelberger.Factor
+public import Catalan.Stickelberger.Uniformizer
+public import Mathlib
 
 /-! # Cyclotomic tower and valuation transfer
 
@@ -14,6 +16,14 @@ cyclotomic tower of conductor `ell * (ell ^ f - 1)` down to `ℚ(ζ_p)`:
 
 Neither computes a Gauss-sum valuation; the transfer itself is not assembled here.
 -/
+
+/-!
+# `Catalan.Stickelberger.Transfer`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

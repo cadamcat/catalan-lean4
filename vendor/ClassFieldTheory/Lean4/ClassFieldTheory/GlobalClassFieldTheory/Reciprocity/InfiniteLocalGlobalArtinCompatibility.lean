@@ -22,6 +22,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.Complexificati
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.InfinitePlaceCompatibility
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfiniteLocalGlobalArtinCompatibility`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

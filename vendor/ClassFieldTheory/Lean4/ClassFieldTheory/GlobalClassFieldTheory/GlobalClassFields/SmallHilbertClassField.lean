@@ -17,6 +17,12 @@ public import Mathlib.NumberTheory.NumberField.ClassNumber
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.BigHilbertClassField
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.SmallHilbertClassField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

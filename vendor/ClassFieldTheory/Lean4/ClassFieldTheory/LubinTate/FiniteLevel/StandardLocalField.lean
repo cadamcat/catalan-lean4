@@ -19,6 +19,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotien
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.StandardOpenSubgroups
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.StandardLocalField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

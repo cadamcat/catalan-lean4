@@ -1,4 +1,14 @@
-import Catalan.Mihailescu.Ideal
+module
+
+public import Catalan.Mihailescu.Ideal
+
+/-!
+# `Catalan.Mihailescu.PositiveProducts`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

@@ -17,6 +17,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.Completeness
 public import Mathlib.RingTheory.Norm.Transitivity
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.NormFormula`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -23,6 +23,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UnramifiedFr
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteIntegralClosure
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedNormalization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,8 +1,18 @@
-import Catalan.Thaine.LiteralCircularPower
-import Catalan.Thaine.RawPiCircularPower
-import Catalan.Thaine.PlusAugmentationLift
-import Catalan.Thaine.CircularPowerTransport
-import Catalan.Cyclotomic.GroupRingMul
+module
+
+public import Catalan.Thaine.LiteralCircularPower
+public import Catalan.Thaine.RawPiCircularPower
+public import Catalan.Thaine.PlusAugmentationLift
+public import Catalan.Thaine.CircularPowerTransport
+public import Catalan.Cyclotomic.GroupRingMul
+
+/-!
+# `Catalan.Thaine.LiteralRootCircularPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,7 +1,17 @@
-import Catalan.Density.UnramifiedWitness
-import ClassFieldTheory.AlgebraicNumberTheory.NumberField.EverywhereUnramifiedTower
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.SmallHilbertNormCharacterization
-import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidue
+module
+
+public import Catalan.Density.UnramifiedWitness
+public import ClassFieldTheory.AlgebraicNumberTheory.NumberField.EverywhereUnramifiedTower
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.SmallHilbertNormCharacterization
+public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidue
+
+/-!
+# `Catalan.Density.DegreeBound`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

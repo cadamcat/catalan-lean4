@@ -17,6 +17,12 @@ public import Mathlib.FieldTheory.Finite.Extension
 public import Mathlib.FieldTheory.Galois.Profinite
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteResidueFrobenius`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

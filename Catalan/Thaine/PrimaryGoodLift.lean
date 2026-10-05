@@ -1,5 +1,15 @@
-import Catalan.Thaine.PrimaryNilpotence
-import Catalan.Thaine.FrobeniusPower
+module
+
+public import Catalan.Thaine.PrimaryNilpotence
+public import Catalan.Thaine.FrobeniusPower
+
+/-!
+# `Catalan.Thaine.PrimaryGoodLift`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

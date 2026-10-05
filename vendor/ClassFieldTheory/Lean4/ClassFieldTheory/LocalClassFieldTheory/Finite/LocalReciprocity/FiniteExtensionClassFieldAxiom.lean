@@ -19,6 +19,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuedTopolo
 public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.Main
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteExtensionClassFieldAxiom`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

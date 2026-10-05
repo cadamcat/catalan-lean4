@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueExten
 public import ValuedFieldTheory.Valuation.UniqueRing
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FiniteResidueFinrankTransfer`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

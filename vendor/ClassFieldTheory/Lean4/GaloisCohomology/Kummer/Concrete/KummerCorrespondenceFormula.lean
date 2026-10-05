@@ -17,6 +17,12 @@ public import GaloisCohomology.Kummer.Concrete.InfiniteInverse
 public import GaloisCohomology.Kummer.Concrete.InfiniteContinuity
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.KummerCorrespondenceFormula`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

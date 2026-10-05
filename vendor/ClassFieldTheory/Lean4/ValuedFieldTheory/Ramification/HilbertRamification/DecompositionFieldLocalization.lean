@@ -19,6 +19,12 @@ public import ValuedFieldTheory.Valuation.Completion.ExtensionInvariants
 public import Mathlib.FieldTheory.SeparableClosure
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.DecompositionFieldLocalization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

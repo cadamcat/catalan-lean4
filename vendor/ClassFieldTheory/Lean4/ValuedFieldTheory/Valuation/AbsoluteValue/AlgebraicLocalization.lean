@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.Completion
 public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicLocalization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

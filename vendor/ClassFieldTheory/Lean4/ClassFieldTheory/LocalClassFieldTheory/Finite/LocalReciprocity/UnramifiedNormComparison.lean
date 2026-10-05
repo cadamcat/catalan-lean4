@@ -18,6 +18,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.SeparableNor
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UnramifiedFrobenius
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.UnramifiedNormComparison`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

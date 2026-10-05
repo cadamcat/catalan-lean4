@@ -1,4 +1,14 @@
-import Catalan.Mihailescu.PhaseCore
+module
+
+public import Catalan.Mihailescu.PhaseCore
+
+/-!
+# `Catalan.Mihailescu.PowerDifference`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

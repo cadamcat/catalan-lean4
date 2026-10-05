@@ -22,6 +22,12 @@ public import Mathlib.NumberTheory.Padics.PadicNumbers
 public import Mathlib.RingTheory.Algebraic.Integral
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.Basic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

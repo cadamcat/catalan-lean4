@@ -18,6 +18,12 @@ public import GaloisCohomology.Cyclic.TateComparison
 public import GaloisCohomology.Cyclic.TateH0.Invariants
 
 
+/-!
+# `GaloisCohomology.Cyclic.TateH0.NormImage`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

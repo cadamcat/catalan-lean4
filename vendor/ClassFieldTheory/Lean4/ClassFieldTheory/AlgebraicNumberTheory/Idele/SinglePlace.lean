@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Topology
 public import ClassFieldTheory.AlgebraicNumberTheory.RayClass.Approximation
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.SinglePlace`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

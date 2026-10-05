@@ -1,5 +1,15 @@
-import Catalan.CaseOne.CircularUnits
-import Catalan.Runge.PowerTransport
+module
+
+public import Catalan.CaseOne.CircularUnits
+public import Catalan.Runge.PowerTransport
+
+/-!
+# `Catalan.Thaine.CircularPowerTransport`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

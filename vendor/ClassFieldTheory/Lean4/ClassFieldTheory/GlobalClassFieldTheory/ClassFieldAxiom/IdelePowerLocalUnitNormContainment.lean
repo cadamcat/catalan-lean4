@@ -19,6 +19,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Norm
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalNorm
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdelePowerLocalUnitNormContainment`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

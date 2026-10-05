@@ -27,6 +27,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.Uniqu
 public import ValuedFieldTheory.Ramification.HilbertRamification.BaseChange
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.LocalizationDensity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Reduction
 public import Mathlib.GroupTheory.Nilpotent
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Sylow`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

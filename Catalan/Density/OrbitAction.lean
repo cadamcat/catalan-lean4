@@ -1,4 +1,14 @@
-import Catalan.Density.OrbitCoordinates
+module
+
+public import Catalan.Density.OrbitCoordinates
+
+/-!
+# `Catalan.Density.OrbitAction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

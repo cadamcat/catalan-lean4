@@ -17,6 +17,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Tat
 public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.FieldRepresentation
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.AbstractFixedFieldUnits`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

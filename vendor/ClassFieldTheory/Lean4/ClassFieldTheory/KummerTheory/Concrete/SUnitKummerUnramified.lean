@@ -19,6 +19,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedCompar
 public import ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.CompositumUnramified
 
 
+/-!
+# `ClassFieldTheory.KummerTheory.Concrete.SUnitKummerUnramified`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

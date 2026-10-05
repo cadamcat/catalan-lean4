@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveRoot
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveTorsion`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

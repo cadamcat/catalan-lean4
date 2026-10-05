@@ -17,6 +17,12 @@ public import Mathlib.Algebra.Exact.Basic
 public import Mathlib.RingTheory.DedekindDomain.Factorization
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.Basic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

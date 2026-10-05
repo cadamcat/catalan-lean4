@@ -1,7 +1,17 @@
-import Catalan.Thaine.LiteralFullAnnihilator
-import Catalan.CaseOne.UnitFiltration
-import Catalan.Runge.PlusIdeal
-import Catalan.Runge.PowerTransport
+module
+
+public import Catalan.Thaine.LiteralFullAnnihilator
+public import Catalan.CaseOne.UnitFiltration
+public import Catalan.Runge.PlusIdeal
+public import Catalan.Runge.PowerTransport
+
+/-!
+# `Catalan.Thaine.CircularizePowers`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,6 +1,16 @@
-import Catalan.Classical.KoChao.Homogeneous
-import Catalan.Classical.KoChao.Inequalities
-import Catalan.Classical.Euler.Arithmetic
+module
+
+public import Catalan.Classical.KoChao.Homogeneous
+public import Catalan.Classical.KoChao.Inequalities
+public import Catalan.Classical.Euler.Arithmetic
+
+/-!
+# `Catalan.Classical.KoChao.SecondCongruence`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

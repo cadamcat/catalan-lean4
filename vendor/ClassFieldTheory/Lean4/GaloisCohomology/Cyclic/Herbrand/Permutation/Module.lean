@@ -19,6 +19,12 @@ public import Mathlib.GroupTheory.GroupAction.Quotient
 public import Mathlib.SetTheory.Cardinal.Finite
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.Permutation.Module`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

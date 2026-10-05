@@ -1,6 +1,16 @@
-import Catalan.Mihailescu.PrimeOrder
+module
+
+public import Catalan.Mihailescu.PrimeOrder
 
 /-! Separation of the conjugate factors x−σ(ζ) by integer-valued orders. -/
+/-!
+# `Catalan.Mihailescu.Separation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open NumberField IsDedekindDomain
 open scoped BigOperators
 noncomputable section

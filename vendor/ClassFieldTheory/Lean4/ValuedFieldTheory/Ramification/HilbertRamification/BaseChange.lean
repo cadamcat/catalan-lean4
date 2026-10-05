@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.DecompositionGr
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.ResidueField
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.BaseChange`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

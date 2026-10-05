@@ -1,4 +1,14 @@
-import Catalan.Stickelberger.CharacterDefs
+module
+
+public import Catalan.Stickelberger.CharacterDefs
+
+/-!
+# `Catalan.Stickelberger.CharacterSpanTransfer`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 open NumberField

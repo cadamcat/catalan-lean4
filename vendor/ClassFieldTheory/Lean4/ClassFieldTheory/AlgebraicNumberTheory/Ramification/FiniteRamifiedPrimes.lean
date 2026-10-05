@@ -15,6 +15,12 @@ public import Mathlib.RingTheory.DedekindDomain.Different
 public import Mathlib.RingTheory.DedekindDomain.Factorization
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Ramification.FiniteRamifiedPrimes`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

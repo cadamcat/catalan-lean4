@@ -1,5 +1,15 @@
-import Catalan.Stickelberger.CharacterLZero
-import Mathlib.NumberTheory.LSeries.HurwitzZetaValues
+module
+
+public import Catalan.Stickelberger.CharacterLZero
+public import Mathlib.NumberTheory.LSeries.HurwitzZetaValues
+
+/-!
+# `Catalan.Stickelberger.CharacterZeroBridge`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

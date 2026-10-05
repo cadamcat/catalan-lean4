@@ -1,5 +1,15 @@
-import Catalan.CaseOne.CircularUnits
-import Catalan.CaseOne.PrimaryNaturality
+module
+
+public import Catalan.CaseOne.CircularUnits
+public import Catalan.CaseOne.PrimaryNaturality
+
+/-!
+# `Catalan.CaseOne.CircularStability`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

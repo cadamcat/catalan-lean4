@@ -17,6 +17,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.ValuationExtens
 public import ValuedFieldTheory.Valuation.LocalRingEquiv
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedUnramifiedField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

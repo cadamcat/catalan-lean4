@@ -1,6 +1,16 @@
-import Catalan.Density.SelectorSpan
-import Catalan.Density.HRestriction
-import Catalan.Density.ClassGroupLinear
+module
+
+public import Catalan.Density.SelectorSpan
+public import Catalan.Density.HRestriction
+public import Catalan.Density.ClassGroupLinear
+
+/-!
+# `Catalan.Density.SelectorClassSpan`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

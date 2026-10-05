@@ -17,6 +17,12 @@ public import Mathlib.FieldTheory.Galois.Infinite
 public import Mathlib.FieldTheory.IsSepClosed
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.ResidueAbsoluteDegree`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

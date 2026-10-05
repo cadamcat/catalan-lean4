@@ -17,6 +17,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.SinglePlace
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNorm
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.OnePlaceNormKernel`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

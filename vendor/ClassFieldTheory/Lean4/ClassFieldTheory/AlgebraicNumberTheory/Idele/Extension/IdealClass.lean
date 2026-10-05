@@ -18,6 +18,12 @@ public import Mathlib.NumberTheory.RamificationInertia.Valuation
 public import Mathlib.RingTheory.ClassGroup.ExtendedHom
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdealClass`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

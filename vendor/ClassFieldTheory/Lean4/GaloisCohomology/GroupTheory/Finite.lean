@@ -15,6 +15,12 @@ public import Mathlib.GroupTheory.DoubleCoset
 public import Mathlib.GroupTheory.Sylow
 
 
+/-!
+# `GaloisCohomology.GroupTheory.Finite`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

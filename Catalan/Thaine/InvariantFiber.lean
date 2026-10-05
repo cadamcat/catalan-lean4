@@ -1,4 +1,14 @@
-import Catalan.Thaine.InvariantPrincipal
+module
+
+public import Catalan.Thaine.InvariantPrincipal
+
+/-!
+# `Catalan.Thaine.InvariantFiber`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

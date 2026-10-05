@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.Fin
 public import GaloisCohomology.GroupTheory.Finite
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlace`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.Valuation.Extension
 public import Mathlib.FieldTheory.Galois.Basic
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.RealLowerGroups`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

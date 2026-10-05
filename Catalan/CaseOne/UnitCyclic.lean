@@ -1,6 +1,16 @@
-import Catalan.CaseOne.CyclicVector
-import Catalan.CaseOne.RepresentationCyclic
-import Catalan.CaseOne.GeometricUnits
+module
+
+public import Catalan.CaseOne.CyclicVector
+public import Catalan.CaseOne.RepresentationCyclic
+public import Catalan.CaseOne.GeometricUnits
+
+/-!
+# `Catalan.CaseOne.UnitCyclic`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

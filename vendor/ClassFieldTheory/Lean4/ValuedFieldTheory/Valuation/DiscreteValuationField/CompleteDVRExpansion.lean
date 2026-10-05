@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.Topology.Models
 public import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.CompleteDVRExpansion`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

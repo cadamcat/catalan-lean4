@@ -17,6 +17,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.SPlaces
 public import Mathlib.Algebra.GroupWithZero.Action.Prod
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SPlaces.Reassociation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

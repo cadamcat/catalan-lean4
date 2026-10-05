@@ -15,6 +15,12 @@ public import Mathlib.FieldTheory.Galois.Infinite
 public import GaloisCohomology.Kummer.Concrete.RootCharacters
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.RadicalQuotient`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

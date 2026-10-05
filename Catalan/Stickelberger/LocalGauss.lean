@@ -1,8 +1,18 @@
-import Mathlib.NumberTheory.GaussSum
-import Mathlib.FieldTheory.Finite.Trace
-import Mathlib.Tactic
-import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
-import Mathlib.RingTheory.Multiplicity
+module
+
+public import Mathlib.NumberTheory.GaussSum
+public import Mathlib.FieldTheory.Finite.Trace
+public import Mathlib.Tactic
+public import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
+public import Mathlib.RingTheory.Multiplicity
+
+/-!
+# `Catalan.Stickelberger.LocalGauss`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 open scoped BigOperators

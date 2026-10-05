@@ -25,6 +25,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Top
 public import ValuedFieldTheory.Valuation.Completion.ExtensionFactorClassification
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.FinitePlaces`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

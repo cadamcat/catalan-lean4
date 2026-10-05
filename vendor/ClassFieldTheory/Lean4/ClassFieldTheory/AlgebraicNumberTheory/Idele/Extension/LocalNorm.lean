@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.Completion.DegreeNormTrace
 public import ValuedFieldTheory.Valuation.Completion.FiniteProductNormTrace
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.LocalNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

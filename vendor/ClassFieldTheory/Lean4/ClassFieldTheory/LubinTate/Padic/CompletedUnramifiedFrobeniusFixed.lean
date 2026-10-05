@@ -15,6 +15,12 @@ public import Mathlib.FieldTheory.Finite.Basic
 public import ClassFieldTheory.LubinTate.Padic.CompletedUnramifiedField
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedUnramifiedFrobeniusFixed`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

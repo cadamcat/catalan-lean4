@@ -16,6 +16,12 @@ public import Mathlib.LinearAlgebra.Dimension.Constructions
 public import Mathlib.LinearAlgebra.TensorProduct.Basis
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.TensorProduct`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

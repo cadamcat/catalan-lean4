@@ -1,7 +1,17 @@
-import Catalan.Thaine.IntegralUnitPow
-import Catalan.Thaine.ResidueExponent
-import Catalan.Density.OrbitAction
-import Catalan.Density.UnitResidueCoordinates
+module
+
+public import Catalan.Thaine.IntegralUnitPow
+public import Catalan.Thaine.ResidueExponent
+public import Catalan.Density.OrbitAction
+public import Catalan.Density.UnitResidueCoordinates
+
+/-!
+# `Catalan.Thaine.UnitResidueExponents`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

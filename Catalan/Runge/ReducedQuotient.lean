@@ -1,5 +1,15 @@
-import Catalan.Runge.Definitions
-import Catalan.Wieferich.Frobenius
+module
+
+public import Catalan.Runge.Definitions
+public import Catalan.Wieferich.Frobenius
+
+/-!
+# `Catalan.Runge.ReducedQuotient`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

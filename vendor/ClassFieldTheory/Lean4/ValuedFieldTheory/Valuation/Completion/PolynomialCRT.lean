@@ -15,6 +15,12 @@ public import Mathlib.RingTheory.AdjoinRoot
 public import Mathlib.RingTheory.Ideal.Quotient.Operations
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.PolynomialCRT`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

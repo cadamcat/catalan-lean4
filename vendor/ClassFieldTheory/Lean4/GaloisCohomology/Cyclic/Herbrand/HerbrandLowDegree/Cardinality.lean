@@ -15,6 +15,12 @@ public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.TateComparison
 public import Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Cardinality`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

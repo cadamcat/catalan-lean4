@@ -23,6 +23,12 @@ public import Mathlib.GroupTheory.Nilpotent
 public import Mathlib.Topology.Algebra.ContinuousMonoidHom
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FinitePlaceCyclotomicFrobeniusLift`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,8 +1,18 @@
-import Catalan.CaseOne.PlaceCharpoly
-import Catalan.CaseOne.CyclotomicPlaces
-import Catalan.CaseOne.GeometricSquarefree
-import Catalan.CaseOne.CaseTwoCard
-import Catalan.Wieferich.Arithmetic
+module
+
+public import Catalan.CaseOne.PlaceCharpoly
+public import Catalan.CaseOne.CyclotomicPlaces
+public import Catalan.CaseOne.GeometricSquarefree
+public import Catalan.CaseOne.CaseTwoCard
+public import Catalan.Wieferich.Arithmetic
+
+/-!
+# `Catalan.CaseOne.GeometricUnits`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

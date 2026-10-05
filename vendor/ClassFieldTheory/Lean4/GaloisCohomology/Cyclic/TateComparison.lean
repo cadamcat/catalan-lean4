@@ -15,6 +15,12 @@ public import Mathlib.RepresentationTheory.Homological.FiniteCyclic
 public import Mathlib.RepresentationTheory.Homological.TateCohomology.Basic
 
 
+/-!
+# `GaloisCohomology.Cyclic.TateComparison`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

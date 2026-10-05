@@ -1,5 +1,15 @@
-import Catalan.Cyclotomic.Basic
-import Catalan.Cassels.Factorization
+module
+
+public import Catalan.Cyclotomic.Basic
+public import Catalan.Cassels.Factorization
+
+/-!
+# `Catalan.Cassels.LambdaIdeal`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open NumberField
 noncomputable section

@@ -16,6 +16,12 @@ public import GaloisCohomology.Cyclic.Herbrand.Permutation.LatticeHerbrand
 public import Mathlib.NumberTheory.NumberField.InfinitePlace.Ramification
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.SUnit.GaloisAction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

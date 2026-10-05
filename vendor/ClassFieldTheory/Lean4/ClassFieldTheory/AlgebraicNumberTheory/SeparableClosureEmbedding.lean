@@ -16,6 +16,12 @@ public import Mathlib.FieldTheory.KrullTopology
 public import Mathlib.NumberTheory.NumberField.Basic
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.SeparableClosureEmbedding`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

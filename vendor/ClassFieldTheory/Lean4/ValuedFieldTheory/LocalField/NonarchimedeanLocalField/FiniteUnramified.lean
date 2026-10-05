@@ -19,6 +19,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuationExa
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotients
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteUnramified`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

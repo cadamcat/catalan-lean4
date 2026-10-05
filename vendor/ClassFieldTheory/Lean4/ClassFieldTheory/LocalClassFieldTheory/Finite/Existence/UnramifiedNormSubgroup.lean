@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuationExa
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormQuotient
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.Existence.UnramifiedNormSubgroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

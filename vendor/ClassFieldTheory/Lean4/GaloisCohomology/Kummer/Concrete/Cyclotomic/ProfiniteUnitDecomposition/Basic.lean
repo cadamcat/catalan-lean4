@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.Padic.UnitDecomposition
 public import Mathlib.GroupTheory.Torsion
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.Cyclotomic.ProfiniteUnitDecomposition.Basic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

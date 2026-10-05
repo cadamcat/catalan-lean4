@@ -1,8 +1,18 @@
-import Catalan.Cassels.EasyDivisibility
-import Catalan.Cassels.Relations
-import Catalan.Cassels.LowerBound
-import Catalan.Cassels.ErrorBound
-import Catalan.Cassels.ErrorIntegral
+module
+
+public import Catalan.Cassels.EasyDivisibility
+public import Catalan.Cassels.Relations
+public import Catalan.Cassels.LowerBound
+public import Catalan.Cassels.ErrorBound
+public import Catalan.Cassels.ErrorIntegral
+
+/-!
+# `Catalan.Cassels.Divisibility`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

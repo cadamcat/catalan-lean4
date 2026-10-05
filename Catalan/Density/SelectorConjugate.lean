@@ -1,5 +1,15 @@
-import Catalan.Density.TTower
-import Catalan.Density.AbsoluteB
+module
+
+public import Catalan.Density.TTower
+public import Catalan.Density.AbsoluteB
+
+/-!
+# `Catalan.Density.SelectorConjugate`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

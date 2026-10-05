@@ -17,6 +17,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicUnra
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.OnePlaceBaseNorm
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.FinitePadicAuxiliaryField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

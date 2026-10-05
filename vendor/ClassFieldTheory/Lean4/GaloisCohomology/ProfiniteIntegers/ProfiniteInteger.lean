@@ -18,6 +18,12 @@ public import Mathlib.GroupTheory.Index
 public import GaloisCohomology.ProfiniteIntegers.ProfiniteIntegerCore
 
 
+/-!
+# `GaloisCohomology.ProfiniteIntegers.ProfiniteInteger`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

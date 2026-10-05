@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Uniqueness
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Core`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -22,6 +22,12 @@ prevents individual subtrees from inventing private aliases.
 -/
 
 
+/-!
+# `GaloisCohomology.Cyclic.IntegralRepUniverse`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

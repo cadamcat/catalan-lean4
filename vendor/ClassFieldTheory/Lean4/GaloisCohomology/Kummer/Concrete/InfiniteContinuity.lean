@@ -15,6 +15,12 @@ public import Mathlib.Topology.Algebra.ContinuousMonoidHom
 public import GaloisCohomology.Kummer.Concrete.FiniteCharacterEquiv
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.InfiniteContinuity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

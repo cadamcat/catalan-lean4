@@ -1,5 +1,15 @@
-import Catalan.CaseOne.CircularUnits
-import Catalan.Cyclotomic.GroupRing
+module
+
+public import Catalan.CaseOne.CircularUnits
+public import Catalan.Cyclotomic.GroupRing
+
+/-!
+# `Catalan.Thaine.RawPiCircularPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,5 +1,15 @@
-import Catalan.Density.KummerTower
-import Catalan.Density.UnitFieldInjection
+module
+
+public import Catalan.Density.KummerTower
+public import Catalan.Density.UnitFieldInjection
+
+/-!
+# `Catalan.Density.FixedRoot`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,8 +1,18 @@
-import Catalan.Runge.Estimate
-import Catalan.Runge.ErrorBound
-import Catalan.Runge.CoefficientIntegral
-import Catalan.Runge.SmallConjugates
-import Catalan.Mihailescu.PositiveProducts
+module
+
+public import Catalan.Runge.Estimate
+public import Catalan.Runge.ErrorBound
+public import Catalan.Runge.CoefficientIntegral
+public import Catalan.Runge.SmallConjugates
+public import Catalan.Mihailescu.PositiveProducts
+
+/-!
+# `Catalan.Runge.IntegralApproximation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

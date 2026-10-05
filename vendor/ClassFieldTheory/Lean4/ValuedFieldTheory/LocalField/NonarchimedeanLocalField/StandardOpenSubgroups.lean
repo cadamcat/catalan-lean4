@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.PrincipalUnitQuotients
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.StandardOpenSubgroups`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

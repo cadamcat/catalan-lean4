@@ -18,6 +18,12 @@ public import Mathlib.RingTheory.TensorProduct.Finite
 public import Mathlib.RingTheory.TensorProduct.Maps
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.FiniteLocalization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

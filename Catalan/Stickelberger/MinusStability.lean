@@ -1,5 +1,15 @@
-import Catalan.Stickelberger.MinusDefs
-import Catalan.Stickelberger.Reduction
+module
+
+public import Catalan.Stickelberger.MinusDefs
+public import Catalan.Stickelberger.Reduction
+
+/-!
+# `Catalan.Stickelberger.MinusStability`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 open NumberField

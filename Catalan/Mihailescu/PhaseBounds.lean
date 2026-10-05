@@ -1,5 +1,15 @@
-import Catalan.Mihailescu.PhaseCore
-import Catalan.Mihailescu.RootLog
+module
+
+public import Catalan.Mihailescu.PhaseCore
+public import Catalan.Mihailescu.RootLog
+
+/-!
+# `Catalan.Mihailescu.PhaseBounds`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

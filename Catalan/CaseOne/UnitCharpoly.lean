@@ -1,9 +1,19 @@
-import Catalan.CaseOne.IntegralRepresentation
-import Catalan.CaseOne.LogSpaceEquiv
-import Catalan.CaseOne.LatticeCharpoly
-import Catalan.CaseOne.PowerModN
-import Catalan.CaseOne.ModNAction
-import Catalan.CaseOne.Regular
+module
+
+public import Catalan.CaseOne.IntegralRepresentation
+public import Catalan.CaseOne.LogSpaceEquiv
+public import Catalan.CaseOne.LatticeCharpoly
+public import Catalan.CaseOne.PowerModN
+public import Catalan.CaseOne.ModNAction
+public import Catalan.CaseOne.Regular
+
+/-!
+# `Catalan.CaseOne.UnitCharpoly`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

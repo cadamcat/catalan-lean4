@@ -1,5 +1,15 @@
-import Catalan.Cyclotomic.Ramification
-import Mathlib.RingTheory.Norm.Basic
+module
+
+public import Catalan.Cyclotomic.Ramification
+public import Mathlib.RingTheory.Norm.Basic
+
+/-!
+# `Catalan.Cyclotomic.NormSubZeta`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open NumberField Polynomial
 noncomputable section

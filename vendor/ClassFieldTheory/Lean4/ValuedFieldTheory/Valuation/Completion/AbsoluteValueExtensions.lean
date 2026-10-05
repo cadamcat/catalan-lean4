@@ -38,6 +38,12 @@ public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 public import Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.AbsoluteValueExtensions`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

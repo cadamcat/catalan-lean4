@@ -1,5 +1,15 @@
-import Catalan.Density.DualLeft
-import Catalan.Density.DualRight
+module
+
+public import Catalan.Density.DualLeft
+public import Catalan.Density.DualRight
+
+/-!
+# `Catalan.Density.PerfectKummer`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

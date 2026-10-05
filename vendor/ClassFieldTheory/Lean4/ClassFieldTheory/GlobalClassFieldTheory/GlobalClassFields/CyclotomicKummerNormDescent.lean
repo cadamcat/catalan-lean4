@@ -18,6 +18,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.ClassGroup.NormalClos
 public import Mathlib.NumberTheory.Cyclotomic.Basic
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.CyclotomicKummerNormDescent`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

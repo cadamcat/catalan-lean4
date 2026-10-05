@@ -1,4 +1,14 @@
-import Catalan.Thaine.MixedEpsilonUnit
+module
+
+public import Catalan.Thaine.MixedEpsilonUnit
+
+/-!
+# `Catalan.Thaine.Normalization`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

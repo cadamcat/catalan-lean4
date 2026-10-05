@@ -1,5 +1,15 @@
-import Catalan.Stickelberger.CyclotomicLift
-import Mathlib.Data.ZMod.Units
+module
+
+public import Catalan.Stickelberger.CyclotomicLift
+public import Mathlib.Data.ZMod.Units
+
+/-!
+# `Catalan.Stickelberger.TowerLift`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

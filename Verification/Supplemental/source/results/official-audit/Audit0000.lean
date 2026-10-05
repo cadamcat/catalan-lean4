@@ -1,4 +1,14 @@
-import Catalan.JSP
+module
+
+public import Catalan.JSP
+
+/-!
+# `Verification.Supplemental.source.results.official-audit.Audit0000`
+
+Verification support module.
+-/
+
+@[expose] public section
 
 set_option pp.all true
 #check @Catalan.JSP.statement

@@ -1,7 +1,17 @@
-import Catalan.Thaine.RealUnitAnnihilator
-import Catalan.Thaine.ClassNorm
-import Catalan.Thaine.CoordinateElement
-import Catalan.Thaine.CircularCoordinateAnnihilator
+module
+
+public import Catalan.Thaine.RealUnitAnnihilator
+public import Catalan.Thaine.ClassNorm
+public import Catalan.Thaine.CoordinateElement
+public import Catalan.Thaine.CircularCoordinateAnnihilator
+
+/-!
+# `Catalan.Thaine.ThainePrimeAnnihilator`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

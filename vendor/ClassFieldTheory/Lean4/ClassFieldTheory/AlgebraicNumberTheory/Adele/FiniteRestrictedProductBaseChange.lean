@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Adele.RestrictedProduct
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.SPlaces
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Adele.FiniteRestrictedProductBaseChange`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

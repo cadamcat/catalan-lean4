@@ -1,5 +1,15 @@
-import Catalan.Classical.Euler.Sequence
-import Mathlib
+module
+
+public import Catalan.Classical.Euler.Sequence
+public import Mathlib
+
+/-!
+# `Catalan.Classical.Euler.SquareIndex`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.Euler
 

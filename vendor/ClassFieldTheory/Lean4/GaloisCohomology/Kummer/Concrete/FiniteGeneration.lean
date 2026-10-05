@@ -15,6 +15,12 @@ public import Mathlib.GroupTheory.FiniteAbelian.Duality
 public import GaloisCohomology.Kummer.Concrete.FiniteCharacterEquiv
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.FiniteGeneration`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

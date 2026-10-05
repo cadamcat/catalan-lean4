@@ -1,4 +1,14 @@
-import Catalan.Thaine.LiteralNorms
+module
+
+public import Catalan.Thaine.LiteralNorms
+
+/-!
+# `Catalan.Thaine.LiteralFieldPowers`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

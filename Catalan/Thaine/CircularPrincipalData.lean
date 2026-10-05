@@ -1,5 +1,15 @@
-import Catalan.Thaine.AuxiliaryLocalExponent
-import Catalan.Thaine.InvariantPrincipal
+module
+
+public import Catalan.Thaine.AuxiliaryLocalExponent
+public import Catalan.Thaine.InvariantPrincipal
+
+/-!
+# `Catalan.Thaine.CircularPrincipalData`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

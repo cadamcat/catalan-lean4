@@ -1,8 +1,18 @@
-import Catalan.Runge.RootEvaluation
-import Catalan.Runge.CoefficientMajorant
-import Catalan.Runge.ProductSeries
-import Catalan.Runge.TailBound
-import Catalan.Runge.ApproximationMap
+module
+
+public import Catalan.Runge.RootEvaluation
+public import Catalan.Runge.CoefficientMajorant
+public import Catalan.Runge.ProductSeries
+public import Catalan.Runge.TailBound
+public import Catalan.Runge.ApproximationMap
+
+/-!
+# `Catalan.Runge.Estimate`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

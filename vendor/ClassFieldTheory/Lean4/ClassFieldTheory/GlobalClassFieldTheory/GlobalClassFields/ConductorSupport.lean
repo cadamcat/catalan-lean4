@@ -20,6 +20,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.IdeleNorm
 public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlace
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ConductorSupport`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

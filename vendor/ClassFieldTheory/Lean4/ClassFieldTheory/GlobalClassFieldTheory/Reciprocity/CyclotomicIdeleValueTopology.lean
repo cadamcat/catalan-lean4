@@ -16,6 +16,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicNorm
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormTopology.Continuity
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.CyclotomicIdeleValueTopology`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

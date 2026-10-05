@@ -1,4 +1,14 @@
-import Catalan.Density.MCentralizer
+module
+
+public import Catalan.Density.MCentralizer
+
+/-!
+# `Catalan.Density.CyclicKummerCentralizer`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

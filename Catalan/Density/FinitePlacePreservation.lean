@@ -1,5 +1,15 @@
-import Catalan.Density.Definitions
-import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlaceIdeal
+module
+
+public import Catalan.Density.Definitions
+public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.FinitePlaceIdeal
+
+/-!
+# `Catalan.Density.FinitePlacePreservation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

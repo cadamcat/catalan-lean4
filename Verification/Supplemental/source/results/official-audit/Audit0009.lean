@@ -1,4 +1,14 @@
-import Catalan.StrictSolution
+module
+
+public import Catalan.StrictSolution
+
+/-!
+# `Verification.Supplemental.source.results.official-audit.Audit0009`
+
+Verification support module.
+-/
+
+@[expose] public section
 
 set_option pp.all true
 #check @StrictCatalan.odd_primes

@@ -16,6 +16,12 @@ public import Mathlib.Analysis.Normed.Algebra.GelfandMazur
 public import Mathlib.NumberTheory.Ostrowski
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.Ostrowski`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

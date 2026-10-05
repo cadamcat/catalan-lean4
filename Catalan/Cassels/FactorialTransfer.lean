@@ -1,7 +1,17 @@
-import Catalan.Cassels.DenominatorDefs
-import Mathlib.Algebra.BigOperators.ModEq
-import Mathlib.Data.Nat.Factorial.BigOperators
-import Mathlib.Tactic.Ring
+module
+
+public import Catalan.Cassels.DenominatorDefs
+public import Mathlib.Algebra.BigOperators.ModEq
+public import Mathlib.Data.Nat.Factorial.BigOperators
+public import Mathlib.Tactic.Ring
+
+/-!
+# `Catalan.Cassels.FactorialTransfer`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 

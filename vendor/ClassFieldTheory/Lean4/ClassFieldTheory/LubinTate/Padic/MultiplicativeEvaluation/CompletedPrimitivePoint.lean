@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.Padic.MultiplicativeEvaluation.Complete
 public import ClassFieldTheory.LubinTate.FiniteLevel.ChangedUniformizer
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.MultiplicativeEvaluation.CompletedPrimitivePoint`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -17,6 +17,12 @@ public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.Basic
 public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.Valuation
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasisInfiniteProduct`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,7 +1,17 @@
-import Catalan.Density.OrbitCoordinates
-import Catalan.Density.FUnitAugmentation
-import Catalan.Density.ResidueCoordinate
-import Catalan.Density.SeparatingPrimeClasses
+module
+
+public import Catalan.Density.OrbitCoordinates
+public import Catalan.Density.FUnitAugmentation
+public import Catalan.Density.ResidueCoordinate
+public import Catalan.Density.SeparatingPrimeClasses
+
+/-!
+# `Catalan.Density.UnitResidueCoordinates`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -16,6 +16,12 @@ public import Mathlib.Analysis.SpecialFunctions.Pow.Continuity
 public import Mathlib.Algebra.Order.Ring.IsNonarchimedean
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.Nonarchimedean`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

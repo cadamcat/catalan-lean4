@@ -1,11 +1,21 @@
-import Catalan.Mihailescu.GroupRingHeight
-import Catalan.Height.Liouville
-import Catalan.Mihailescu.PhaseBounds
-import Catalan.Mihailescu.Threshold
-import Catalan.Mihailescu.RealContradiction
-import Catalan.Mihailescu.ExpBound
-import Catalan.Mihailescu.Separation
-import Catalan.Counting.SmallBall
+module
+
+public import Catalan.Mihailescu.GroupRingHeight
+public import Catalan.Height.Liouville
+public import Catalan.Mihailescu.PhaseBounds
+public import Catalan.Mihailescu.Threshold
+public import Catalan.Mihailescu.RealContradiction
+public import Catalan.Mihailescu.ExpBound
+public import Catalan.Mihailescu.Separation
+public import Catalan.Counting.SmallBall
+
+/-!
+# `Catalan.Mihailescu.KernelCardinality`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 namespace Catalan

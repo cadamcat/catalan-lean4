@@ -19,6 +19,12 @@ public import Mathlib.FieldTheory.IntermediateField.Basic
 public import Mathlib.RingTheory.LocalRing.Module
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.SUnitPreparation.PrimePowerKernelCoordinates`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

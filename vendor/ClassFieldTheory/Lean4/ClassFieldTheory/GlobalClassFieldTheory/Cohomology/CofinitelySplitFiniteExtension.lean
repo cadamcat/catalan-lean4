@@ -17,6 +17,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.Splitting.Prim
 public import ClassFieldTheory.GlobalClassFieldTheory.Cohomology.CyclicPrimePowerFullDecomposition
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Cohomology.CofinitelySplitFiniteExtension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

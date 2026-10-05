@@ -15,6 +15,12 @@ public import Mathlib.FieldTheory.Galois.Infinite
 public import Mathlib.FieldTheory.Galois.Profinite
 
 
+/-!
+# `ValuedFieldTheory.Ramification.GaloisValuation.ClosedFixingSubgroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

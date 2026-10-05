@@ -16,6 +16,12 @@ public import ClassFieldTheory.LubinTate.FormalModule.StandardSeries
 public import Mathlib.RingTheory.FormalGroup.Basic
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FormalModule.StandardFormalGroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

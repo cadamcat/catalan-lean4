@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalTopology
 public import Mathlib.RingTheory.Ideal.Quotient.Operations
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.RayClass.Basic`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,5 +1,15 @@
-import Catalan.Thaine.LiteralMaps
-import Catalan.CaseOne.GaloisRing
+module
+
+public import Catalan.Thaine.LiteralMaps
+public import Catalan.CaseOne.GaloisRing
+
+/-!
+# `Catalan.Thaine.LiteralQuadraticNorm`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

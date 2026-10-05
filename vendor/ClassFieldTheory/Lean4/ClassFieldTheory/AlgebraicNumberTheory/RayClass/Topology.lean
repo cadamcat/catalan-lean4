@@ -20,6 +20,12 @@ public import Mathlib.Topology.Connected.Clopen
 public import Mathlib.Topology.Instances.Sign
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.RayClass.Topology`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

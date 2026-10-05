@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.Completeness
 public import Mathlib.RingTheory.AdicCompletion.Basic
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.PrincipalAdicCompleteness`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,9 +1,19 @@
-import Catalan.Stickelberger.CharacterBridge
-import Catalan.Stickelberger.Values
-import Catalan.Stickelberger.Hout
-import Catalan.Stickelberger.Fiber
-import Catalan.Stickelberger.ConjugateValuation
-import Catalan.Stickelberger.IntegralQuotient
+module
+
+public import Catalan.Stickelberger.CharacterBridge
+public import Catalan.Stickelberger.Values
+public import Catalan.Stickelberger.Hout
+public import Catalan.Stickelberger.Fiber
+public import Catalan.Stickelberger.ConjugateValuation
+public import Catalan.Stickelberger.IntegralQuotient
+
+/-!
+# `Catalan.Stickelberger.PrimeGauss`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

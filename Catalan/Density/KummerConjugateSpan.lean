@@ -1,4 +1,14 @@
-import Catalan.Density.KummerCovariance
+module
+
+public import Catalan.Density.KummerCovariance
+
+/-!
+# `Catalan.Density.KummerConjugateSpan`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

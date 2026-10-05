@@ -18,6 +18,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Degree.Indices
 public import GaloisCohomology.ProfiniteIntegers.ProfiniteInteger
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Degree.Fields`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

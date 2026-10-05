@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.Padic.CompletedFrobeniusLift
 public import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedStandardLevelTransport`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

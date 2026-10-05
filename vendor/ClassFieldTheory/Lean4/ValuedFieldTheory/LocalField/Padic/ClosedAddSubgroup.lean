@@ -15,6 +15,12 @@ public import Mathlib.NumberTheory.Padics.RingHoms
 public import Mathlib.Topology.Algebra.OpenSubgroup
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Padic.ClosedAddSubgroup`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

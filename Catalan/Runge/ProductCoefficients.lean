@@ -1,4 +1,14 @@
-import Catalan.Runge.BinomialSeries
+module
+
+public import Catalan.Runge.BinomialSeries
+
+/-!
+# `Catalan.Runge.ProductCoefficients`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators Classical

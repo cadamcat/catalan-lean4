@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.Completion.BaseChangeNormTrace
 public import ValuedFieldTheory.Valuation.Completion.FiniteProductNormTrace
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.TensorProductProductFormulas`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

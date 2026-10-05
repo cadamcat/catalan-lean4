@@ -1,5 +1,15 @@
-import Catalan.Wieferich.Core
-import Catalan.Cassels.Divisibility
+module
+
+public import Catalan.Wieferich.Core
+public import Catalan.Cassels.Divisibility
+
+/-!
+# `Catalan.Wieferich.Arithmetic`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.A1e
 

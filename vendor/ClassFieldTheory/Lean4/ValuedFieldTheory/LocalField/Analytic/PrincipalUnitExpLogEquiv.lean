@@ -15,6 +15,12 @@ public import ValuedFieldTheory.LocalField.Analytic.LogExpComposition
 public import ValuedFieldTheory.LocalField.Analytic.LogExpContinuity
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.PrincipalUnitExpLogEquiv`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

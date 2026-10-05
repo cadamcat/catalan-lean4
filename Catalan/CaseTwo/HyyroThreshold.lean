@@ -1,5 +1,15 @@
-import Catalan.Cassels.Hyyro
-import Catalan.Mihailescu.BoundsDefs
+module
+
+public import Catalan.Cassels.Hyyro
+public import Catalan.Mihailescu.BoundsDefs
+
+/-!
+# `Catalan.CaseTwo.HyyroThreshold`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

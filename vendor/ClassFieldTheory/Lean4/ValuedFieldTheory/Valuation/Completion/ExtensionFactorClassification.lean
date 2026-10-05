@@ -17,6 +17,12 @@ public import ValuedFieldTheory.Valuation.Completion.FiniteLocalization
 public import Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.ExtensionFactorClassification`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

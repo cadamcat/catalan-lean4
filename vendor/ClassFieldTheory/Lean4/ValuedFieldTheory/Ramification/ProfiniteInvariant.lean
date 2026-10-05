@@ -15,6 +15,12 @@ public import Mathlib.FieldTheory.Galois.Profinite
 public import Mathlib.RingTheory.Invariant.Profinite
 
 
+/-!
+# `ValuedFieldTheory.Ramification.ProfiniteInvariant`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

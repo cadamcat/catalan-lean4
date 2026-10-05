@@ -1,7 +1,17 @@
-import Catalan.Wieferich.Minus
-import Catalan.Wieferich.LiftProduct
-import Catalan.Wieferich.Obstruction
-import Catalan.Wieferich.Arithmetic
+module
+
+public import Catalan.Wieferich.Minus
+public import Catalan.Wieferich.LiftProduct
+public import Catalan.Wieferich.Obstruction
+public import Catalan.Wieferich.Arithmetic
+
+/-!
+# `Catalan.Wieferich.DoubleWieferich`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

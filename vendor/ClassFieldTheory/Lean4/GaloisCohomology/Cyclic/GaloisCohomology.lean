@@ -16,6 +16,12 @@ public import Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90
 public import GaloisCohomology.Cyclic.TateComparison
 
 
+/-!
+# `GaloisCohomology.Cyclic.GaloisCohomology`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,4 +1,14 @@
-import Catalan.Thaine.ClassFactorization
+module
+
+public import Catalan.Thaine.ClassFactorization
+
+/-!
+# `Catalan.Thaine.PrincipalClassRelation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

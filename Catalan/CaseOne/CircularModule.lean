@@ -1,6 +1,16 @@
-import Catalan.CaseOne.UnitRepresentation
-import Catalan.CaseOne.PowerImage
-import Catalan.CaseOne.CircularStability
+module
+
+public import Catalan.CaseOne.UnitRepresentation
+public import Catalan.CaseOne.PowerImage
+public import Catalan.CaseOne.CircularStability
+
+/-!
+# `Catalan.CaseOne.CircularModule`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

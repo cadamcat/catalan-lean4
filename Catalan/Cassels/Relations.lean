@@ -1,4 +1,14 @@
-import Catalan.Cassels.Elementary
+module
+
+public import Catalan.Cassels.Elementary
+
+/-!
+# `Catalan.Cassels.Relations`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

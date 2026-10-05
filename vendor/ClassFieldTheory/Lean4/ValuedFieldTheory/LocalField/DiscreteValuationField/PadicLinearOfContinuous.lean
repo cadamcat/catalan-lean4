@@ -18,6 +18,12 @@ public import Mathlib.LinearAlgebra.Isomorphisms
 public import Mathlib.RingTheory.Finiteness.Finsupp
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PadicLinearOfContinuous`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

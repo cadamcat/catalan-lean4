@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.GroupTheory.PowerIndex
 public import Mathlib.NumberTheory.NumberField.Cyclotomic.Basic
 
 
+/-!
+# `ClassFieldTheory.KummerTheory.Concrete.SUnitPreparation.SUnitPowerQuotient`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

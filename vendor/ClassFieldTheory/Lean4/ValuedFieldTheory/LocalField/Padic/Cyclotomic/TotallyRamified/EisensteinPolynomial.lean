@@ -19,6 +19,12 @@ public import Mathlib.RingTheory.Polynomial.Eisenstein.IsIntegral
 public import Mathlib.RingTheory.IsAdjoinRoot
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Padic.Cyclotomic.TotallyRamified.EisensteinPolynomial`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

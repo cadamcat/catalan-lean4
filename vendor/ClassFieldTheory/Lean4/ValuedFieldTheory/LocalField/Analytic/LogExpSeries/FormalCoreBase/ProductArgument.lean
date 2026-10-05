@@ -16,6 +16,12 @@ public import Mathlib.Algebra.BigOperators.Ring.Finset
 public import Mathlib.Data.Finset.Finsupp
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalCoreBase.ProductArgument`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,5 +1,15 @@
-import Catalan.Density.KummerCovariance
-import Catalan.Density.ScalarFixed
+module
+
+public import Catalan.Density.KummerCovariance
+public import Catalan.Density.ScalarFixed
+
+/-!
+# `Catalan.Density.BaseFixing`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

@@ -1,6 +1,16 @@
-import Catalan.Mihailescu.BoundsDefs
-import Catalan.Mihailescu.Numerical
-import Mathlib
+module
+
+public import Catalan.Mihailescu.BoundsDefs
+public import Catalan.Mihailescu.Numerical
+public import Mathlib
+
+/-!
+# `Catalan.Mihailescu.Threshold`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

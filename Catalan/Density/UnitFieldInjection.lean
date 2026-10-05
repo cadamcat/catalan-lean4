@@ -1,6 +1,16 @@
-import Catalan.CaseOne.NormDescent
-import Catalan.CaseOne.PowerQuotient
-import Catalan.Density.Bdegree
+module
+
+public import Catalan.CaseOne.NormDescent
+public import Catalan.CaseOne.PowerQuotient
+public import Catalan.Density.Bdegree
+
+/-!
+# `Catalan.Density.UnitFieldInjection`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

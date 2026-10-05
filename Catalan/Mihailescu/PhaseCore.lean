@@ -1,4 +1,14 @@
-import Catalan.Mihailescu.LinearLog
+module
+
+public import Catalan.Mihailescu.LinearLog
+
+/-!
+# `Catalan.Mihailescu.PhaseCore`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

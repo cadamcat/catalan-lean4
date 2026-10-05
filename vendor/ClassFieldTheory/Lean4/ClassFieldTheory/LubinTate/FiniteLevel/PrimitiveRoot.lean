@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.Polynomial.GaussLemma
 public import Mathlib.SetTheory.Cardinal.Finite
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveRoot`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import Mathlib.FieldTheory.Normal.Closure
 public import Mathlib.NumberTheory.NumberField.Basic
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.NormalClosure`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

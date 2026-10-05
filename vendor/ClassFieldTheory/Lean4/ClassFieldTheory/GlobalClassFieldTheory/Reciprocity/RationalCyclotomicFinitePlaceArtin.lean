@@ -36,6 +36,12 @@ public import ValuedFieldTheory.LocalField.Padic.Cyclotomic.TotallyRamified.Eise
 public import Mathlib.NumberTheory.NumberField.Cyclotomic.Galois
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.RationalCyclotomicFinitePlaceArtin`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.StandardOpen
 public import Mathlib.FieldTheory.Galois.Abelian
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.Conductor`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

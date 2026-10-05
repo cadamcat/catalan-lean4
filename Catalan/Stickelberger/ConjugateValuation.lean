@@ -1,7 +1,17 @@
-import Catalan.Stickelberger.TowerLift
-import Catalan.Stickelberger.Identify
-import Catalan.Stickelberger.Values
-import Catalan.FactorDescent
+module
+
+public import Catalan.Stickelberger.TowerLift
+public import Catalan.Stickelberger.Identify
+public import Catalan.Stickelberger.Values
+public import Catalan.FactorDescent
+
+/-!
+# `Catalan.Stickelberger.ConjugateValuation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

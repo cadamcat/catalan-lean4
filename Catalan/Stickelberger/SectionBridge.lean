@@ -1,6 +1,16 @@
-import Catalan.Stickelberger.SquareZeroSection
-import Mathlib.NumberTheory.MulChar.Basic
-import Mathlib.RingTheory.Ideal.Operations
+module
+
+public import Catalan.Stickelberger.SquareZeroSection
+public import Mathlib.NumberTheory.MulChar.Basic
+public import Mathlib.RingTheory.Ideal.Operations
+
+/-!
+# `Catalan.Stickelberger.SectionBridge`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

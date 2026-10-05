@@ -16,6 +16,12 @@ public import Mathlib.NumberTheory.Padics.ProperSpace
 public import Mathlib.NumberTheory.Padics.ValuativeRel
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Padic.NonarchimedeanLocalField`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

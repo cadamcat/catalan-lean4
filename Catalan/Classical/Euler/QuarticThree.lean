@@ -1,7 +1,17 @@
-import Catalan.Classical.Euler.Sequence
-import Catalan.Classical.Euler.NegativePell
-import Catalan.Classical.Euler.QuarticTwo
-import Catalan.Classical.Euler.Arithmetic
+module
+
+public import Catalan.Classical.Euler.Sequence
+public import Catalan.Classical.Euler.NegativePell
+public import Catalan.Classical.Euler.QuarticTwo
+public import Catalan.Classical.Euler.Arithmetic
+
+/-!
+# `Catalan.Classical.Euler.QuarticThree`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.Euler
 

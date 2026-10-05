@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.FieldUnitDecom
 public import ValuedFieldTheory.LocalField.GroupTheory.PowerIndex
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PowerIndex`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

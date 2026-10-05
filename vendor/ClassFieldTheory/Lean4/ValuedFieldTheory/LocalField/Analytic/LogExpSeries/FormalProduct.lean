@@ -15,6 +15,12 @@ public import Mathlib.SetTheory.Cardinal.Finite
 public import ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalCore
 
 
+/-!
+# `ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalProduct`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

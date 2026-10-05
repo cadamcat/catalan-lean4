@@ -1,6 +1,16 @@
-import Catalan.Thaine.IntegralClassAction
-import Catalan.Stickelberger.ClassReduction
-import Catalan.Wieferich.IdealGenerator
+module
+
+public import Catalan.Thaine.IntegralClassAction
+public import Catalan.Stickelberger.ClassReduction
+public import Catalan.Wieferich.IdealGenerator
+
+/-!
+# `Catalan.Thaine.IdealClassPower`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

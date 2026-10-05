@@ -1,4 +1,14 @@
-import Catalan.Runge.ProductCoefficients
+module
+
+public import Catalan.Runge.ProductCoefficients
+
+/-!
+# `Catalan.Runge.TailBound`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators Classical

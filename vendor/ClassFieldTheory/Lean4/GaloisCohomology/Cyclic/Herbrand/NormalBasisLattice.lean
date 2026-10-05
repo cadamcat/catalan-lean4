@@ -16,6 +16,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.IdealQuotien
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueExtension
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.NormalBasisLattice`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

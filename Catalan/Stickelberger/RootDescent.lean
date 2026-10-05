@@ -1,6 +1,8 @@
-import Catalan.Stickelberger.GaussGalois
-import Catalan.Stickelberger.Descent
-import Mathlib
+module
+
+public import Catalan.Stickelberger.GaussGalois
+public import Catalan.Stickelberger.Descent
+public import Mathlib
 
 /-! # Root-of-unity facts for Galois descent
 
@@ -11,6 +13,14 @@ import Mathlib
   `ell`-th root of unity to `ζ ^ j` with `ell ∤ j`.  This supplies the hypothesis `hσζ` of
   `integralTraceGaussSum_galois_twist`.
 -/
+
+/-!
+# `Catalan.Stickelberger.RootDescent`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

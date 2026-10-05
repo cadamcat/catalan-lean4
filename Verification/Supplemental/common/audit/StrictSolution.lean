@@ -1,4 +1,14 @@
-import Catalan
+module
+
+public import Catalan
+
+/-!
+# `Verification.Supplemental.common.audit.StrictSolution`
+
+Verification support module.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace StrictCatalan

@@ -1,4 +1,14 @@
-import Catalan.Density.FrobeniusStabilizer
+module
+
+public import Catalan.Density.FrobeniusStabilizer
+
+/-!
+# `Catalan.Density.RelativeFrobenius`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -15,6 +15,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.Abs
 public import ClassFieldTheory.AbstractClassFieldTheory.Degree.Valuation
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.GaloisExtensionQuotient`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

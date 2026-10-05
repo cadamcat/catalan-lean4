@@ -1,5 +1,15 @@
-import Catalan.Stickelberger.TowerLift
-import Catalan.Stickelberger.GaussFamily
+module
+
+public import Catalan.Stickelberger.TowerLift
+public import Catalan.Stickelberger.GaussFamily
+
+/-!
+# `Catalan.Stickelberger.IntegralQuotient`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

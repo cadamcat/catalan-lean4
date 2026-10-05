@@ -1,6 +1,16 @@
-import Catalan.Mihailescu.RadiusTwoExclusion
-import Catalan.CaseTwo.HyyroCorollaryInputs
-import Catalan.Stickelberger.MinusMihailescu
+module
+
+public import Catalan.Mihailescu.RadiusTwoExclusion
+public import Catalan.CaseTwo.HyyroCorollaryInputs
+public import Catalan.Stickelberger.MinusMihailescu
+
+/-!
+# `Catalan.Classical.SmallConductors`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 namespace Catalan

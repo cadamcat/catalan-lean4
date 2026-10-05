@@ -1,4 +1,14 @@
-import Catalan.Stickelberger.MinusDefs
+module
+
+public import Catalan.Stickelberger.MinusDefs
+
+/-!
+# `Catalan.Stickelberger.MinusElement`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open NumberField
 noncomputable section

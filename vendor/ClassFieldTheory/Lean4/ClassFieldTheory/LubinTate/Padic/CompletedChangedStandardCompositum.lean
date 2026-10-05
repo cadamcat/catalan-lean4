@@ -16,6 +16,12 @@ public import ClassFieldTheory.LubinTate.Padic.CompletedChangedUniformizerFixedF
 public import ClassFieldTheory.LubinTate.Padic.CompletedStandardLevelTransport
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardCompositum`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

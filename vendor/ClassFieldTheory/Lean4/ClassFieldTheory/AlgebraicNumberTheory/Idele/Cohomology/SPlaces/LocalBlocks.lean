@@ -16,6 +16,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Adele.FinitePlaceTensorBloc
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.Decomposition
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SPlaces.LocalBlocks`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

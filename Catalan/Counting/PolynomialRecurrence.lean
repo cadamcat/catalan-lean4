@@ -1,4 +1,14 @@
-import Catalan.Counting.Defs
+module
+
+public import Catalan.Counting.Defs
+
+/-!
+# `Catalan.Counting.PolynomialRecurrence`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 namespace Catalan.LatticeCount

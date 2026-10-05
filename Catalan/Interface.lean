@@ -1,416 +1,418 @@
-import Catalan.Cyclotomic.Basic
-import Catalan.Cyclotomic.GroupRingMul
-import Catalan.Cyclotomic.Augmentation
-import Catalan.IdealHelpers
-import Catalan.Cassels.LambdaIdeal
-import Catalan.Density.Definitions
-import Catalan.Cassels.Hyyro
-import Catalan.Mihailescu.Ideal
-import Catalan.Stickelberger.Reduction
-import Catalan.Stickelberger.Away
-import Catalan.Stickelberger.ResidueGauss
-import Catalan.Stickelberger.GammaAssembly
-import Catalan.Stickelberger.DigitValuation
-import Catalan.Stickelberger.DigitResidue
-import Catalan.Cyclotomic.OtherPrime
-import Catalan.Mihailescu.Orders
-import Catalan.Mihailescu.Separation
-import Catalan.Stickelberger.NormalizedGauss
-import Catalan.Stickelberger.LocalGauss
-import Catalan.Stickelberger.SquareZeroSection
-import Catalan.Stickelberger.Teichmuller
-import Catalan.Stickelberger.SectionBridge
-import Catalan.Stickelberger.WittTower
-import Catalan.Stickelberger.TowerArith
-import Catalan.Stickelberger.GaussFamily
-import Catalan.Stickelberger.GaussIdentities
-import Catalan.Stickelberger.ValuesBridge
-import Catalan.Stickelberger.WittTower
-import Catalan.Stickelberger.Tower
-import Catalan.Stickelberger.Local
-import Catalan.Stickelberger.Uniformizer
-import Catalan.Stickelberger.Factor
-import Catalan.FactorBridge
-import Catalan.Stickelberger.Values
-import Catalan.FactorDescent
-import Catalan.Stickelberger.Transfer
-import Catalan.Stickelberger.GaloisCover
-import Catalan.Stickelberger.GaussGalois
-import Catalan.Stickelberger.Descent
-import Catalan.Stickelberger.RootDescent
-import Catalan.Stickelberger.Equivariance
-import Catalan.Stickelberger.Identify
-import Catalan.Stickelberger.Annihilation
+module
 
-import Catalan.Mihailescu.PhaseBounds
-import Catalan.Mihailescu.ExpBound
-import Catalan.Mihailescu.Numerical
-import Catalan.Classical.Reduction
+public import Catalan.Cyclotomic.Basic
+public import Catalan.Cyclotomic.GroupRingMul
+public import Catalan.Cyclotomic.Augmentation
+public import Catalan.IdealHelpers
+public import Catalan.Cassels.LambdaIdeal
+public import Catalan.Density.Definitions
+public import Catalan.Cassels.Hyyro
+public import Catalan.Mihailescu.Ideal
+public import Catalan.Stickelberger.Reduction
+public import Catalan.Stickelberger.Away
+public import Catalan.Stickelberger.ResidueGauss
+public import Catalan.Stickelberger.GammaAssembly
+public import Catalan.Stickelberger.DigitValuation
+public import Catalan.Stickelberger.DigitResidue
+public import Catalan.Cyclotomic.OtherPrime
+public import Catalan.Mihailescu.Orders
+public import Catalan.Mihailescu.Separation
+public import Catalan.Stickelberger.NormalizedGauss
+public import Catalan.Stickelberger.LocalGauss
+public import Catalan.Stickelberger.SquareZeroSection
+public import Catalan.Stickelberger.Teichmuller
+public import Catalan.Stickelberger.SectionBridge
+public import Catalan.Stickelberger.WittTower
+public import Catalan.Stickelberger.TowerArith
+public import Catalan.Stickelberger.GaussFamily
+public import Catalan.Stickelberger.GaussIdentities
+public import Catalan.Stickelberger.ValuesBridge
+public import Catalan.Stickelberger.WittTower
+public import Catalan.Stickelberger.Tower
+public import Catalan.Stickelberger.Local
+public import Catalan.Stickelberger.Uniformizer
+public import Catalan.Stickelberger.Factor
+public import Catalan.FactorBridge
+public import Catalan.Stickelberger.Values
+public import Catalan.FactorDescent
+public import Catalan.Stickelberger.Transfer
+public import Catalan.Stickelberger.GaloisCover
+public import Catalan.Stickelberger.GaussGalois
+public import Catalan.Stickelberger.Descent
+public import Catalan.Stickelberger.RootDescent
+public import Catalan.Stickelberger.Equivariance
+public import Catalan.Stickelberger.Identify
+public import Catalan.Stickelberger.Annihilation
 
-import Catalan.Mihailescu.Threshold
-import Catalan.Mihailescu.RealContradiction
-import Catalan.Mihailescu.RootPhase
-import Catalan.Mihailescu.RadiusTwoArithmetic
+public import Catalan.Mihailescu.PhaseBounds
+public import Catalan.Mihailescu.ExpBound
+public import Catalan.Mihailescu.Numerical
+public import Catalan.Classical.Reduction
 
-import Catalan.Mihailescu.FiniteSum
+public import Catalan.Mihailescu.Threshold
+public import Catalan.Mihailescu.RealContradiction
+public import Catalan.Mihailescu.RootPhase
+public import Catalan.Mihailescu.RadiusTwoArithmetic
 
-import Catalan.Wieferich.DoubleWieferich
+public import Catalan.Mihailescu.FiniteSum
 
-import Catalan.Classical.Lebesgue
-import Catalan.Classical.Euler
-import Catalan.Classical.KoChao
-import Catalan.Counting
-import Catalan.CaseTwo.WeakBoundExclusion
-import Catalan.Stickelberger.MinusStability
-import Catalan.Stickelberger.MinusNorm
-import Catalan.Stickelberger.MinusMihailescu
-import Catalan.Stickelberger.MinusSpan
-import Catalan.Stickelberger.CharacterZeroBridge
-import Catalan.Stickelberger.CharacterBoundary
-import Catalan.Stickelberger.CharacterSpecialValue
-import Catalan.Stickelberger.MinusIndependent
-import Catalan.Cyclotomic.GroupRingSums
-import Catalan.Counting.ThetaCombination
-import Catalan.Counting.CoefficientBall
-import Catalan.Counting.QuotientBall
-import Catalan.Counting.SmallBall
-import Catalan.CaseTwo.LatticeWeak
-import Catalan.CaseTwo.RadiusArithmetic
-import Catalan.CaseTwo.HyyroThreshold
-import Catalan.CaseTwo.HyyroCorollaryInputs
-import Catalan.Height.Basic
-import Catalan.Height.Projective
-import Catalan.Height.Liouville
-import Catalan.Height.LocalBounds
-import Catalan.Mihailescu.PositiveProducts
-import Catalan.Mihailescu.GroupRingHeight
-import Catalan.Mihailescu.KernelCardinality
-import Catalan.Mihailescu.ReconstructHeight
-import Catalan.Mihailescu.RadiusTwoHeight
-import Catalan.Mihailescu.RadiusTwoExclusion
-import Catalan.Classical.SmallConductors
-import Catalan.CaseTwo.WeakBounds
-import Catalan.CaseTwo.Assembly
-import Catalan.Density.BaseFields
-import Catalan.CaseOne.SemisimpleIdeal
-import Catalan.Density.FiniteM
-import Catalan.Density.NormalM
-import Catalan.CaseOne.PrimaryCongruence
-import Catalan.CaseOne.PrimaryPolynomial
-import Catalan.CaseOne.PowerBasisDivisibility
-import Catalan.CaseOne.PrimaryObstruction
-import Catalan.Density.RealF
-import Catalan.Density.FStructure
-import Catalan.CaseOne.RatioUnits
-import Catalan.CaseOne.PrimaryUnits
-import Catalan.CaseOne.PrimaryNaturality
-import Catalan.CaseOne.CircularUnits
-import Catalan.CaseOne.CircularStability
-import Catalan.CaseOne.PowerQuotient
-import Catalan.CaseOne.PowerImage
-import Catalan.CaseOne.UnitRepresentation
-import Catalan.CaseOne.CircularModule
-import Catalan.CaseOne.FullLog
-import Catalan.CaseOne.TorsionReduction
-import Catalan.CaseOne.PowerModN
-import Catalan.CaseOne.LatticeCharpoly
-import Catalan.CaseOne.ModNAction
-import Catalan.CaseOne.CMBridge
-import Catalan.CaseOne.LogSpaceEquiv
-import Catalan.CaseOne.IntegralRepresentation
-import Catalan.CaseOne.Places
-import Catalan.CaseOne.Regular
-import Catalan.CaseOne.UnitCharpoly
-import Catalan.CaseOne.CyclicShift
-import Catalan.CaseOne.CyclicZeroSum
-import Catalan.CaseOne.PlaceCycle
-import Catalan.CaseOne.GeometricSquarefree
-import Catalan.CaseOne.CyclotomicPlaces
-import Catalan.CaseOne.PlaceCharpoly
-import Catalan.CaseOne.CaseTwoCard
-import Catalan.CaseOne.GeometricUnits
-import Catalan.CaseOne.CyclicVector
-import Catalan.CaseOne.RepresentationCyclic
-import Catalan.CaseOne.UnitCyclic
-import Catalan.CaseOne.MinpolyCyclic
-import Catalan.CaseOne.GroupEvaluation
-import Catalan.CaseOne.ProductAnn
-import Catalan.CaseOne.RepresentationAnnihilator
-import Catalan.CaseOne.GeneratorConjugation
-import Catalan.CaseOne.Filtration
-import Catalan.CaseOne.NormSum
-import Catalan.CaseOne.NormIdeal
-import Catalan.CaseOne.GaloisRing
-import Catalan.CaseOne.ThreeStep
-import Catalan.CaseOne.UnitNorm
-import Catalan.CaseOne.UnitFiltration
-import Catalan.CaseOne.AnnihilatorDuality
-import Catalan.CaseOne.Involution
-import Catalan.CaseOne.PlusAugmentation
+public import Catalan.Wieferich.DoubleWieferich
 
-import Catalan.CaseOne.RealTorsion
-import Catalan.Density.Bdegree
-import Catalan.CaseOne.DualCharpoly
-import Catalan.CaseOne.ProjectiveRigidity
-import Catalan.CaseOne.RealUnits
-import Catalan.CaseOne.NormDescent
-import Catalan.Density.FUnits
-import Catalan.Density.UnitFieldInjection
+public import Catalan.Classical.Lebesgue
+public import Catalan.Classical.Euler
+public import Catalan.Classical.KoChao
+public import Catalan.Counting
+public import Catalan.CaseTwo.WeakBoundExclusion
+public import Catalan.Stickelberger.MinusStability
+public import Catalan.Stickelberger.MinusNorm
+public import Catalan.Stickelberger.MinusMihailescu
+public import Catalan.Stickelberger.MinusSpan
+public import Catalan.Stickelberger.CharacterZeroBridge
+public import Catalan.Stickelberger.CharacterBoundary
+public import Catalan.Stickelberger.CharacterSpecialValue
+public import Catalan.Stickelberger.MinusIndependent
+public import Catalan.Cyclotomic.GroupRingSums
+public import Catalan.Counting.ThetaCombination
+public import Catalan.Counting.CoefficientBall
+public import Catalan.Counting.QuotientBall
+public import Catalan.Counting.SmallBall
+public import Catalan.CaseTwo.LatticeWeak
+public import Catalan.CaseTwo.RadiusArithmetic
+public import Catalan.CaseTwo.HyyroThreshold
+public import Catalan.CaseTwo.HyyroCorollaryInputs
+public import Catalan.Height.Basic
+public import Catalan.Height.Projective
+public import Catalan.Height.Liouville
+public import Catalan.Height.LocalBounds
+public import Catalan.Mihailescu.PositiveProducts
+public import Catalan.Mihailescu.GroupRingHeight
+public import Catalan.Mihailescu.KernelCardinality
+public import Catalan.Mihailescu.ReconstructHeight
+public import Catalan.Mihailescu.RadiusTwoHeight
+public import Catalan.Mihailescu.RadiusTwoExclusion
+public import Catalan.Classical.SmallConductors
+public import Catalan.CaseTwo.WeakBounds
+public import Catalan.CaseTwo.Assembly
+public import Catalan.Density.BaseFields
+public import Catalan.CaseOne.SemisimpleIdeal
+public import Catalan.Density.FiniteM
+public import Catalan.Density.NormalM
+public import Catalan.CaseOne.PrimaryCongruence
+public import Catalan.CaseOne.PrimaryPolynomial
+public import Catalan.CaseOne.PowerBasisDivisibility
+public import Catalan.CaseOne.PrimaryObstruction
+public import Catalan.Density.RealF
+public import Catalan.Density.FStructure
+public import Catalan.CaseOne.RatioUnits
+public import Catalan.CaseOne.PrimaryUnits
+public import Catalan.CaseOne.PrimaryNaturality
+public import Catalan.CaseOne.CircularUnits
+public import Catalan.CaseOne.CircularStability
+public import Catalan.CaseOne.PowerQuotient
+public import Catalan.CaseOne.PowerImage
+public import Catalan.CaseOne.UnitRepresentation
+public import Catalan.CaseOne.CircularModule
+public import Catalan.CaseOne.FullLog
+public import Catalan.CaseOne.TorsionReduction
+public import Catalan.CaseOne.PowerModN
+public import Catalan.CaseOne.LatticeCharpoly
+public import Catalan.CaseOne.ModNAction
+public import Catalan.CaseOne.CMBridge
+public import Catalan.CaseOne.LogSpaceEquiv
+public import Catalan.CaseOne.IntegralRepresentation
+public import Catalan.CaseOne.Places
+public import Catalan.CaseOne.Regular
+public import Catalan.CaseOne.UnitCharpoly
+public import Catalan.CaseOne.CyclicShift
+public import Catalan.CaseOne.CyclicZeroSum
+public import Catalan.CaseOne.PlaceCycle
+public import Catalan.CaseOne.GeometricSquarefree
+public import Catalan.CaseOne.CyclotomicPlaces
+public import Catalan.CaseOne.PlaceCharpoly
+public import Catalan.CaseOne.CaseTwoCard
+public import Catalan.CaseOne.GeometricUnits
+public import Catalan.CaseOne.CyclicVector
+public import Catalan.CaseOne.RepresentationCyclic
+public import Catalan.CaseOne.UnitCyclic
+public import Catalan.CaseOne.MinpolyCyclic
+public import Catalan.CaseOne.GroupEvaluation
+public import Catalan.CaseOne.ProductAnn
+public import Catalan.CaseOne.RepresentationAnnihilator
+public import Catalan.CaseOne.GeneratorConjugation
+public import Catalan.CaseOne.Filtration
+public import Catalan.CaseOne.NormSum
+public import Catalan.CaseOne.NormIdeal
+public import Catalan.CaseOne.GaloisRing
+public import Catalan.CaseOne.ThreeStep
+public import Catalan.CaseOne.UnitNorm
+public import Catalan.CaseOne.UnitFiltration
+public import Catalan.CaseOne.AnnihilatorDuality
+public import Catalan.CaseOne.Involution
+public import Catalan.CaseOne.PlusAugmentation
 
-import Catalan.Density.AbsoluteM
-import Catalan.Density.RootRatio
-import Catalan.Density.RootCoordinates
-import Catalan.Density.UnitRoots
-import Catalan.Density.UnitRootExt
-import Catalan.Density.KummerTower
-import Catalan.Density.PairingValues
-import Catalan.Density.Faithful
-import Catalan.Density.FixedRoot
-import Catalan.Density.PairingDual
-import Catalan.Density.DualLeft
-import Catalan.Density.DualRight
-import Catalan.Density.PerfectKummer
-import Catalan.Density.AbsoluteB
+public import Catalan.CaseOne.RealTorsion
+public import Catalan.Density.Bdegree
+public import Catalan.CaseOne.DualCharpoly
+public import Catalan.CaseOne.ProjectiveRigidity
+public import Catalan.CaseOne.RealUnits
+public import Catalan.CaseOne.NormDescent
+public import Catalan.Density.FUnits
+public import Catalan.Density.UnitFieldInjection
 
-import Catalan.Density.RootCoordinateAction
-import Catalan.Density.ConjugateOver
-import Catalan.Density.RootCharacter
-import Catalan.Density.InertiaBridge
-import Catalan.Density.AbsoluteAction
-import Catalan.Density.InfiniteUnramified
-import Catalan.Density.KummerCovariance
-import Catalan.Density.ScalarFixed
-import Catalan.Density.UnramifiedWitness
-import Catalan.Density.BaseFixing
-import Catalan.Density.MCentralizer
-import Catalan.Density.HRelative
+public import Catalan.Density.AbsoluteM
+public import Catalan.Density.RootRatio
+public import Catalan.Density.RootCoordinates
+public import Catalan.Density.UnitRoots
+public import Catalan.Density.UnitRootExt
+public import Catalan.Density.KummerTower
+public import Catalan.Density.PairingValues
+public import Catalan.Density.Faithful
+public import Catalan.Density.FixedRoot
+public import Catalan.Density.PairingDual
+public import Catalan.Density.DualLeft
+public import Catalan.Density.DualRight
+public import Catalan.Density.PerfectKummer
+public import Catalan.Density.AbsoluteB
 
-import Catalan.Density.TTower
-import Catalan.Density.SupExt
-import Catalan.Density.InertiaRestrictions
-import Catalan.Density.DegreeBound
-import Catalan.Density.UnramifiedSup
-import Catalan.Density.BoundedSup
-import Catalan.Density.TRelative
-import Catalan.Density.FiniteH
-import Catalan.Density.FiniteT
-import Catalan.Density.TSelector
-import Catalan.Density.HDisjoint
+public import Catalan.Density.RootCoordinateAction
+public import Catalan.Density.ConjugateOver
+public import Catalan.Density.RootCharacter
+public import Catalan.Density.InertiaBridge
+public import Catalan.Density.AbsoluteAction
+public import Catalan.Density.InfiniteUnramified
+public import Catalan.Density.KummerCovariance
+public import Catalan.Density.ScalarFixed
+public import Catalan.Density.UnramifiedWitness
+public import Catalan.Density.BaseFixing
+public import Catalan.Density.MCentralizer
+public import Catalan.Density.HRelative
 
-import Catalan.Density.FieldTransport
-import Catalan.Density.ConjugateField
-import Catalan.Density.ConjugateWitness
-import Catalan.Density.AbsoluteH
-import Catalan.Density.AbsoluteT
-import Catalan.Density.CyclicCentralizer
+public import Catalan.Density.TTower
+public import Catalan.Density.SupExt
+public import Catalan.Density.InertiaRestrictions
+public import Catalan.Density.DegreeBound
+public import Catalan.Density.UnramifiedSup
+public import Catalan.Density.BoundedSup
+public import Catalan.Density.TRelative
+public import Catalan.Density.FiniteH
+public import Catalan.Density.FiniteT
+public import Catalan.Density.TSelector
+public import Catalan.Density.HDisjoint
 
-import Catalan.Density.NativeFrobenius
-import Catalan.Density.FrobeniusStabilizer
-import Catalan.Density.FixedFieldPlaces
-import Catalan.Density.FinitePlacePreservation
-import Catalan.Density.RationalPlaces
-import Catalan.Density.FrobeniusPower
-import Catalan.Density.UnramifiedPreservedPrime
-import Catalan.Density.DensityTheorem
+public import Catalan.Density.FieldTransport
+public import Catalan.Density.ConjugateField
+public import Catalan.Density.ConjugateWitness
+public import Catalan.Density.AbsoluteH
+public import Catalan.Density.AbsoluteT
+public import Catalan.Density.CyclicCentralizer
 
-import Catalan.Runge.Definitions
-import Catalan.Runge.CoefficientIntegral
-import Catalan.Runge.ErrorBound
-import Catalan.Runge.CoeffResidue
-import Catalan.Runge.SmallConjugates
-import Catalan.Density.ClassGroupArtin
-import Catalan.Density.PowerFixedField
-import Catalan.Density.UnramifiedModel
-import Catalan.Density.HClassQuotient
+public import Catalan.Density.NativeFrobenius
+public import Catalan.Density.FrobeniusStabilizer
+public import Catalan.Density.FixedFieldPlaces
+public import Catalan.Density.FinitePlacePreservation
+public import Catalan.Density.RationalPlaces
+public import Catalan.Density.FrobeniusPower
+public import Catalan.Density.UnramifiedPreservedPrime
+public import Catalan.Density.DensityTheorem
 
-import Catalan.Runge.BinomialSeries
+public import Catalan.Runge.Definitions
+public import Catalan.Runge.CoefficientIntegral
+public import Catalan.Runge.ErrorBound
+public import Catalan.Runge.CoeffResidue
+public import Catalan.Runge.SmallConjugates
+public import Catalan.Density.ClassGroupArtin
+public import Catalan.Density.PowerFixedField
+public import Catalan.Density.UnramifiedModel
+public import Catalan.Density.HClassQuotient
 
-import Catalan.Density.ArtinIdele
+public import Catalan.Runge.BinomialSeries
 
-import Catalan.Runge.ProductCoefficients
-import Catalan.Runge.RootReality
-import Catalan.Runge.ProductReality
-import Catalan.Runge.CoefficientMajorant
-import Catalan.Runge.ProductSeries
-import Catalan.Runge.ApproximationMap
-import Catalan.Runge.RootEvaluation
-import Catalan.Runge.TailBound
-import Catalan.Runge.Estimate
-import Catalan.Runge.ReducedQuotient
-import Catalan.Runge.CoefficientBasis
-import Catalan.Runge.IntegralApproximation
-import Catalan.Runge.Reduction
-import Catalan.Runge.Normalized
+public import Catalan.Density.ArtinIdele
 
-import Catalan.Runge.Growth
-import Catalan.Runge.PowerTransport
-import Catalan.Runge.BoundedLift
-import Catalan.Runge.PlusInputs
-import Catalan.Runge.FullInjective
-import Catalan.Runge.PlusIdeal
-import Catalan.Density.CyclicKummerCentralizer
+public import Catalan.Runge.ProductCoefficients
+public import Catalan.Runge.RootReality
+public import Catalan.Runge.ProductReality
+public import Catalan.Runge.CoefficientMajorant
+public import Catalan.Runge.ProductSeries
+public import Catalan.Runge.ApproximationMap
+public import Catalan.Runge.RootEvaluation
+public import Catalan.Runge.TailBound
+public import Catalan.Runge.Estimate
+public import Catalan.Runge.ReducedQuotient
+public import Catalan.Runge.CoefficientBasis
+public import Catalan.Runge.IntegralApproximation
+public import Catalan.Runge.Reduction
+public import Catalan.Runge.Normalized
 
-import Catalan.Density.GaloisModules
-import Catalan.Density.SelectorLift
-import Catalan.Density.SelectorConjugate
-import Catalan.Density.HLift
-import Catalan.Density.KummerConjugateSpan
-import Catalan.Density.TConjugate
-import Catalan.Density.HRestriction
-import Catalan.Density.SelectorSpan
-import Catalan.Density.ClassGroupLinear
-import Catalan.Density.SelectorClassSpan
+public import Catalan.Runge.Growth
+public import Catalan.Runge.PowerTransport
+public import Catalan.Runge.BoundedLift
+public import Catalan.Runge.PlusInputs
+public import Catalan.Runge.FullInjective
+public import Catalan.Runge.PlusIdeal
+public import Catalan.Density.CyclicKummerCentralizer
 
-import Catalan.Density.PrimeArtinFormula
-import Catalan.Density.PrimeArtinDecomposition
-import Catalan.Density.FixedResidue
-import Catalan.Density.FrobeniusRestrict
-import Catalan.Density.RelativeFrobenius
-import Catalan.Density.PrimeFrobenius
-import Catalan.Density.HPrimeFrobenius
-import Catalan.Density.SelectorPrimes
+public import Catalan.Density.GaloisModules
+public import Catalan.Density.SelectorLift
+public import Catalan.Density.SelectorConjugate
+public import Catalan.Density.HLift
+public import Catalan.Density.KummerConjugateSpan
+public import Catalan.Density.TConjugate
+public import Catalan.Density.HRestriction
+public import Catalan.Density.SelectorSpan
+public import Catalan.Density.ClassGroupLinear
+public import Catalan.Density.SelectorClassSpan
 
-import Catalan.Density.ResidueMap
-import Catalan.Density.CyclicSelectorFamily
-import Catalan.Density.CyclicFunctional
-import Catalan.Density.IntegralUnitRoot
-import Catalan.Density.ResidueRoot
-import Catalan.Density.ResiduePowerMap
-import Catalan.Density.ResidueKernel
-import Catalan.Density.CyclicPrimeClasses
-import Catalan.Density.KummerResidue
-import Catalan.Density.RootResidueCard
-import Catalan.Density.UnitResidueInjective
-import Catalan.Density.QPrimeCongruence
-import Catalan.Density.SeparatingPrimeClasses
+public import Catalan.Density.PrimeArtinFormula
+public import Catalan.Density.PrimeArtinDecomposition
+public import Catalan.Density.FixedResidue
+public import Catalan.Density.FrobeniusRestrict
+public import Catalan.Density.RelativeFrobenius
+public import Catalan.Density.PrimeFrobenius
+public import Catalan.Density.HPrimeFrobenius
+public import Catalan.Density.SelectorPrimes
 
-import Catalan.Density.RealPrimeCongruence
-import Catalan.Density.ResidueCoordinate
-import Catalan.Density.OrbitCoordinates
-import Catalan.Density.FUnitAugmentation
-import Catalan.Density.UnitResidueCoordinates
-import Catalan.Density.AugmentationPrimeClasses
-import Catalan.Thaine.Hilbert90
+public import Catalan.Density.ResidueMap
+public import Catalan.Density.CyclicSelectorFamily
+public import Catalan.Density.CyclicFunctional
+public import Catalan.Density.IntegralUnitRoot
+public import Catalan.Density.ResidueRoot
+public import Catalan.Density.ResiduePowerMap
+public import Catalan.Density.ResidueKernel
+public import Catalan.Density.CyclicPrimeClasses
+public import Catalan.Density.KummerResidue
+public import Catalan.Density.RootResidueCard
+public import Catalan.Density.UnitResidueInjective
+public import Catalan.Density.QPrimeCongruence
+public import Catalan.Density.SeparatingPrimeClasses
 
-import Catalan.Thaine.IntegralUnitPow
-import Catalan.Thaine.ResidueExponent
-import Catalan.Density.OrbitAction
-import Catalan.Thaine.RealModel
-import Catalan.Thaine.AuxiliaryGenerator
-import Catalan.Thaine.UnitResidueExponents
-import Catalan.Thaine.AuxiliaryIntegralHilbert90
-import Catalan.Thaine.MixedRootUnits
-import Catalan.Thaine.MixedEpsilonUnit
+public import Catalan.Density.RealPrimeCongruence
+public import Catalan.Density.ResidueCoordinate
+public import Catalan.Density.OrbitCoordinates
+public import Catalan.Density.FUnitAugmentation
+public import Catalan.Density.UnitResidueCoordinates
+public import Catalan.Density.AugmentationPrimeClasses
+public import Catalan.Thaine.Hilbert90
 
-import Catalan.Thaine.Normalization
-import Catalan.Thaine.CyclotomicNorm
-import Catalan.Thaine.MixedDescent
-import Catalan.Thaine.IntegralUnitDescent
-import Catalan.Thaine.EpsilonInversion
-import Catalan.Thaine.NormFactor
-import Catalan.Thaine.NormalizedPair
-import Catalan.Thaine.CircularValueUnit
-import Catalan.Thaine.MixedNormBase
-import Catalan.Thaine.NormalizedNorm
-import Catalan.Thaine.NormalizedResidue
-import Catalan.Thaine.AuxiliaryNormOne
-import Catalan.Thaine.RealCircularUnit
-import Catalan.Thaine.AuxiliaryResidue
-import Catalan.Thaine.CircularClosure
-import Catalan.Thaine.AuxiliaryIntegerData
+public import Catalan.Thaine.IntegralUnitPow
+public import Catalan.Thaine.ResidueExponent
+public import Catalan.Density.OrbitAction
+public import Catalan.Thaine.RealModel
+public import Catalan.Thaine.AuxiliaryGenerator
+public import Catalan.Thaine.UnitResidueExponents
+public import Catalan.Thaine.AuxiliaryIntegralHilbert90
+public import Catalan.Thaine.MixedRootUnits
+public import Catalan.Thaine.MixedEpsilonUnit
 
-import Catalan.Thaine.RealUnramified
-import Catalan.Thaine.PrimeUniformizer
-import Catalan.Thaine.InvariantPrincipal
-import Catalan.Thaine.CyclotomicAway
-import Catalan.Thaine.TotalRamification
-import Catalan.Thaine.AuxiliaryUniformizer
-import Catalan.Thaine.TotalInertia
-import Catalan.Thaine.LocalExponent
-import Catalan.Thaine.AuxiliaryRamification
-import Catalan.Thaine.ResidueExtension
-import Catalan.Thaine.AuxiliaryResidueHom
+public import Catalan.Thaine.Normalization
+public import Catalan.Thaine.CyclotomicNorm
+public import Catalan.Thaine.MixedDescent
+public import Catalan.Thaine.IntegralUnitDescent
+public import Catalan.Thaine.EpsilonInversion
+public import Catalan.Thaine.NormFactor
+public import Catalan.Thaine.NormalizedPair
+public import Catalan.Thaine.CircularValueUnit
+public import Catalan.Thaine.MixedNormBase
+public import Catalan.Thaine.NormalizedNorm
+public import Catalan.Thaine.NormalizedResidue
+public import Catalan.Thaine.AuxiliaryNormOne
+public import Catalan.Thaine.RealCircularUnit
+public import Catalan.Thaine.AuxiliaryResidue
+public import Catalan.Thaine.CircularClosure
+public import Catalan.Thaine.AuxiliaryIntegerData
 
-import Catalan.Thaine.LocalAction
-import Catalan.Thaine.LocalMultiplicity
-import Catalan.Thaine.DvrDecomposition
-import Catalan.Thaine.DedekindLocalExponent
-import Catalan.Thaine.AuxiliaryLocalExponent
-import Catalan.Thaine.CircularPrincipalData
+public import Catalan.Thaine.RealUnramified
+public import Catalan.Thaine.PrimeUniformizer
+public import Catalan.Thaine.InvariantPrincipal
+public import Catalan.Thaine.CyclotomicAway
+public import Catalan.Thaine.TotalRamification
+public import Catalan.Thaine.AuxiliaryUniformizer
+public import Catalan.Thaine.TotalInertia
+public import Catalan.Thaine.LocalExponent
+public import Catalan.Thaine.AuxiliaryRamification
+public import Catalan.Thaine.ResidueExtension
+public import Catalan.Thaine.AuxiliaryResidueHom
 
-import Catalan.Thaine.NormMultiplicity
-import Catalan.Thaine.InvariantFiber
-import Catalan.Thaine.ClassFactorization
-import Catalan.Thaine.NormFibers
-import Catalan.Thaine.PrincipalClassRelation
-import Catalan.Thaine.AuxiliaryNormMultiplicities
-import Catalan.Thaine.CircularClassRelation
+public import Catalan.Thaine.LocalAction
+public import Catalan.Thaine.LocalMultiplicity
+public import Catalan.Thaine.DvrDecomposition
+public import Catalan.Thaine.DedekindLocalExponent
+public import Catalan.Thaine.AuxiliaryLocalExponent
+public import Catalan.Thaine.CircularPrincipalData
 
-import Catalan.Thaine.PrimeOrbit
-import Catalan.Thaine.ConjugateResidue
-import Catalan.Thaine.OrdinaryClassAction
-import Catalan.Thaine.OrbitReindex
-import Catalan.Thaine.ClassRepresentation
-import Catalan.Thaine.ResidueCoordinateSquare
-import Catalan.Thaine.CircularOrbitRelation
-import Catalan.Thaine.CircularCoordinateAnnihilator
+public import Catalan.Thaine.NormMultiplicity
+public import Catalan.Thaine.InvariantFiber
+public import Catalan.Thaine.ClassFactorization
+public import Catalan.Thaine.NormFibers
+public import Catalan.Thaine.PrincipalClassRelation
+public import Catalan.Thaine.AuxiliaryNormMultiplicities
+public import Catalan.Thaine.CircularClassRelation
 
-import Catalan.Thaine.PrimeNormProduct
-import Catalan.Thaine.PrimeClassSpan
-import Catalan.Thaine.CoordinateElement
-import Catalan.Thaine.RealUnitAnnihilator
-import Catalan.Thaine.ClassNorm
-import Catalan.Thaine.ThainePrimeAnnihilator
-import Catalan.Thaine.ThaineClassQuotient
+public import Catalan.Thaine.PrimeOrbit
+public import Catalan.Thaine.ConjugateResidue
+public import Catalan.Thaine.OrdinaryClassAction
+public import Catalan.Thaine.OrbitReindex
+public import Catalan.Thaine.ClassRepresentation
+public import Catalan.Thaine.ResidueCoordinateSquare
+public import Catalan.Thaine.CircularOrbitRelation
+public import Catalan.Thaine.CircularCoordinateAnnihilator
 
-import Catalan.Thaine.LiteralMaps
-import Catalan.Thaine.CircularImageComparison
-import Catalan.Thaine.LiteralPowerInjection
-import Catalan.Thaine.LiteralRestrictionAction
-import Catalan.Thaine.LiteralFullAnnihilator
-import Catalan.Thaine.LiteralClassRepresentation
-import Catalan.Thaine.LiteralAnnihilatorReflection
-import Catalan.Thaine.LiteralFullThaine
+public import Catalan.Thaine.PrimeNormProduct
+public import Catalan.Thaine.PrimeClassSpan
+public import Catalan.Thaine.CoordinateElement
+public import Catalan.Thaine.RealUnitAnnihilator
+public import Catalan.Thaine.ClassNorm
+public import Catalan.Thaine.ThainePrimeAnnihilator
+public import Catalan.Thaine.ThaineClassQuotient
 
-import Catalan.Thaine.PrimaryNilpotence
-import Catalan.Thaine.FrobeniusPower
-import Catalan.Thaine.IntegralClassAction
-import Catalan.Thaine.GroupRingStructure
-import Catalan.Thaine.PrimaryGoodLift
-import Catalan.Thaine.LiteralIntegerClassAction
-import Catalan.Thaine.LiteralPrimaryLift
+public import Catalan.Thaine.LiteralMaps
+public import Catalan.Thaine.CircularImageComparison
+public import Catalan.Thaine.LiteralPowerInjection
+public import Catalan.Thaine.LiteralRestrictionAction
+public import Catalan.Thaine.LiteralFullAnnihilator
+public import Catalan.Thaine.LiteralClassRepresentation
+public import Catalan.Thaine.LiteralAnnihilatorReflection
+public import Catalan.Thaine.LiteralFullThaine
 
-import Catalan.Thaine.LiteralNorms
-import Catalan.Thaine.LiteralFieldPowers
-import Catalan.Thaine.IdealClassPower
-import Catalan.Thaine.LiteralQuadraticNorm
-import Catalan.Thaine.LiteralClassUnitPower
-import Catalan.Thaine.LiteralLambdaIdeal
-import Catalan.Thaine.LiteralNormPowers
-import Catalan.Thaine.LiteralLambdaPower
+public import Catalan.Thaine.PrimaryNilpotence
+public import Catalan.Thaine.FrobeniusPower
+public import Catalan.Thaine.IntegralClassAction
+public import Catalan.Thaine.GroupRingStructure
+public import Catalan.Thaine.PrimaryGoodLift
+public import Catalan.Thaine.LiteralIntegerClassAction
+public import Catalan.Thaine.LiteralPrimaryLift
 
-import Catalan.Thaine.CircularizePowers
-import Catalan.Thaine.RawPiCircularPower
-import Catalan.Thaine.SymmetrizedCongruence
-import Catalan.Thaine.PlusAugmentationLift
-import Catalan.Thaine.CircularPowerTransport
-import Catalan.Thaine.LiteralCircularPower
-import Catalan.Thaine.LiteralRootCircularPower
+public import Catalan.Thaine.LiteralNorms
+public import Catalan.Thaine.LiteralFieldPowers
+public import Catalan.Thaine.IdealClassPower
+public import Catalan.Thaine.LiteralQuadraticNorm
+public import Catalan.Thaine.LiteralClassUnitPower
+public import Catalan.Thaine.LiteralLambdaIdeal
+public import Catalan.Thaine.LiteralNormPowers
+public import Catalan.Thaine.LiteralLambdaPower
 
-import Catalan.Thaine.PrimaryLocalization
-import Catalan.Thaine.UnitPowerReflection
-import Catalan.Thaine.BottomPower
-import Catalan.Thaine.LocalizedPrimaryCriterion
-import Catalan.Thaine.PrimaryLocalizedPowers
-import Catalan.Thaine.IdealNonzero
-import Catalan.Thaine.PrimaryUpow
-import Catalan.Thaine.LiteralPrimaryPower
-import Catalan.Thaine.LiteralPurePower
-import Catalan.Thaine.PrimeAssemblyReduction
-import Catalan.Thaine.NaturalClassificationReduction
-import Catalan.Thaine.LiteralRungeContradiction
-import Catalan.Final.Assembly
-import Catalan.Final.Signed
+public import Catalan.Thaine.CircularizePowers
+public import Catalan.Thaine.RawPiCircularPower
+public import Catalan.Thaine.SymmetrizedCongruence
+public import Catalan.Thaine.PlusAugmentationLift
+public import Catalan.Thaine.CircularPowerTransport
+public import Catalan.Thaine.LiteralCircularPower
+public import Catalan.Thaine.LiteralRootCircularPower
+
+public import Catalan.Thaine.PrimaryLocalization
+public import Catalan.Thaine.UnitPowerReflection
+public import Catalan.Thaine.BottomPower
+public import Catalan.Thaine.LocalizedPrimaryCriterion
+public import Catalan.Thaine.PrimaryLocalizedPowers
+public import Catalan.Thaine.IdealNonzero
+public import Catalan.Thaine.PrimaryUpow
+public import Catalan.Thaine.LiteralPrimaryPower
+public import Catalan.Thaine.LiteralPurePower
+public import Catalan.Thaine.PrimeAssemblyReduction
+public import Catalan.Thaine.NaturalClassificationReduction
+public import Catalan.Thaine.LiteralRungeContradiction
+public import Catalan.Final.Assembly
+public import Catalan.Final.Signed
 
 /-! Proved statements exported by this module.
 
@@ -420,6 +422,14 @@ available here. General Stickelberger annihilation is proved in `Stickelberger/A
 The original integer and natural Catalan theorems, odd-prime impossibility, and Case 1
 are proved and exported through `Final/Assembly.lean`.
 -/
+
+/-!
+# `Catalan.Interface`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open NumberField
 noncomputable section

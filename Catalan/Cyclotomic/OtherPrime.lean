@@ -1,6 +1,16 @@
-import Catalan.Cyclotomic.NormSubZeta
-import Catalan.IdealAction
-import Catalan.Cyclotomic.ValueBound
+module
+
+public import Catalan.Cyclotomic.NormSubZeta
+public import Catalan.IdealAction
+public import Catalan.Cyclotomic.ValueBound
+
+/-!
+# `Catalan.Cyclotomic.OtherPrime`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open NumberField
 noncomputable section

@@ -22,6 +22,12 @@ base valuation ring, the hypothesis needed to restrict field norms integrally.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ValuativeExtension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import ClassFieldTheory.LubinTate.FormalModule.LinearTerm
 public import Mathlib.RingTheory.MvPowerSeries.Substitution
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FormalModule.Intertwiner`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

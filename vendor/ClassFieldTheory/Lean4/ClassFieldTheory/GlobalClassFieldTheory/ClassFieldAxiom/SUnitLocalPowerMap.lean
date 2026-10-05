@@ -25,6 +25,12 @@ public import Mathlib.Algebra.Group.Subgroup.Finite
 public import Mathlib.GroupTheory.Index
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.SUnitLocalPowerMap`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,7 +1,17 @@
-import Catalan.Stickelberger.NormalizedCharacter
-import Catalan.Stickelberger.ResidueQuotient
+module
+
+public import Catalan.Stickelberger.NormalizedCharacter
+public import Catalan.Stickelberger.ResidueQuotient
 
 /-! A single normalized residue character supplies the Gauss power and all quotients. -/
+/-!
+# `Catalan.Stickelberger.NormalizedGauss`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open NumberField
 noncomputable section
 namespace Catalan

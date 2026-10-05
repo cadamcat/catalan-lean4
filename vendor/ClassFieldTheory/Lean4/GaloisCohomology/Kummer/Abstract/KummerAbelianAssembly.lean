@@ -15,6 +15,12 @@ public import GaloisCohomology.Kummer.Abstract.KummerAbelianCyclicFactors
 public import GaloisCohomology.Kummer.Abstract.KummerFixedField
 
 
+/-!
+# `GaloisCohomology.Kummer.Abstract.KummerAbelianAssembly`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

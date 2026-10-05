@@ -16,6 +16,12 @@ public import Mathlib.FieldTheory.Galois.GaloisClosure
 public import ClassFieldTheory.AlgebraicNumberTheory.SeparableClosureEmbedding
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.FiniteAbelianCompositum`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

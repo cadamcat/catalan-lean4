@@ -19,6 +19,12 @@ public import ClassFieldTheory.LubinTate.FiniteLevel.FiniteParameters
 public import ClassFieldTheory.LubinTate.FiniteLevel.NormSubgroup
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.LubinTateApplication.StandardSubgroupIndex`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

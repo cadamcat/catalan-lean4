@@ -16,6 +16,12 @@ public import Mathlib.LinearAlgebra.Dimension.Localization
 public import Mathlib.RingTheory.RamificationInertia.Basic
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.FiniteExtension.Defectless`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

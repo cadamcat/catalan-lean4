@@ -1,5 +1,15 @@
-import Catalan.Stickelberger.MinusReflection
-import Catalan.Stickelberger.MinusSpanCore
+module
+
+public import Catalan.Stickelberger.MinusReflection
+public import Catalan.Stickelberger.MinusSpanCore
+
+/-!
+# `Catalan.Stickelberger.MinusSpan`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

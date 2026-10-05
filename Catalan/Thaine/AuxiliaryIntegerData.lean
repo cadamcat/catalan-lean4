@@ -1,5 +1,15 @@
-import Catalan.Thaine.CircularClosure
-import Catalan.Thaine.AuxiliaryIntegralHilbert90
+module
+
+public import Catalan.Thaine.CircularClosure
+public import Catalan.Thaine.AuxiliaryIntegralHilbert90
+
+/-!
+# `Catalan.Thaine.AuxiliaryIntegerData`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

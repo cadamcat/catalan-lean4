@@ -26,6 +26,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.LocalizedCom
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.NormResidue
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.FinitePlaceArtin.Construction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,5 +1,15 @@
-import Catalan.Density.GaloisModules
-import Catalan.Density.HLift
+module
+
+public import Catalan.Density.GaloisModules
+public import Catalan.Density.HLift
+
+/-!
+# `Catalan.Density.HRestriction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

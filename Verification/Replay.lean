@@ -1,4 +1,14 @@
-import Lean
+module
+
+public import Lean
+
+/-!
+# `Verification.Replay`
+
+Replays the public theorem dependency cone in a fresh Lean kernel environment.
+-/
+
+@[expose] public section
 
 open Lean
 

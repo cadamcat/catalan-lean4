@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.AbsoluteValues
 public import ValuedFieldTheory.Valuation.AbsoluteValue.Theory.ExponentialValuations
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.Theory.Core`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

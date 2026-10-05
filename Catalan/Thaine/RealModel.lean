@@ -1,5 +1,15 @@
-import Catalan.Density.BaseFields
-import Catalan.Cyclotomic.Basic
+module
+
+public import Catalan.Density.BaseFields
+public import Catalan.Cyclotomic.Basic
+
+/-!
+# `Catalan.Thaine.RealModel`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

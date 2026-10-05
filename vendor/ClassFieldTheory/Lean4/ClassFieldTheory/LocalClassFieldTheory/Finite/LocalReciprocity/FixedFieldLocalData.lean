@@ -18,6 +18,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormalizedIn
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.ValuationTransport
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.FixedFieldLocalData`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -15,6 +15,12 @@ public import Mathlib.FieldTheory.Galois.Basic
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.PrincipalUnits.Basic
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.PrincipalUnits.Trace`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

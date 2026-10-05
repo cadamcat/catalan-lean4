@@ -17,6 +17,12 @@ public import Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyc
 public import Mathlib.RepresentationTheory.Homological.GroupHomology.FiniteCyclic
 
 
+/-!
+# `GaloisCohomology.Cyclic.Herbrand.HerbrandFiniteness`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

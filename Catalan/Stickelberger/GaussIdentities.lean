@@ -1,4 +1,14 @@
-import Catalan.Stickelberger.LocalGauss
+module
+
+public import Catalan.Stickelberger.LocalGauss
+
+/-!
+# `Catalan.Stickelberger.GaussIdentities`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 open scoped BigOperators

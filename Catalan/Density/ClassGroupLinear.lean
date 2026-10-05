@@ -1,5 +1,15 @@
-import Catalan.Density.GaloisModules
-import Catalan.Density.HClassQuotient
+module
+
+public import Catalan.Density.GaloisModules
+public import Catalan.Density.HClassQuotient
+
+/-!
+# `Catalan.Density.ClassGroupLinear`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

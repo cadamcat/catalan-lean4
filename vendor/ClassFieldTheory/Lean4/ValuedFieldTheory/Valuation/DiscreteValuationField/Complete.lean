@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.AdicPower
 public import ValuedFieldTheory.Valuation.DiscreteValuationField.ValuationTransport
 
 
+/-!
+# `ValuedFieldTheory.Valuation.DiscreteValuationField.Complete`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

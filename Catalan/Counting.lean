@@ -1,6 +1,16 @@
-import Catalan.Counting.Formula
-import Catalan.Counting.Bounds
-import Catalan.Counting.SmallDimensions
+module
+
+public import Catalan.Counting.Formula
+public import Catalan.Counting.Bounds
+public import Catalan.Counting.SmallDimensions
+
+/-!
+# `Catalan.Counting`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan

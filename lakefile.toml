@@ -26,3 +26,7 @@ globs = ["ValuedFieldTheory.+"]
 name = "GaloisCohomology"
 srcDir = "vendor/ClassFieldTheory/Lean4"
 globs = ["GaloisCohomology.+"]
+
+[[lean_lib]]
+name = "Verification"
+globs = ["Verification.+"]

@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.Core
 public import ValuedFieldTheory.Valuation.Henselian.IrreduciblePolynomialBounds
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.AlgebraicExtension.UniqueExtensionCoefficients`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

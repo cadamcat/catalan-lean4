@@ -25,6 +25,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.SmallHil
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.GlobalNormResidue
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertClassFieldRealization`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

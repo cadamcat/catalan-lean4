@@ -17,6 +17,12 @@ public import ClassFieldTheory.LubinTate.Padic.MultiplicativeEvaluation.Core
 public import Mathlib.SetTheory.Cardinal.Finite
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedPrimitiveAction`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

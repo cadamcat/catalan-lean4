@@ -1,4 +1,14 @@
-import Catalan.Thaine.Normalization
+module
+
+public import Catalan.Thaine.Normalization
+
+/-!
+# `Catalan.Thaine.CircularValueUnit`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

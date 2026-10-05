@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.DiscreteValuationField.ChevalleyExtens
 public import Mathlib.Algebra.Polynomial.Lifts
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.UniqueExtensionIntegralClosure`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

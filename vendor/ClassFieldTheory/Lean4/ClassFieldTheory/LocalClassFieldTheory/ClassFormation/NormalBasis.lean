@@ -17,6 +17,12 @@ public import Mathlib.FieldTheory.Galois.NormalBasis
 public import Mathlib.LinearAlgebra.Quotient.Pi
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasis`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

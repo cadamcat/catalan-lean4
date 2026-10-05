@@ -1,4 +1,14 @@
-import Catalan.Thaine.NormalizedPair
+module
+
+public import Catalan.Thaine.NormalizedPair
+
+/-!
+# `Catalan.Thaine.NormalizedResidue`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

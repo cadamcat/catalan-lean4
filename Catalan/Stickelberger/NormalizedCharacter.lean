@@ -1,4 +1,14 @@
-import Catalan.Stickelberger.ResidueGauss
+module
+
+public import Catalan.Stickelberger.ResidueGauss
+
+/-!
+# `Catalan.Stickelberger.NormalizedCharacter`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 noncomputable section
 open NumberField

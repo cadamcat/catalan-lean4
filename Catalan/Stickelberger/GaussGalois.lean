@@ -1,5 +1,7 @@
-import Catalan.Stickelberger.GaussFamily
-import Mathlib
+module
+
+public import Catalan.Stickelberger.GaussFamily
+public import Mathlib
 
 /-! # Galois action on the integral trace Gauss sum
 
@@ -10,6 +12,14 @@ identity is stated multiplicatively, so no inverse and no invertibility of `χ(j
 Consequence: if `χ ^ p = 1` then `σ` fixes the `p`-th power of the Gauss sum.  That is the
 mechanism by which `g ^ p` descends from `ℚ(ζ_p, ζ_ell)` to `ℚ(ζ_p)`.
 -/
+
+/-!
+# `Catalan.Stickelberger.GaussGalois`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 

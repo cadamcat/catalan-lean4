@@ -17,6 +17,12 @@ public import Mathlib.NumberTheory.NumberField.CMField
 public import Mathlib.RingTheory.RootsOfUnity.Complex
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.ComplexificationArtin.RationalComplexification`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

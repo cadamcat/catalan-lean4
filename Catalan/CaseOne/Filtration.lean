@@ -1,4 +1,14 @@
-import Catalan.CaseOne.ProductAnn
+module
+
+public import Catalan.CaseOne.ProductAnn
+
+/-!
+# `Catalan.CaseOne.Filtration`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

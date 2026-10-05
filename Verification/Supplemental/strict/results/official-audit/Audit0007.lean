@@ -1,4 +1,14 @@
-import Catalan.StrictSolution
+module
+
+public import Catalan.StrictSolution
+
+/-!
+# `Verification.Supplemental.strict.results.official-audit.Audit0007`
+
+Verification support module.
+-/
+
+@[expose] public section
 
 set_option pp.all true
 #check @StrictCatalan.positive_int

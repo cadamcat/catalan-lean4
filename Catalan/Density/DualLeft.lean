@@ -1,5 +1,15 @@
-import Catalan.Density.PairingDual
-import Catalan.Density.Faithful
+module
+
+public import Catalan.Density.PairingDual
+public import Catalan.Density.Faithful
+
+/-!
+# `Catalan.Density.DualLeft`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

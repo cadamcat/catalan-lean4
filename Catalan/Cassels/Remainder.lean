@@ -1,7 +1,17 @@
-import Catalan.Cassels.CoefficientBounds
-import Catalan.Cassels.TaylorBound
-import Catalan.Cassels.RootCorrection
-import Catalan.Cassels.RemainderArithmetic
+module
+
+public import Catalan.Cassels.CoefficientBounds
+public import Catalan.Cassels.TaylorBound
+public import Catalan.Cassels.RootCorrection
+public import Catalan.Cassels.RemainderArithmetic
+
+/-!
+# `Catalan.Cassels.Remainder`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators
 

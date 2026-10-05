@@ -15,6 +15,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.FilteredLift
 public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasisGradedLifting
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.ClassFormation.NormalBasisRecursiveLifting`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

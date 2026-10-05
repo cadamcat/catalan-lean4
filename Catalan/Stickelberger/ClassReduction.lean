@@ -1,4 +1,14 @@
-import Catalan.IdealHelpers
+module
+
+public import Catalan.IdealHelpers
+
+/-!
+# `Catalan.Stickelberger.ClassReduction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators nonZeroDivisors Pointwise
 open NumberField

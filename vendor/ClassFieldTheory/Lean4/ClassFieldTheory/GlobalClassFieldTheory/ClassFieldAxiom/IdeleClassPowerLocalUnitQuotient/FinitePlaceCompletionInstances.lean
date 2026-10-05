@@ -16,6 +16,12 @@ public import ValuedFieldTheory.Valuation.ValuedAdicComplete
 public import Mathlib.NumberTheory.NumberField.ProductFormula
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdeleClassPowerLocalUnitQuotient.FinitePlaceCompletionInstances`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

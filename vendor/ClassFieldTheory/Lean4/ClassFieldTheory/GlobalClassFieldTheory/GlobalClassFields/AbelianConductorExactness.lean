@@ -22,6 +22,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArt
 public import ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.LocalGlobalArtinCompatibility.Factorization
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.AbelianConductorExactness`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

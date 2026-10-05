@@ -20,6 +20,12 @@ public import ValuedFieldTheory.Ramification.HilbertRamification.AbsoluteValueCo
 public import Mathlib.RingTheory.Ideal.GoingUp
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Completion.ExtensionIndex`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

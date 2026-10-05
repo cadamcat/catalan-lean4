@@ -1,6 +1,8 @@
-import Mathlib.NumberTheory.NumberField.Ideal.Basic
-import Mathlib.RingTheory.Ideal.Norm.AbsNorm
-import Mathlib.Algebra.CharP.Defs
+module
+
+public import Mathlib.NumberTheory.NumberField.Ideal.Basic
+public import Mathlib.RingTheory.Ideal.Norm.AbsNorm
+public import Mathlib.Algebra.CharP.Defs
 
 /-!
 # Arithmetic of quotients of the ring of integers
@@ -14,6 +16,14 @@ Three small API lemmas used by the Stickelberger tower argument:
 * `isPrimitiveRoot_quotient_of_not_dvd`: a primitive `n`-th root of unity in `𝓞 K` stays
   primitive modulo such a maximal ideal.
 -/
+
+/-!
+# `Catalan.Stickelberger.TowerArith`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan.Stickelberger
 

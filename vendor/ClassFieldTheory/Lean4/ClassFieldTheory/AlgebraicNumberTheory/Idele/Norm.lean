@@ -18,6 +18,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.FiniteIntegr
 public import ClassFieldTheory.AlgebraicNumberTheory.Idele.NormApproximation.InfinitePlaces
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Norm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -21,6 +21,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SupportedB
 public import Mathlib.FieldTheory.IsSepClosed
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.IdeleClassPowerLocalUnitQuotient.PrimePowerKummerIndex`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,10 +1,20 @@
-import Catalan.Density.PrimeFrobenius
-import Catalan.Density.PrimeArtinFormula
-import Catalan.Density.FixedResidue
-import Catalan.Density.FrobeniusRestrict
-import Catalan.Density.GaloisModules
-import Catalan.Density.FiniteT
-import Catalan.Density.ClassGroupArtin
+module
+
+public import Catalan.Density.PrimeFrobenius
+public import Catalan.Density.PrimeArtinFormula
+public import Catalan.Density.FixedResidue
+public import Catalan.Density.FrobeniusRestrict
+public import Catalan.Density.GaloisModules
+public import Catalan.Density.FiniteT
+public import Catalan.Density.ClassGroupArtin
+
+/-!
+# `Catalan.Density.HPrimeFrobenius`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

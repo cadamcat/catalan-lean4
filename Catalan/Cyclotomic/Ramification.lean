@@ -1,6 +1,16 @@
-import Catalan.Cyclotomic.Elements
+module
+
+public import Catalan.Cyclotomic.Elements
 
 /-! The prime above p and differences of conjugate primitive p-th roots. -/
+/-!
+# `Catalan.Cyclotomic.Ramification`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open NumberField
 noncomputable section
 namespace Catalan

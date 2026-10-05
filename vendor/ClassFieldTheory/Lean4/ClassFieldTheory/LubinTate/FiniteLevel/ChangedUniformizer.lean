@@ -25,6 +25,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubri
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValuationSubringUnits.ValuedExtensionUnitMap
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.ChangedUniformizer`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

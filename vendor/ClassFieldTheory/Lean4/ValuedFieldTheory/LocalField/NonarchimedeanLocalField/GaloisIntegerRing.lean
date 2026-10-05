@@ -24,6 +24,12 @@ to ideals, ideal-power quotients, principal units, and successive quotients.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.GaloisIntegerRing`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -17,6 +17,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.Herbrand
 public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.Valuation
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Principal`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

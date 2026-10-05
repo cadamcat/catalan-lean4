@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.FixedFieldTower
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.Dedekind.PrimeContractions`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

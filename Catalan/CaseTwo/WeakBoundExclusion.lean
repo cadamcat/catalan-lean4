@@ -1,6 +1,16 @@
-import Catalan.CaseTwo.WieferichLift
-import Catalan.CaseTwo.Mignotte
-import Catalan.CaseTwo.FiniteFive
+module
+
+public import Catalan.CaseTwo.WieferichLift
+public import Catalan.CaseTwo.Mignotte
+public import Catalan.CaseTwo.FiniteFive
+
+/-!
+# `Catalan.CaseTwo.WeakBoundExclusion`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan.CaseTwo

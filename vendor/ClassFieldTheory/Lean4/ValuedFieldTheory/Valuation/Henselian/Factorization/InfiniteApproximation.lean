@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ValuedFieldTheory.Valuation.Henselian.Factorization.FiniteApproximation
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Factorization.InfiniteApproximation`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

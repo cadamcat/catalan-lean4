@@ -1,5 +1,15 @@
-import Catalan.Cassels.Factorization
-import Catalan.Cassels.Hyyro
+module
+
+public import Catalan.Cassels.Factorization
+public import Catalan.Cassels.Hyyro
+
+/-!
+# `Catalan.Runge.Growth`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

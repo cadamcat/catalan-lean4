@@ -1,5 +1,15 @@
-import Catalan.Density.PairingValues
-import Catalan.Density.UnitRootExt
+module
+
+public import Catalan.Density.PairingValues
+public import Catalan.Density.UnitRootExt
+
+/-!
+# `Catalan.Density.Faithful`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

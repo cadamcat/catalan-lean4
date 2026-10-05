@@ -1,4 +1,14 @@
-import Catalan.CaseOne.UnitCharpoly
+module
+
+public import Catalan.CaseOne.UnitCharpoly
+
+/-!
+# `Catalan.CaseOne.CyclotomicPlaces`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

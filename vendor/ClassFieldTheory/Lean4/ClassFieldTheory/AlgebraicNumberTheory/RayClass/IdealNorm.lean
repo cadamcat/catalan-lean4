@@ -21,6 +21,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormContinui
 public import Mathlib.Algebra.BigOperators.Finsupp.Basic
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.RayClass.IdealNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

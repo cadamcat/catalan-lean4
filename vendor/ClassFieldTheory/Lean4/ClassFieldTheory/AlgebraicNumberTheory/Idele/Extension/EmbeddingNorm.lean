@@ -15,6 +15,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.GaloisNorm
 public import Mathlib.FieldTheory.Normal.Basic
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Extension.EmbeddingNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

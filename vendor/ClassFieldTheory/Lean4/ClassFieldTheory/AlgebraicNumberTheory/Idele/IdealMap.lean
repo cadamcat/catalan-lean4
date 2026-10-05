@@ -16,6 +16,12 @@ public import Mathlib.RingTheory.DedekindDomain.Factorization
 public import Mathlib.RingTheory.ClassGroup.Basic
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.IdealMap`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

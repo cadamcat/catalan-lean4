@@ -15,6 +15,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.FiniteGalois
 public import Mathlib.Topology.Algebra.Group.Basic
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.IntermediateExtension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

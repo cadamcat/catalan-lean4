@@ -1,6 +1,16 @@
-import Catalan.Density.KummerTower
-import Catalan.Density.RootRatio
-import Catalan.Density.RootCoordinates
+module
+
+public import Catalan.Density.KummerTower
+public import Catalan.Density.RootRatio
+public import Catalan.Density.RootCoordinates
+
+/-!
+# `Catalan.Density.PairingValues`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

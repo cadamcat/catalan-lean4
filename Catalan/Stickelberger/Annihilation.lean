@@ -1,6 +1,16 @@
-import Catalan.Stickelberger.PrimeGauss
-import Catalan.Stickelberger.Reduction
-import Catalan.Stickelberger.GammaAssembly
+module
+
+public import Catalan.Stickelberger.PrimeGauss
+public import Catalan.Stickelberger.Reduction
+public import Catalan.Stickelberger.GammaAssembly
+
+/-!
+# `Catalan.Stickelberger.Annihilation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

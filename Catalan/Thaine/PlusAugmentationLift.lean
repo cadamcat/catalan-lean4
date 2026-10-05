@@ -1,5 +1,15 @@
-import Catalan.Runge.PlusIdeal
-import Catalan.CaseOne.UnitFiltration
+module
+
+public import Catalan.Runge.PlusIdeal
+public import Catalan.CaseOne.UnitFiltration
+
+/-!
+# `Catalan.Thaine.PlusAugmentationLift`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

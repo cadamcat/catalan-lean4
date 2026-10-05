@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.FormalModule.DegreeStabilization
 public import ClassFieldTheory.LubinTate.FormalModule.RecursiveCorrection
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FormalModule.RecursiveIntertwiner`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

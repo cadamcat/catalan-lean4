@@ -1,5 +1,15 @@
-import Catalan.Density.UnramifiedWitness
-import Catalan.Density.FieldTransport
+module
+
+public import Catalan.Density.UnramifiedWitness
+public import Catalan.Density.FieldTransport
+
+/-!
+# `Catalan.Density.UnramifiedModel`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

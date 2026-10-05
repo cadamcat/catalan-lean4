@@ -15,6 +15,12 @@ public import ClassFieldTheory.GlobalClassFieldTheory.IdealClassFieldTheory.Idea
 public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.SmallHilbertClassField
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.IdealClassFieldTheory.SmallHilbertSplitting`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

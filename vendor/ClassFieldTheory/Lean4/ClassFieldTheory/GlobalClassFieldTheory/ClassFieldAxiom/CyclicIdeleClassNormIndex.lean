@@ -32,6 +32,12 @@ public import ClassFieldTheory.LocalClassFieldTheory.ClassFormation.Hilbert90
 public import GaloisCohomology.Cyclic.Herbrand.HerbrandLowDegree.TateComparison
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.CyclicIdeleClassNormIndex`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

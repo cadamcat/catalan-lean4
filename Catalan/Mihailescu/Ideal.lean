@@ -1,7 +1,17 @@
-import Catalan.Cyclotomic.Elements
-import Catalan.Cyclotomic.UnitPowers
+module
+
+public import Catalan.Cyclotomic.Elements
+public import Catalan.Cyclotomic.UnitPowers
 
 /-! The Mihăilescu ideal and its augmentation subgroup, without height assumptions. -/
+/-!
+# `Catalan.Mihailescu.Ideal`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open scoped BigOperators
 open NumberField
 noncomputable section

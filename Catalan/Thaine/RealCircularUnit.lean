@@ -1,5 +1,15 @@
-import Catalan.Thaine.CircularValueUnit
-import Catalan.Thaine.NormalizedPair
+module
+
+public import Catalan.Thaine.CircularValueUnit
+public import Catalan.Thaine.NormalizedPair
+
+/-!
+# `Catalan.Thaine.RealCircularUnit`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

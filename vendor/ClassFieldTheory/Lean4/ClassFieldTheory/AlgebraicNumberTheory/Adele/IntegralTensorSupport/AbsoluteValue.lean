@@ -27,6 +27,12 @@ public import Mathlib.RingTheory.Valuation.LocalSubring
 public import Mathlib.RingTheory.Valuation.ValuationSubring
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Adele.IntegralTensorSupport.AbsoluteValue`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.DiscreteValuationField.NormFiltration
 public import ValuedFieldTheory.LocalField.DiscreteValuationField.ValueGroup
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.FieldNorm`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

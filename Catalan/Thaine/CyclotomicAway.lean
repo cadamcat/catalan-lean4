@@ -1,4 +1,14 @@
-import Catalan.Density.InertiaBridge
+module
+
+public import Catalan.Density.InertiaBridge
+
+/-!
+# `Catalan.Thaine.CyclotomicAway`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField IsDedekindDomain

@@ -15,6 +15,12 @@ public import Mathlib.GroupTheory.FiniteAbelian.Basic
 public import GaloisCohomology.Kummer.Abstract.KummerGlobalOperator
 
 
+/-!
+# `GaloisCohomology.Kummer.Abstract.KummerAbelianCyclicFactors`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

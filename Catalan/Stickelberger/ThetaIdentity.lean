@@ -1,4 +1,14 @@
-import Catalan.Cyclotomic.Basic
+module
+
+public import Catalan.Cyclotomic.Basic
+
+/-!
+# `Catalan.Stickelberger.ThetaIdentity`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 open scoped BigOperators nonZeroDivisors Pointwise
 open NumberField

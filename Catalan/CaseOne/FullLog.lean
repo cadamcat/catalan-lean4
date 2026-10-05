@@ -1,4 +1,14 @@
-import Catalan.CaseOne.CircularUnits
+module
+
+public import Catalan.CaseOne.CircularUnits
+
+/-!
+# `Catalan.CaseOne.FullLog`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open scoped BigOperators

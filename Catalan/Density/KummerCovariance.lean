@@ -1,5 +1,15 @@
-import Catalan.Density.AbsoluteAction
-import Catalan.Density.RootCharacter
+module
+
+public import Catalan.Density.AbsoluteAction
+public import Catalan.Density.RootCharacter
+
+/-!
+# `Catalan.Density.KummerCovariance`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

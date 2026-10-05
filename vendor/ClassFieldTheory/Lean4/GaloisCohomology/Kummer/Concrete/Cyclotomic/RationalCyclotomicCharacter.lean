@@ -17,6 +17,12 @@ public import Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter
 public import Mathlib.NumberTheory.NumberField.Cyclotomic.Galois
 
 
+/-!
+# `GaloisCohomology.Kummer.Concrete.Cyclotomic.RationalCyclotomicCharacter`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

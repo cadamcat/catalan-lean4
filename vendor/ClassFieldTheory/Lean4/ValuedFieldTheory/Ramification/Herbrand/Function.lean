@@ -17,6 +17,12 @@ public import Mathlib.Algebra.Order.Floor.Ring
 public import Mathlib.Topology.Order.MonotoneContinuity
 
 
+/-!
+# `ValuedFieldTheory.Ramification.Herbrand.Function`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

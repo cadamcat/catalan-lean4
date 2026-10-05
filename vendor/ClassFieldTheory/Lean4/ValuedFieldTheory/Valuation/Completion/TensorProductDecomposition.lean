@@ -20,6 +20,12 @@ public import ValuedFieldTheory.Valuation.Completion.CanonicalTensorMap
 public import Mathlib.Algebra.Group.Pi.Units
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.TensorProductDecomposition`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

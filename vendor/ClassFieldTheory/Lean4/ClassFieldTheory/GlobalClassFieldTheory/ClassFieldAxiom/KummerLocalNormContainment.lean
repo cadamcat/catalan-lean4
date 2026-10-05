@@ -19,6 +19,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Idele.Relative.FinitePlaceT
 public import ClassFieldTheory.KummerTheory.Concrete.SimpleExtensionLocalBehavior
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.ClassFieldAxiom.KummerLocalNormContainment`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

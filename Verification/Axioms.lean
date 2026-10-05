@@ -1,4 +1,14 @@
-import Catalan
+module
+
+public import Catalan
+
+/-!
+# `Verification.Axioms`
+
+Checks the public Catalan theorem declarations and their axioms.
+-/
+
+@[expose] public section
 
 #check @Catalan.catalans_conjecture
 #print axioms Catalan.catalans_conjecture

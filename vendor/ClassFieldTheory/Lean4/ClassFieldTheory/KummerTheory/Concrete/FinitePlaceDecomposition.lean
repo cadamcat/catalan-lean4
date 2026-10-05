@@ -17,6 +17,12 @@ public import Mathlib.Algebra.Group.Hom.Basic
 public import Mathlib.Algebra.Group.Subgroup.Ker
 
 
+/-!
+# `ClassFieldTheory.KummerTheory.Concrete.FinitePlaceDecomposition`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.Ideal.Defs
 public import Mathlib.Tactic.Ring
 
 
+/-!
+# `ValuedFieldTheory.Ramification.HilbertRamification.Polynomial`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

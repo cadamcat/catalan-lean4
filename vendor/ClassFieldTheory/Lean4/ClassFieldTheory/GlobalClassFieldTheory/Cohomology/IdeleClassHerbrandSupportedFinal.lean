@@ -37,6 +37,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Completion.UnramifiedCompar
 public import Mathlib.Algebra.BigOperators.GroupWithZero.Finset
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Cohomology.IdeleClassHerbrandSupportedFinal`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

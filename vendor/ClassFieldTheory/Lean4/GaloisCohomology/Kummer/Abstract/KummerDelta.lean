@@ -16,6 +16,12 @@ public import GaloisCohomology.Cyclic.IntegralRepUniverse
 public import GaloisCohomology.Cyclic.NormKernelVanishing
 
 
+/-!
+# `GaloisCohomology.Kummer.Abstract.KummerDelta`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

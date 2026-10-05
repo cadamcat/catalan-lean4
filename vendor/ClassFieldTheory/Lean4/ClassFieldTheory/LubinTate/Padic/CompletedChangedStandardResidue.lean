@@ -17,6 +17,12 @@ public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.UnramifiedFr
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.NormalizedIntegerValuation
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedChangedStandardResidue`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -16,6 +16,12 @@ public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.ClassFieldAx
 public import ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.FieldRepresentation
 
 
+/-!
+# `ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.CyclicNormQuotient`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

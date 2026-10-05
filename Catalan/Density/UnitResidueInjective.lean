@@ -1,5 +1,15 @@
-import Catalan.Density.KummerResidue
-import Catalan.Density.CyclicFunctional
+module
+
+public import Catalan.Density.KummerResidue
+public import Catalan.Density.CyclicFunctional
+
+/-!
+# `Catalan.Density.UnitResidueInjective`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

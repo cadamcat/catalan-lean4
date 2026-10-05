@@ -16,6 +16,12 @@ public import Mathlib.Data.Finset.Max
 public import Mathlib.RingTheory.DiscreteValuationRing.Basic
 
 
+/-!
+# `ValuedFieldTheory.LocalField.DiscreteValuationField.PolynomialRootProximity`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

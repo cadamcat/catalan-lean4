@@ -1,6 +1,16 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! Smoke test: the environment resolves Mathlib names used by the Catalan interface. -/
+
+/-!
+# `Catalan.Smoke`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 #check @Nat.Prime
 #check @IsCyclotomicExtension

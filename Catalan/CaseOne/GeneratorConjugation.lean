@@ -1,4 +1,14 @@
-import Catalan.CaseOne.CyclotomicPlaces
+module
+
+public import Catalan.CaseOne.CyclotomicPlaces
+
+/-!
+# `Catalan.CaseOne.GeneratorConjugation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

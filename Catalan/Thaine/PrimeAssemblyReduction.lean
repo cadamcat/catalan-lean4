@@ -1,7 +1,17 @@
-import Catalan.Classical.SmallConductors
-import Catalan.Classical.KoChao
-import Catalan.Classical.Lebesgue
-import Catalan.CaseTwo.Assembly
+module
+
+public import Catalan.Classical.SmallConductors
+public import Catalan.Classical.KoChao
+public import Catalan.Classical.Lebesgue
+public import Catalan.CaseTwo.Assembly
+
+/-!
+# `Catalan.Thaine.PrimeAssemblyReduction`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 namespace Catalan.Thaine

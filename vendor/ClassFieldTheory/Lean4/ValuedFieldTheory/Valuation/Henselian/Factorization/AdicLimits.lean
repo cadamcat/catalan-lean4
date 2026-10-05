@@ -15,6 +15,12 @@ public import ValuedFieldTheory.Valuation.Henselian.Factorization.Basic
 public import Mathlib.RingTheory.AdicCompletion.Basic
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Henselian.Factorization.AdicLimits`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

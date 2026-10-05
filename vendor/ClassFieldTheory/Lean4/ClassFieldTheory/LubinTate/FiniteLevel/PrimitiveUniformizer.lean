@@ -20,6 +20,12 @@ public import Mathlib.RingTheory.Discriminant
 public import Mathlib.RingTheory.Polynomial.Eisenstein.IsIntegral
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.PrimitiveUniformizer`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -14,6 +14,12 @@ Authors: Naganori Yamaguchi (assisted by OpenAI Codex)
 public import ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.PrincipalUnits.Trace
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.Unramified.PrincipalUnits.Lift`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

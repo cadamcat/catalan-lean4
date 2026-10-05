@@ -20,6 +20,12 @@ public import Mathlib.Algebra.BigOperators.Group.Finset.Lemmas
 public import Mathlib.Algebra.Group.Hom.Instances
 
 
+/-!
+# `ClassFieldTheory.GlobalClassFieldTheory.Reciprocity.InfinitePlaceArtin`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

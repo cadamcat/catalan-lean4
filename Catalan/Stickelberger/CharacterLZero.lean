@@ -1,4 +1,14 @@
-import Mathlib.NumberTheory.LSeries.Nonvanishing
+module
+
+public import Mathlib.NumberTheory.LSeries.Nonvanishing
+
+/-!
+# `Catalan.Stickelberger.CharacterLZero`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 namespace Catalan
 

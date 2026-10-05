@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.Padic.CompletedLevel
 public import Mathlib.RingTheory.Polynomial.Eisenstein.Basic
 
 
+/-!
+# `ClassFieldTheory.LubinTate.Padic.CompletedPrimitiveIrreducible`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

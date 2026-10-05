@@ -17,6 +17,12 @@ public import ValuedFieldTheory.Ramification.GaloisValuation.AbsoluteGalois.Fini
 public import ValuedFieldTheory.LocalField.NonarchimedeanLocalField.FiniteExtensionCompleteDVF
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.LocalResidueDatum`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

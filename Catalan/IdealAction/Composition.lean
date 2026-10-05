@@ -1,6 +1,16 @@
-import Catalan.IdealAction
+module
+
+public import Catalan.IdealAction
 
 /-! Compatibility of the fractional-ideal action with multiplication of automorphisms. -/
+/-!
+# `Catalan.IdealAction.Composition`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
+
 open NumberField
 open scoped nonZeroDivisors
 noncomputable section

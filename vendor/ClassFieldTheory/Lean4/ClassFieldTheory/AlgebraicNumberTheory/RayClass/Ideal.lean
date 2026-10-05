@@ -20,6 +20,12 @@ public import Mathlib.Topology.Algebra.IsOpenUnits
 public import Mathlib.Topology.Algebra.Ring.Compact
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.RayClass.Ideal`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

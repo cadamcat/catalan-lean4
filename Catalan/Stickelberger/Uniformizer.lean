@@ -1,3 +1,5 @@
+module
+
 /-
 Uniformizer input for the Stickelberger step of the Catalan formalization.
 
@@ -15,8 +17,16 @@ Proof outline:
 Membership then follows from primality of `P`, and non-membership in `P ^ 2` from
 `ell ≤ 2 * (ell - 1)` together with the multiplicity computation.
 -/
-import Mathlib.NumberTheory.NumberField.Cyclotomic.Ideal
-import Mathlib.RingTheory.RamificationInertia.Ramification
+public import Mathlib.NumberTheory.NumberField.Cyclotomic.Ideal
+public import Mathlib.RingTheory.RamificationInertia.Ramification
+
+/-!
+# `Catalan.Stickelberger.Uniformizer`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

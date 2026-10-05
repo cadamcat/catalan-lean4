@@ -15,6 +15,12 @@ public import Mathlib.SetTheory.Cardinal.Finite
 public import ValuedFieldTheory.Ramification.GaloisValuation.AbsoluteGalois.AbsoluteRamification
 
 
+/-!
+# `ValuedFieldTheory.Ramification.GaloisValuation.AbsoluteGalois.InfiniteGaloisCorrespondence`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

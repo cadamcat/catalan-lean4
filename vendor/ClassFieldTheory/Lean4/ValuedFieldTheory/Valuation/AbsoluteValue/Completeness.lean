@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.Norm.Defs
 public import Mathlib.Topology.UniformSpace.AbsoluteValue
 
 
+/-!
+# `ValuedFieldTheory.Valuation.AbsoluteValue.Completeness`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

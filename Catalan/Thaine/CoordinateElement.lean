@@ -1,6 +1,16 @@
-import Catalan.Thaine.UnitResidueExponents
-import Catalan.Thaine.OrbitReindex
-import Catalan.CaseOne.NormSum
+module
+
+public import Catalan.Thaine.UnitResidueExponents
+public import Catalan.Thaine.OrbitReindex
+public import Catalan.CaseOne.NormSum
+
+/-!
+# `Catalan.Thaine.CoordinateElement`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

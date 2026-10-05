@@ -1,5 +1,15 @@
-import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
-import Mathlib.Algebra.Group.Commute.Units
+module
+
+public import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
+public import Mathlib.Algebra.Group.Commute.Units
+
+/-!
+# `Catalan.Thaine.UnitPowerReflection`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

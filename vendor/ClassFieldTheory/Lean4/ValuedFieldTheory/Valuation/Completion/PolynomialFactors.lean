@@ -17,6 +17,12 @@ public import Mathlib.Algebra.Polynomial.FieldDivision
 public import Mathlib.RingTheory.Adjoin.PowerBasis
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Completion.PolynomialFactors`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

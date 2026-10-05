@@ -1,4 +1,14 @@
-import Catalan.Final.Assembly
+module
+
+public import Catalan.Final.Assembly
+
+/-!
+# `Verification.Supplemental.strict.results.official-audit.Audit0004`
+
+Verification support module.
+-/
+
+@[expose] public section
 
 set_option pp.all true
 #check @Catalan.mihailescu_odd_primes

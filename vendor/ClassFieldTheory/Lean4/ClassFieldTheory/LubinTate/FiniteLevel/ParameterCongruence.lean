@@ -15,6 +15,12 @@ public import ClassFieldTheory.LubinTate.FiniteLevel.DivisionPolynomial
 public import Mathlib.RingTheory.Ideal.Quotient.Operations
 
 
+/-!
+# `ClassFieldTheory.LubinTate.FiniteLevel.ParameterCongruence`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

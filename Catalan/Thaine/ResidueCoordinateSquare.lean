@@ -1,4 +1,14 @@
-import Catalan.Thaine.UnitResidueExponents
+module
+
+public import Catalan.Thaine.UnitResidueExponents
+
+/-!
+# `Catalan.Thaine.ResidueCoordinateSquare`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

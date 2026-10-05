@@ -1,6 +1,16 @@
-import Catalan.Density.BaseFields
-import Catalan.Density.InertiaBridge
-import Catalan.Density.InfiniteUnramified
+module
+
+public import Catalan.Density.BaseFields
+public import Catalan.Density.InertiaBridge
+public import Catalan.Density.InfiniteUnramified
+
+/-!
+# `Catalan.Density.UnramifiedWitness`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

@@ -1,5 +1,15 @@
-import Catalan.CaseOne.UnitRepresentation
-import Catalan.CaseOne.TorsionReduction
+module
+
+public import Catalan.CaseOne.UnitRepresentation
+public import Catalan.CaseOne.TorsionReduction
+
+/-!
+# `Catalan.CaseOne.IntegralRepresentation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

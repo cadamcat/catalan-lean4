@@ -21,6 +21,12 @@ public import ClassFieldTheory.AlgebraicNumberTheory.Ramification.FiniteRamified
 public import GaloisCohomology.Cyclic.Herbrand.Permutation.Module
 
 
+/-!
+# `ClassFieldTheory.AlgebraicNumberTheory.Idele.Cohomology.SupportedBridge`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

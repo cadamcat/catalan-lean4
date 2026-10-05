@@ -31,6 +31,12 @@ units by a valued extension, with degree, trace, norm, and Frobenius results.
 -/
 
 
+/-!
+# `ValuedFieldTheory.LocalField.NonarchimedeanLocalField.ResidueExtension`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

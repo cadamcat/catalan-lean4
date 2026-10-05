@@ -15,6 +15,12 @@ public import Mathlib.Algebra.Ring.Subring.Basic
 public import Mathlib.Algebra.Ring.Pi
 
 
+/-!
+# `ValuedFieldTheory.Valuation.Topology.CompatibleInverseLimit`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

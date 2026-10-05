@@ -17,6 +17,12 @@ public import Mathlib.RingTheory.Norm.Transitivity
 public import Mathlib.RingTheory.AlgebraTower
 
 
+/-!
+# `ClassFieldTheory.LocalClassFieldTheory.Finite.LocalReciprocity.SeparableNormProduct`
+
+Part of the vendored ClassFieldTheory source bundle.
+-/
+
 @[expose] public section
 
 set_option autoImplicit false

@@ -1,8 +1,18 @@
-import Catalan.Density.ClassGroupArtin
-import Catalan.Density.PowerFixedField
-import Catalan.Density.UnramifiedModel
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ArithmeticHilbertClassFieldReciprocity
-import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertClassFieldUnramifiedMaximality
+module
+
+public import Catalan.Density.ClassGroupArtin
+public import Catalan.Density.PowerFixedField
+public import Catalan.Density.UnramifiedModel
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.ArithmeticHilbertClassFieldReciprocity
+public import ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.HilbertClassFieldUnramifiedMaximality
+
+/-!
+# `Catalan.Density.HClassQuotient`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

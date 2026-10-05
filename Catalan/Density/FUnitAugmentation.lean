@@ -1,5 +1,15 @@
-import Catalan.Density.FUnits
-import Catalan.CaseOne.NormSum
+module
+
+public import Catalan.Density.FUnits
+public import Catalan.CaseOne.NormSum
+
+/-!
+# `Catalan.Density.FUnitAugmentation`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 open NumberField

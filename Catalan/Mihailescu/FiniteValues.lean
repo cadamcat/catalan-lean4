@@ -1,6 +1,16 @@
-import Catalan.Mihailescu.PhaseCore
-import Catalan.Mihailescu.RadiusTwoArithmetic
-import Catalan.Cyclotomic.Ramification
+module
+
+public import Catalan.Mihailescu.PhaseCore
+public import Catalan.Mihailescu.RadiusTwoArithmetic
+public import Catalan.Cyclotomic.Ramification
+
+/-!
+# `Catalan.Mihailescu.FiniteValues`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

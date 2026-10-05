@@ -1,8 +1,18 @@
-import Mathlib.RepresentationTheory.Maschke
-import Mathlib.RingTheory.Jacobson.Semiprimary
-import Mathlib.Data.Finsupp.Fintype
-import Mathlib.Algebra.CharP.Algebra
-import Mathlib.Algebra.Field.ZMod
+module
+
+public import Mathlib.RepresentationTheory.Maschke
+public import Mathlib.RingTheory.Jacobson.Semiprimary
+public import Mathlib.Data.Finsupp.Fintype
+public import Mathlib.Algebra.CharP.Algebra
+public import Mathlib.Algebra.Field.ZMod
+
+/-!
+# `Catalan.Thaine.GroupRingStructure`
+
+Part of the Catalan formalization.
+-/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section
