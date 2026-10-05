@@ -16,7 +16,7 @@ Lean is `v4.35.0-rc3` (Lake `5.0.0-src+470d5ce`). Mathlib is also `v4.35.0-rc3`,
 | Protected theorem audit | All five public Catalan results use only `propext`, `Classical.choice`, and `Quot.sound`. |
 | Statement checks | The three restated natural, signed-integer, and consecutive-power statements compiled with only the permitted axioms. |
 | Kernel replay | All five roots were present with identical types; the fresh kernel accepted the 131,214-constant cone with no unsafe or partial declarations and no nonstandard axioms. A cone scan found no `Lean.ofReduceBool` dependency. |
-| Comparator | With the committed `comparator.json` (NanoDa enabled), the Challenge and Solution exports matched, and both the NanoDa kernel and Lean's default kernel accepted the solution ("Your solution is okay!"). Tool revisions and the command are in `REPORT.md`. |
+| Comparator | With the committed `comparator.json` (NanoDa enabled), the Challenge and Solution exports matched, and both the NanoDa kernel and Lean's default kernel accepted the solution ("Your solution is okay!"). Tools: Comparator `fd5d5bcf14177b187f66d4502071268d877887c3`, lean4export `v4.35.0-rc3` (`66f1fb4bc256072069767fce52d39480e4524869`), NanoDa `3a2407216ee84a75f9e1aead6803d0578be06ae7`. The run was on macOS with Comparator's development sandbox shim; Palomar runs its own Linux sandbox. |
 
 The measured clean build used:
 

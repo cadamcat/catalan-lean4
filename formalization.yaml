@@ -186,8 +186,8 @@ review:
     Comparator with both the NanoDa kernel and Lean's default kernel. The
     accompanying paper and its correspondence to the Lean declarations
     received blind AI referee reviews and an AI fact check. No independent
-    human expert has reviewed the formalization. Details are in REPORT.md
-    and Verification/RESULTS.md.
+    human expert has reviewed the formalization. Details are in
+    Verification/RESULTS.md and docs/verification.md.
 
 alignment:
   namespace: "Catalan"
