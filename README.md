@@ -52,7 +52,7 @@ Recorded source fingerprints and verification outputs are available in the [veri
 - All regular Lean source files use Lean's module system, including the 871 retained ClassFieldTheory files.
 - The ClassFieldTheory subset is based on upstream commit `2930b56f4b5c33ddab9ef91a45a4811d6f7a683f` and carries recorded Lean 4.35 and Mathlib compatibility edits. See [third-party notices](THIRD_PARTY.md) and the [vendor README](vendor/ClassFieldTheory/README.md).
 
-The fixed ClassFieldTheory library uses a bounded heartbeat setting in [lakefile.toml](lakefile.toml). The project does not update these sources automatically. Release `v1.0.0` (`4bf1f74`) remains the original release cited by the paper; this branch prepares the separate Palomar port.
+The fixed ClassFieldTheory library uses a bounded heartbeat setting in [lakefile.toml](lakefile.toml). The project does not update these sources automatically. Release `v1.1.0` ports the original release `v1.0.0` (`4bf1f74`) to Lean `v4.35.0-rc3` and the module system for the Palomar Registry; the theorem statements are unchanged.
 
 ## Mathematical references
 

@@ -2,7 +2,7 @@
 
 ## Lean 4.35.0-rc3 Palomar port
 
-Checks run on 2026-10-05 for the `palomar` branch. The final source targets are recorded at commit `e0e69f2`; the measured clean build at `83a9bb3` covered all seven requested Lake targets before a visibility-only update to `Challenge.lean` and `Solution.lean`. After that update, the complete target command and Comparator passed again. The protected Catalan declarations and the three `Verification/Statements.lean` restatements were unchanged; the file has the required module-system header and visibility prefix.
+Checks run on 2026-10-05 for the port released as `v1.1.0`. The final source targets are recorded at commit `e0e69f2`; the measured clean build at `83a9bb3` covered all seven requested Lake targets before a visibility-only update to `Challenge.lean` and `Solution.lean`. After that update, the complete target command and Comparator passed again. The protected Catalan declarations and the three `Verification/Statements.lean` restatements were unchanged; the file has the required module-system header and visibility prefix.
 
 Lean is `v4.35.0-rc3` (Lake `5.0.0-src+470d5ce`). Mathlib is also `v4.35.0-rc3`, commit `c55e6e786f49471c72fbddbec5415808896aec1e`. Mathlib and its package dependencies were supplied by the `lake exe cache get` cache; they were not rebuilt from source.
 

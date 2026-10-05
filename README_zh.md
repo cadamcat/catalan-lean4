@@ -52,7 +52,7 @@ lake exe cache get
 - 所有常规 Lean 源文件（包括保留的 871 个 ClassFieldTheory 文件）都已迁移到 Lean 模块系统。
 - 这组 ClassFieldTheory 文件基于上游提交 `2930b56f4b5c33ddab9ef91a45a4811d6f7a683f`，并包含已记录的 Lean 4.35 与 Mathlib 兼容性修改。详情见[第三方声明](THIRD_PARTY.md)和[供应代码说明](vendor/ClassFieldTheory/README.md)。
 
-[lakefile.toml](lakefile.toml) 为固定版本的 ClassFieldTheory 库设置了有限的 heartbeat 资源预算。项目不会自动更新这些源文件。论文引用的原始版本仍是 `v1.0.0`（`4bf1f74`）；此分支单独准备 Palomar 版本。
+[lakefile.toml](lakefile.toml) 为固定版本的 ClassFieldTheory 库设置了有限的 heartbeat 资源预算。项目不会自动更新这些源文件。`v1.1.0` 版本把原始版本 `v1.0.0`（`4bf1f74`）移植到 Lean `v4.35.0-rc3` 和模块系统，用于 Palomar 登记；定理陈述没有改变。
 
 ## 数学参考文献
 
