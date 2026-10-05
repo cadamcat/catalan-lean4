@@ -31,7 +31,7 @@ lemma class_power_eq_finsum_multiplicity
     apply (Ideal.finite_factors hI).subset
     intro v hv
     by_contra hnot
-    exact hv (multiplicity_eq_zero.mpr hnot)
+    exact hv (multiplicity_eq_zero_of_not_dvd hnot)
   let s : Finset (HeightOneSpectrum (𝓞 F)) := hfinite.toFinset
   have hzero (v : HeightOneSpectrum (𝓞 F)) (hv : v ∉ s) :
       multiplicity v.asIdeal I = 0 := by

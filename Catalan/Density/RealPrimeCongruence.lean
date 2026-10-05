@@ -67,8 +67,10 @@ lemma real_prime_congruence
     exact mul_inv_cancel₀ (hz.ne_zero hp.ne_zero)
   let t : F p := ⟨primitiveRoot p + (primitiveRoot p)⁻¹,
     IntermediateField.subset_adjoin ℚ _ (by simp)⟩
+  letI : IsScalarTower ℤ (F p) Omega := IsScalarTower.of_algebraMap_eq' rfl
   have htInt : IsIntegral ℤ t := by
-    apply (isIntegral_algebraMap_iff (algebraMap (F p) Omega).injective).mp
+    apply (isIntegral_algebraMap_iff
+      (R := ℤ) (A := F p) (B := Omega) (x := t)).mp
     change IsIntegral ℤ (primitiveRoot p + (primitiveRoot p)⁻¹)
     exact ((primitiveRoot_spec p hp.pos).isIntegral hp.pos).add
       ((primitiveRoot_spec p hp.pos).inv.isIntegral hp.pos)

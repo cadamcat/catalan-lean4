@@ -31,7 +31,7 @@ private lemma abs_binomRat_le_risingRat (a : ℚ) (ha : 0 ≤ a) (k : ℕ) :
   rw [binomRat, risingRat_eq_prod, abs_div,
     abs_of_pos (show (0 : ℚ) < k.factorial by positivity), Finset.abs_prod]
   apply div_le_div_of_nonneg_right _ (by positivity)
-  apply Finset.prod_le_prod
+  apply Finset.prod_le_prod₀
   · intro j _
     exact abs_nonneg _
   · intro j _
@@ -117,7 +117,7 @@ lemma norm_binomialProductCoeff_le_multichoose
       apply Finset.sum_le_sum
       intro f _
       rw [norm_prod]
-      exact Finset.prod_le_prod (fun i _ => norm_nonneg _)
+      exact Finset.prod_le_prod₀ (fun i _ => norm_nonneg _)
         (fun i _ => hterm i (f i))
     _ = _ := hconv
 

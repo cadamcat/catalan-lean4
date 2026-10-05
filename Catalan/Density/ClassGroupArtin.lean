@@ -21,7 +21,7 @@ namespace Catalan.A3
 local instance classGroupArtinIdeleClassComm (K : Type) [Field K] [NumberField K] :
     IsMulCommutative (IdeleClassGroup K) := ⟨⟨fun a b => mul_comm a b⟩⟩
 
-private lemma ramifiedBaseFinitePlaces_eq_empty
+public lemma ramifiedBaseFinitePlaces_eq_empty
     (K L : Type) [Field K] [NumberField K] [Field L] [NumberField L] [Algebra K L]
     [IsGalois K L] (hunram : IsEverywhereUnramified K L) :
     ramifiedBaseFinitePlaces (K := K) (L := L) = ∅ := by

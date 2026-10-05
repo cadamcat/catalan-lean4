@@ -118,8 +118,24 @@ lemma exists_unit_augmentation_coordinates (hp2 : p ≠ 2) (hq2 : q ≠ 2)
   have ha : a ∈ Residue.sumZero (ZMod q) (G p (F p)) := by
     rw [Residue.mem_sumZero]
     dsimp only [a]
-    rw [Finset.sum_sub_distrib, hone, Finset.sum_const, Finset.card_univ,
-      nsmul_eq_mul, mul_inv_cancel₀ hn, sub_self]
+    calc
+      (∑ g : G p (F p),
+          ((1 : MonoidAlgebra (ZMod q) (G p (F p))).coeff g -
+            (Fintype.card (G p (F p)) : ZMod q)⁻¹)) =
+          (∑ g : G p (F p),
+            (1 : MonoidAlgebra (ZMod q) (G p (F p))).coeff g) -
+          ∑ _ : G p (F p), (Fintype.card (G p (F p)) : ZMod q)⁻¹ := by
+        exact Finset.sum_sub_distrib
+          (s := Finset.univ)
+          (fun g : G p (F p) =>
+            (1 : MonoidAlgebra (ZMod q) (G p (F p))).coeff g)
+          (fun _ : G p (F p) => (Fintype.card (G p (F p)) : ZMod q)⁻¹)
+      _ = 1 -
+          (Fintype.card (G p (F p)) : ℕ) •
+            (Fintype.card (G p (F p)) : ZMod q)⁻¹ := by
+        rw [hone, Finset.sum_const, Finset.card_univ]
+      _ = 0 := by
+        rw [nsmul_eq_mul, mul_inv_cancel₀ hn, sub_self]
   have harange : a ∈ LinearMap.range (unitResidueCoordinates p q ell red e) := by
     rw [unitResidueCoordinates_range p q hp2 hq2 ell red e hsep]
     exact ha

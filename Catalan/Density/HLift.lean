@@ -13,6 +13,7 @@ Part of the Catalan formalization.
 @[expose] public section
 
 set_option autoImplicit false
+set_option maxHeartbeats 1000000
 noncomputable section
 namespace Catalan.A3
 

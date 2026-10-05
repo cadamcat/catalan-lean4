@@ -20,15 +20,17 @@ lemma exists_integral_unit_of_field_image
     (u : (𝓞 L)ˣ) (x : F) (hx : algebraMap F L x = ((u : 𝓞 L) : L)) :
     ∃ v : (𝓞 F)ˣ, ((v : 𝓞 F) : F) = x ∧
       Units.map (algebraMap (𝓞 F) (𝓞 L)).toMonoidHom v = u := by
+  letI : IsScalarTower ℤ F L :=
+    IsScalarTower.of_algebraMap_eq (fun z => by simp)
   have hxi : IsIntegral ℤ x := by
-    apply (isIntegral_algebraMap_iff (algebraMap F L).injective).mp
+    apply (isIntegral_algebraMap_iff (R := ℤ) (A := F) (B := L) (x := x)).mp
     rw [hx]
     exact (u : 𝓞 L).isIntegral_coe
   have hxinv : algebraMap F L x⁻¹ = (((u⁻¹ : (𝓞 L)ˣ) : 𝓞 L) : L) := by
     rw [map_inv₀, hx]
     exact (map_units_inv (algebraMap (𝓞 L) L) u).symm
   have hxii : IsIntegral ℤ x⁻¹ := by
-    apply (isIntegral_algebraMap_iff (algebraMap F L).injective).mp
+    apply (isIntegral_algebraMap_iff (R := ℤ) (A := F) (B := L) (x := x⁻¹)).mp
     rw [hxinv]
     exact ((u⁻¹ : (𝓞 L)ˣ) : 𝓞 L).isIntegral_coe
   have hx0 : x ≠ 0 := by

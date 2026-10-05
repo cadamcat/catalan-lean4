@@ -14,10 +14,18 @@ Part of the Catalan formalization.
 @[expose] public section
 
 set_option autoImplicit false
+set_option backward.isDefEq.respectTransparency false
+set_option maxHeartbeats 1000000
 open NumberField
 noncomputable section
 namespace Catalan.A3
 variable (p : ℕ) [Fact p.Prime] (q : ℕ) [Fact q.Prime]
+
+local instance (priority := 10000) instZModSelfModuleFUnits : Module (ZMod q) (ZMod q) :=
+  Semiring.toModule
+local instance (priority := 10000) instPrimePowerQuotientModuleFUnits
+    (B : Type*) [CommGroup B] : Module (ZMod q) (UnitQuotient.PowerQuotient B q) :=
+  AddCommGroup.zmodModule (UnitQuotient.powerQuotient_exponent (B := B) q)
 
 lemma F_infinitePlace_card (hp2 : p ≠ 2) :
     Fintype.card (InfinitePlace (F p)) = (p - 1) / 2 := by
@@ -35,6 +43,7 @@ lemma F_unit_charpoly (hp2 : p ≠ 2) (hq2 : q ≠ 2)
   rw [UnitModule.real_unit_charpoly_of_generator p (F p) q
     ((Fact.out : q.Prime).odd_of_ne_two hq2) τ hτ, F_infinitePlace_card p hp2]
 
+set_option backward.isDefEq.respectTransparency false in
 lemma F_unit_dual_charpoly (hp2 : p ≠ 2) (hq2 : q ≠ 2)
     (τ : G p (F p)) (hτ : ∀ σ : G p (F p), σ ∈ Subgroup.zpowers τ) :
     ((UnitModule.unitRepresentation p (F p) q).dual τ).charpoly =

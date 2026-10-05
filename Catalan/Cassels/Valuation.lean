@@ -28,7 +28,7 @@ theorem cassels_cyclo_exact_valuation (p : ℕ) (hp : p.Prime)
   have hs : casselsCyclo p x ≠ 0 := by
     intro hzero
     simp [hzero] at hm
-  rw [padicValInt.of_ne_one_ne_zero hp.ne_one hs]
+  rw [padicValInt.of_ne_one_ne_zero]
   exact multiplicity_eq_of_emultiplicity_eq_some hm
 
 #print axioms cassels_cyclo_exact_valuation

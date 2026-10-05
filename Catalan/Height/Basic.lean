@@ -91,7 +91,8 @@ lemma height_intCast (x : ℤ) (hx : x ≠ 0) :
       rw [NumberField.InfinitePlace.map_intCast, Int.norm_eq_abs, max_eq_left hcast]
     have hfin (v : FinitePlace L) : Real.log (max (v (x : L)) 1) = 0 := by
       have hv : IsNonarchimedean (v : L → ℝ) := NumberField.FinitePlace.add_le v
-      have hle : v (x : L) ≤ 1 := IsNonarchimedean.apply_intCast_le_one hv
+      have hle : v (x : L) ≤ 1 :=
+        hv.apply_intCast_le_one (map_zero_le v 1) (map_one v) (map_neg_eq_map v)
       rw [max_eq_right hle, Real.log_one]
     simp_rw [harch]
     rw [finsum_eq_zero_of_forall_eq_zero hfin]

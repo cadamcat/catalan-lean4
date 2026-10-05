@@ -38,11 +38,11 @@ local instance mixedNormCachedFreeBE (p ell : ℕ) : Module.Free (A3.Bsub p ell)
 local instance mixedNormCachedModuleFE (p ell : ℕ) : Module (A3.F p) (mixedExtension p ell) := Algebra.toModule
 local instance mixedNormCachedModuleFK (p ell : ℕ) : Module (A3.F p) (mixedPrimeField p ell) := Algebra.toModule
 
-private lemma mixedFiniteOverF (p ell : ℕ) :
+lemma mixedFiniteOverF (p ell : ℕ) :
     FiniteDimensional (A3.F p) (mixedExtension p ell) :=
   FiniteDimensional.trans (A3.F p) (A3.Bsub p ell) (mixedExtension p ell)
 
-private def mixedBaseRange (p ell : ℕ) : IntermediateField (A3.F p) (mixedExtension p ell) :=
+def mixedBaseRange (p ell : ℕ) : IntermediateField (A3.F p) (mixedExtension p ell) :=
   (IsScalarTower.toAlgHom (A3.F p) (A3.Bsub p ell) (mixedExtension p ell)).fieldRange
 
 local instance mixedNormCachedFieldRange (p ell : ℕ) : Field (mixedBaseRange p ell) := inferInstance
@@ -51,7 +51,7 @@ local instance mixedNormCachedAlgebraFRange (p ell : ℕ) : Algebra (A3.F p) (mi
 
 local instance mixedNormCachedModuleFRange (p ell : ℕ) : Module (A3.F p) (mixedBaseRange p ell) := Algebra.toModule
 
-private lemma mixedBaseRange_finrank (p ell : ℕ) :
+lemma mixedBaseRange_finrank (p ell : ℕ) :
     Module.finrank (A3.F p) (mixedBaseRange p ell) =
       Module.finrank (A3.F p) (A3.Bsub p ell) := by
   let f := IsScalarTower.toAlgHom (A3.F p) (A3.Bsub p ell) (mixedExtension p ell)
@@ -59,7 +59,7 @@ private lemma mixedBaseRange_finrank (p ell : ℕ) :
   let instMixedRangeLocalModule : Module (A3.F p) f.fieldRange := Algebra.toModule
   exact f.equivFieldRange.toLinearEquiv.finrank_eq.symm
 
-private lemma mixedPrime_sup_base (p ell : ℕ) (hp : 0 < p) :
+lemma mixedPrime_sup_base (p ell : ℕ) (hp : 0 < p) :
     mixedPrimeField p ell ⊔ mixedBaseRange p ell = ⊤ := by
   have instMixedSupNeP : NeZero p := ⟨hp.ne'⟩
   have instMixedSupCyclo : IsCyclotomicExtension {p} (A3.Bsub p ell) (mixedExtension p ell) :=
@@ -170,7 +170,7 @@ lemma mixedExtension_overPrime_isCyclotomic
     ((IntermediateField.equivOfEq hKgen).trans IntermediateField.topEquiv)
 
 
-private lemma mixedPrime_linearDisjoint
+lemma mixedPrime_linearDisjoint
     (p ell : ℕ) [Fact p.Prime] [Fact ell.Prime] (hp2 : p ≠ 2) (hpe : p ≠ ell) :
     (mixedPrimeField p ell).LinearDisjoint (mixedBaseRange p ell) := by
   have instMixedLinearFinite : FiniteDimensional (A3.F p) (mixedExtension p ell) := mixedFiniteOverF p ell

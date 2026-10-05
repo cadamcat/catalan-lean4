@@ -66,7 +66,7 @@ lemma infinitePlace_upow_xmζ_le (x : ℤ) (hp2 : p ≠ 2) (Θ : R p K)
   calc
     (∏ τ : G p K, w (((x : K) - τ (ζ p K)) ^ (Θ.coeff τ).toNat)) ≤
         ∏ τ : G p K, ((|x| : ℝ) + 1) ^ (Θ.coeff τ).toNat := by
-      apply Finset.prod_le_prod
+      apply Finset.prod_le_prod₀
       · intro τ _; positivity
       · intro τ _
         rw [map_pow]

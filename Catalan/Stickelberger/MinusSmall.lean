@@ -34,7 +34,15 @@ private lemma minus_basis_coeff (a : (ZMod p)ˣ) :
       exact Units.ext ((ZMod.val_eq_one (Fact.out : p.Prime).one_lt _).mp h)
   have hmOne : (((-1 : (ZMod p)ˣ) : ZMod p)).val = p - 1 := by
     change (-1 : ZMod p).val = p - 1
-    rw [ZMod.neg_val, if_neg one_ne_zero, ZMod.val_one'' (Fact.out : p.Prime).ne_one]
+    have hvalone : (1 : ZMod p).val = 1 := by
+      rw [ZMod.val_one_eq_one_mod]
+      exact Nat.mod_eq_of_lt (Fact.out : p.Prime).one_lt
+    calc
+      (-1 : ZMod p).val = p - (1 : ZMod p).val := by
+        have h := ZMod.neg_val (1 : ZMod p)
+        rw [if_neg (one_ne_zero : (1 : ZMod p) ≠ 0)] at h
+        exact h
+      _ = p - 1 := by rw [hvalone]
   have hvalNeg : a = -1 ↔ (a : ZMod p).val = p - 1 := by
     constructor
     · rintro rfl

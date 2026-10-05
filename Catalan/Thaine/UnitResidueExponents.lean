@@ -55,7 +55,8 @@ lemma unit_residue_exponents_of_canonical
   apply (Residue.coordinate_eq_iff_power_error q e s hs _ _).mp
   rw [← unitResidueCoordinates_powerClass,
     unitResidueCoordinates_integralUnitPow p q ell red e u b hu Theta g,
-    hw, zero_mul, sub_zero]
+    hw, zero_mul]
+  simp
 
 lemma exists_unit_residue_exponent_generator [Fact p.Prime]
     (hp2 : p ≠ 2) (hq2 : q ≠ 2) (hdegree : ¬ q ∣ (p - 1) / 2)

@@ -15,7 +15,7 @@ noncomputable section
 namespace Catalan.UnitQuotient
 variable (B : Type*) [CommGroup B] (q : ℕ)
 
-private noncomputable def modNToPower :
+noncomputable def modNToPower :
     ModN (Additive B) q →ₗ[ZMod q] PowerQuotient B q :=
   ModN.liftEquiv'.symm
     ⟨(QuotientGroup.mk' (qPowers B q)).toAdditive,
@@ -24,7 +24,7 @@ private noncomputable def modNToPower :
 private lemma modNToPower_apply (b : B) :
     modNToPower B q (ModN.mkQ q (Additive.ofMul b)) = powerClass q b := rfl
 
-private lemma modNToPower_bijective : Function.Bijective (modNToPower B q) := by
+lemma modNToPower_bijective : Function.Bijective (modNToPower B q) := by
   constructor
   · apply (injective_iff_map_eq_zero (modNToPower B q)).mpr
     intro v hv

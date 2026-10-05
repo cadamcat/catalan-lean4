@@ -19,7 +19,7 @@ namespace Catalan.Thaine
 private lemma distinct_maximal_multiplicity_zero
     {R : Type*} [CommRing R] (A B : Ideal R) [A.IsMaximal] [B.IsMaximal]
     (hne : A ≠ B) : multiplicity A B = 0 := by
-  apply multiplicity_eq_zero.mpr
+  apply multiplicity_eq_zero_of_not_dvd
   intro hdiv
   exact hne (Ideal.IsMaximal.eq_of_le (inferInstance : B.IsMaximal)
     (inferInstance : A.IsMaximal).ne_top (Ideal.le_of_dvd hdiv)).symm
@@ -56,7 +56,11 @@ private lemma prime_multiplicity_relNorm_eq_finsum
           apply hP
           exact Subtype.ext h
         rw [distinct_maximal_multiplicity_zero P.1 Q.asIdeal hPQ, mul_zero]
-      _ = Q.asIdeal.inertiaDeg (𝓞 F) := by simp only [qv, multiplicity_self, mul_one]
+      _ = Q.asIdeal.inertiaDeg (𝓞 F) := by
+        have hself : FiniteMultiplicity Q.asIdeal Q.asIdeal :=
+          FiniteMultiplicity.of_prime_left
+            (Ideal.prime_of_isPrime Q.ne_bot inferInstance) Q.ne_bot
+        rw [multiplicity_self hself, mul_one]
   · have hfin : FiniteMultiplicity v.asIdeal w := FiniteMultiplicity.of_prime_left hvprime hwne
     rw [hnorm, hfin.multiplicity_pow hvprime, distinct_maximal_multiplicity_zero v.asIdeal w hvw,
       mul_zero]
@@ -94,11 +98,11 @@ lemma multiplicity_relNorm_eq_finsum
   | h₂ J hunit =>
     have hJone : J = 1 := isUnit_iff_eq_one.mp hunit
     subst J
-    rw [map_one, (FiniteMultiplicity.of_prime_left hvprime one_ne_zero).one_right]
+    rw [map_one, multiplicity_one_right]
     symm
     apply Finset.sum_eq_zero
     intro P hP
-    rw [(FiniteMultiplicity.of_prime_left (hPprime P) one_ne_zero).one_right, mul_zero]
+    rw [multiplicity_one_right, mul_zero]
   | h₃ J Q hJ hQ IH =>
     have hQprime : Q.IsPrime := Ideal.isPrime_of_prime hQ
     let q : HeightOneSpectrum (𝓞 L) := ⟨Q, hQprime, hQ.ne_zero⟩

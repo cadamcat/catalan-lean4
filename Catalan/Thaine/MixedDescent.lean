@@ -68,8 +68,6 @@ private lemma mixed_ambient_action
     have h := IntermediateField.isCyclotomicExtension_lcm_sup ℚ A3.Omega p ell Cp Ce
     rw [hcop.lcm_eq_mul] at h
     convert h using 1
-    · rfl
-    · exact Subsingleton.elim _ _
   have instMixedAmbientNumberM : NumberField M := IsCyclotomicExtension.numberField {p * ell} ℚ M
   have hpM : A3.primitiveRoot p ∈ M :=
     (show Cp ≤ M from le_sup_left) (IntermediateField.subset_adjoin ℚ _ (by simp))

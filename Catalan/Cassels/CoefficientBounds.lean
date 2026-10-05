@@ -74,7 +74,7 @@ lemma cassels_coeff_cutoff_aux (alpha : ℝ) (m : ℕ) (hm : 1 ≤ m)
   have hprod_le :
       (∏ i ∈ Finset.range m, (alpha - (i : ℝ))) ≤
         ∏ i ∈ Finset.range m, ((m : ℝ) - (i : ℝ)) := by
-    apply Finset.prod_le_prod
+    apply Finset.prod_le_prod₀
     · intro i hi
       have hi_lt : i < m := Finset.mem_range.mp hi
       have hi_le_pred : i ≤ m - 1 := Nat.le_pred_of_lt hi_lt

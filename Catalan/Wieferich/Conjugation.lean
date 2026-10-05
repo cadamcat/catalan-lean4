@@ -26,8 +26,15 @@ lemma iota_on_embeddings (hp2 : p ≠ 2) (φ : K →+* ℂ) (a : K) :
     rw [ι, σ_apply_ζ]
     have hn : (((-1 : (ZMod p)ˣ) : ZMod p)).val = p - 1 := by
       change (-1 : ZMod p).val = p - 1
-      rw [ZMod.neg_val, if_neg one_ne_zero,
-        ZMod.val_one'' (Fact.out : p.Prime).ne_one]
+      have hvalone : (1 : ZMod p).val = 1 := by
+        rw [ZMod.val_one_eq_one_mod]
+        exact Nat.mod_eq_of_lt (Fact.out : p.Prime).one_lt
+      calc
+        (-1 : ZMod p).val = p - (1 : ZMod p).val := by
+          have h := ZMod.neg_val (1 : ZMod p)
+          rw [if_neg (one_ne_zero : (1 : ZMod p) ≠ 0)] at h
+          exact h
+        _ = p - 1 := by rw [hvalone]
     rw [hn]
     apply eq_inv_of_mul_eq_one_left
     rw [← pow_succ, Nat.sub_add_cancel (by omega : 1 ≤ p),

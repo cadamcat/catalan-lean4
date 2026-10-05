@@ -53,7 +53,7 @@ lemma height_projective_integral_le (a b : L) (ha : a ≠ 0) (hb : b ≠ 0)
       C ^ Module.finrank ℚ L := by
     calc
       _ ≤ ∏ w : InfinitePlace L, C ^ w.mult := by
-        apply Finset.prod_le_prod
+        apply Finset.prod_le_prod₀
         · intro w _
           exact pow_nonneg ((apply_nonneg w a).trans (le_max_left _ _)) _
         · intro w _
@@ -79,4 +79,3 @@ lemma height_projective_integral_le (a b : L) (ha : a ≠ 0) (hb : b ≠ 0)
     _ = Real.log C := by field_simp
 
 end Catalan
-

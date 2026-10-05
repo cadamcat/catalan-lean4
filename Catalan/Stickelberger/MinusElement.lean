@@ -32,7 +32,7 @@ lemma minus_element_ne_zero (hp2 : p ≠ 2) :
       calc
         (2 : ZMod p) = 1 + 1 := by ring
         _ = (-1 : ZMod p) + 1 := by rw [hzmod]
-        _ = 0 := by ring
+        _ = 0 := by exact neg_add_cancel (1 : ZMod p)
     have hpdiv : p ∣ (2 : ℕ) := by
       have htwozero' : ((2 : ℤ) : ZMod p) = 0 := by simpa using htwozero
       exact Int.natCast_dvd_natCast.mp

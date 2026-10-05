@@ -12,11 +12,20 @@ Part of the Catalan formalization.
 @[expose] public section
 
 set_option autoImplicit false
+set_option backward.isDefEq.respectTransparency false
 open NumberField
 noncomputable section
 namespace Catalan.A3
 open UnitQuotient
 variable (p q : ℕ) [Fact q.Prime]
+
+local instance (priority := 10000) instZModSemiringPerfectKummer : Semiring (ZMod q) :=
+  (inferInstance : Field (ZMod q)).toSemifield.toSemiring
+local instance (priority := 10000) instZModSelfModulePerfect : Module (ZMod q) (ZMod q) :=
+  Semiring.toModule
+local instance (priority := 10000) instPrimePowerQuotientModulePerfect
+    (B : Type*) [CommGroup B] : Module (ZMod q) (PowerQuotient B q) :=
+  AddCommGroup.zmodModule (UnitQuotient.powerQuotient_exponent (B := B) q)
 
 /-- The original relative Galois group operations, with proved commutativity. -/
 @[instance_reducible]
@@ -59,12 +68,22 @@ lemma kummerPairing_isPerfect : LinearMap.IsPerfPair (kummerPairing p q) := by
   · intro σ τ h
     apply Additive.toMul.injective
     apply kummerDualHom_injective p q
-    exact h
+    have hfun : kummerFunctional p q (Additive.toMul σ) =
+        kummerFunctional p q (Additive.toMul τ) := by
+      apply LinearMap.ext
+      intro z
+      have hz := congrArg (fun F : Module.Dual (ZMod q)
+          (PowerQuotient (𝓞 (F p))ˣ q) => F z) h
+      simpa [kummerPairing] using hz
+    change Multiplicative.ofAdd (kummerFunctional p q (Additive.toMul σ)) =
+      Multiplicative.ofAdd (kummerFunctional p q (Additive.toMul τ))
+    exact congrArg Multiplicative.ofAdd hfun
   · apply (injective_iff_map_eq_zero (kummerPairing p q).flip).mpr
     intro z hz
     apply kummerFunctional_right_nondegenerate p q z
     intro σ
-    exact LinearMap.congr_fun hz (Additive.ofMul σ)
+    have hzσ := LinearMap.congr_fun hz (Additive.ofMul σ)
+    simpa [kummerPairing_apply] using hzσ
 
 /-- Every functional is realized by an actual automorphism of M over B. -/
 def kummerDualEquiv : Additive (Msub p q ≃ₐ[Bsub p q] Msub p q) ≃ₗ[ZMod q]
@@ -80,6 +99,12 @@ lemma exists_kummer_aut_of_functional
     (f : Module.Dual (ZMod q) (PowerQuotient (𝓞 (F p))ˣ q)) :
     ∃ σ : Msub p q ≃ₐ[Bsub p q] Msub p q, kummerFunctional p q σ = f := by
   obtain ⟨σ, hσ⟩ := (kummerDualEquiv p q).surjective f
-  exact ⟨Additive.toMul σ, hσ⟩
+  refine ⟨Additive.toMul σ, ?_⟩
+  apply LinearMap.ext
+  intro z
+  have hz := congrArg (fun F : Module.Dual (ZMod q)
+      (PowerQuotient (𝓞 (F p))ˣ q) => F z) hσ
+  change kummerDualEquiv p q (Additive.ofMul (Additive.toMul σ)) z = f z at hz
+  simpa only [kummerDualEquiv_apply] using hz
 
 end Catalan.A3

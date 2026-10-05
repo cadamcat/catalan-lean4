@@ -16,18 +16,22 @@ namespace Catalan
 lemma hyyro_factor_congruence (r : ℕ) (hr : r.Prime) (s z a : ℤ)
     (hz : (r : ℤ) ∣ z) (h : z - 1 = s ^ (r - 1) * a ^ r) :
     (r : ℤ) ∣ a + 1 := by
-  let : Fact r.Prime := ⟨hr⟩
+  letI : Fact r.Prime := ⟨hr⟩
+  letI : NeZero r := ⟨hr.ne_zero⟩
   have hz0 : (z : ZMod r) = 0 := (ZMod.intCast_zmod_eq_zero_iff_dvd z r).mpr hz
   have he : -(1 : ZMod r) = (s : ZMod r) ^ (r - 1) * (a : ZMod r) ^ r := by
     have hh := congrArg (fun t : ℤ => (t : ZMod r)) h
-    simpa only [Int.cast_sub, Int.cast_one, Int.cast_mul, Int.cast_pow, hz0, zero_sub] using hh
+    simp only [Int.cast_sub, Int.cast_one, Int.cast_mul, Int.cast_pow,
+      hz0, zero_sub] at hh
+    exact hh
   have hs0 : (s : ZMod r) ≠ 0 := by
     intro hs
     rw [hs, zero_pow (by have := hr.one_lt; omega), zero_mul] at he
-    exact one_ne_zero (neg_eq_zero.mp he)
+    exact (one_ne_zero : (1 : ZMod r) ≠ 0) (neg_eq_zero.mp he)
   rw [ZMod.pow_card_sub_one_eq_one hs0, one_mul, ZMod.pow_card] at he
   apply (ZMod.intCast_zmod_eq_zero_iff_dvd (a + 1) r).mp
-  rw [Int.cast_add, Int.cast_one, ← he, neg_add_cancel]
+  rw [Int.cast_add, Int.cast_one, ← he]
+  exact neg_add_cancel 1
 
 /-- An integer-power estimate used in the negative case. -/
 lemma hyyro_two_pow_le_three (n : ℕ) (hn : 3 ≤ n) :

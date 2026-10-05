@@ -80,7 +80,8 @@ lemma prop42_finite_lower (hp2 : p ≠ 2)
       have hd : v ((x : K) - τ (ζ p K)) = v (1 - τ (ζ p K)) := by
         have hid : (x : K) - τ (ζ p K) = ((x : K) - 1) + (1 - τ (ζ p K)) := by ring
         rw [hid]
-        exact IsNonarchimedean.add_eq_right_of_lt (fun y z => v.add_le y z) (hxv.trans_lt hplt)
+        exact IsNonarchimedean.add_eq_right_of_lt (map_neg_eq_map v)
+          (hxv.trans_lt hplt) (fun y z => FinitePlace.add_le v y z)
       rw [ht, hd, div_self ht0.ne'] at hnear
       exact (not_lt_of_ge hnear ha).elim
     · rw [pPrime, if_neg hx1]
@@ -94,4 +95,3 @@ lemma prop42_finite_lower (hp2 : p ≠ 2)
     exact Real.rpow_le_one (apply_nonneg v _) hpp (le_of_lt (one_div_pos.mpr hpR))
 
 end Catalan
-

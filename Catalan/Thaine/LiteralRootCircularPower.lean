@@ -54,7 +54,17 @@ lemma literal_xm_zeta_plus_circular_power
   refine ⟨c * d, (Circular.circularUnits p (A3.Bsub p p)).mul_mem hc hd, b * v, ?_⟩
   change upow p (A3.Bsub p p) (xmζ p (A3.Bsub p p) x (by omega)) (P * Theta) = _
   rw [← hfactor, upow_base_mul, hb, hv, map_mul, mul_pow]
-  ac_rfl
+  let φ := Units.map (algebraMap (𝓞 (A3.Bsub p p)) (A3.Bsub p p)).toMonoidHom
+  calc
+    (φ c * b ^ q) * (φ d * v ^ q) =
+      (φ c * φ d) * (b ^ q * v ^ q) := by
+      calc
+        (φ c * b ^ q) * (φ d * v ^ q) =
+            φ c * (b ^ q * (φ d * v ^ q)) := by rw [mul_assoc]
+        _ = φ c * (φ d * (b ^ q * v ^ q)) := by
+          congr 1
+          rw [← mul_assoc, mul_comm (b ^ q) (φ d), mul_assoc]
+        _ = (φ c * φ d) * (b ^ q * v ^ q) := by rw [← mul_assoc]
 
 lemma literal_xm_zeta_circular_power
     (p q : ℕ) [Fact p.Prime] [Fact q.Prime]

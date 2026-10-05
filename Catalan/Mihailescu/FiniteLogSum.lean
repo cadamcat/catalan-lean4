@@ -22,7 +22,8 @@ lemma finite_log_inverse_sum_le_of_lower
   have hmK : (m : K) ≠ 0 := Nat.cast_ne_zero.mpr hm.ne'
   have hmp (v : FinitePlace K) : 0 < v (m : K) := FinitePlace.pos_iff.mpr hmK
   have hml (v : FinitePlace K) : v (m : K) ≤ 1 :=
-    IsNonarchimedean.apply_natCast_le_one (fun x y => FinitePlace.add_le v x y)
+    IsNonarchimedean.apply_natCast_le_one (map_zero_le v 1) (map_one v)
+      (fun x y => FinitePlace.add_le v x y)
   have hpoint (v : FinitePlace K) :
       Real.log (max (v a⁻¹) 1) ≤ -r * Real.log (v (m : K)) := by
     have hlog := Real.log_le_log (Real.rpow_pos_of_pos (hmp v) r) (hlower v)
@@ -62,4 +63,3 @@ lemma finite_log_inverse_sum_le_of_lower
     _ = r * (Module.finrank ℚ K : ℝ) * Real.log (m : ℝ) := by rw [hsum]; ring
 
 end Catalan
-

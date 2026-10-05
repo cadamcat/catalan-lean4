@@ -11,8 +11,16 @@ Part of the Catalan formalization.
 @[expose] public section
 
 set_option autoImplicit false
+set_option backward.isDefEq.respectTransparency false
 noncomputable section
 namespace Catalan.A3
+
+local instance (priority := 10000) instZModSelfModuleResidueCoordinate (q : ℕ) [Fact q.Prime] :
+    Module (ZMod q) (ZMod q) := Semiring.toModule
+local instance (priority := 10000) instPrimePowerQuotientModuleResidueCoordinate
+    (q : ℕ) [Fact q.Prime] (B : Type*) [CommGroup B] :
+    Module (ZMod q) (UnitQuotient.PowerQuotient B q) :=
+  AddCommGroup.zmodModule (UnitQuotient.powerQuotient_exponent (B := B) q)
 
 lemma exists_residue_power_coordinate
     (q ell : ℕ) [Fact q.Prime] [Fact ell.Prime] (hdiv : q ∣ ell - 1) :
@@ -60,9 +68,13 @@ lemma exists_residue_power_coordinate
     rfl
   let ea : ZMod q ≃+ Additive (G ⧸ UnitQuotient.qPowers G q) :=
     zmodAddEquivOfGenerator hgQadd hcardQ
+  letI : Module (ZMod q) (ZMod q) := Semiring.toModule
+  letI : Module (ZMod q) (UnitQuotient.PowerQuotient G q) :=
+    UnitQuotient.powerQuotientModule G q
   let e : UnitQuotient.PowerQuotient G q ≃ₗ[ZMod q] ZMod q :=
     LinearEquiv.ofBijective (ea.symm.toAddMonoidHom.toZModLinearMap q)
       ea.symm.bijective
+  dsimp only [G] at e
   refine ⟨g, hg, ⟨e, ?_⟩⟩
   change ea.symm (Additive.ofMul gQ) = 1
   rw [← zmodAddEquivOfGenerator_apply_one hgQadd hcardQ]

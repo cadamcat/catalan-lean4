@@ -16,7 +16,7 @@ namespace Catalan.Kummer
 variable (L : Type*) [Field L] (n : ℕ) [NeZero n]
 variable (ζ : Lˣ) (hζ : IsPrimitiveRoot ζ n)
 
-private def rootsToPowers : rootsOfUnity n L ≃* Subgroup.zpowers ζ where
+def rootsToPowers : rootsOfUnity n L ≃* Subgroup.zpowers ζ where
   toFun u := ⟨u.val, by rw [hζ.zpowers_eq]; exact u.property⟩
   invFun u := ⟨u.val, by rw [← hζ.zpowers_eq]; exact u.property⟩
   left_inv _ := rfl

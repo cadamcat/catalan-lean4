@@ -69,9 +69,11 @@ lemma prime_root_ramification_uniformizer
   have hfin : FiniteMultiplicity P.asIdeal (Ideal.span {hw.toInteger - 1}) :=
     FiniteMultiplicity.of_prime_left hPprime hJne
   have hpos : 0 < multiplicity P.asIdeal (Ideal.span {hw.toInteger - 1}) := by
-    apply multiplicity_pos_of_dvd
-    rw [Ideal.dvd_iff_le, Ideal.span_singleton_le_iff_mem]
-    exact hmem
+    exact multiplicity_pos_of_dvd
+      (by
+        rw [Ideal.dvd_iff_le, Ideal.span_singleton_le_iff_mem]
+        exact hmem)
+      hfin
   have hspan : (Ideal.span {hw.toInteger - 1}) ^ (ell - 1) =
       Ideal.span {(ell : 𝓞 L)} := by
     rw [Ideal.span_singleton_pow, Ideal.span_singleton_eq_span_singleton]

@@ -42,7 +42,18 @@ lemma integralUnit_coordinate_element
   rw [A3.unitResidueCoordinates_integralUnitPow p q ell red e u b hu Theta g]
   simp only [MonoidAlgebra.coeff_sub, MonoidAlgebra.coeff_smul,
     Runge.reduceFull]
-  simp [UnitReduction.groupNorm, MonoidAlgebra.coeff_sum,
-    MonoidAlgebra.coeff_single]
+  have hNormCoeff :
+      (UnitReduction.groupNorm (ZMod q) (G p (A3.F p))).coeff g = 1 := by
+    simp [UnitReduction.groupNorm, MonoidAlgebra.coeff_sum,
+      Finsupp.finsetSum_apply]
+  change
+    (Theta.coeff g : ZMod q) -
+        (weight p (A3.F p) Theta : ZMod q) * b =
+      ((MonoidAlgebra.mapRingHom (G p (A3.F p))
+          (Int.castRingHom (ZMod q)) Theta).coeff g) -
+        ((weight p (A3.F p) Theta : ZMod q) * b) *
+          (UnitReduction.groupNorm (ZMod q) (G p (A3.F p))).coeff g
+  rw [MonoidAlgebra.coeff_mapRingHom, Int.coe_castRingHom, hNormCoeff]
+  ring
 
 end Catalan.Thaine

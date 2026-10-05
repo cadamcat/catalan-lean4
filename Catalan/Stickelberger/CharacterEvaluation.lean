@@ -61,8 +61,8 @@ lemma characterEval_minus (χ : DirichletCharacter ℂ p) :
     rw [← map_inv]
     simp
   have hv : characterOnG p K χ (ι p K) = χ (-1) := by
-    simpa only [hi, Units.val_neg, Units.val_one] using
-      characterOnG_sigma_inv p K χ (-1)
+    rw [← hi]
+    exact characterOnG_sigma_inv p K χ (-1)
   rw [complexMinus, map_sub, coeffCast_single, coeffCast_single, map_sub]
   simp only [Int.cast_one, characterEval, MonoidAlgebra.lift_single, one_smul, map_one, hv]
 
@@ -98,7 +98,10 @@ lemma complexPTheta_mul_eq_zero (T : ComplexRing p K) (hT : T ∈ minusRange p K
   · have hχ : χ ≠ 1 := by
       intro hc
       have ho : χ (-1) = -1 := hOdd
-      rw [hc, MulChar.one_apply (isUnit_one.neg)] at ho
+      have hone : χ (-1) = 1 := by
+        rw [hc]
+        exact MulChar.one_apply (isUnit_one.neg)
+      rw [hone] at ho
       norm_num at ho
     have hP : characterEval p K χ (complexPTheta p K) ≠ 0 := by
       rw [characterEval_PTheta]

@@ -47,9 +47,19 @@ lemma exists_circular_invariant_principal_data
           ((d ^ 2 : (𝓞 (A3.F p))ˣ) : 𝓞 (A3.F p))) = 0 := by
       change _ ∈ RingHom.ker redB
       rwa [hkerB]
+    have hzero' : redB (eta : 𝓞 (A3.Bsub p ell)) -
+        redB (algebraMap (𝓞 (A3.F p)) (𝓞 (A3.Bsub p ell))
+          ((d ^ 2 : (𝓞 (A3.F p))ˣ) : 𝓞 (A3.F p))) = 0 := by
+      calc
+        _ = redB ((eta : 𝓞 (A3.Bsub p ell)) -
+            algebraMap (𝓞 (A3.F p)) (𝓞 (A3.Bsub p ell))
+              ((d ^ 2 : (𝓞 (A3.F p))ˣ) : 𝓞 (A3.F p))) :=
+          (map_sub redB _ _).symm
+        _ = 0 := hzero
+    rw [hcomp] at hzero'
     have hetaD : redB (eta : 𝓞 (A3.Bsub p ell)) =
         red ((d ^ 2 : (𝓞 (A3.F p))ˣ) : 𝓞 (A3.F p)) :=
-      sub_eq_zero.mp (by simpa only [map_sub, hcomp] using hzero)
+      sub_eq_zero.mp hzero'
     rw [← hetaD]
     exact hformula tau s htau alpha eta halpha heta
 

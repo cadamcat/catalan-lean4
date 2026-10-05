@@ -38,7 +38,11 @@ lemma exists_auxiliary_residue_hom
       rw [hkerB]
       exact (hinertia sigma).2 x
     have hzero : redB (A3.integralAut sigma x - x) = 0 := hmem
-    exact sub_eq_zero.mp (by simpa only [map_sub] using hzero)
+    have hzero' : redB (A3.integralAut sigma x) - redB x = 0 := by
+      calc
+        _ = redB (A3.integralAut sigma x - x) := (map_sub redB _ _).symm
+        _ = 0 := hzero
+    exact sub_eq_zero.mp hzero'
   · intro s
     have hellP : (ell : 𝓞 (A3.Bsub p ell)) ∈ P.asIdeal := by
       simpa only [map_natCast] using (Ideal.mem_of_liesOver P.asIdeal v.asIdeal _).mp hellv
@@ -53,7 +57,13 @@ lemma exists_auxiliary_residue_hom
         ((s : ZMod ell).val : 𝓞 (A3.Bsub p ell)) ∈ RingHom.ker redB
       rw [hkerB]
       exact hmem
-    exact sub_eq_zero.mp (by
-      simpa only [map_sub, map_natCast, ZMod.natCast_zmod_val] using hzero)
+    have hzero' : redB (auxiliaryUniformizerRatio p ell s) -
+        redB ((s : ZMod ell).val : 𝓞 (A3.Bsub p ell)) = 0 := by
+      calc
+        _ = redB (auxiliaryUniformizerRatio p ell s -
+          ((s : ZMod ell).val : 𝓞 (A3.Bsub p ell))) := (map_sub redB _ _).symm
+        _ = 0 := hzero
+    have heq := sub_eq_zero.mp hzero'
+    simpa only [map_natCast, ZMod.natCast_zmod_val] using heq
 
 end Catalan.Thaine

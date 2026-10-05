@@ -29,4 +29,4 @@ globs = ["GaloisCohomology.+"]
 
 [[lean_lib]]
 name = "Verification"
-globs = ["Verification.+"]
+globs = ["Verification.Axioms", "Verification.Statements", "Verification.Replay"]
