@@ -15,9 +15,9 @@ authors:
 repository-code: "https://github.com/cadamcat/catalan-lean4"
 url: "https://github.com/cadamcat/catalan-lean4"
 license: Apache-2.0
-version: 1.0.0
-commit: 4bf1f742eb341decbdfc59ec56e1616f4d13e33b
-date-released: 2026-09-21
+version: 1.1.0
+commit: dffd81878a9fad1e6fcd2456ddd645325c3dc2dd
+date-released: 2026-10-05
 keywords:
   - Lean 4
   - formalization
