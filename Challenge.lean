@@ -10,6 +10,8 @@ natural-number statement of Catalan's conjecture follows
 [Formal Conjectures' Wikipedia statement](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/Catalan.lean).
 -/
 
+@[expose] public section
+
 namespace PalomarCatalan
 
 /-- For natural exponents greater than one and positive natural bases, the

@@ -9,6 +9,8 @@ These declarations provide the proofs from the project for the four
 statements in `Challenge`.
 -/
 
+@[expose] public section
+
 namespace PalomarCatalan
 
 /-- The Catalan natural-number theorem from the project. -/
