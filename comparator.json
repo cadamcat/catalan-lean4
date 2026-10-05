@@ -1,0 +1,16 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "PalomarCatalan.catalans_conjecture",
+    "PalomarCatalan.catalan_int",
+    "PalomarCatalan.catalan_int_signed",
+    "PalomarCatalan.mihailescu_odd_primes"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
