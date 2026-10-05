@@ -1,0 +1,215 @@
+# formalization.yaml (v0.4) for the Palomar Registry submission of this revision.
+version: "v0.4"
+
+project:
+  name: "A Lean 4 formalization of Catalan's conjecture (Mihăilescu's theorem)"
+  description: >-
+    A complete Lean 4 formalization of Catalan's conjecture, proved by Preda
+    Mihăilescu: 8 and 9 are the only consecutive positive proper perfect powers.
+    The formal proof follows the cyclotomic proof in Yuri Bilu's expositions.
+    Cassels' relations, Stickelberger annihilation, and height and counting
+    estimates exclude the case in which one exponent is congruent to 1 modulo
+    the other. Thaine's theorem on circular units, together with a Runge-type
+    approximation argument, settles the remaining case. The
+    class-field-theoretic input comes from a fixed, vendored subset of the
+    ClassFieldTheory library. The registered results are four theorems:
+    Catalan's conjecture over the natural numbers, in the form stated in
+    Google DeepMind's Formal Conjectures; the same equation for integer bases
+    greater than one; the classification of solutions of x^p − y^q = 1 with
+    nonzero integer bases of either sign; and Mihăilescu's theorem that
+    x^p = y^q + 1 has no solution in nonzero integers when p and q are odd
+    primes. All four depend only on the axioms propext, Classical.choice and
+    Quot.sound.
+  authors:
+    - "Yao Xu"
+  responsible_maintainers:
+    - "Yao Xu"
+  license: "Apache-2.0"
+
+sources:
+  - title: "Primary cyclotomic units and a proof of Catalan's conjecture"
+    authors: ["Preda Mihăilescu"]
+    id: "doi:10.1515/crll.2004.048"
+    type: "paper"
+    location: "J. reine angew. Math. 572 (2004), 167–195; the main theorem"
+    relationship: "formalizes"
+    author_endorsement: "not-contacted"
+  - title: "Catalan's conjecture (after Mihăilescu)"
+    authors: ["Yuri F. Bilu"]
+    id: "Séminaire Bourbaki, vol. 2002/2003, Astérisque 294 (2004), 1–26"
+    type: "paper"
+    location: "the cyclotomic proof as a whole"
+    relationship: "formalizes"
+    note: "The formal proof follows the route of this exposition and of Bilu (2005)."
+    author_endorsement: "not-contacted"
+  - title: "Catalan without logarithmic forms (after Bugeaud, Hanrot and Mihăilescu)"
+    authors: ["Yuri F. Bilu"]
+    id: "doi:10.5802/jtnb.478"
+    type: "paper"
+    location: "J. Théor. Nombres Bordeaux 17 (2005), 69–85; the bound on q and the final case analysis"
+    relationship: "formalizes"
+    author_endorsement: "not-contacted"
+  - title: "A class number free criterion for Catalan's conjecture"
+    authors: ["Preda Mihăilescu"]
+    id: "doi:10.1016/S0022-314X(02)00101-4"
+    type: "paper"
+    location: "J. Number Theory 99 (2003), 225–231; the double Wieferich criterion"
+    relationship: "formalizes"
+    author_endorsement: "not-contacted"
+
+related_formalizations:
+  - id: "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/Catalan.lean"
+    relationship: "other"
+    note: >-
+      Formal Conjectures states Catalan.catalans_conjecture with the same
+      statement as PalomarCatalan.catalans_conjecture in Challenge.lean. Since
+      PR #6452 (merged 2026-09-22) it links release v1.0.0 of this repository
+      as the formal proof.
+  - id: "https://github.com/n-yamaguchi-0729/ClassFieldTheory"
+    relationship: "builds-on"
+    note: >-
+      871 source files of this library are vendored under
+      vendor/ClassFieldTheory. They come from commit 2930b56 and are adapted
+      from the upstream port commit 7713795 to Lean v4.35.0-rc3 and Lean's
+      module system. The modifications are recorded per file and checked by
+      scripts/check_vendor.py; see THIRD_PARTY.md.
+  - id: "https://github.com/xroblot/SKW/tree/4db8676808a63d892a8f36ead11308ca8dd58520"
+    relationship: "other"
+    note: >-
+      No SKW code is imported. Two of its arguments are credited in source
+      comments in Catalan/Stickelberger.
+  - id: "https://github.com/Drag0ndddd1118/jsp-000035-formalization/tree/59837ccb2240f59c052603a0a550d62d6b9cac2e"
+    relationship: "independent"
+    note: >-
+      It proves a bounded classification with bases and exponents between 2
+      and 10. Its unrestricted classification invokes an explicit theorem
+      axiom.
+  - id: "https://github.com/zinan-huang/Ripple/tree/e9ce148d3975f9e75bb9724e01ec763ad9b368a9"
+    relationship: "independent"
+    note: >-
+      It proves Cassels' divisibility q | x, for positive bases greater than 1
+      and prime exponents at least 5, with related factorization, valuation
+      and descent results. These are not the unrestricted theorem.
+  - id: "doi:10.1145/3573105.3575682"
+    relationship: "independent"
+    note: >-
+      Baanen, Best, Coppola and Dahmen, "Formalized class group computations
+      and integral points on Mordell elliptic curves" (CPP 2023, Lean 3). It
+      covers the cube–square special case y^2 = x^3 − 1.
+  - id: "https://github.com/cadamcat/catalan-lean4/releases/tag/v1.0.0"
+    relationship: "other"
+    note: >-
+      Release v1.0.0 (commit 4bf1f74) is the original release on Lean
+      v4.33.1. This revision ports it to Lean v4.35.0-rc3 and the module
+      system without changing any theorem statement.
+
+classification:
+  arxiv: ["math.NT", "cs.LO"]
+  msc2020: ["11D61", "11R18", "11R29", "11R37", "68V20"]
+
+status:
+  scope: >-
+    Complete formalization of Catalan's conjecture, together with the
+    integer, signed-integer and odd-prime forms registered here. The project
+    also proves Catalan.JSP.statement, a consecutive-powers form that uses a
+    project definition of proper perfect powers. It is verified with the
+    project but not included in the Comparator configuration.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "Catalan.catalans_conjecture"
+      file: "Catalan/Final/Assembly.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "Catalan.catalan_int"
+      file: "Catalan/Final/Assembly.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "Catalan.catalan_int_signed"
+      file: "Catalan/Final/Signed.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "Catalan.mihailescu_odd_primes"
+      file: "Catalan/Final/Assembly.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["GPT-6 Astra", "GPT-5.6 Luna", "Claude Fable 5.1", "Claude Opus 5", "GPT-6 Luna"]
+      framework: "Codex CLI and Claude Code"
+      tool_setup: >-
+        AI coding agents wrote the Lean code for release v1.0.0 (September
+        2026) under acceptance criteria set by the author: the public results
+        depend only on Lean's standard axioms, their whole dependency cone
+        passes a kernel replay in a fresh environment, and the final theorems
+        are accepted by an independent checker. After an audit, the author
+        adopted the existing ClassFieldTheory library for the
+        class-field-theoretic input instead of formalizing that theory from
+        scratch. The October 2026 port of this revision to Lean v4.35.0-rc3
+        and the module system, a mechanical update with unchanged theorem
+        statements, was done with the same agent workflow (GPT-6 Luna).
+      cost:
+        spend_usd: "subscription-based usage"
+        hardware: "API-only models; local builds on an Apple Silicon Mac"
+  spend_usd: "subscription-based usage"
+  notes: >-
+    The author is responsible for the content. Model agreement was not
+    treated as verification; acceptance rests on the Lean kernel checks
+    described under review.
+
+fidelity:
+  divergences: >-
+    None in the four registered statements. Catalan's conjecture is stated
+    over the natural numbers with truncated subtraction,
+    x ^ a - y ^ b = 1, exactly as in Formal Conjectures; with this hypothesis
+    the equation forces x ^ a = y ^ b + 1. The consecutive-powers form
+    Catalan.JSP.statement is proved but not registered here.
+
+review:
+  status: "agent-reviewed"
+  reviewers: []
+  notes: >-
+    This revision passed a full build, an axiom audit of all public results
+    (only propext, Classical.choice and Quot.sound), a kernel replay of the
+    complete dependency cone (131,214 constants) in a fresh environment, and
+    Comparator with both the NanoDa kernel and Lean's default kernel. The
+    accompanying paper and its correspondence to the Lean declarations
+    received blind AI referee reviews and an AI fact check. No independent
+    human expert has reviewed the formalization. Details are in REPORT.md
+    and Verification/RESULTS.md.
+
+alignment:
+  namespace: "Catalan"
+  statements:
+    - source: "Mihăilescu (2004), main theorem (Catalan's conjecture)"
+      lean: "Catalan.catalans_conjecture"
+      module: "Catalan/Final/Assembly.lean"
+      status: "proved"
+    - source: "Catalan's equation for integer bases greater than one"
+      lean: "Catalan.catalan_int"
+      module: "Catalan/Final/Assembly.lean"
+      status: "proved"
+    - source: "Classification of x^p − y^q = 1 for nonzero integers of either sign"
+      lean: "Catalan.catalan_int_signed"
+      module: "Catalan/Final/Signed.lean"
+      status: "proved"
+    - source: "Mihăilescu's theorem for odd prime exponents"
+      lean: "Catalan.mihailescu_odd_primes"
+      module: "Catalan/Final/Assembly.lean"
+      status: "proved"
+
+acknowledgements: >-
+  Mathlib and the ClassFieldTheory library supply the underlying theories;
+  their authors and licenses are credited in THIRD_PARTY.md. Comparator,
+  lean4export and NanoDa were used for verification.
