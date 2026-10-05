@@ -116,7 +116,27 @@ COMPARATOR_LEAN4EXPORT=/tmp/palomar-tools/comparator/.lake/packages/lean4export/
 
 Result: `Lean default kernel accepts the solution` and `Your solution is okay!`. The Comparator README's macOS development shim was used; its output warns that fake-landrun runs unsandboxed.
 
-**NanoDa-enabled run:** not completed yet. NanoDa is cloned at the revision above, but `cargo build --release --offline` failed because the `num-bigint` crate is not in the local Cargo cache. No Cargo registry download was made; an asynchronous authorization request to fetch NanoDa's `Cargo.lock` dependencies from official crates.io is pending. The committed Comparator config remains NanoDa-enabled. This entry must be replaced with the build and Comparator output if authorization arrives before the lane deadline.
+**NanoDa-enabled run:** passed on 2026-10-05, with the committed `comparator.json` (`enable_nanoda: true`) at commit `8038467`.
+
+- **NanoDa** was built with `cargo build --release --locked` from `ammkrn/nanoda_lib` `3a2407216ee84a75f9e1aead6803d0578be06ae7`. Its dependencies came from the official crates.io registry, as the user authorized on 2026-10-05.
+  - `Cargo.lock` SHA-256: `9b921e794ce5ed515eb31db9ada0c2f34df999b6c9b5135ad308a412872e42be`
+  - `nanoda_bin` SHA-256: `89d2f7cca8b1f32de4b3b8ec4b3d60238ec83eefbc76e7f6370966a4c3e1021b`
+- **Comparator** was `fd5d5bcf14177b187f66d4502071268d877887c3`; **lean4export** was `v4.35.0-rc3`, commit `66f1fb4bc256072069767fce52d39480e4524869`.
+- **Command:**
+
+```sh
+COMPARATOR_LANDRUN=/tmp/palomar-tools/comparator/scripts/fake-landrun.sh \
+COMPARATOR_LEAN4EXPORT=/tmp/palomar-tools/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export \
+COMPARATOR_NANODA=/tmp/palomar-tools/nanoda/target/release/nanoda_bin \
+../localrun.sh -t 3600 -n 6 env LEAN_NUM_THREADS=6 lake env \
+  /tmp/palomar-tools/comparator/.lake/build/bin/comparator comparator.json
+```
+
+- **Result:** `nanoda kernel accepts the solution`, `Lean default kernel accepts the solution` and `Your solution is okay!`, exit 0.
+  - The exported constants were the four `PalomarCatalan` theorems and the three permitted axioms, plus the kernel's built-in names.
+  - Wall time was 712 s (user 865 s), on Apple Silicon macOS with N = 6.
+- **The sandbox was a shim.** The run used the Comparator README's macOS shim, which warns that it is not real Landrun and runs unsandboxed. Palomar's own verification runs on Linux with Landrun.
+- **The full log** (872 lines) is kept outside the repository, in the workspace run record `nanoda-lane/comparator-nanoda.log`.
 
 ## Palomar policy notes and remaining preflight
 
