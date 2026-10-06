@@ -1,0 +1,18 @@
+# Palomar Registry mechanical preflight for release v1.1.1 (predictive only; not a registry submission).
+name: Palomar preflight
+on:
+  push:
+    branches: [palomar-preflight-v1.1.1]
+permissions:
+  contents: read
+jobs:
+  palomar-preflight:
+    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44
+    with:
+      repository: cadamcat/catalan-lean4
+      commit: 597469e8eba93909efc94892e6f7df5ea4951fe3
+      pipeline_commit: d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44
+      request_id: preflight002
+      mode: full
+      execution_profile: palomar-standard-v1
+      options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'
