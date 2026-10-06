@@ -15,9 +15,8 @@ authors:
 repository-code: "https://github.com/cadamcat/catalan-lean4"
 url: "https://github.com/cadamcat/catalan-lean4"
 license: Apache-2.0
-version: 1.1.0
-commit: dffd81878a9fad1e6fcd2456ddd645325c3dc2dd
-date-released: 2026-10-05
+version: 1.1.1
+date-released: 2026-10-06
 keywords:
   - Lean 4
   - formalization
@@ -55,11 +54,11 @@ references:
     repository-code: "https://github.com/n-yamaguchi-0729/ClassFieldTheory"
     commit: 2930b56f4b5c33ddab9ef91a45a4811d6f7a683f
     license: Apache-2.0
-    notes: "871 unmodified Lean source files are vendored under vendor/ClassFieldTheory."
+    notes: "871 Lean source files are vendored under vendor/ClassFieldTheory. They are ported to Lean v4.35.0-rc3 and the module system, following upstream commit 7713795234690681b4406ae198b07aa95e82716a; THIRD_PARTY.md records the changes."
   - type: software
     authors:
       - name: The mathlib Community
     title: mathlib4
     repository-code: "https://github.com/leanprover-community/mathlib4"
-    commit: 0df444a360eaa60ab8c11dca51a86af692955474
+    commit: c55e6e786f49471c72fbddbec5415808896aec1e
     license: Apache-2.0

@@ -4,6 +4,8 @@ Copyright 2026 Yao Xu
 This project includes fixed source files from
 n-yamaguchi-0729/ClassFieldTheory at commit
 2930b56f4b5c33ddab9ef91a45a4811d6f7a683f.
-Those files are unmodified and remain under the Apache License 2.0;
-the upstream repository provides no NOTICE file.
+They are modified for Lean v4.35.0-rc3 and the module system; each
+changed file carries a notice, and THIRD_PARTY.md records the changes.
+They remain under the Apache License 2.0; the upstream repository
+provides no NOTICE file.
 See vendor/ClassFieldTheory/LICENSE and THIRD_PARTY.md.
