@@ -146,17 +146,19 @@ status:
 automation:
   methods:
     - method: "agent"
-      models: ["GPT-6 Astra", "GPT-5.6 Luna", "Claude Fable 5.1", "Claude Opus 5", "GPT-6 Luna"]
-      framework: "Codex CLI and Claude Code"
+      models: ["GPT-6 Pro", "GPT-6 Astra", "GPT-5.6 Luna", "Claude Fable 5.1", "Claude Opus 5", "GPT-6 Luna"]
+      framework: "ChatGPT, Codex CLI and Claude Code"
       tool_setup: >-
         AI coding agents wrote the Lean code for release v1.0.0 (September
         2026) under acceptance criteria set by the author: the public results
         depend only on Lean's standard axioms, their whole dependency cone
         passes a kernel replay in a fresh environment, and the final theorems
-        are accepted by an independent checker. After an audit, the author
-        adopted the existing ClassFieldTheory library for the
-        class-field-theoretic input instead of formalizing that theory from
-        scratch. The October 2026 port of this revision to Lean v4.35.0-rc3
+        are accepted by an independent checker. Informal blueprints and draft
+        Lean statements came from GPT-6 Pro sessions in ChatGPT and were
+        treated as unverified input. After an audit, the author adopted the
+        existing ClassFieldTheory library for the class-field-theoretic input
+        instead of formalizing the needed class field theory within the
+        project. The October 2026 port of this revision to Lean v4.35.0-rc3
         and the module system, a mechanical update with unchanged theorem
         statements, was done with the same agent workflow (GPT-6 Luna).
       cost:

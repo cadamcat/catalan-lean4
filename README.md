@@ -8,7 +8,7 @@ The only consecutive positive integers that are both proper perfect powers are *
 
 - **Author:** Yao Xu ([@cadamcat](https://github.com/cadamcat)); see [authorship and attribution](AUTHORS.md).
 - **Mathematical result:** Preda Mihăilescu’s proof of Catalan’s conjecture.
-- Developed with AI assistance (Codex and Claude Code); all proofs are verified by the Lean 4 kernel.
+- Developed with AI assistance (ChatGPT, Codex and Claude Code); all proofs are verified by the Lean 4 kernel.
 
 ## Main results
 

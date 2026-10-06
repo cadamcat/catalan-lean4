@@ -8,7 +8,7 @@
 
 - **作者：** Yao Xu ([@cadamcat](https://github.com/cadamcat))；见[作者与署名说明](AUTHORS.md)。
 - **数学结果：** Preda Mihăilescu 对卡塔兰猜想的证明。
-- 借助 AI 辅助开发（Codex 和 Claude Code）；所有证明均经 Lean 4 内核验证。
+- 借助 AI 辅助开发（ChatGPT、Codex 和 Claude Code）；所有证明均经 Lean 4 内核验证。
 
 ## 主要结果
 
