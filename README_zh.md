@@ -24,6 +24,8 @@
 
 Google DeepMind 的 Formal Conjectures 仓库给出了陈述相同的 `Catalan.catalans_conjecture`，并把本仓库的证明链接为它的形式化证明（[Catalan.lean](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/Catalan.lean)，[PR #6452](https://github.com/google-deepmind/formal-conjectures/pull/6452)）。
 
+`v1.1.1` 版本已在 Palomar Registry 登记，编号 [PALOMAR-2026-10-06-000009](https://palomar-registry.org/entry.html?id=PALOMAR-2026-10-06-000009&version=1)。Palomar 重新编译了该提交，并用 Comparator 核对了 [Challenge.lean](Challenge.lean) 中的四个定理。
+
 ## 构建与验证
 
 环境要求：Git、Python 3.9 或更高版本，以及 [elan](https://github.com/leanprover/elan)，并确保 `lake` 已加入 `PATH`。请在仓库根目录运行：

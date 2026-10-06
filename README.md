@@ -24,6 +24,8 @@ The statements and proofs are in [JSP.lean](Catalan/JSP.lean), [Final/Assembly.l
 
 Google DeepMind's Formal Conjectures states `Catalan.catalans_conjecture` with the same statement and links this proof as its formal proof ([Catalan.lean](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/Catalan.lean), [PR #6452](https://github.com/google-deepmind/formal-conjectures/pull/6452)).
 
+Release `v1.1.1` is registered in the Palomar Registry as [PALOMAR-2026-10-06-000009](https://palomar-registry.org/entry.html?id=PALOMAR-2026-10-06-000009&version=1). Palomar rebuilt that commit and checked the four theorems of [Challenge.lean](Challenge.lean) with Comparator.
+
 ## Build and verify
 
 Requirements: Git, Python 3.9 or newer, and [elan](https://github.com/leanprover/elan), with `lake` available on `PATH`. Run from the repository root:
