@@ -59,6 +59,6 @@ gzip -dc source/evidence/compiled-source-inventory.json.gz
 tar -tzf source/compiler-invocations.tar.gz
 ```
 
-On macOS, `shasum -a 256 -c SHA256SUMS` provides the checksum check. The invocation archive contains only the two original record directories and regular JSON files. Its [member manifest](source/compiler-record-manifest.json.gz) identifies every record by SHA-256. The [coverage checker](source/tools/check-build-coverage.py) shows how successful source compilations were selected; its full filesystem/output check requires the reconstructed build tree, not just this evidence archive.
+On macOS, `shasum -a 256 -c SHA256SUMS` provides the checksum check. From release `v1.1.0` on, the 28 `.lean` files fail it because they gained module-system headers ([README](README.md#trust-boundary-and-use-of-the-evidence)); run the check on the `v1.0.0` copy, for example from `git archive v1.0.0 Verification/Supplemental | tar -x -C <empty-directory>`. The invocation archive contains only the two original record directories and regular JSON files. Its [member manifest](source/compiler-record-manifest.json.gz) identifies every record by SHA-256. The [coverage checker](source/tools/check-build-coverage.py) shows how successful source compilations were selected; its full filesystem/output check requires the reconstructed build tree, not just this evidence archive.
 
 Checksums establish package integrity, not mathematical correctness. Reproduce the selected proof and audit its statements and dependencies to establish those claims independently.

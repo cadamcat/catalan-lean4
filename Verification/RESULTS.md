@@ -2,21 +2,21 @@
 
 ## Lean 4.35.0-rc3 Palomar port
 
-Checks run on 2026-10-05 for the port released as `v1.1.0`. The final source targets are recorded at commit `e0e69f2`; the measured clean build at `83a9bb3` covered all seven requested Lake targets before a visibility-only update to `Challenge.lean` and `Solution.lean`. After that update, the complete target command and Comparator passed again. The protected Catalan declarations and the three `Verification/Statements.lean` restatements were unchanged; the file has the required module-system header and visibility prefix.
+Checks run on 2026-10-05 for the port released as `v1.1.0`. The clean build was timed at commit `83a9bb3`. The final Lean sources are those of commit `e0e69f2`, which only adds visibility declarations to `Challenge.lean` and `Solution.lean`; the commits after it change no Lean file. The five public Catalan theorems and the three restatements in `Verification/Statements.lean` keep their `v1.0.0` statements.
 
 Lean is `v4.35.0-rc3` (Lake `5.0.0-src+470d5ce`). Mathlib is also `v4.35.0-rc3`, commit `c55e6e786f49471c72fbddbec5415808896aec1e`. Mathlib and its package dependencies were supplied by the `lake exe cache get` cache; they were not rebuilt from source.
 
 | Check | Result |
 | --- | --- |
 | Clean full target build | `Catalan`, `ClassFieldTheory`, `ValuedFieldTheory`, `GaloisCohomology`, `Verification`, `Challenge`, and `Solution` passed; Lake reported 10,338 jobs. |
-| Build resources | Wall time 1,024.56 s; `N=6`; six maximum concurrent Lean processes; peak Lean RSS 3.777 GiB per process; `N × peak` 22.662 GiB; peak aggregate Lean RSS 15.608 GiB. `/usr/bin/time -l` reported a maximum resident set size of 4,058,873,856 bytes. |
-| Final all-target build | The same seven targets passed after the public/expose sections were added to the Palomar modules. |
-| Vendor reconstruction | 871 retained ClassFieldTheory sources and the license reconstructed successfully from recorded upstream files plus the port patch. The disposable one-byte mutation control failed while naming `Lean4/ClassFieldTheory/AlgebraicNumberTheory/AdeleBaseChange.lean`. |
+| Build resources | On macOS with six parallel Lean processes: wall time 1,025 s; peak memory 3.8 GiB per Lean process and 15.6 GiB in total. |
+| Final all-target build | The same seven targets passed again at `e0e69f2`. |
+| Vendor reconstruction | 871 retained ClassFieldTheory sources and the license reconstructed successfully from recorded upstream files plus the port patch. A copy with one byte changed in `Lean4/ClassFieldTheory/AlgebraicNumberTheory/AdeleBaseChange.lean` was rejected, and the check named that file. |
 | Unified axiom audit | All 1,390 reports passed; only `propext`, `Classical.choice`, and `Quot.sound` were found. |
 | Protected theorem audit | All five public Catalan results use only `propext`, `Classical.choice`, and `Quot.sound`. |
 | Statement checks | The three restated natural, signed-integer, and consecutive-power statements compiled with only the permitted axioms. |
 | Kernel replay | All five roots were present with identical types; the fresh kernel accepted the 131,214-constant cone with no unsafe or partial declarations and no nonstandard axioms. A cone scan found no `Lean.ofReduceBool` dependency. |
-| Comparator | With the committed `comparator.json` (NanoDa enabled), the Challenge and Solution exports matched, and both the NanoDa kernel and Lean's default kernel accepted the solution ("Your solution is okay!"). Tools: Comparator `fd5d5bcf14177b187f66d4502071268d877887c3`, lean4export `v4.35.0-rc3` (`66f1fb4bc256072069767fce52d39480e4524869`), NanoDa `3a2407216ee84a75f9e1aead6803d0578be06ae7`. The run was on macOS with Comparator's development sandbox shim; Palomar runs its own Linux sandbox. |
+| Comparator | With the committed `comparator.json` (NanoDa enabled), the Challenge and Solution exports matched, and both the NanoDa kernel and Lean's default kernel accepted the solution ("Your solution is okay!"). Tools: Comparator `fd5d5bcf14177b187f66d4502071268d877887c3`, lean4export `v4.35.0-rc3` (`66f1fb4bc256072069767fce52d39480e4524869`), NanoDa `3a2407216ee84a75f9e1aead6803d0578be06ae7`. The run was on macOS with Comparator's development sandbox shim. |
 
 The measured clean build used:
 
@@ -39,4 +39,4 @@ These results describe the earlier proof snapshot completed on 2026-09-19 with L
 | Kernel replay | All 129,467 dependency constants were accepted in a fresh kernel environment; all five roots were present with identical types. |
 | Verification-script controls | Eight Python tests passed. Disposable replay controls accepted an unchanged theorem and rejected an ill-typed proof and a non-theorem root. |
 
-Mathlib and its transitive packages used exact locked revisions and existing compiled caches in that snapshot; they were not all rebuilt from source. These checks do not certify the Palomar port.
+Mathlib and its transitive packages used exact locked revisions and existing compiled caches in that snapshot; they were not all rebuilt from source. These checks do not certify the port. The snapshot's recorded outputs are in release `v1.0.0`; the output files in this directory now hold the port's results.

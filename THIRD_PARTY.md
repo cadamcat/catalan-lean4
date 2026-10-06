@@ -4,7 +4,7 @@
 
 The `vendor/ClassFieldTheory/Lean4/` directory contains 871 Lean source files selected from [n-yamaguchi-0729/ClassFieldTheory](https://github.com/n-yamaguchi-0729/ClassFieldTheory/tree/2930b56f4b5c33ddab9ef91a45a4811d6f7a683f), commit `2930b56f4b5c33ddab9ef91a45a4811d6f7a683f`.
 
-The upstream authors retain credit for those files. Their [Apache-2.0 license](vendor/ClassFieldTheory/LICENSE) is included. The upstream repository has no NOTICE file, and its source files carry no per-file copyright headers.
+The upstream authors retain credit for those files. Their [Apache-2.0 license](vendor/ClassFieldTheory/LICENSE) is included. The upstream repository has no NOTICE file. Its source files at `2930b56` carry no per-file copyright headers; the retained files, ported from upstream commit `7713795`, carry the upstream authors' headers from that commit.
 
 ## Modifications
 

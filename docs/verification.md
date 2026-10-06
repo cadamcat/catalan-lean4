@@ -23,8 +23,6 @@ lake build Catalan ClassFieldTheory ValuedFieldTheory GaloisCohomology Verificat
 
 The current toolchain, Mathlib revision, source build measurements, four challenge comparisons, and kernel replay result are recorded in [Verification/RESULTS.md](../Verification/RESULTS.md). That record distinguishes the 2026-10-05 port checks from the historical Lean 4.33.1 snapshot and its supplemental evidence.
 
-A local build and Comparator run are not Palomar's full mechanical preflight; that check uses the registry's prescribed workflow on the exact repository revision and selected paths. The accepted `enable_nanoda` field is non-authoritative for submissions: Palomar supplies its own protected NanoDa configuration.
-
 Outputs are written to `verification-results/`, which is not tracked. The command exits nonzero if any build, source check, or axiom check fails. The parser's regression tests can be run separately:
 
 ```sh
