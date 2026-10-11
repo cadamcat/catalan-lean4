@@ -24,6 +24,9 @@ theorem mihailescu_odd_primes (p q : ℕ) (hp : p.Prime) (hq : q.Prime) (hp2 : p
   have finalPrimeRight : Fact s.Prime := ⟨hs⟩
   exact Thaine.literal_large_odd_primes_no_solution r s hr7 hs7 hsr X Y hX hY
 
+/-- Legacy interface from the initial plan of the proof, kept for compatibility. It is proved
+from `mihailescu_odd_primes`; the hypotheses `h1`, `h2` and `hd` are unused, and no public
+result depends on this theorem. -/
 theorem case_one (p q : ℕ) (hp : p.Prime) (hq : q.Prime) (hp2 : p ≠ 2) (hq2 : q ≠ 2)
     (h1 : ¬ (q ≡ 1 [MOD p])) (h2 : ¬ (p ≡ 1 [MOD q])) (hd : DensityInput p q)
     (x y : ℤ) (hx : x ≠ 0) (hy : y ≠ 0) : x ^ p ≠ y ^ q + 1 := by
@@ -43,6 +46,9 @@ theorem catalans_conjecture (a b x y : ℕ) (ha : 1 < a) (hb : 1 < b) (hx : 0 < 
     (heq : x ^ a - y ^ b = 1) : a = 2 ∧ b = 3 ∧ x = 3 ∧ y = 2 :=
   Thaine.natural_classification_of_prime prime_exponent_classification a b x y ha hb hx hy heq
 
+/-- Legacy interface from the initial plan of the proof, kept for compatibility. It holds
+vacuously: `mihailescu_odd_primes` excludes the hypothesis `h`. No public result depends on
+this theorem. -/
 theorem q_lt_three_sq (p q : ℕ) (hp : p.Prime) (hq : q.Prime) (hp2 : p ≠ 2) (hq2 : q ≠ 2) (hp5 : 5 ≤ p)
     (x y : ℤ) (hx : x ≠ 0) (hy : y ≠ 0) (h : x ^ p = y ^ q + 1) : q < 3 * (p - 1) ^ 2 :=
   False.elim (mihailescu_odd_primes p q hp hq hp2 hq2 x y hx hy h)
